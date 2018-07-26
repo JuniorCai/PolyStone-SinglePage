@@ -7,13 +7,13 @@ namespace PolyStone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Modified_Authorization_Entities : IMigrationMetadata
+    public sealed partial class PolyStoneInitial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Modified_Authorization_Entities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PolyStoneInitial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801311121458_Modified_Authorization_Entities"; }
+            get { return "201807260311473_PolyStoneInitial"; }
         }
         
         string IMigrationMetadata.Source

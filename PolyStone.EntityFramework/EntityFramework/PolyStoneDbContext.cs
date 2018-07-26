@@ -7,6 +7,7 @@ using PolyStone.MultiTenancy;
 
 namespace PolyStone.EntityFramework
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class PolyStoneDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...

@@ -14,6 +14,8 @@ namespace PolyStone.Migrations
         {
             AutomaticMigrationsEnabled = false;
             ContextKey = "PolyStone";
+            SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+
         }
 
         protected override void Seed(PolyStone.EntityFramework.PolyStoneDbContext context)
