@@ -199,6 +199,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDomain\Members\Authorization\MemberAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
+    <Compile Include="CustomDomain\Members\Member.cs" />
+    <Compile Include="CustomDomain\Members\MemberManage.cs" />
     <Compile Include="PolyStoneConsts.cs" />
     <Compile Include="PolyStoneCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />
@@ -257,6 +261,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\PolyStone-vi.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

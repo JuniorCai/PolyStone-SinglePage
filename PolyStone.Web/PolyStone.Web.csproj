@@ -3568,6 +3568,7 @@
     <Compile Include="Models\LanguageSelectionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\PolyStoneWebViewPageBase.cs" />
+    <Compile Include="_GeneratedCode\Members\Core\Members\____MemberReadme.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

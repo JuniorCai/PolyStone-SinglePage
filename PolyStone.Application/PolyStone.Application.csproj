@@ -205,6 +205,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Members\Dtos\CreateOrUpdateMemberInput.cs" />
+    <Compile Include="Members\Dtos\GetMemberForEditOutput.cs" />
+    <Compile Include="Members\Dtos\GetMemberInput.cs" />
+    <Compile Include="Members\Dtos\MemberEditDto.cs" />
+    <Compile Include="Members\Dtos\MemberListDto.cs" />
+    <Compile Include="Members\IMemberAppService.cs" />
+    <Compile Include="Members\Mappers\MemberDtoMapper.cs" />
+    <Compile Include="Members\MemberAppService.cs" />
     <Compile Include="PolyStoneApplicationModule.cs" />
     <Compile Include="PolyStoneAppServiceBase.cs" />
     <Compile Include="Authorization\Accounts\AccountAppService.cs" />

@@ -8,6 +8,7 @@ using PolyStone.Authorization;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
 using PolyStone.Configuration;
+using PolyStone.CustomDomain.Members.Authorization;
 using PolyStone.MultiTenancy;
 
 namespace PolyStone
@@ -41,6 +42,9 @@ namespace PolyStone
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
             Configuration.Authorization.Providers.Add<PolyStoneAuthorizationProvider>();
+
+            Configuration.Authorization.Providers.Add<MemberAppAuthorizationProvider>();
+
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
