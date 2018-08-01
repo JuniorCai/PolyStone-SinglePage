@@ -235,6 +235,14 @@
     <Compile Include="Communities\Dtos\GetCommunityInput.cs" />
     <Compile Include="Communities\ICommunityAppService.cs" />
     <Compile Include="Communities\Mappers\CommunityDtoMapper.cs" />
+    <Compile Include="CommunityCategories\CommunityCategoryAppService.cs" />
+    <Compile Include="CommunityCategories\Dtos\CommunityCategoryEditDto.cs" />
+    <Compile Include="CommunityCategories\Dtos\CommunityCategoryListDto.cs" />
+    <Compile Include="CommunityCategories\Dtos\CreateOrUpdateCommunityCategoryInput.cs" />
+    <Compile Include="CommunityCategories\Dtos\GetCommunityCategoryForEditOutput.cs" />
+    <Compile Include="CommunityCategories\Dtos\GetCommunityCategoryInput.cs" />
+    <Compile Include="CommunityCategories\ICommunityCategoryAppService.cs" />
+    <Compile Include="CommunityCategories\Mappers\CommunityCategoryDtoMapper.cs" />
     <Compile Include="Companies\CompanyAppService.cs" />
     <Compile Include="Companies\Dtos\CompanyEditDto.cs" />
     <Compile Include="Companies\Dtos\CompanyListDto.cs" />

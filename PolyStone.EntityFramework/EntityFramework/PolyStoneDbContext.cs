@@ -8,6 +8,8 @@ using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.Categories;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.CustomDomain.Communities;
+using PolyStone.CustomDomain.CommunityCategories;
+using PolyStone.CustomDomain.CommunityCategories.EntityMapper.CommunityCategories;
 using PolyStone.CustomDomain.Companies;
 using PolyStone.CustomDomain.Members;
 using PolyStone.CustomDomain.Products;
@@ -36,6 +38,7 @@ namespace PolyStone.EntityFramework
         public IDbSet<Product> Products { get; set; }
         public IDbSet<Company> Companys { get; set; }
         public IDbSet<Region> Regions { get; set; }
+        public IDbSet<CommunityCategory> CommunityCategorys { get; set; }
 
 
 
@@ -82,6 +85,7 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new ProductCfg());
             modelBuilder.Configurations.Add(new CompanyCfg());
             modelBuilder.Configurations.Add(new RegionCfg());
+            modelBuilder.Configurations.Add(new CommunityCategoryCfg());
 
             base.OnModelCreating(modelBuilder);
 

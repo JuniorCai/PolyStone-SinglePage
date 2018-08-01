@@ -153,5 +153,15 @@
     <text name="Bussiness" value="Bussiness" />
     <text name="Introduction" value="Introduction" />
     <text name="RegionId" value="RegionId" />
+
+
+
+    <!-- 圈子类别表管理 -->
+    <text name="CommunityCategory" value="圈子类别表" />
+    <text name="CommunityCategoryHeaderInfo" value="圈子类别表管理列表" />
+    <text name="CreateCommunityCategory" value="新增圈子类别表" />
+    <text name="EditCommunityCategory" value="编辑圈子类别表" />
+    <text name="DeleteCommunityCategory" value="删除圈子类别表" />
+    <text name="CommunityCategoryDeleteWarningMessage" value="圈子类别表名称: {0} 将被删除,是否确定删除它。" />
   </texts>
 </localizationDictionary>

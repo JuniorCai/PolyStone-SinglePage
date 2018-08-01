@@ -214,6 +214,11 @@
     <Compile Include="CustomDomain\Communities\Community.cs" />
     <Compile Include="CustomDomain\Communities\CommunityManage.cs" />
     <Compile Include="CustomDomain\Communities\____CommunityReadme.cs" />
+    <Compile Include="CustomDomain\CommunityCategories\Authorization\CommunityCategoryAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CommunityCategories\Authorization\CommunityCategoryAppPermissions.cs" />
+    <Compile Include="CustomDomain\CommunityCategories\CommunityCategory.cs" />
+    <Compile Include="CustomDomain\CommunityCategories\CommunityCategoryManage.cs" />
+    <Compile Include="CustomDomain\CommunityCategories\____CommunityCategoryReadme.cs" />
     <Compile Include="CustomDomain\Companies\Authorization\CompanyAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Companies\Authorization\CompanyAppPermissions.cs" />
     <Compile Include="CustomDomain\Companies\Company.cs" />
