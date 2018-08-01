@@ -18,12 +18,6 @@ namespace PolyStone.EntityMapper.Members
         {
             ToTable("Member", PolyStoneConsts.SchemaName.Basic);
 
-            //todo: 需要将以下文件注入到CustomDomainDbContext中
-
-            //		public IDbSet<Member> Members { get; set; }
-            //		 modelBuilder.Configurations.Add(new MemberCfg());
-
-
 
 
             // 用户名

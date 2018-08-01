@@ -225,8 +225,11 @@
   <ItemGroup>
     <Compile Include="EntityFramework\PolyStoneDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\PolyStoneRepositoryBase.cs" />
+    <Compile Include="EntityMapper\Categories\CategoryCfg.cs" />
     <Compile Include="EntityMapper\Collections\CollectionCfg.cs" />
+    <Compile Include="EntityMapper\Communities\CommunityCfg.cs" />
     <Compile Include="EntityMapper\Members\MemberCfg.cs" />
+    <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="Migrations\201807260311473_PolyStoneInitial.cs" />
     <Compile Include="Migrations\201807260311473_PolyStoneInitial.Designer.cs">
       <DependentUpon>201807260311473_PolyStoneInitial.cs</DependentUpon>

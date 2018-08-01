@@ -1,8 +1,20 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Linq;
 using Abp.Zero.EntityFramework;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
+using PolyStone.CustomDomain.Categories;
+using PolyStone.CustomDomain.Collections;
+using PolyStone.CustomDomain.Communities;
+using PolyStone.CustomDomain.Members;
+using PolyStone.CustomDomain.Products;
+using PolyStone.EntityMapper.Categories;
+using PolyStone.EntityMapper.Collections;
+using PolyStone.EntityMapper.Communities;
+using PolyStone.EntityMapper.Members;
+using PolyStone.EntityMapper.Products;
 using PolyStone.MultiTenancy;
 
 namespace PolyStone.EntityFramework
@@ -11,6 +23,14 @@ namespace PolyStone.EntityFramework
     public class PolyStoneDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+        public IDbSet<Collection> Collections { get; set; }
+        public IDbSet<Community> Communitys { get; set; }
+
+        public IDbSet<Member> Members { get; set; }
+
+        public IDbSet<Category> Categorys { get; set; }
+        public IDbSet<Product> Products { get; set; }
+
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -48,8 +68,38 @@ namespace PolyStone.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new CollectionCfg());
+            modelBuilder.Configurations.Add(new CommunityCfg());
+            modelBuilder.Configurations.Add(new MemberCfg());
+            modelBuilder.Configurations.Add(new CategoryCfg());
+            modelBuilder.Configurations.Add(new ProductCfg());
+
             base.OnModelCreating(modelBuilder);
 
+        }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException exception)
+            {
+                var errorMessages =
+                    exception.EntityValidationErrors
+                        .SelectMany(validationResult => validationResult.ValidationErrors)
+                        .Select(m => m.ErrorMessage);
+
+                var fullErrorMessage = string.Join(", ", errorMessages);
+                //记录日志
+                //Log.Error(fullErrorMessage);
+                var exceptionMessage = string.Concat(exception.Message, " 验证异常消息是：", fullErrorMessage);
+
+                throw new DbEntityValidationException(exceptionMessage, exception.EntityValidationErrors);
+            }
+
+            //其他异常throw到上层
         }
     }
 }

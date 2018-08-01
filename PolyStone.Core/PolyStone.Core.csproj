@@ -199,16 +199,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDomain\Categories\Authorization\CategoryAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Categories\Authorization\CategoryAppPermissions.cs" />
+    <Compile Include="CustomDomain\Categories\Category.cs" />
+    <Compile Include="CustomDomain\Categories\CategoryManage.cs" />
+    <Compile Include="CustomDomain\Categories\____CategoryReadme.cs" />
     <Compile Include="CustomDomain\Collections\Authorization\CollectionAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Collections\Authorization\CollectionAppPermissions.cs" />
     <Compile Include="CustomDomain\Collections\Collection.cs" />
     <Compile Include="CustomDomain\Collections\CollectionManage.cs" />
     <Compile Include="CustomDomain\Collections\____CollectionReadme.cs" />
+    <Compile Include="CustomDomain\Communities\Authorization\CommunityAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Communities\Authorization\CommunityAppPermissions.cs" />
+    <Compile Include="CustomDomain\Communities\Community.cs" />
+    <Compile Include="CustomDomain\Communities\CommunityManage.cs" />
+    <Compile Include="CustomDomain\Communities\____CommunityReadme.cs" />
+    <Compile Include="CustomDomain\Companies\Company.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
     <Compile Include="CustomDomain\Members\Member.cs" />
     <Compile Include="CustomDomain\Members\MemberManage.cs" />
     <Compile Include="CustomDomain\Members\____MemberReadme.cs" />
+    <Compile Include="CustomDomain\Products\Authorization\ProductAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Products\Authorization\ProductAppPermissions.cs" />
+    <Compile Include="CustomDomain\Products\Product.cs" />
+    <Compile Include="CustomDomain\Products\ProductManage.cs" />
+    <Compile Include="CustomDomain\Products\____ProductReadme.cs" />
     <Compile Include="PagedAndSortedInputDto.cs" />
     <Compile Include="PolyStoneConsts.cs" />
     <Compile Include="PolyStoneCoreModule.cs" />

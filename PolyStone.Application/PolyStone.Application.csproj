@@ -211,6 +211,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\CategoryAppService.cs" />
+    <Compile Include="Categories\Dtos\CategoryEditDto.cs" />
+    <Compile Include="Categories\Dtos\CategoryListDto.cs" />
+    <Compile Include="Categories\Dtos\CreateOrUpdateCategoryInput.cs" />
+    <Compile Include="Categories\Dtos\GetCategoryForEditOutput.cs" />
+    <Compile Include="Categories\Dtos\GetCategoryInput.cs" />
+    <Compile Include="Categories\ICategoryAppService.cs" />
+    <Compile Include="Categories\Mappers\CategoryDtoMapper.cs" />
     <Compile Include="Collections\CollectionAppService.cs" />
     <Compile Include="Collections\Dtos\CollectionEditDto.cs" />
     <Compile Include="Collections\Dtos\CollectionListDto.cs" />
@@ -219,6 +227,14 @@
     <Compile Include="Collections\Dtos\GetCollectionInput.cs" />
     <Compile Include="Collections\ICollectionAppService.cs" />
     <Compile Include="Collections\Mappers\CollectionDtoMapper.cs" />
+    <Compile Include="Communities\CommunityAppService.cs" />
+    <Compile Include="Communities\Dtos\CommunityEditDto.cs" />
+    <Compile Include="Communities\Dtos\CommunityListDto.cs" />
+    <Compile Include="Communities\Dtos\CreateOrUpdateCommunityInput.cs" />
+    <Compile Include="Communities\Dtos\GetCommunityForEditOutput.cs" />
+    <Compile Include="Communities\Dtos\GetCommunityInput.cs" />
+    <Compile Include="Communities\ICommunityAppService.cs" />
+    <Compile Include="Communities\Mappers\CommunityDtoMapper.cs" />
     <Compile Include="Members\Dtos\CreateOrUpdateMemberInput.cs" />
     <Compile Include="Members\Dtos\GetMemberForEditOutput.cs" />
     <Compile Include="Members\Dtos\GetMemberInput.cs" />
@@ -246,6 +262,14 @@
     <Compile Include="MultiTenancy\Dto\TenantDto.cs" />
     <Compile Include="MultiTenancy\ITenantAppService.cs" />
     <Compile Include="MultiTenancy\TenantAppService.cs" />
+    <Compile Include="Products\Dtos\CreateOrUpdateProductInput.cs" />
+    <Compile Include="Products\Dtos\GetProductForEditOutput.cs" />
+    <Compile Include="Products\Dtos\GetProductInput.cs" />
+    <Compile Include="Products\Dtos\ProductEditDto.cs" />
+    <Compile Include="Products\Dtos\ProductListDto.cs" />
+    <Compile Include="Products\IProductAppService.cs" />
+    <Compile Include="Products\Mappers\ProductDtoMapper.cs" />
+    <Compile Include="Products\ProductAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\Dto\CreateRoleDto.cs" />
     <Compile Include="Roles\Dto\PermissionDto.cs" />

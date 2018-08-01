@@ -87,5 +87,55 @@
     <text name="Type" value="收藏类别" />
     <text name="Name" value="标题" />
     <text name="RelativeId" value="收藏关联ID" />
+
+    
+
+    <!-- 圈子信息表管理 -->
+    <text name="Community" value="圈子信息表" />
+    <text name="CommunityHeaderInfo" value="圈子信息表管理列表" />
+    <text name="CreateCommunity" value="新增圈子信息表" />
+    <text name="EditCommunity" value="编辑圈子信息表" />
+    <text name="DeleteCommunity" value="删除圈子信息表" />
+    <text name="CommunityDeleteWarningMessage" value="圈子信息表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="MemberId" value="个人会员ID" />
+    <text name="Type" value="类别" />
+    <text name="Title" value="标题" />
+    <text name="PictureUrls" value="图片URL集合" />
+    <text name="RefreshDate" value="刷新时间" />
+    <text name="VerifyStatus" value="审核状态" />
+    <text name="ReleaseStatus" value="发布状态" />
+
+
+    <!-- 产品类目管理 -->
+    <text name="Category" value="产品类目" />
+    <text name="CategoryHeaderInfo" value="产品类目管理列表" />
+    <text name="CreateCategory" value="新增产品类目" />
+    <text name="EditCategory" value="编辑产品类目" />
+    <text name="DeleteCategory" value="删除产品类目" />
+    <text name="CategoryDeleteWarningMessage" value="产品类目名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="CategoryName" value="类目名称" />
+    <text name="ShortName" value="类目简称" />
+    <text name="ParentId" value="父类目ID" />
+    <text name="Sort" value="排序" />
+    <text name="IsShow" value="是否显示" />
+
+
+
+    <!-- 产品表管理 -->
+    <text name="Product" value="产品表" />
+    <text name="ProductHeaderInfo" value="产品表管理列表" />
+    <text name="CreateProduct" value="新增产品表" />
+    <text name="EditProduct" value="编辑产品表" />
+    <text name="DeleteProduct" value="删除产品表" />
+    <text name="ProductDeleteWarningMessage" value="产品表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="CategoryId" value="类目ID" />
+    <text name="CompanyId" value="企业ID" />
+    <text name="ImgUrls" value="产品图片URL" />
+    <text name="Detail" value="详情" />
+    <text name="VerifyStatus" value="审核状态" />
+    <text name="ReleaseStatus" value="发布状态" />
   </texts>
 </localizationDictionary>

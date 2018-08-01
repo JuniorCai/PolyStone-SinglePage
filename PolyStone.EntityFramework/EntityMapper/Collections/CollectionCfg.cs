@@ -1,13 +1,8 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using Abp.Application.Services.Dto;
-using Abp.Extensions;
+﻿using System.Data.Entity.ModelConfiguration;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.EntityFramework;
 
-
-namespace PolyStone.CustomDomain.Collections.EntityMapper.Collections
+namespace PolyStone.EntityMapper.Collections
 {
 
     /// <summary>
@@ -21,14 +16,6 @@ namespace PolyStone.CustomDomain.Collections.EntityMapper.Collections
         public CollectionCfg()
         {
             ToTable("Collection", PolyStoneConsts.SchemaName.Basic);
-
-            //todo: 需要将以下文件注入到CustomDomainDbContext中
-
-            //		public IDbSet<Collection> Collections { get; set; }
-            //		 modelBuilder.Configurations.Add(new CollectionCfg());
-
-
-
 
             // Name
             Property(a => a.Name).HasMaxLength(200);

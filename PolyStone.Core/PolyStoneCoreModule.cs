@@ -8,7 +8,11 @@ using PolyStone.Authorization;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
 using PolyStone.Configuration;
+using PolyStone.CustomDomain.Categories.Authorization;
+using PolyStone.CustomDomain.Collections.Authorization;
+using PolyStone.CustomDomain.Communities.Authorization;
 using PolyStone.CustomDomain.Members.Authorization;
+using PolyStone.CustomDomain.Products.Authorization;
 using PolyStone.MultiTenancy;
 
 namespace PolyStone
@@ -44,7 +48,10 @@ namespace PolyStone
             Configuration.Authorization.Providers.Add<PolyStoneAuthorizationProvider>();
 
             Configuration.Authorization.Providers.Add<MemberAppAuthorizationProvider>();
-
+            Configuration.Authorization.Providers.Add<CommunityAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<CollectionAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<CategoryAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<ProductAppAuthorizationProvider>();
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
