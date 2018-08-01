@@ -211,6 +211,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\CollectionAppService.cs" />
+    <Compile Include="Collections\Dtos\CollectionEditDto.cs" />
+    <Compile Include="Collections\Dtos\CollectionListDto.cs" />
+    <Compile Include="Collections\Dtos\CreateOrUpdateCollectionInput.cs" />
+    <Compile Include="Collections\Dtos\GetCollectionForEditOutput.cs" />
+    <Compile Include="Collections\Dtos\GetCollectionInput.cs" />
+    <Compile Include="Collections\ICollectionAppService.cs" />
+    <Compile Include="Collections\Mappers\CollectionDtoMapper.cs" />
     <Compile Include="Members\Dtos\CreateOrUpdateMemberInput.cs" />
     <Compile Include="Members\Dtos\GetMemberForEditOutput.cs" />
     <Compile Include="Members\Dtos\GetMemberInput.cs" />

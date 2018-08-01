@@ -27,9 +27,8 @@ namespace PolyStone.CustomDomain.Members
         /// </summary>
         private void Init()
         {
-           
-        }
 
+        }
 
     }
 }

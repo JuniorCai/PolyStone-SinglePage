@@ -199,6 +199,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDomain\Collections\Authorization\CollectionAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Collections\Authorization\CollectionAppPermissions.cs" />
+    <Compile Include="CustomDomain\Collections\Collection.cs" />
+    <Compile Include="CustomDomain\Collections\CollectionManage.cs" />
+    <Compile Include="CustomDomain\Collections\____CollectionReadme.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
     <Compile Include="CustomDomain\Members\Member.cs" />
