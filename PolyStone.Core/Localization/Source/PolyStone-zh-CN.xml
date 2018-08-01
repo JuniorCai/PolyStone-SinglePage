@@ -55,5 +55,24 @@
     <text name="Yes" value="是" />
     <text name="No" value="否" />
     <text name="Optional" value="可选的" />
+
+    <text name="MustBe_Required" value="不能为空" />
+
+    <!-- 个人会员信息表管理 -->
+    <text name="Member" value="个人会员信息表" />
+    <text name="MemberHeaderInfo" value="个人会员信息表管理列表" />
+    <text name="CreateMember" value="新增个人会员信息表" />
+    <text name="EditMember" value="编辑个人会员信息表" />
+    <text name="DeleteMember" value="删除个人会员信息表" />
+    <text name="MemberDeleteWarningMessage" value="个人会员信息表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="AccountName" value="用户名" />
+    <text name="FullName" value="姓名" />
+    <text name="NickName" value="昵称" />
+    <text name="Phone" value="手机号" />
+    <text name="Password" value="密码" />
+    <text name="IsActive" value="是否激活" />
+    <text name="LastModificationTime" value="最后编辑时间" />
+    <text name="CreationTime" value="创建时间" />
   </texts>
 </localizationDictionary>
