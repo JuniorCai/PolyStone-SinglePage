@@ -8,13 +8,17 @@ using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.Categories;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.CustomDomain.Communities;
+using PolyStone.CustomDomain.Companies;
 using PolyStone.CustomDomain.Members;
 using PolyStone.CustomDomain.Products;
+using PolyStone.CustomDomain.Regions;
 using PolyStone.EntityMapper.Categories;
 using PolyStone.EntityMapper.Collections;
 using PolyStone.EntityMapper.Communities;
+using PolyStone.EntityMapper.Companies;
 using PolyStone.EntityMapper.Members;
 using PolyStone.EntityMapper.Products;
+using PolyStone.EntityMapper.Regions;
 using PolyStone.MultiTenancy;
 
 namespace PolyStone.EntityFramework
@@ -30,6 +34,9 @@ namespace PolyStone.EntityFramework
 
         public IDbSet<Category> Categorys { get; set; }
         public IDbSet<Product> Products { get; set; }
+        public IDbSet<Company> Companys { get; set; }
+        public IDbSet<Region> Regions { get; set; }
+
 
 
         /* NOTE: 
@@ -73,6 +80,8 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new MemberCfg());
             modelBuilder.Configurations.Add(new CategoryCfg());
             modelBuilder.Configurations.Add(new ProductCfg());
+            modelBuilder.Configurations.Add(new CompanyCfg());
+            modelBuilder.Configurations.Add(new RegionCfg());
 
             base.OnModelCreating(modelBuilder);
 

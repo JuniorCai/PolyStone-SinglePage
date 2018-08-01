@@ -137,5 +137,21 @@
     <text name="Detail" value="详情" />
     <text name="VerifyStatus" value="审核状态" />
     <text name="ReleaseStatus" value="发布状态" />
+
+
+    <!-- 企业表管理 -->
+    <text name="Company" value="企业表" />
+    <text name="CompanyHeaderInfo" value="企业表管理列表" />
+    <text name="CreateCompany" value="新增企业表" />
+    <text name="EditCompany" value="编辑企业表" />
+    <text name="DeleteCompany" value="删除企业表" />
+    <text name="CompanyDeleteWarningMessage" value="企业表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="CompanyName" value="CompanyName" />
+    <text name="MemberId" value="MemberId" />
+    <text name="IsAuthed" value="IsAuthed" />
+    <text name="Bussiness" value="Bussiness" />
+    <text name="Introduction" value="Introduction" />
+    <text name="RegionId" value="RegionId" />
   </texts>
 </localizationDictionary>
