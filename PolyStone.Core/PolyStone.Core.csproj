@@ -203,6 +203,7 @@
     <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
     <Compile Include="CustomDomain\Members\Member.cs" />
     <Compile Include="CustomDomain\Members\MemberManage.cs" />
+    <Compile Include="PagedAndSortedInputDto.cs" />
     <Compile Include="PolyStoneConsts.cs" />
     <Compile Include="PolyStoneCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />

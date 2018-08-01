@@ -17,7 +17,7 @@ using Microsoft.AspNet.Identity;
 
 namespace PolyStone.Users
 {
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+    [AbpAuthorize(PermissionNames.Pages_Admin_Users)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedResultRequestDto, CreateUserDto, UpdateUserDto>, IUserAppService
     {
         private readonly UserManager _userManager;

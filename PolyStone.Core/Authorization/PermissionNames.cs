@@ -6,10 +6,10 @@
 
         public const string Pages_Administration = "Pages.Admin";
 
-        public const string Pages_Tenants = "Pages.Admin.Tenants";
+        public const string Pages_Admin_Tenants = "Pages.Admin.Tenants";
 
-        public const string Pages_Users = "Pages.Admin.Users";
+        public const string Pages_Admin_Users = "Pages.Admin.Users";
 
-        public const string Pages_Roles = "Pages.Admin.Roles";
+        public const string Pages_Admin_Roles = "Pages.Admin.Roles";
     }
 }

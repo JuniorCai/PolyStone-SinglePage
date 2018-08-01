@@ -16,17 +16,16 @@ namespace PolyStone.CustomDomain.Members.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-					      //在这里配置了Member 的权限。
+			//在这里配置了Member 的权限。
 
             var pages = context.GetPermissionOrNull(PermissionNames.Pages) ?? context.CreatePermission(PermissionNames.Pages, L("Pages"));
 
-              var entityNameModel = pages.Children.FirstOrDefault(p => p.Name == PermissionNames.Pages_Administration) 
-                ?? pages.CreateChildPermission(PermissionNames.Pages_Administration, L("Administration"));
+            var member = pages.Children.FirstOrDefault(p => p.Name == MemberAppPermissions.Member)
+                                  ?? pages.CreateChildPermission(MemberAppPermissions.Member,
+                                      L("Member"));
 
-
-            var member = entityNameModel.CreateChildPermission(MemberAppPermissions.Member , L("Member"));
             member.CreateChildPermission(MemberAppPermissions.Member_CreateMember, L("CreateMember"));
-            member.CreateChildPermission(MemberAppPermissions.Member_EditMember, L("EditMember"));           
+            member.CreateChildPermission(MemberAppPermissions.Member_EditMember, L("EditMember"));
             member.CreateChildPermission(MemberAppPermissions. Member_DeleteMember, L("DeleteMember"));
         }
 

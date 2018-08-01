@@ -29,7 +29,7 @@ namespace PolyStone.Web
                         L("Tenants"),
                         url: "#tenants",
                         icon: "fa fa-globe",
-                        requiredPermissionName: PermissionNames.Pages_Tenants
+                        requiredPermissionName: PermissionNames.Pages_Admin_Tenants
                         )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -37,7 +37,7 @@ namespace PolyStone.Web
                         L("Users"),
                         url: "#users",
                         icon: "fa fa-users",
-                        requiredPermissionName: PermissionNames.Pages_Users
+                        requiredPermissionName: PermissionNames.Pages_Admin_Users
                         )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -45,7 +45,7 @@ namespace PolyStone.Web
                         L("Roles"),
                         url: "#users",
                         icon: "fa fa-tag",
-                        requiredPermissionName: PermissionNames.Pages_Roles
+                        requiredPermissionName: PermissionNames.Pages_Admin_Roles
                     )
                 )
                 .AddItem(
