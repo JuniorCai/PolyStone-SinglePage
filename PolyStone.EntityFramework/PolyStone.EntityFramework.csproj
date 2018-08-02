@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201807260311473_PolyStoneInitial.Designer.cs">
       <DependentUpon>201807260311473_PolyStoneInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808021156116_PolyStoneInitial1.cs" />
+    <Compile Include="Migrations\201808021156116_PolyStoneInitial1.Designer.cs">
+      <DependentUpon>201808021156116_PolyStoneInitial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -265,6 +269,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807260311473_PolyStoneInitial.resx">
       <DependentUpon>201807260311473_PolyStoneInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021156116_PolyStoneInitial1.resx">
+      <DependentUpon>201808021156116_PolyStoneInitial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
