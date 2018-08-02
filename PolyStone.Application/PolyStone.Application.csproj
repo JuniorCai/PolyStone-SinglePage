@@ -251,6 +251,14 @@
     <Compile Include="Companies\Dtos\GetCompanyInput.cs" />
     <Compile Include="Companies\ICompanyAppService.cs" />
     <Compile Include="Companies\Mappers\CompanyDtoMapper.cs" />
+    <Compile Include="CompanyContacts\ContactAppService.cs" />
+    <Compile Include="CompanyContacts\Dtos\ContactEditDto.cs" />
+    <Compile Include="CompanyContacts\Dtos\ContactListDto.cs" />
+    <Compile Include="CompanyContacts\Dtos\CreateOrUpdateContactInput.cs" />
+    <Compile Include="CompanyContacts\Dtos\GetContactForEditOutput.cs" />
+    <Compile Include="CompanyContacts\Dtos\GetContactInput.cs" />
+    <Compile Include="CompanyContacts\IContactAppService.cs" />
+    <Compile Include="CompanyContacts\Mappers\ContactDtoMapper.cs" />
     <Compile Include="Members\Dtos\CreateOrUpdateMemberInput.cs" />
     <Compile Include="Members\Dtos\GetMemberForEditOutput.cs" />
     <Compile Include="Members\Dtos\GetMemberInput.cs" />

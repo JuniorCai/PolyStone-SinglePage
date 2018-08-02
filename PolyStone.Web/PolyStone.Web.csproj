@@ -3703,7 +3703,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="_GeneratedCode\CommunityCategories\Application\" />
+    <Folder Include="_GeneratedCode\Companies\Application\" />
+    <Folder Include="_GeneratedCode\CompanyContacts\Application\" />
+    <Folder Include="_GeneratedCode\CompanyContacts\EntityFramework\EntityMapper\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolyStone.Application\PolyStone.Application.csproj">

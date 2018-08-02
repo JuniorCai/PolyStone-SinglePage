@@ -9,7 +9,11 @@ namespace PolyStone.CustomDomain.Companies
 {
     public class Company : FullAuditedEntity
     {
+        public string Logo { get; set; }
+
         public string CompanyName { get; set; }
+
+        public CompanyType CompanyType { get; set; }
 
         public int MemberId { get; set; }
 
@@ -21,6 +25,19 @@ namespace PolyStone.CustomDomain.Companies
 
         public int RegionId { get; set; }
 
+        public string Address { get; set; }
+    }
 
+    public enum CompanyType
+    {
+        /// <summary>
+        /// 石材企业
+        /// </summary>
+        Enterprise = 0,
+
+        /// <summary>
+        /// 石材店铺
+        /// </summary>
+        Shop=1,
     }
 }

@@ -3,13 +3,13 @@
 
 namespace PolyStone.Companies.Mappers
 {
-    /// <summary>
+	/// <summary>
     /// CompanyDto映射配置
     /// </summary>
-    public class CompanyDtoMapper
+    public class CompanyDtoMapper 
     {
 
-        private static volatile bool _mappedBefore;
+    private static volatile bool _mappedBefore;
         private static readonly object SyncObj = new object();
 
 
@@ -19,8 +19,8 @@ namespace PolyStone.Companies.Mappers
         /// </summary>
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-
-            lock (SyncObj)
+        
+		  lock (SyncObj)
             {
                 if (_mappedBefore)
                 {
@@ -33,32 +33,36 @@ namespace PolyStone.Companies.Mappers
             }
 
         }
+    
+
+
+
+
+	    /// <summary>
+       ///    Configuration.Modules.AbpAutoMapper().Configurators.Add(CompanyDtoMapper.CreateMappings);
+      ///注入位置    < see cref = "CustomDomainApplicationModule" /> 
+     /// <param name="configuration"></param>
+    /// </summary>       
+	  private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)
+	  {
+	           
+			      //默认ABP功能已经实现了，如果你要单独对DTO进行拓展，可以在此处放开注释文件。
+
+	  // Configuration.Modules.AbpAutoMapper().Configurators.Add(CompanyDtoMapper.CreateMappings);
+
+	    //    Mapper.CreateMap<Company,CompanyEditDto>();
+       //     Mapper.CreateMap<Company, CompanyListDto>();
+
+     //       Mapper.CreateMap<CompanyEditDto, Company>();
+    //        Mapper.CreateMap<CompanyListDto,Company>();
+  
 
 
 
 
 
-        /// <summary>
-        ///    Configuration.Modules.AbpAutoMapper().Configurators.Add(CompanyDtoMapper.CreateMappings);
-        ///注入位置    < see cref = "CustomDomainApplicationModule" /> 
-        /// <param name="configuration"></param>
-        /// </summary>       
-        private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)
-        {
 
-            //默认ABP功能已经实现了，如果你要单独对DTO进行拓展，可以在此处放开注释文件。
-
-            // Configuration.Modules.AbpAutoMapper().Configurators.Add(CompanyDtoMapper.CreateMappings);
-
-            //    Mapper.CreateMap<Company,CompanyEditDto>();
-            //     Mapper.CreateMap<Company, CompanyListDto>();
-
-            //       Mapper.CreateMap<CompanyEditDto, Company>();
-            //        Mapper.CreateMap<CompanyListDto,Company>();
+ 	  }
 
 
-        }
-
-
-    }
-}
+}}

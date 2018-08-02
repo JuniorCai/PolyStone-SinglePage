@@ -224,6 +224,11 @@
     <Compile Include="CustomDomain\Companies\Company.cs" />
     <Compile Include="CustomDomain\Companies\CompanyManage.cs" />
     <Compile Include="CustomDomain\Companies\____CompanyReadme.cs" />
+    <Compile Include="CustomDomain\CompanyContacts\Authorization\ContactAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CompanyContacts\Authorization\ContactAppPermissions.cs" />
+    <Compile Include="CustomDomain\CompanyContacts\Contact.cs" />
+    <Compile Include="CustomDomain\CompanyContacts\ContactManage.cs" />
+    <Compile Include="CustomDomain\CompanyContacts\____ContactReadme.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
     <Compile Include="CustomDomain\Members\Member.cs" />

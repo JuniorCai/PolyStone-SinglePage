@@ -230,6 +230,7 @@
     <Compile Include="EntityMapper\Communities\CommunityCfg.cs" />
     <Compile Include="EntityMapper\CommunityCategories\CommunityCategoryCfg.cs" />
     <Compile Include="EntityMapper\Companies\CompanyCfg.cs" />
+    <Compile Include="EntityMapper\CompanyContacts\ContactCfg.cs" />
     <Compile Include="EntityMapper\Members\MemberCfg.cs" />
     <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />

@@ -16,14 +16,18 @@ namespace PolyStone.EntityMapper.Companies
 		public CompanyCfg ()
 		{
 		            ToTable("Company", PolyStoneConsts.SchemaName.Basic);
- 
 
-		    // CompanyName
-			Property(a => a.CompanyName).HasMaxLength(4000);
-		    // Bussiness
-			Property(a => a.Bussiness).HasMaxLength(500);
-		    // Introduction
-			Property(a => a.Introduction).HasMaxLength(2000);
-		}
+
+		    // 企业LOGO
+		    Property(a => a.Logo).HasMaxLength(50);
+		    // 企业名称
+		    Property(a => a.CompanyName).HasMaxLength(50);
+		    // 主营范围
+		    Property(a => a.Bussiness).HasMaxLength(200);
+		    // 企业简介
+		    Property(a => a.Introduction).HasMaxLength(2000);
+		    // 企业地址
+		    Property(a => a.Address).HasMaxLength(100);
+        }
     }
 }

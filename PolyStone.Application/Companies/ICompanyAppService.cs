@@ -7,7 +7,7 @@ using PolyStone.Companies.Dtos;
 
 namespace PolyStone.Companies
 {
-	/// <summary>
+    /// <summary>
     /// 企业表服务接口
     /// </summary>
     public interface ICompanyAppService : IApplicationService
@@ -24,10 +24,10 @@ namespace PolyStone.Companies
         /// </summary>
         Task<GetCompanyForEditOutput> GetCompanyForEditAsync(NullableIdDto<int> input);
 
-		  /// <summary>
+        /// <summary>
         /// 通过指定id获取企业表ListDto信息
         /// </summary>
-		Task<CompanyListDto> GetCompanyByIdAsync(EntityDto<int> input);
+        Task<CompanyListDto> GetCompanyByIdAsync(EntityDto<int> input);
 
 
 

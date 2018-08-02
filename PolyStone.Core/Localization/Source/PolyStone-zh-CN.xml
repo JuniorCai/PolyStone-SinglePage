@@ -147,12 +147,16 @@
     <text name="DeleteCompany" value="删除企业表" />
     <text name="CompanyDeleteWarningMessage" value="企业表名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
-    <text name="CompanyName" value="CompanyName" />
-    <text name="MemberId" value="MemberId" />
-    <text name="IsAuthed" value="IsAuthed" />
-    <text name="Bussiness" value="Bussiness" />
-    <text name="Introduction" value="Introduction" />
-    <text name="RegionId" value="RegionId" />
+    <text name="Logo" value="企业LOGO" />
+    <text name="CompanyName" value="企业名称" />
+    <text name="CompanyType" value="企业类型" />
+    <text name="MemberId" value="会员ID" />
+    <text name="IsAuthed" value="是否已认证" />
+    <text name="Bussiness" value="主营范围" />
+    <text name="Introduction" value="企业简介" />
+    <text name="RegionId" value="地区ID" />
+    <text name="Address" value="企业地址" />
+    
 
 
 
@@ -163,5 +167,20 @@
     <text name="EditCommunityCategory" value="编辑圈子类别表" />
     <text name="DeleteCommunityCategory" value="删除圈子类别表" />
     <text name="CommunityCategoryDeleteWarningMessage" value="圈子类别表名称: {0} 将被删除,是否确定删除它。" />
+
+
+    <!-- 企业联系表管理 -->
+    <text name="Contact" value="企业联系表" />
+    <text name="ContactHeaderInfo" value="企业联系表管理列表" />
+    <text name="CreateContact" value="新增企业联系表" />
+    <text name="EditContact" value="编辑企业联系表" />
+    <text name="DeleteContact" value="删除企业联系表" />
+    <text name="ContactDeleteWarningMessage" value="企业联系表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="LinkMan" value="联系人姓名" />
+    <text name="Tel" value="电话" />
+    <text name="Fax" value="传真" />
+    <text name="Email" value="邮编" />
+    <text name="IsDefault" value="是否默认联系方式" />
   </texts>
 </localizationDictionary>
