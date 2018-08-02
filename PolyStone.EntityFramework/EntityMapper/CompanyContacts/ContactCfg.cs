@@ -1,11 +1,6 @@
-﻿                          
-   using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using Abp.Application.Services.Dto;
-using Abp.Extensions;
+﻿using System.Data.Entity.ModelConfiguration;
 using PolyStone.CustomDomain.CompanyContacts;
-   using PolyStone.EntityFramework;
+using PolyStone.EntityFramework;
 
 #region 代码生成器相关信息_ABP Code Generator Info
    //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -20,7 +15,7 @@ using PolyStone.CustomDomain.CompanyContacts;
 // Copyright © YoYoCms@China.2018-08-02T16:45:08. All Rights Reserved.
 //<生成时间>2018-08-02T16:45:08</生成时间>
 	#endregion
-namespace PolyStone.CustomDomain.CompanyContacts.EntityMapper.CompanyContacts
+namespace PolyStone.EntityMapper.CompanyContacts
 {
 
     /// <summary>

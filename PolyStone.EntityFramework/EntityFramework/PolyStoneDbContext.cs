@@ -9,17 +9,21 @@ using PolyStone.CustomDomain.Categories;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.CustomDomain.Communities;
 using PolyStone.CustomDomain.CommunityCategories;
-using PolyStone.CustomDomain.CommunityCategories.EntityMapper.CommunityCategories;
 using PolyStone.CustomDomain.Companies;
+using PolyStone.CustomDomain.CompanyApplications;
+using PolyStone.CustomDomain.CompanyAuths;
 using PolyStone.CustomDomain.CompanyContacts;
-using PolyStone.CustomDomain.CompanyContacts.EntityMapper.CompanyContacts;
 using PolyStone.CustomDomain.Members;
 using PolyStone.CustomDomain.Products;
 using PolyStone.CustomDomain.Regions;
 using PolyStone.EntityMapper.Categories;
 using PolyStone.EntityMapper.Collections;
 using PolyStone.EntityMapper.Communities;
+using PolyStone.EntityMapper.CommunityCategories;
 using PolyStone.EntityMapper.Companies;
+using PolyStone.EntityMapper.CompanyApplications;
+using PolyStone.EntityMapper.CompanyAuthes;
+using PolyStone.EntityMapper.CompanyContacts;
 using PolyStone.EntityMapper.Members;
 using PolyStone.EntityMapper.Products;
 using PolyStone.EntityMapper.Regions;
@@ -42,6 +46,8 @@ namespace PolyStone.EntityFramework
         public IDbSet<Region> Regions { get; set; }
         public IDbSet<CommunityCategory> CommunityCategorys { get; set; }
         public IDbSet<Contact> Contacts { get; set; }
+        public IDbSet<CompanyAuth> CompanyAuths { get; set; }
+        public IDbSet<CompanyApplication> CompanyApplications { get; set; }
 
 
 
@@ -90,6 +96,8 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new RegionCfg());
             modelBuilder.Configurations.Add(new CommunityCategoryCfg());
             modelBuilder.Configurations.Add(new ContactCfg());
+            modelBuilder.Configurations.Add(new CompanyAuthCfg());
+            modelBuilder.Configurations.Add(new CompanyApplicationCfg());
 
             base.OnModelCreating(modelBuilder);
 

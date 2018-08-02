@@ -1,12 +1,7 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using Abp.Application.Services.Dto;
-using Abp.Extensions;
+﻿using System.Data.Entity.ModelConfiguration;
 using PolyStone.CustomDomain.CommunityCategories;
 
-
-namespace PolyStone.CustomDomain.CommunityCategories.EntityMapper.CommunityCategories
+namespace PolyStone.EntityMapper.CommunityCategories
 {
 
     /// <summary>

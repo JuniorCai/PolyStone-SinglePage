@@ -224,6 +224,16 @@
     <Compile Include="CustomDomain\Companies\Company.cs" />
     <Compile Include="CustomDomain\Companies\CompanyManage.cs" />
     <Compile Include="CustomDomain\Companies\____CompanyReadme.cs" />
+    <Compile Include="CustomDomain\CompanyApplications\Authorization\CompanyApplicationAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CompanyApplications\Authorization\CompanyApplicationAppPermissions.cs" />
+    <Compile Include="CustomDomain\CompanyApplications\CompanyApplication.cs" />
+    <Compile Include="CustomDomain\CompanyApplications\CompanyApplicationManage.cs" />
+    <Compile Include="CustomDomain\CompanyApplications\____CompanyApplicationReadme.cs" />
+    <Compile Include="CustomDomain\CompanyAuths\Authorization\CompanyAuthAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CompanyAuths\Authorization\CompanyAuthAppPermissions.cs" />
+    <Compile Include="CustomDomain\CompanyAuths\CompanyAuth.cs" />
+    <Compile Include="CustomDomain\CompanyAuths\CompanyAuthManage.cs" />
+    <Compile Include="CustomDomain\CompanyAuths\____CompanyAuthReadme.cs" />
     <Compile Include="CustomDomain\CompanyContacts\Authorization\ContactAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\CompanyContacts\Authorization\ContactAppPermissions.cs" />
     <Compile Include="CustomDomain\CompanyContacts\Contact.cs" />

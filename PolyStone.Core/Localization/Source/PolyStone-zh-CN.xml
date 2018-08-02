@@ -182,5 +182,32 @@
     <text name="Fax" value="传真" />
     <text name="Email" value="邮编" />
     <text name="IsDefault" value="是否默认联系方式" />
+
+
+
+    <!-- 企业资质表管理 -->
+    <text name="CompanyAuth" value="企业资质表" />
+    <text name="CompanyAuthHeaderInfo" value="企业资质表管理列表" />
+    <text name="CreateCompanyAuth" value="新增企业资质表" />
+    <text name="EditCompanyAuth" value="编辑企业资质表" />
+    <text name="DeleteCompanyAuth" value="删除企业资质表" />
+    <text name="CompanyAuthDeleteWarningMessage" value="企业资质表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="LegalPerson" value="法人姓名" />
+    <text name="FrontImg" value="法人身份证正面" />
+    <text name="BackImg" value="法人身份证反面" />
+    <text name="License" value="营业执照" />
+
+
+    <!-- 个人会员升级企业申请表管理 -->
+    <text name="CompanyApplication" value="个人会员升级企业申请表" />
+    <text name="CompanyApplicationHeaderInfo" value="个人会员升级企业申请表管理列表" />
+    <text name="CreateCompanyApplication" value="新增个人会员升级企业申请表" />
+    <text name="EditCompanyApplication" value="编辑个人会员升级企业申请表" />
+    <text name="DeleteCompanyApplication" value="删除个人会员升级企业申请表" />
+    <text name="CompanyApplicationDeleteWarningMessage" value="个人会员升级企业申请表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="Business" value="主营范围" />
+    <text name="AuthStauts" value="认证状态" />
   </texts>
 </localizationDictionary>
