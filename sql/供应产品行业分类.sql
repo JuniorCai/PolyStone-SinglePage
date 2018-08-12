@@ -7,6 +7,17 @@ insert into Product_Supply_industry(IndustryId,Name,ParentId,Sort,IsEffect) valu
 (1201000,'毛板',1200000,2,1),
 (1202000,'半成品',1200000,2,1);
 
+insert into category(CategoryName,ShortName,ParentId,Sort,CreationTime)values
+('大理石','dls',0,1,now()),
+('花岗岩','hgy',0,2,now()),
+('庭院产品','tycp',0,3,now()),
+('环境石材','dls',0,4,now()),
+('室内装饰','dls',0,5,now()),
+('石工艺品','dls',0,6,now()),
+('机械工具','dls',0,7,now()),
+('养护辅料','dls',0,8,now());
+
+
 insert into Product_Supply_industry(IndustryId,Name,ParentId,Sort,IsEffect) values
 (1301000,'风水球/喷泉池',		1300000,2,1),
 (1302000,'柱及各类异形柱、配套',1300000,2,1),

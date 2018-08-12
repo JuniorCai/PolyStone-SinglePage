@@ -14,6 +14,27 @@ namespace PolyStone.Categories.Dtos
     public class CategoryListDto : EntityDto<int>
     {
         /// <summary>
+        /// 类目名称
+        /// </summary>
+        [DisplayName("类目名称")]
+        public string CategoryName { get; set; }
+
+        /// <summary>
+        /// 类目简称
+        /// </summary>
+        [DisplayName("类目简称")]
+        public string ShortName { get; set; }
+
+
+
+        /// <summary>
+        /// 行业编号
+        /// </summary>
+        [DisplayName("行业编号")]
+        public int IndustryCode { get; set; }
+
+
+        /// <summary>
         /// 父类目ID
         /// </summary>
         [DisplayName("父类目ID")]

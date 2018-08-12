@@ -9,14 +9,14 @@ namespace PolyStone.Categories.Dtos
     /// 产品类目编辑用Dto
     /// </summary>
     [AutoMap(typeof(Category))]
-    public class CategoryEditDto 
+    public class CategoryEditDto
     {
 
-	/// <summary>
-    ///   主键Id
-    /// </summary>
-    [DisplayName("主键Id")]
-	public int? Id{get;set;}
+        /// <summary>
+        ///   主键Id
+        /// </summary>
+        [DisplayName("主键Id")]
+        public int? Id { get; set; }
 
         /// <summary>
         /// 类目名称
@@ -24,7 +24,7 @@ namespace PolyStone.Categories.Dtos
         [DisplayName("类目名称")]
         [Required]
         [MaxLength(50)]
-        public   string  CategoryName { get; set; }
+        public string CategoryName { get; set; }
 
         /// <summary>
         /// 类目简称
@@ -32,15 +32,25 @@ namespace PolyStone.Categories.Dtos
         [DisplayName("类目简称")]
         [Required]
         [MaxLength(50)]
-        public   string  ShortName { get; set; }
+        public string ShortName { get; set; }
+
+
+
+        /// <summary>
+        /// 行业编号
+        /// </summary>
+        [DisplayName("行业编号")]
+        [Required]
+        [Range(1, 11)]
+        public int IndustryCode { get; set; }
 
         /// <summary>
         /// 父类目ID
         /// </summary>
-        [DisplayName("父类目ID")]
+        [DisplayName("父类目编号")]
         [Required]
         [Range(1, 11)]
-        public   int  ParentId { get; set; }
+        public int ParentId { get; set; }
 
         /// <summary>
         /// 排序
@@ -48,21 +58,19 @@ namespace PolyStone.Categories.Dtos
         [DisplayName("排序")]
         [Required]
         [Range(1, 11)]
-        public   int  Sort { get; set; }
+        public int Sort { get; set; }
 
         /// <summary>
         /// 是否显示
         /// </summary>
         [DisplayName("是否显示")]
-        [Required]
-        public   bool  IsShow { get; set; }
+        [Required] public bool IsShow { get; set; }
 
         /// <summary>
         /// 是否生效
         /// </summary>
         [DisplayName("是否生效")]
-        [Required]
-        public   bool  IsActive { get; set; }
+        [Required] public bool IsActive { get; set; }
 
     }
 }

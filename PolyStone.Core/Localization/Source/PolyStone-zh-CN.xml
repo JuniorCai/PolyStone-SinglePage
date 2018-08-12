@@ -116,8 +116,9 @@
     <text name="CategoryDeleteWarningMessage" value="产品类目名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="CategoryName" value="类目名称" />
+    <text name="IndustryCode" value="行业编号" />
     <text name="ShortName" value="类目简称" />
-    <text name="ParentId" value="父类目ID" />
+    <text name="ParentId" value="父类目编号" />
     <text name="Sort" value="排序" />
     <text name="IsShow" value="是否显示" />
 
