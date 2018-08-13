@@ -248,6 +248,10 @@
     <Compile Include="Migrations\201808130750358_alterUser.Designer.cs">
       <DependentUpon>201808130750358_alterUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808131408327_AlterCollection-Name.cs" />
+    <Compile Include="Migrations\201808131408327_AlterCollection-Name.Designer.cs">
+      <DependentUpon>201808131408327_AlterCollection-Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808130750358_alterUser.resx">
       <DependentUpon>201808130750358_alterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808131408327_AlterCollection-Name.resx">
+      <DependentUpon>201808131408327_AlterCollection-Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
