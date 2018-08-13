@@ -34,5 +34,21 @@ namespace PolyStone.Authorization.Users
 
         [Required(AllowEmptyStrings = true)]
         public override string EmailAddress { get; set; }
+
+        [Required]
+        [StringLength(32)]
+        public string NickName { get; set; }
+
+        public UserType UserType { get; set; }
+    }
+
+    /// <summary>
+    /// 用户类型枚举
+    /// </summary>
+    public enum UserType
+    {
+        Admin = 0,
+        Person = 1,
+        Company = 2
     }
 }
