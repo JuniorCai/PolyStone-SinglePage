@@ -18,7 +18,7 @@ namespace PolyStone.EntityMapper.Collections
             ToTable("Collection", PolyStoneConsts.SchemaName.Basic);
 
             // Name
-            Property(a => a.Name).HasMaxLength(200);
+            Property(a => a.Title).HasMaxLength(200);
         }
     }
 }

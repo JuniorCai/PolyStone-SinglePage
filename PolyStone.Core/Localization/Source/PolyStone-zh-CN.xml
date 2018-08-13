@@ -67,11 +67,8 @@
     <text name="MemberDeleteWarningMessage" value="个人会员信息表名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="AccountName" value="用户名" />
-    <text name="FullName" value="姓名" />
     <text name="NickName" value="昵称" />
     <text name="Phone" value="手机号" />
-    <text name="Password" value="密码" />
-    <text name="IsActive" value="是否激活" />
     <text name="LastModificationTime" value="最后编辑时间" />
     <text name="CreationTime" value="创建时间" />
 
@@ -85,7 +82,7 @@
     <text name="CollectionDeleteWarningMessage" value="用户收藏名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="Type" value="收藏类别" />
-    <text name="Name" value="标题" />
+    <text name="Title" value="标题" />
     <text name="RelativeId" value="收藏关联ID" />
 
     
@@ -98,9 +95,6 @@
     <text name="DeleteCommunity" value="删除圈子信息表" />
     <text name="CommunityDeleteWarningMessage" value="圈子信息表名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
-    <text name="MemberId" value="个人会员ID" />
-    <text name="Type" value="类别" />
-    <text name="Title" value="标题" />
     <text name="PictureUrls" value="图片URL集合" />
     <text name="RefreshDate" value="刷新时间" />
     <text name="VerifyStatus" value="审核状态" />
@@ -136,8 +130,6 @@
     <text name="CompanyId" value="企业ID" />
     <text name="ImgUrls" value="产品图片URL" />
     <text name="Detail" value="详情" />
-    <text name="VerifyStatus" value="审核状态" />
-    <text name="ReleaseStatus" value="发布状态" />
 
 
     <!-- 企业表管理 -->

@@ -22,14 +22,9 @@ namespace PolyStone.CustomDomain.CompanyApplications.Authorization
 
             var pages = context.GetPermissionOrNull(PermissionNames.Pages) ?? context.CreatePermission(PermissionNames.Pages, L("Pages"));
 
-              var entityNameModel = pages.Children.FirstOrDefault(p => p.Name == CompanyApplicationAppPermissions.CompanyApplication)
+              var companyApplication = pages.Children.FirstOrDefault(p => p.Name == CompanyApplicationAppPermissions.CompanyApplication)
                 ?? pages.CreateChildPermission(CompanyApplicationAppPermissions.CompanyApplication, L("CompanyApplication"));
 
-
-
-           
-
-            var companyApplication = entityNameModel.CreateChildPermission(CompanyApplicationAppPermissions.CompanyApplication , L("CompanyApplication"));
             companyApplication.CreateChildPermission(CompanyApplicationAppPermissions.CompanyApplication_CreateCompanyApplication, L("CreateCompanyApplication"));
             companyApplication.CreateChildPermission(CompanyApplicationAppPermissions.CompanyApplication_EditCompanyApplication, L("EditCompanyApplication"));           
             companyApplication.CreateChildPermission(CompanyApplicationAppPermissions. CompanyApplication_DeleteCompanyApplication, L("DeleteCompanyApplication"));
