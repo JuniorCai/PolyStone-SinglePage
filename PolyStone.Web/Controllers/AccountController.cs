@@ -103,6 +103,7 @@ namespace PolyStone.Web.Controllers
         {
             CheckModelState();
 
+
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
