@@ -239,9 +239,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\OAuthOptions.cs" />
     <Compile Include="Api\PolyStoneWebApiModule.cs" />
     <Compile Include="Api\Controllers\AccountController.cs" />
     <Compile Include="Api\Models\LoginModel.cs" />
+    <Compile Include="Api\Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Api\Providers\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

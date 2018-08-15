@@ -211,6 +211,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\ILocalizationService.cs" />
+    <Compile Include="App\LocalizationService.cs" />
     <Compile Include="Categories\CategoryAppService.cs" />
     <Compile Include="Categories\Dtos\CategoryEditDto.cs" />
     <Compile Include="Categories\Dtos\CategoryListDto.cs" />
