@@ -18,7 +18,9 @@ namespace PolyStone.CustomDomain.Collections.Authorization
             //在这里配置了Collection 的权限。
 
             var pages = context.GetPermissionOrNull(PermissionNames.Pages) ??
-                        context.CreatePermission(PermissionNames.Pages, L("Pages"));
+                        context.CreatePermission(PermissionNames.Pages, L("Pages"), L("Pages"));
+
+
 
             var collection = pages.Children.FirstOrDefault(p => p.Name == CollectionAppPermissions.Collection)
                              ?? pages.CreateChildPermission(CollectionAppPermissions.Collection, L("Collection"));

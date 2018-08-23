@@ -16,7 +16,7 @@ using Microsoft.AspNet.Identity;
 
 namespace PolyStone.Roles
 {
-    [AbpAuthorize(PermissionNames.Pages_Admin_Roles)]
+    [AbpAuthorize(PermissionNames.Pages_Roles)]
     public class RoleAppService : AsyncCrudAppService<Role, RoleDto, int, PagedResultRequestDto, CreateRoleDto, RoleDto>, IRoleAppService
     {
         private readonly RoleManager _roleManager;

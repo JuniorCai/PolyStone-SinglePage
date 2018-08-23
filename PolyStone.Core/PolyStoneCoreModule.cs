@@ -35,7 +35,7 @@ namespace PolyStone
             Configuration.Modules.Zero().EntityTypes.User = typeof(User);
 
             //Remove the following line to disable multi-tenancy.
-            Configuration.MultiTenancy.IsEnabled = PolyStoneConsts.MultiTenancyEnabled;
+            Configuration.MultiTenancy.IsEnabled = PolyStoneConsts.MultiTenancyDisabled;
 
             //Add/remove localization sources here
             Configuration.Localization.Sources.Add(

@@ -6,6 +6,8 @@
 
         public const bool MultiTenancyEnabled = true;
 
+        public const bool MultiTenancyDisabled = false;
+
         /// <summary>
         /// 显示名称的最大长度
         /// </summary>

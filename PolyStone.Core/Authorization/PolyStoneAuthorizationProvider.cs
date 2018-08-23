@@ -8,9 +8,16 @@ namespace PolyStone.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            context.CreatePermission(PermissionNames.Pages_Admin_Users, L("Users"));
-            context.CreatePermission(PermissionNames.Pages_Admin_Roles, L("Roles"));
-            context.CreatePermission(PermissionNames.Pages_Admin_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+            var pages = context.GetPermissionOrNull(PermissionNames.Pages) ?? context.CreatePermission(PermissionNames.Pages, L("Pages"), L("Pages"));
+
+
+            pages.CreateChildPermission(PermissionNames.Pages_Users, L("Users"), L("Users"));
+            pages.CreateChildPermission(PermissionNames.Pages_Roles, L("Roles"), L("Roles"));
+
+
+//            context.CreatePermission(PermissionNames.Pages_Users, L("Users"));
+//            context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
+//            context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
         }
 
         private static ILocalizableString L(string name)

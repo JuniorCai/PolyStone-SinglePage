@@ -46,9 +46,6 @@ namespace PolyStone.CustomDomain.Categories
 	
 			
 	
-          //配置权限模块初始化
- //TODO:★需要到请将以下内容剪切到CustomDomainApplicationModule
- //   
 		 
  	
 	
