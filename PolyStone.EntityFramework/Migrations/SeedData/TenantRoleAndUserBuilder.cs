@@ -6,6 +6,16 @@ using Abp.MultiTenancy;
 using PolyStone.Authorization;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
+using PolyStone.CustomDomain.Categories.Authorization;
+using PolyStone.CustomDomain.Collections.Authorization;
+using PolyStone.CustomDomain.Communities.Authorization;
+using PolyStone.CustomDomain.CommunityCategories.Authorization;
+using PolyStone.CustomDomain.Companies.Authorization;
+using PolyStone.CustomDomain.CompanyApplications.Authorization;
+using PolyStone.CustomDomain.CompanyAuths.Authorization;
+using PolyStone.CustomDomain.CompanyContacts.Authorization;
+using PolyStone.CustomDomain.Products.Authorization;
+using PolyStone.CustomDomain.Regions.Authorization;
 using PolyStone.EntityFramework;
 
 namespace PolyStone.Migrations.SeedData
@@ -38,7 +48,12 @@ namespace PolyStone.Migrations.SeedData
 
                 //Grant all permissions to admin role
                 var permissions = PermissionFinder
-                    .GetAllPermissions(new PolyStoneAuthorizationProvider())
+                    .GetAllPermissions(new PolyStoneAuthorizationProvider(), new CategoryAppAuthorizationProvider(),
+                        new CollectionAppAuthorizationProvider(), new CommunityAppAuthorizationProvider(),
+                        new CommunityCategoryAppAuthorizationProvider(), new CompanyAppAuthorizationProvider(),
+                        new CompanyApplicationAppAuthorizationProvider(),new CompanyAuthAppAuthorizationProvider(),
+                        new ContactAppAuthorizationProvider(),new ProductAppAuthorizationProvider(),
+                        new RegionAppAuthorizationProvider())
                     .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant))
                     .ToList();
 
