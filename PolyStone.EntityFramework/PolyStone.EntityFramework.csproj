@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201808230746035_InitialDatabase.Designer.cs">
       <DependentUpon>201808230746035_InitialDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808270754173_AlterCategory-IndustryCode.cs" />
+    <Compile Include="Migrations\201808270754173_AlterCategory-IndustryCode.Designer.cs">
+      <DependentUpon>201808270754173_AlterCategory-IndustryCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -265,6 +269,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808230746035_InitialDatabase.resx">
       <DependentUpon>201808230746035_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808270754173_AlterCategory-IndustryCode.resx">
+      <DependentUpon>201808270754173_AlterCategory-IndustryCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

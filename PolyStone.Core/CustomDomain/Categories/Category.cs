@@ -11,7 +11,7 @@ namespace PolyStone.CustomDomain.Categories
     {
         public string CategoryName { get; set; }
 
-        public int IndustryCode { get; set; }
+        public string IndustryCode { get; set; }
 
         public string ShortName { get; set; }
 

@@ -2,6 +2,7 @@
 using Abp.Localization;
 using PolyStone.Authorization;
 using PolyStone.CustomDomain.Categories.Authorization;
+using PolyStone.CustomDomain.CommunityCategories.Authorization;
 
 namespace PolyStone.Web
 {
@@ -48,13 +49,13 @@ namespace PolyStone.Web
                             L("CommunityCategory"),
                             icon: "icon-grid",
                             url: "#communityCategory",
-                            requiredPermissionName: CategoryAppPermissions.Category
+                            requiredPermissionName: CommunityCategoryAppPermissions.CommunityCategory
                         )
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "System",
-                        L("System"),
+                        "UserManagement",
+                        L("UserManagement"),
                         icon: "fa fa-cogs"
                     ).AddItem(
                         new MenuItemDefinition(

@@ -50,6 +50,26 @@
                 $urlRouterProvider.otherwise('/tenants');
             }
 
+            if (abp.auth.hasPermission('Pages.Category')) {
+                $stateProvider
+                    .state('category', {
+                        url: '/category',
+                        templateUrl: '/App/Main/views/category/index.cshtml',
+                        menu: 'Category' //Matches to name of 'Category' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/category');
+            }
+
+            if (abp.auth.hasPermission('Pages.CommunityCategory')) {
+                $stateProvider
+                    .state('communityCategory', {
+                        url: '/communityCategory',
+                        templateUrl: '/App/Main/views/communityCategory/index.cshtml',
+                        menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/communityCategory');
+            }
+
             $stateProvider
                 .state('home', {
                     url: '/',

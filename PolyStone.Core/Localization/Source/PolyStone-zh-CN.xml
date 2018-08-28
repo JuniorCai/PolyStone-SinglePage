@@ -32,6 +32,7 @@
 
     
     <text name="ContentManagement" value="内容管理" />
+    <text name="UserManagement" value="用户管理" />
     <text name="Tenants" value="租户" />
     <text name="Roles" value="角色" />
     <text name="System" value="系统" />
@@ -76,6 +77,7 @@
     <text name="Phone" value="手机号" />
     <text name="LastModificationTime" value="最后编辑时间" />
     <text name="CreationTime" value="创建时间" />
+    <text name="Actions" value="操作" />
 
 
     <!-- 用户收藏管理 -->
@@ -118,6 +120,7 @@
     <text name="IndustryCode" value="行业编号" />
     <text name="ShortName" value="类目简称" />
     <text name="ParentId" value="父类目编号" />
+    <text name="ParentName" value="父类名称" />
     <text name="Sort" value="排序" />
     <text name="IsShow" value="是否显示" />
 
