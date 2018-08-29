@@ -55,7 +55,7 @@
 
     <text name="DatabaseConnectionString" value="数据库连接串" />
     <text name="Users" value="用户" />
-    <text name="IsActive" value="是否激活" />
+    <text name="IsActive" value="是否启用" />
     <text name="FullName" value="姓名" />
     <text name="CreateNewUser" value="创建新用户" />
     <text name="Yes" value="是" />

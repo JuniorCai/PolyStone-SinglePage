@@ -41,8 +41,8 @@ namespace PolyStone.Categories.Dtos
         /// </summary>
         [DisplayName("行业编号")]
         [Required]
-        [Range(1, 11)]
-        public int IndustryCode { get; set; }
+        [MaxLength(50)]
+        public string IndustryCode { get; set; }
 
         /// <summary>
         /// 父类目ID

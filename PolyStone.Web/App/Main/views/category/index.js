@@ -31,7 +31,7 @@
                 });
             };
 
-            vm.openCategoryEditModal = function (role) {
+            vm.openCategoryEditModal = function (category) {
                 var modalInstance = $uibModal.open({
                     templateUrl: '/App/Main/views/category/editModal.cshtml',
                     controller: 'app.views.category.editModal as vm',
@@ -52,9 +52,9 @@
                 });
             };
 
-            vm.delete = function (role) {
+            vm.delete = function (category) {
                 abp.message.confirm(
-                    "Delete role '" + role.name + "'?",
+                    "Delete role '" + category.categoryName + "'?",
                     function (result) {
                         if (result) {
                             categoryService.delete({ id: category.id })

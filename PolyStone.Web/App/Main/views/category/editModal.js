@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('app').controller('app.views.users.editModal', [
+    angular.module('app').controller('app.views.category.editModal', [
         '$scope', '$uibModalInstance', 'abp.services.app.category', 'id',
         function ($scope, $uibModalInstance, categoryService, id) {
             var vm = this;
@@ -8,13 +8,13 @@
                 isActive: true
             };
 
-            
-            var init = function () {
-                category.get({ id: id })
-                    .then(function (result) {
+
+            var init = function() {
+                categoryService.getCategoryById({ id: id })
+                    .then(function(result) {
                         vm.category = result.data;
                     });
-            }
+            };
 
             vm.save = function () {
                
