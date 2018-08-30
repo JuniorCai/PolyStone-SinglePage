@@ -1,21 +1,24 @@
 ﻿(function () {
-    angular.module('app').controller('app.views.roles.index', [
-        '$scope', '$uibModal', 'abp.services.app.role',
-        function ($scope, $uibModal, roleService) {
+    angular.module('app').controller('app.views.communityCategory.index', [
+        '$scope', '$uibModal', 'abp.services.app.communityCategory',
+        function ($scope, $uibModal, communityCategoryService) {
             var vm = this;
 
-            vm.roles = [];
+            vm.categoryList = [];
 
-            function getRoles() {
-                roleService.getAll({}).then(function (result) {
-                    vm.roles = result.data.items;
+            function getCategoryList() {
+                communityCategoryService.getPagedCommunityCategorys({
+                    filterText: "",
+                    sorting: "CreationTime"
+                }).then(function (result) {
+                    vm.categoryList = result.data.items;
                 });
             }
 
-            vm.openRoleCreationModal = function () {
+            vm.openCommunityCategoryCreationModal = function () {
                 var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/roles/createModal.cshtml',
-                    controller: 'app.views.roles.createModal as vm',
+                    templateUrl: '/App/Main/views/communityCategory/createModal.cshtml',
+                    controller: 'app.views.communityCategory.createModal as vm',
                     backdrop: 'static'
                 });
 
@@ -24,18 +27,18 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getRoles();
+                    getCategoryList();
                 });
             };
 
-            vm.openRoleEditModal = function (role) {
+            vm.openCommunityCategoryEditModal = function (category) {
                 var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/roles/editModal.cshtml',
-                    controller: 'app.views.roles.editModal as vm',
+                    templateUrl: '/App/Main/views/communityCategory/editModal.cshtml',
+                    controller: 'app.views.communityCategory.editModal as vm',
                     backdrop: 'static',
                     resolve: {
                         id: function () {
-                            return role.id;
+                            return category.id;
                         }
                     }
                 });
@@ -45,29 +48,29 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getRoles();
+                    getCategoryList();
                 });
             };
 
-            vm.delete = function (role) {
+            vm.delete = function (category) {
                 abp.message.confirm(
-                    "Delete role '" + role.name + "'?",
+                    "是否删除圈子类别 '" + category.categoryName + "'?",
                     function (result) {
                         if (result) {
-                            roleService.delete({ id: role.id })
+                            communityCategoryService.deleteCommunityCategory({ id: category.id })
                                 .then(function () {
-                                    abp.notify.info("Deleted role: " + role.name);
-                                    getRoles();
+                                    abp.notify.info("已删除圈子类别: " + category.categoryName);
+                                    getCategoryList();
                                 });
                         }
                     });
             }
 
             vm.refresh = function () {
-                getRoles();
+                getCategoryList();
             };
 
-            getRoles();
+            getCategoryList();
         }
     ]);
 })();

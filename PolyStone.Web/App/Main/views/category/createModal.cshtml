@@ -58,7 +58,7 @@
                     <div class="col-sm-12">
                         <div class="form-group form-float">
                             <div class="">
-                                <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.user.isActive" checked class="form-control" />
+                                <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.category.isActive" checked class="form-control" />
                                 <label for="isactive" class="form-label">@L("IsActive")</label>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
         <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
             @L("Cancel")
         </button>
-        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="userCreateForm.$invalid">
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="categoryCreateForm.$invalid">
             @L("Save")
         </button>
     </div>

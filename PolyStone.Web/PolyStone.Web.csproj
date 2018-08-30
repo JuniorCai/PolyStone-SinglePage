@@ -466,6 +466,8 @@
     <Content Include="App\Main\views\category\createModal.js" />
     <Content Include="App\Main\views\category\editModal.js" />
     <Content Include="App\Main\views\category\index.js" />
+    <Content Include="App\Main\views\communityCategory\createModal.js" />
+    <Content Include="App\Main\views\communityCategory\editModal.js" />
     <Content Include="App\Main\views\communityCategory\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
@@ -2717,6 +2719,8 @@
     <Content Include="App\Main\views\communityCategory\index.cshtml" />
     <Content Include="App\Main\views\category\createModal.cshtml" />
     <Content Include="App\Main\views\category\editModal.cshtml" />
+    <Content Include="App\Main\views\communityCategory\createModal.cshtml" />
+    <Content Include="App\Main\views\communityCategory\editModal.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
