@@ -35,6 +35,11 @@
     <text name="UserManagement" value="用户管理" />
     <text name="Tenants" value="租户" />
     <text name="Roles" value="角色" />
+    <text name="CreateNewRole" value="创建角色" />
+    <text name="RoleName" value="角色名" />
+    <text name="DisplayName" value="角色展示名" />
+    <text name="Permissions" value="角色展示名" />
+    <text name="RoleDescription" value="角色描述" />
     <text name="System" value="系统" />
     <text name="SavedSuccessfully" value="保存成功" />
     <text name="CreateNewTenant" value="创建新租户" />
