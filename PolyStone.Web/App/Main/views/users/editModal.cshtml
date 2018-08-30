@@ -1,6 +1,6 @@
 ﻿<form id="frm_edit_user" novalidate>
     <div class="modal-header">
-        <button type="button" class="close" ng-click="vm.close()" aria-label="Close">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title">
@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body">
         <uib-tabset class="tab-container tabbable-line">
-            <uib-tab heading="User Details">
+            <uib-tab heading="用户详情">
                 <div class="row clearfix" style="margin-top: 10px;">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -62,11 +62,12 @@
                     </div>
                 </div>
             </uib-tab>
-            <uib-tab heading="User Roles">
+            <uib-tab heading="用户角色">
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="col-sm-6" ng-repeat="role in vm.roles">
-                            <input type="checkbox" name="role" value="{{role.normalizedName}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-model="role.isAssigned" />
+                            @*<input type="checkbox" name="role" value="{{role.normalizedName}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-model="role.isAssigned" />*@
+                            <input type="radio" name="role" value="{{role.normalizedName}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-model="role.isAssigned" />
                             <label for="role-{{role.id}}" title="{{role.displayName}}">{{role.name}}</label>
                         </div>
                     </div>
