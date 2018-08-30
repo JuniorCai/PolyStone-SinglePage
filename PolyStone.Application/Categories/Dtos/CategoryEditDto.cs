@@ -49,7 +49,6 @@ namespace PolyStone.Categories.Dtos
         /// </summary>
         [DisplayName("父类目编号")]
         [Required]
-        [Range(1, 11)]
         public int ParentId { get; set; }
 
         /// <summary>

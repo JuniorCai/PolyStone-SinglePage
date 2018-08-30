@@ -54,12 +54,12 @@
 
             vm.delete = function (category) {
                 abp.message.confirm(
-                    "Delete role '" + category.categoryName + "'?",
+                    "是否删除产品类别 '" + category.categoryName + "'?",
                     function (result) {
                         if (result) {
-                            categoryService.delete({ id: category.id })
+                            categoryService.deleteCategory({ id: category.id })
                                 .then(function () {
-                                    abp.notify.info("Deleted role: " + category.categoryName);
+                                    abp.notify.info("已删除产品类别: " + category.categoryName);
                                     getCategoryList();
                                 });
                         }

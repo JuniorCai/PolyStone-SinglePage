@@ -32,7 +32,6 @@ namespace PolyStone.CommunityCategories.Dtos
         /// </summary>
         [DisplayName("父节点ID")]
         [Required]
-        [Range(1, 11)]
         public   int  ParentId { get; set; }
 
         /// <summary>

@@ -18,7 +18,7 @@
 
             vm.save = function () {
                
-                categoryService.update(vm.user)
+                categoryService.updateCategory(vm.category)
                     .then(function () {
                         abp.notify.info(App.localize('SavedSuccessfully'));
                         $uibModalInstance.close();

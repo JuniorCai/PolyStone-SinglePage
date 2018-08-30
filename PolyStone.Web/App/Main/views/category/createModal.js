@@ -12,16 +12,10 @@
 
             vm.roles = [];
 
-//            function getRoles() {
-//                categoryService.getRoles()
-//                    .then(function (result) {
-//                        vm.roles = result.data.items;
-//                    });
-//            }
 
             vm.save = function () {
                 
-                categoryService.create(vm.category)
+                categoryService.createCategory(vm.category)
                     .then(function () {
                         abp.notify.info(App.localize('SavedSuccessfully'));
                         $uibModalInstance.close();

@@ -21,8 +21,6 @@ namespace PolyStone.Categories
     /// 产品类目服务实现
     /// </summary>
     [AbpAuthorize(CategoryAppPermissions.Category)]
-
-
     public class CategoryAppService : PolyStoneAppServiceBase, ICategoryAppService
     {
         private readonly IRepository<Category, int> _categoryRepository;
