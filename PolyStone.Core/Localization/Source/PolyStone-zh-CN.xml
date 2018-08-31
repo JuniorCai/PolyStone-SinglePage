@@ -33,6 +33,7 @@
     <text name="EmailAddress" value="邮箱地址" />
     <text name="ConfirmPassword" value="确认密码" />
 
+    <text name="Configuration" value="配置管理" />
     <text name="ContentManagement" value="内容管理" />
     <text name="UserManagement" value="用户管理" />
     <text name="Tenants" value="租户" />
@@ -134,6 +135,7 @@
 
 
     <!-- 产品表管理 -->
+    <text name="ProductManagement" value="产品管理" />
     <text name="Product" value="产品" />
     <text name="ProductHeaderInfo" value="产品管理列表" />
     <text name="CreateProduct" value="新增产品" />
@@ -217,5 +219,17 @@
     <!--//用于表格展示的数据信息的标题-->
     <text name="Business" value="主营范围" />
     <text name="AuthStauts" value="认证状态" />
+
+    
+    
+    <!-- 地区表管理 -->
+    <text name="Region" value="地区表" />
+    <text name="RegionHeaderInfo" value="地区表管理列表" />
+    <text name="CreateRegion" value="新增地区表" />
+    <text name="EditRegion" value="编辑地区表" />
+    <text name="DeleteRegion" value="删除地区表" />
+    <text name="RegionDeleteWarningMessage" value="地区表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="RegionName" value="地区名称" />
   </texts>
 </localizationDictionary>

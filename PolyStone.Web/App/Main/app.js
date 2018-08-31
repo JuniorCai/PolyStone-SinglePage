@@ -70,6 +70,26 @@
                 $urlRouterProvider.otherwise('/communityCategory');
             }
 
+            if (abp.auth.hasPermission('Pages.Region')) {
+                $stateProvider
+                    .state('regions', {
+                        url: '/regions',
+                        templateUrl: '/App/Main/views/regions/index.cshtml',
+                        menu: 'Regions' //Matches to name of 'Regions' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/products');
+            }
+
+            if (abp.auth.hasPermission('Pages.Product')) {
+                $stateProvider
+                    .state('products', {
+                        url: '/products',
+                        templateUrl: '/App/Main/views/products/index.cshtml',
+                        menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/products');
+            }
+
             $stateProvider
                 .state('home', {
                     url: '/',

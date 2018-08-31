@@ -2,7 +2,10 @@
 using Abp.Localization;
 using PolyStone.Authorization;
 using PolyStone.CustomDomain.Categories.Authorization;
+using PolyStone.CustomDomain.Communities.Authorization;
 using PolyStone.CustomDomain.CommunityCategories.Authorization;
+using PolyStone.CustomDomain.Products.Authorization;
+using PolyStone.CustomDomain.Regions.Authorization;
 
 namespace PolyStone.Web
 {
@@ -30,18 +33,42 @@ namespace PolyStone.Web
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "ContentManagement",
+                        "ProductManagement",
+                        L("ProductManagement"),
+                        icon: "fa fa-globe",
+                        requiresAuthentication: true,
+                        order: 1
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Products",
+                            L("Product"),
+                            icon: "icon-grid",
+                            url: "#products",
+                            requiredPermissionName: ProductAppPermissions.Product
+                        )
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Category",
+                            L("Category"),
+                            icon: "icon-grid",
+                            url: "#category",
+                            requiredPermissionName: CategoryAppPermissions.Category
+                        )
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "CommunityManagement",
                         L("ContentManagement"),
                         icon: "fa fa-globe",
                         requiresAuthentication:true,
                         order:1
                     ).AddItem(
                         new MenuItemDefinition(
-                            "Category",
-                            L("Category"),
+                            "Community",
+                            L("Community"),
                             icon:"icon-grid",
-                            url:"#category",
-                            requiredPermissionName:CategoryAppPermissions.Category
+                            url: "#community",
+                            requiredPermissionName:CommunityAppPermissions.Community
                             )
                         ).AddItem(
                         new MenuItemDefinition(
@@ -72,6 +99,20 @@ namespace PolyStone.Web
                             url: "#users",
                             icon: "fa fa-tag",
                             requiredPermissionName: PermissionNames.Pages_Roles
+                        )
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Configuration",
+                        L("Configuration"),
+                        icon: "fa fa-csogs"
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Regions",
+                            L("Regions"),
+                            url: "#regions",
+                            icon: "fa fa-users",
+                            requiredPermissionName: RegionAppPermissions.Region
                         )
                     )
                 ).AddItem(

@@ -479,6 +479,7 @@
     <Content Include="App\Main\views\layout\sidebar-nav.js" />
     <Content Include="App\Main\views\layout\sidebar-user-area.js" />
     <Content Include="App\Main\views\layout\topbar.js" />
+    <Content Include="App\Main\views\products\index.js" />
     <Content Include="App\Main\views\roles\editModal.js" />
     <Content Include="App\Main\views\roles\createModal.js" />
     <Content Include="App\Main\views\roles\index.js" />
@@ -2721,6 +2722,7 @@
     <Content Include="App\Main\views\category\editModal.cshtml" />
     <Content Include="App\Main\views\communityCategory\createModal.cshtml" />
     <Content Include="App\Main\views\communityCategory\editModal.cshtml" />
+    <Content Include="App\Main\views\products\index.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -3720,6 +3722,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Main\views\regions\" />
     <Folder Include="App_Data\" />
     <Folder Include="_GeneratedCode\" />
   </ItemGroup>
