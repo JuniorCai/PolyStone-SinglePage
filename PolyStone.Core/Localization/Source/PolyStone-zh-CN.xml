@@ -104,6 +104,7 @@
 
     <!-- 圈子信息表管理 -->
     <text name="Community" value="圈子信息" />
+    <text name="CommunityManagement" value="圈子管理" />
     <text name="CommunityHeaderInfo" value="圈子信息管理列表" />
     <text name="CreateCommunity" value="新增圈子信息" />
     <text name="EditCommunity" value="编辑圈子信息" />
@@ -137,6 +138,7 @@
     <!-- 产品表管理 -->
     <text name="ProductManagement" value="产品管理" />
     <text name="Product" value="产品" />
+    <text name="Id" value="ID" />
     <text name="ProductHeaderInfo" value="产品管理列表" />
     <text name="CreateProduct" value="新增产品" />
     <text name="EditProduct" value="编辑产品" />

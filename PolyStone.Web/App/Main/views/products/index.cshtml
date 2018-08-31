@@ -18,19 +18,48 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
                             <th><input type="checkbox" /></th>
+                            <th>@L("Id")</th>
+                            <th>@L("Title")</th>
                             <th>@L("CategoryName")</th>
-                            <th>@L("ShortName")</th>
-                            @*                        <th>@L("ParentName")</th>*@
-                            <th>@L("Sort")</th>
-                            <th>@L("IsActive")</th>
+                            <th>@L("CompanyName")</th>
+                            <th>产品图片</th>
+                            <th>@L("VerifyStatus")</th>
+                            <th>@L("ReleaseStatus")</th>
+                            <th>@L("CreationTime")</th>
                             <th>@L("Actions")</th>
                         </tr>
-
+                    <tr>
+                        <th><input type="checkbox" /></th>
+                        <td><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
+                        <td><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
+                        <td><select ng-model="selectedCategoryId" ng-options="x for x in categoryList"></select></td>
+                        <td><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                        <td></td>
+                        <td>
+                            <select ng-model="selectedVerify">
+                                <option value="0">待审核</option>
+                                <option value="1">已通过</option>
+                                <option value="2">未通过</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select ng-model="selectedRelease">
+                                <option value="0">未发布</option>
+                                <option value="1">发布中</option>
+                                <option value="2">已下线</option>
+                                <option value="3">过期</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="ui-datepicker" id="fromDate"/>
+                            <input type="text" class="ui-datepicker" id="endDate"/>
+                        </td>
+                        <td></td>
+                    </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="category in vm.categoryList">
