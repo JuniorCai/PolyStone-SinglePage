@@ -228,7 +228,10 @@ namespace PolyStone.Web.Controllers
                 return false; //No registration enabled for host users!
             }
 
-            return true;
+            return false;
+
+            //系统默认开启
+            //return true;
         }
 
         [HttpPost]
