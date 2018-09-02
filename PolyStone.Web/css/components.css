@@ -5498,9 +5498,13 @@ Form Layouts
   padding-right: 15px !important; }
 
 /* Form bordered */
+.form .form-bordered.bordered {
+    border:1px solid #e7ecf1 !important
+}
 .form .form-bordered .form-group {
-  margin: 0;
-  border-bottom: 1px solid #efefef; }
+    margin: 0;
+    border-bottom: 1px solid #efefef;
+}
   .form .form-bordered .form-group > div {
     padding: 15px;
     border-left: 1px solid #efefef; }
