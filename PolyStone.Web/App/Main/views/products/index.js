@@ -1,19 +1,37 @@
 ﻿(function () {
-    angular.module('app').controller('app.views.category.index', [
-        '$scope', '$uibModal', 'abp.services.app.category',
-        function ($scope, $uibModal, categoryService) {
+    angular.module('app').controller('app.views.product.index', [
+        '$scope','$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
+        function ($scope, $location, $uibModal,productService, categoryService) {
             var vm = this;
 
             vm.categoryList = [];
+
+            vm.productList = [];
+
+            $scope.selectedCategory = "0";
 
             function getCategoryList() {
                 categoryService.getPagedCategorys({
                     filterText: "",
                     sorting: "CreationTime"
-                }).then(function (result) {
+                }).then(function(result) {
                     vm.categoryList = result.data.items;
                 });
             }
+
+
+            function getProductList() {
+                productService.getPagedProducts({
+                    filterText: "",
+                    sorting: "CreationTime"
+                }).then(function(result) {
+                    vm.productList = result.data.items;
+                });
+            }
+
+            vm.goToProductDetail = function(path) {
+                $location.path(path);
+            };
 
             vm.openCategoryCreationModal = function () {
                 var modalInstance = $uibModal.open({
@@ -27,7 +45,7 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getCategoryList();
+                    getProductList();
                 });
             };
 
@@ -48,7 +66,7 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getCategoryList();
+                    getProductList();
                 });
             };
 
@@ -57,19 +75,20 @@
                     "是否删除产品类别 '" + category.categoryName + "'?",
                     function (result) {
                         if (result) {
-                            categoryService.deleteCategory({ id: category.id })
+                            productService.deleteCategory({ id: category.id })
                                 .then(function () {
                                     abp.notify.info("已删除产品类别: " + category.categoryName);
-                                    getCategoryList();
+                                    getProductList();
                                 });
                         }
                     });
             }
 
             vm.refresh = function () {
-                getCategoryList();
+                getProductList();
             };
 
+            getProductList();
             getCategoryList();
         }
     ]);

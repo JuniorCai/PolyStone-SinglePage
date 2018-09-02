@@ -5031,6 +5031,10 @@ section.content {
 .form-group {
   width: 100%;
   margin-bottom: 25px; }
+
+.form-group .form-control.hasInputBorder {
+    border: 1px solid #c2cad8
+}
   .form-group .form-control {
     width: 100%;
     border: none;
@@ -5040,6 +5044,8 @@ section.content {
     -ms-border-radius: 0;
     border-radius: 0;
     padding-left: 0; }
+
+
   .form-group .help-info {
     float: right;
     font-size: 12px;

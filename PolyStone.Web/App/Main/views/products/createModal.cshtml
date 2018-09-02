@@ -1,0 +1,57 @@
+﻿<div class="row clearfix" ng-controller="app.views.product.createProduct as vm">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    @L("CreateProduct")
+                </h2>
+            </div>
+            <div class="form">
+                <form id="frm_create_product" name="productCreateForm" class="form-horizontal form-bordered" novalidate>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">名称</label>
+                            <div class="col-md-4">
+                                <div class="input-icon right" style="float:none !important">
+                                    <input id="name" class="hasInputBorder form-control " name="name" type="text" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">名称</label>
+                            <div class="col-md-4">
+                                <div class="input-icon right" style="float:none !important">
+                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">名称</label>
+                            <div class="col-md-4">
+                                <div class="input-icon right" style="float:none !important">
+                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">名称</label>
+                            <div class="col-md-4">
+                                <div class="input-icon right" style="float:none !important">
+                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+                            @L("Cancel")
+                        </button>
+                        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="productCreateForm.$invalid">
+                            @L("Save")
+                        </button>
+                    </div>
+
+                </form>            </div>
+        </div>
+    </div>
+</div>

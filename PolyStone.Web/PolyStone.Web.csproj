@@ -479,6 +479,8 @@
     <Content Include="App\Main\views\layout\sidebar-nav.js" />
     <Content Include="App\Main\views\layout\sidebar-user-area.js" />
     <Content Include="App\Main\views\layout\topbar.js" />
+    <Content Include="App\Main\views\products\createModal.js" />
+    <Content Include="App\Main\views\products\editModel.js" />
     <Content Include="App\Main\views\products\index.js" />
     <Content Include="App\Main\views\roles\editModal.js" />
     <Content Include="App\Main\views\roles\createModal.js" />
@@ -541,6 +543,8 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="css\components.css" />
+    <Content Include="css\components.min.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css">
@@ -2723,6 +2727,8 @@
     <Content Include="App\Main\views\communityCategory\createModal.cshtml" />
     <Content Include="App\Main\views\communityCategory\editModal.cshtml" />
     <Content Include="App\Main\views\products\index.cshtml" />
+    <Content Include="App\Main\views\products\createModal.cshtml" />
+    <Content Include="App\Main\views\products\editModel.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

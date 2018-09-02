@@ -64,6 +64,7 @@ namespace PolyStone.Web
                     .Include("~/lib/animate.css/animate.css", new CssRewriteUrlTransform())
                     .Include("~/css/materialize.css", new CssRewriteUrlTransform())
                     .Include("~/css/style.css", new CssRewriteUrlTransform())
+                    .Include("~/css/components.css", new CssRewriteUrlTransform())
                     .Include("~/css/themes/all-themes.css", new CssRewriteUrlTransform())
                 );
 
