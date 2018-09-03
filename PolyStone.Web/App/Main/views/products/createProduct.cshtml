@@ -10,7 +10,7 @@
                 <form id="frm_create_product" name="productCreateForm" class="form-horizontal form-bordered bordered"  novalidate>
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-2">名称</label>
+                            <label class="control-label col-md-2">标题</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
                                     <input id="name" class="hasInputBorder form-control " name="name" type="text" value="" />
@@ -18,15 +18,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-2">名称</label>
+                            <label class="control-label col-md-2">类目</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
-                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value=""/>
+@*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
+                                    <select ng-model="selectedCategory" >
+                                        <option value="0" selected="selected">选择类目</option>
+                                        <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-2">名称</label>
+                            <label class="control-label col-md-2">上传图片</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
                                     <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />
@@ -34,21 +38,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-2">名称</label>
+                            <label class="control-label col-md-2">产品描述</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
-                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />
+@*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
+                                    <textarea cols="80" rows="10" style="padding:12px"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
-                            @L("Cancel")
-                        </button>
-                        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="productCreateForm.$invalid">
-                            @L("Save")
-                        </button>
+                    <div class=" form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="button" class="btn gray " ng-click="vm.cancel()">
+                                    @L("Cancel")
+                                </button>
+                                <button type="submit" class="btn green" ng-click="vm.save()" ng-disabled="productCreateForm.$invalid">
+                                    @L("Save")
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                 </form>            </div>

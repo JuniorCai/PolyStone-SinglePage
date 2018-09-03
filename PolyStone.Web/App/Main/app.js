@@ -95,7 +95,7 @@
                 $stateProvider
                     .state('productsAdd', {
                         url: '/products/add',
-                        templateUrl: '/App/Main/views/products/createModal.cshtml',
+                        templateUrl: '/App/Main/views/products/createProduct.cshtml',
                         controller:'app.views.product.createProduct'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });

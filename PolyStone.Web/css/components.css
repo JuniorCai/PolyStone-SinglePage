@@ -5365,7 +5365,8 @@ Form Layouts
 .form .form-actions {
   padding: 20px 20px;
   margin: 0;
-  background-color: #f5f5f5;
+/*  background-color: #f5f5f5;*/
+    background: 0, 0;
   border-top: 1px solid #e7ecf1;
   *zoom: 1; }
   .portlet.light .portlet-form .form-actions, .portlet.light
