@@ -96,6 +96,7 @@ namespace PolyStone.Web
                         "~/Scripts/angular-ui/ui-bootstrap.min.js",
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
+                        "~/lib/AngularFileUpload/angular-file-upload.js",
 
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",
@@ -108,6 +109,7 @@ namespace PolyStone.Web
                         "~/js/admin.js",
                         "~/Scripts/jquery.signalR-2.2.3.min.js",
                         "~/js/main.js"
+
                     )
                 );
 

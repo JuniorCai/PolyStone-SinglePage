@@ -10,6 +10,7 @@
         'ui.jq',
 
         'abp'
+        , 'angularFileUpload'
     ]);
 
     //Configuration for Angular UI routing.
@@ -19,6 +20,15 @@
             $locationProvider.hashPrefix('');
             $urlRouterProvider.otherwise('/');
             $qProvider.errorOnUnhandledRejections(false);
+
+
+            $stateProvider
+                .state('test', {
+                    url: '/test',
+                    templateUrl: '/App/Main/views/test/test.cshtml'//,
+                    //menu: 'Roles' //Matches to name of 'Tenants' menu in PolyStoneNavigationProvider
+                });
+
 
             if (abp.auth.hasPermission('Pages.Users')) {
                 $stateProvider

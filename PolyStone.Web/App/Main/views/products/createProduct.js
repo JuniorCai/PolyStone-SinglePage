@@ -1,16 +1,34 @@
 ﻿(function () {
     angular.module('app').controller('app.views.product.createProduct', [
-        '$scope', 'abp.services.app.product', 'abp.services.app.category',
-        function ($scope, productService,categoryService) {
+        '$scope', 'abp.services.app.product', 'abp.services.app.category','FileUploader',
+        function ($scope, productService, categoryService,FileUploader) {
             var vm = this;
             vm.categoryList = [];
+            var uploader = $scope.fileUploader = new FileUploader({
+                url:""
+            });
+
+            uploader.filters.push({
+                name: 'imageFilter',
+                fn: function(item /*{File|FileLikeObject}*/, options) {
+                    var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                    return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+                }
+            });
+
+            uploader.filters.push({
+                name: 'countLimitFilter',
+                fn:function(item, options) {
+                    return this.quere.length < 6;
+                }
+            });
+
 
             vm.product = {
                 isActive: true,
                 isDeleted:false
             };
 
-            vm.roles = [];
             $scope.selectedCategory = "0";
 
             function getCategoryList() {
@@ -35,7 +53,6 @@
                 $uibModalInstance.dismiss({});
             };
             getCategoryList();
-            // getRoles();
         }
     ]);
 })();
