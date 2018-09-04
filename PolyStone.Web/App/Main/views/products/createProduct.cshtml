@@ -35,8 +35,15 @@
                                 @*                                <div class="input-icon right" style="float:none !important">*@
                                 @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
                                 @*                                </div>*@
+                                <div>
+                                    <span class="btn red btn-outline btn-file">
+                                        <span class="fileinput-new"> 选择图片 </span>
+                                        <span class="fileinput-exists"> 修改 </span>
+                                        <input type="file" nv-file-select uploader="fileUploader" multiple="" />
+                                    </span>
+                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+                                </div>
 
-                                <input type="file" nv-file-select uploader="fileUploader" multiple="" />
 @*                                <div nv-file-drop uploader="fileUploader"></div>*@
                             </div>
                         </div>
