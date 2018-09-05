@@ -7693,20 +7693,6 @@ fieldset[disabled] .form-control {
       .right-sidebar .nav-tabs li:last-child {
         width: 55%; }
 
-/* FileUpload Btn ============================ */
-.btn-file > input {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 20px;
-    height: 30px;
-    margin: 0;
-    font-size: 16px;
-    cursor: pointer;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    direction: ltr;
-}
 /* Bootstrap Notify ============================ */
 .bootstrap-notify-container {
   max-width: 320px;

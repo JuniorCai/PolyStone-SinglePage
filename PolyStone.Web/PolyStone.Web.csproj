@@ -543,6 +543,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="css\bootstrap-fileinput.css" />
     <Content Include="css\components.css" />
     <Content Include="css\components.min.css" />
     <Content Include="css\materialize.css" />
@@ -599,8 +600,10 @@
     <Content Include="App\Main\views\home\home.cshtml" />
     <Content Include="App\Main\views\about\about.cshtml" />
     <Content Include="App\Main\web.config" />
+    <Content Include="images\add.png" />
     <Content Include="images\user-img-background.jpg" />
     <Content Include="images\user.png" />
+    <Content Include="images\x.png" />
     <Content Include="js\admin.js" />
     <Content Include="js\helpers.js" />
     <Content Include="js\main.js" />
