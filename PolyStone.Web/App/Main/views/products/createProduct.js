@@ -4,6 +4,7 @@
         function ($scope, productService, categoryService,FileUploader) {
             var vm = this;
             vm.categoryList = [];
+            
             var uploader = $scope.fileUploader = new FileUploader({
                 url:""
             });
@@ -19,7 +20,7 @@
             uploader.filters.push({
                 name: 'countLimitFilter',
                 fn:function(item, options) {
-                    return this.quere.length < 6;
+                    return this.queue.length < 6;
                 }
             });
 

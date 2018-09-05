@@ -107,3 +107,12 @@
 .input-group-addon:not(:first-child) {
   border-left: 0;
 }
+
+
+.thumbDefault {
+    background: url("/images/add.png");
+    background-size: cover;
+    cursor: pointer;
+    height: 50px;
+    width: 50px
+}
