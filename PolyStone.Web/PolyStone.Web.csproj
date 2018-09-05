@@ -471,6 +471,7 @@
     <Content Include="App\Main\views\communityCategory\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
+    <Content Include="App\Main\views\directives\ngThumb.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
     <Content Include="App\Main\views\about\about.js" />
