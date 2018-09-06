@@ -137,8 +137,10 @@ namespace PolyStone.Products
         public virtual async Task<ProductEditDto> CreateProductAsync(ProductEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
-
+            
             var entity = input.MapTo<Product>();
+            entity.VerifyStatus = VerifyStatus.Pendding;
+            entity.ReleaseStatus = ReleaseStatus.UnPublished;
 
             entity = await _productRepository.InsertAsync(entity);
             return entity.MapTo<ProductEditDto>();

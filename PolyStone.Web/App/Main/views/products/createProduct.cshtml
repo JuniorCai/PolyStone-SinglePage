@@ -13,7 +13,7 @@
                             <label class="control-label col-md-2">标题</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
-                                    <input id="name" class="hasInputBorder form-control " name="name" type="text" value="" />
+                                    <input id="name" class="hasInputBorder form-control " name="name" type="text" ng-model="vm.product.title" />
                                 </div>
                             </div>
                         </div>
@@ -31,22 +31,25 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">上传图片</label>
-                            <div class="col-md-4">                                
+                            <div class="col-md-6">                                
                                 <div>
-                                    <div ng-repeat="item in fileUploader.queue">
+                                    <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
 @*                                        <label>*@
 @*                                            <img ng-src="item.file.name" />*@
 @*                                        </label>*@
-                                        @*                                        <span ng-if="item.imgSrc" ng-click="img_del($index)"></span>*@
-                                        <div  ng-thumb="{file:item._file,height:50，width:50}"></div>
+                                        @*<span ng-if="item.imgSrc" ng-click="img_del($index)"></span>*@
+                                        <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                     </div>
-                                    <div>
-                                        已上传：{{ fileUploader.queue.length }}
+                                    <div style="clear: both;padding: 10px 0" id="uploadDiv">
+
                                         <label>
                                             <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
                                         </label>
                                         <input type="file" nv-file-select multiple="" filters="imageFilter,countLimitFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
                                     </div>
+                                    <div style="clear: both;padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
+                                    
+
                                 </div>
 
                             </div>

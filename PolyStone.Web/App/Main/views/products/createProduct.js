@@ -24,8 +24,25 @@
                 }
             });
 
+            uploader.onAfterAddingAll=function() {
+                if (this.queue.length == 6) {
+                    $("#uploadDiv").hide();
+                } else {
+                    $("#uploadDiv").show();
+                }
+            }
+
+            vm.delImg = function() {
+                //$scope.fileUploader
+            };
+
 
             vm.product = {
+                title: "",
+                categoryId: "0",
+                companyId:0,
+                imgUrls: "",
+                detail:"",
                 isActive: true,
                 isDeleted:false
             };
@@ -42,13 +59,24 @@
             }
 
             vm.save = function () {
-                
-                productService.createProduct(vm.category)
-                    .then(function () {
-                        abp.notify.info(App.localize('SavedSuccessfully'));
-                        $uibModalInstance.close();
-                    });
+                if ($scope.selectedCategory == "0") {
+                    abp.notify.error("未选择分类");
+                    return;
+                } else {
+                    vm.product.categoryId = $scope.selectedCategory;
+                }
+
+                uploader.uploaderAll();
+
             };
+
+            uploader.onCompleteAll = function (result) {
+                abp.notify.info(App.localize('SavedSuccessfully'));
+//                productService.createProduct(vm.product)
+//                    .then(function () {
+//                        abp.notify.info(App.localize('SavedSuccessfully'));
+//                    });
+            }
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});

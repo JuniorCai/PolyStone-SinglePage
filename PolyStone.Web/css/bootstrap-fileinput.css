@@ -116,3 +116,9 @@
     height: 50px;
     width: 50px
 }
+
+.thumbUploaded {
+    border: 1px solid #efefef;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}

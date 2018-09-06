@@ -471,6 +471,7 @@
     <Content Include="App\Main\views\communityCategory\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
+    <Content Include="App\Main\views\directives\ngThumb.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
     <Content Include="App\Main\views\about\about.js" />
@@ -3585,11 +3586,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PolyStoneControllerBase.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\ImgUploadHelper.cs" />
     <Compile Include="Models\Account\LoginFormViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterResultViewModel.cs" />
@@ -3737,6 +3740,7 @@
   <ItemGroup>
     <Folder Include="App\Main\views\regions\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Resource\" />
     <Folder Include="_GeneratedCode\" />
   </ItemGroup>
   <ItemGroup>

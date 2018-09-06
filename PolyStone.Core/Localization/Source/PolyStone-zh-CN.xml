@@ -45,6 +45,7 @@
     <text name="RoleDescription" value="角色描述" />
     <text name="System" value="系统" />
     <text name="SavedSuccessfully" value="保存成功" />
+    <text name="SavedFailed" value="保存失败" />
     <text name="CreateNewTenant" value="创建新租户" />
     <text name="AdminEmailAddress" value="管理员邮箱地址" />
     <text name="Save" value="保存" />
