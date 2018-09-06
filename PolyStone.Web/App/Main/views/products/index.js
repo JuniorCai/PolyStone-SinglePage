@@ -33,21 +33,6 @@
                 $location.path(path);
             };
 
-            vm.openCategoryCreationModal = function () {
-                var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/category/createModal.cshtml',
-                    controller: 'app.views.category.createModal as vm',
-                    backdrop: 'static'
-                });
-
-                modalInstance.rendered.then(function () {
-                    $.AdminBSB.input.activate();
-                });
-
-                modalInstance.result.then(function () {
-                    getProductList();
-                });
-            };
 
             vm.openCategoryEditModal = function (category) {
                 var modalInstance = $uibModal.open({

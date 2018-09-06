@@ -38,14 +38,5 @@ namespace PolyStone.CustomDomain.Products
 			*/
 	
 			 	
-	
-
-
- 
-
-//TODO:★请将以下内容剪切到CORE类库的Localization/Source/CustomDomainzh-cn.xml
-//第一次加载建议复制他
-// <text name="MustBe_Required" value="不能为空" />
-
 
 }

@@ -26,6 +26,8 @@ namespace PolyStone.EntityMapper.Products
             // Detail
             Property(a => a.Detail).HasMaxLength(1000);
 
+            HasRequired(p => p.Category).WithMany(c => c.Products).HasForeignKey(p => p.CategoryId);
+            HasRequired(p => p.Company).WithMany(c => c.Products).HasForeignKey(p => p.CompanyId);
 
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.Products;
 
 namespace PolyStone.CustomDomain.Categories
 {
@@ -22,5 +23,7 @@ namespace PolyStone.CustomDomain.Categories
         public bool IsShow { get; set; }
 
         public bool IsActive { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

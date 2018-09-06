@@ -16,9 +16,9 @@ namespace PolyStone.Web.Controllers
             ImgUploadHelper uploadHelper = new ImgUploadHelper(Request.Files, Server.MapPath("/"));
             var result = uploadHelper.UploadImg();
 
-            string path = result.Item1 == ImageUploadStatus.Success ? (uploadHelper.FileServer + result.Item2) : "";
+            string msg = result.Item1 == ImageUploadStatus.Success ? (uploadHelper.FileServer + result.Item2) : result.Item2;
 
-            return Json(new { success = result.Item1 == ImageUploadStatus.Success, path = path });
+            return Json(new { success = result.Item1 == ImageUploadStatus.Success, msg = msg });
         }
     }
 }

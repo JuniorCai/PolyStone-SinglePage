@@ -68,27 +68,27 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="category in vm.categoryList">
+                        <tr ng-repeat="product in vm.productList">
                             <td><input type="checkbox" /></td>
                             <td>{{product.id}}</td>
                             <td>{{product.title}}</td>
                             <td>{{product.categoryName}}</td>
                             <td>{{product.companyName}}</td>
-                            <td><img src="{{category.imgUrls[0]}}"/></td>
+                            <td><img ng-src="{{product.imgUrls.split(',')[0]}}" class="listImg"/></td>
                             <td>{{product.verifyStatus}}</td>
                             <td>{{product.releaseStatus}}</td>
                             <td>{{product.createTime}}</td>
                             <td>
-                                <i class="material-icons" ng-if="category.isActive" style="color:green;">check_box</i>
-                                <i class="material-icons" ng-if="!category.isActive" style="color:red;">indeterminate_check_box</i>
+                                <i class="material-icons" ng-if="product.isActive" style="color:green;">check_box</i>
+                                <i class="material-icons" ng-if="!product.isActive" style="color:red;">indeterminate_check_box</i>
                             </td>
                             <td class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">menu</i>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.openCategoryEditModal(category)"><i class="material-icons">create</i>@L("Edit")</a></li>
-                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(category)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.openCategoryEditModal(product)"><i class="material-icons">create</i>@L("Edit")</a></li>
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(product)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
                                 </ul>
                             </td>
                         </tr>

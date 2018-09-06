@@ -8,6 +8,7 @@
             </div>
             <div class="form" style="margin: 20px">
                 <form id="frm_create_product" name="productCreateForm" class="form-horizontal form-bordered bordered" novalidate>
+                    @Html.AntiForgeryToken()
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-2">标题</label>
@@ -33,6 +34,7 @@
                             <label class="control-label col-md-2">上传图片</label>
                             <div class="col-md-6">                                
                                 <div>
+                                    @Html.ActionLink("图片上传链接","Upload","Resource")
                                     <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
 @*                                        <label>*@
 @*                                            <img ng-src="item.file.name" />*@
@@ -45,7 +47,7 @@
                                         <label>
                                             <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
                                         </label>
-                                        <input type="file" nv-file-select multiple="" filters="imageFilter,countLimitFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
+                                        <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
                                     </div>
                                     <div style="clear: both;padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
                                     
@@ -59,7 +61,7 @@
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
                                     @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
-                                    <textarea cols="80" rows="10" style="padding:12px"></textarea>
+                                    <textarea cols="80" rows="10" style="padding:12px" ng-model="vm.product.detail"></textarea>
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.Products;
 
 namespace PolyStone.CustomDomain.Companies
 {
@@ -26,6 +27,8 @@ namespace PolyStone.CustomDomain.Companies
         public int RegionId { get; set; }
 
         public string Address { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 
     public enum CompanyType
