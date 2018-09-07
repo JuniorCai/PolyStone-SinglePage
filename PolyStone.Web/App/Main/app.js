@@ -80,6 +80,16 @@
                 $urlRouterProvider.otherwise('/communityCategory');
             }
 
+            if (abp.auth.hasPermission('Pages.Community')) {
+                $stateProvider
+                    .state('community', {
+                        url: '/community',
+                        templateUrl: '/App/Main/views/community/index.cshtml'//,
+                        //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/community');
+            }
+
             if (abp.auth.hasPermission('Pages.Region')) {
                 $stateProvider
                     .state('regions', {
