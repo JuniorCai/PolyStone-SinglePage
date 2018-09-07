@@ -50,7 +50,7 @@
             vm.product = {
                 title: "",
                 categoryId: "0",
-                companyId:1,
+                companyId:"",
                 imgUrls: "",
                 detail:"",
                 isActive: true,
@@ -74,8 +74,21 @@
                     return;
                 } else {
                     vm.product.categoryId = $scope.selectedCategory;
+                    if ($.trim(vm.product.title).length == 0) {
+                        abp.notify.error("产品标题未填写");
+                        return;
+                    }else if (vm.product.companyId <= 0) {
+                        abp.notify.error("关联企业ID无效");
+                        return;
+                    } else if ($.trim(vm.product.detail).lengt == 0) {
+                        abp.notify.error("产品描述未填写");
+                        return;
+                    }
                 }
-
+                if (uploader.queue.length == 0) {
+                    abp.notify.error("需上传至少一张产品图片");
+                    return;
+                }
                 uploader.uploadAll();
 
             };
