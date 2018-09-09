@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using PolyStone.CustomDomain.Communities;
-
+using PolyStone.CustomDomain.CommunityCategories;
 
 
 namespace PolyStone.Communities.Dtos
@@ -24,7 +24,10 @@ namespace PolyStone.Communities.Dtos
         /// 类别
         /// </summary>
         [DisplayName("类别")]
-        public int Type { get; set; }
+        public int CommunityCategoryId { get; set; }
+
+
+        public CommunityCategory CommunityCategory { get; set; }
 
         /// <summary>
         /// 刷新时间

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.Communities;
 
 namespace PolyStone.CustomDomain.CommunityCategories
 {
@@ -18,5 +19,7 @@ namespace PolyStone.CustomDomain.CommunityCategories
         public bool IsShow { get; set; }
 
         public bool IsActive { get; set; }
+
+        public virtual ICollection<Community> Communities { get; set; }
     }
 }

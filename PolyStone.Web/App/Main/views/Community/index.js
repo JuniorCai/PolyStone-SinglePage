@@ -1,17 +1,19 @@
 ﻿(function () {
-    angular.module('app').controller('app.views.product.index', [
-        '$scope','$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
-        function ($scope, $location, $uibModal,productService, categoryService) {
+    angular.module('app').controller('app.views.community.index', [
+        '$scope','$location', 'abp.services.app.community', 'abp.services.app.communityCategory',
+        function ($scope, $location, communityService, communityCategory) {
             var vm = this;
 
             vm.categoryList = [];
 
-            vm.productList = [];
+            vm.communityList = [];
 
-            $scope.selectedCategory = "0";
+            $scope.selectedCategory = "-1";
+            $scope.selectedVerify = "-1";
+            $scope.selectedRelease = "-1";
 
             function getCategoryList() {
-                categoryService.getPagedCategorys({
+                communityCategory.getPagedCommunityCategorys({
                     filterText: "",
                     sorting: "CreationTime"
                 }).then(function(result) {
@@ -20,12 +22,13 @@
             }
 
 
-            function getProductList() {
-                productService.getPagedProducts({
+            function getCommunityList() {
+                communityService.getPagedCommunitys
+                ({
                     filterText: "",
                     sorting: "CreationTime"
                 }).then(function(result) {
-                    vm.productList = result.data.items;
+                    vm.communityList = result.data.items;
                 });
             }
 
@@ -34,46 +37,25 @@
             };
 
 
-            vm.openCategoryEditModal = function (category) {
-                var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/category/editModal.cshtml',
-                    controller: 'app.views.category.editModal as vm',
-                    backdrop: 'static',
-                    resolve: {
-                        id: function () {
-                            return category.id;
-                        }
-                    }
-                });
-
-                modalInstance.rendered.then(function () {
-                    $.AdminBSB.input.activate();
-                });
-
-                modalInstance.result.then(function () {
-                    getProductList();
-                });
-            };
-
-            vm.delete = function (category) {
+            vm.delete = function(category) {
                 abp.message.confirm(
                     "是否删除产品类别 '" + category.categoryName + "'?",
-                    function (result) {
+                    function(result) {
                         if (result) {
-                            productService.deleteCategory({ id: category.id })
-                                .then(function () {
+                            communityService.deleteCategory({ id: category.id })
+                                .then(function() {
                                     abp.notify.info("已删除产品类别: " + category.categoryName);
-                                    getProductList();
+                                    getCommunityList();
                                 });
                         }
                     });
-            }
-
-            vm.refresh = function () {
-                getProductList();
             };
 
-            getProductList();
+            vm.refresh = function () {
+                getCommunityList();
+            };
+
+            getCommunityList();
             getCategoryList();
         }
     ]);

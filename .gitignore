@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 PolyStone.Web/App_Data/Logs/Logs.txt
+/PolyStone.Web/Content/uploadImg/20180909

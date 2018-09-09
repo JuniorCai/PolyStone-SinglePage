@@ -248,6 +248,14 @@
     <Compile Include="Migrations\201809061329585_AlterProductRelation.Designer.cs">
       <DependentUpon>201809061329585_AlterProductRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809090614582_AlterCommunityRelation.cs" />
+    <Compile Include="Migrations\201809090614582_AlterCommunityRelation.Designer.cs">
+      <DependentUpon>201809090614582_AlterCommunityRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091129466_AlterCommunityImgUrls.cs" />
+    <Compile Include="Migrations\201809091129466_AlterCommunityImgUrls.Designer.cs">
+      <DependentUpon>201809091129466_AlterCommunityImgUrls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -279,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809061329585_AlterProductRelation.resx">
       <DependentUpon>201809061329585_AlterProductRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809090614582_AlterCommunityRelation.resx">
+      <DependentUpon>201809090614582_AlterCommunityRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091129466_AlterCommunityImgUrls.resx">
+      <DependentUpon>201809091129466_AlterCommunityImgUrls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
