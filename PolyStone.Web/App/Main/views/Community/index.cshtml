@@ -86,11 +86,16 @@
                             <td><input type="checkbox" /></td>
                             <td>{{community.id}}</td>
                             <td>{{community.title}}</td>
-                            <td>{{community.categoryName}}</td>
-                            <td>{{community.companyName}}</td>
-                            <td><img ng-src="{{community.PictureUrls.split(',')[0]}}" class="listImg"/></td>
-                            <td>{{community.verifyStatus}}</td>
-                            <td>{{community.releaseStatus}}</td>
+                            <td>{{community.communityCategory.categoryName}}</td>
+                            <td>{{community.memberId}}</td>
+                            <td><img ng-src="{{community.ImgUrls.split(',')[0]}}" class="listImg"/></td>
+                            <td ng-if="community.verifyStatus==0">审核中</td>
+                            <td ng-if="community.verifyStatus==1">通过</td>
+                            <td ng-if="community.verifyStatus==-1">未通过</td>
+                            <td ng-if="community.releaseStatus==0">未发布</td>
+                            <td ng-if="community.releaseStatus==1">通过</td>
+                            <td ng-if="community.releaseStatus==2">下线</td>
+                            <td ng-if="community.releaseStatus==3">已过期</td>
                             <td>{{community.createTime}}</td>
                             <td>
                                 <i class="material-icons" ng-if="product.isActive" style="color:green;">check_box</i>

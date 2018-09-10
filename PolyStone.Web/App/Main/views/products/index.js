@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('app').controller('app.views.product.index', [
-        '$scope','$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
+        '$scope', '$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
         function ($scope, $location, $uibModal,productService, categoryService) {
             var vm = this;
 
@@ -28,6 +28,7 @@
                     vm.productList = result.data.items;
                 });
             }
+         
 
             vm.goToProductDetail = function(path) {
                 $location.path(path);

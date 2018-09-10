@@ -118,8 +118,9 @@
 
                     var postUrl = $("#frm_create_community").attr("url");
                     $http.post(postUrl, { model: vm.community }).then(function() {
-                        alert("hha");
-                    })
+                        //abp.notify.info(result);
+
+                    });
                     //communityService.createProduct(vm.product)
 //                        .then(function() {
 //                            abp.notify.success(App.localize('SavedSuccessfully'));
