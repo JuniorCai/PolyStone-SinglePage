@@ -87,7 +87,7 @@
                             <td>{{community.id}}</td>
                             <td>{{community.title}}</td>
                             <td>{{community.communityCategory.categoryName}}</td>
-                            <td>{{community.memberId}}</td>
+                            <td>{{community.user.userName}}</td>
                             <td><img ng-src="{{community.ImgUrls.split(',')[0]}}" class="listImg"/></td>
                             <td ng-if="community.verifyStatus==0">审核中</td>
                             <td ng-if="community.verifyStatus==1">通过</td>

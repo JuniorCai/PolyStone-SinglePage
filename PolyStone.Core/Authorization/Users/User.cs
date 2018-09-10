@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Users;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
+using PolyStone.CustomDomain.Communities;
 
 namespace PolyStone.Authorization.Users
 {
@@ -29,6 +31,8 @@ namespace PolyStone.Authorization.Users
 
             return user;
         }
+
+        public virtual ICollection<Community> Communities { get; set; }
 
         public override string FullName => Surname + " " + Name;
 

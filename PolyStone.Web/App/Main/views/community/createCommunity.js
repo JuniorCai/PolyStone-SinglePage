@@ -50,7 +50,7 @@
             vm.community = {
                 title: "",
                 communityCategoryId: "0",
-                memberId:"",
+                userId:"",
                 imgUrls: "",
                 detail:"",
                 isActive: true,
@@ -77,8 +77,8 @@
                     if ($.trim(vm.community.title).length == 0) {
                         abp.notify.error("圈子标题未填写");
                         return;
-                    } else if (vm.community.memberId <= 0) {
-                        abp.notify.error("关联企业ID无效");
+                    } else if (vm.community.userId <= 0) {
+                        abp.notify.error("关联用户ID无效");
                         return;
                     } else if ($.trim(vm.community.detail).lengt == 0) {
                         abp.notify.error("圈子描述未填写");
@@ -117,8 +117,12 @@
                     vm.community.imgUrls = imgUrls.join(',');
 
                     var postUrl = $("#frm_create_community").attr("url");
-                    $http.post(postUrl, { model: vm.community }).then(function() {
-                        //abp.notify.info(result);
+                    $http.post(postUrl, { model: vm.community }).then(function (result) {
+                        if (result.data.success) {
+                            abp.notify.info("保存成功");
+                        } else {
+                            abp.notify.error("保存失败");
+                        }
 
                     });
                     //communityService.createProduct(vm.product)

@@ -256,6 +256,10 @@
     <Compile Include="Migrations\201809091129466_AlterCommunityImgUrls.Designer.cs">
       <DependentUpon>201809091129466_AlterCommunityImgUrls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809101405561_AlterCommunity-User.cs" />
+    <Compile Include="Migrations\201809101405561_AlterCommunity-User.Designer.cs">
+      <DependentUpon>201809101405561_AlterCommunity-User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -293,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809091129466_AlterCommunityImgUrls.resx">
       <DependentUpon>201809091129466_AlterCommunityImgUrls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101405561_AlterCommunity-User.resx">
+      <DependentUpon>201809101405561_AlterCommunity-User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

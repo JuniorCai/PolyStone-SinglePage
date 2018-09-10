@@ -2,9 +2,11 @@
 using System.ComponentModel;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using PolyStone.Authorization.Users;
 using PolyStone.CommunityCategories.Dtos;
 using PolyStone.CustomDomain.Communities;
 using PolyStone.CustomDomain.CommunityCategories;
+using PolyStone.Users.Dto;
 
 
 namespace PolyStone.Communities.Dtos
@@ -19,7 +21,9 @@ namespace PolyStone.Communities.Dtos
         /// 个人会员ID
         /// </summary>
         [DisplayName("个人会员ID")]
-        public int MemberId { get; set; }
+        public int UserId { get; set; }
+
+        public UserDto User { get; set; }
 
         /// <summary>
         /// 类别

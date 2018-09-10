@@ -2,9 +2,11 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
+using PolyStone.CommunityCategories.Dtos;
 using PolyStone.CustomDomain.Communities;
 using PolyStone.CustomDomain.CommunityCategories;
 using PolyStone.CustomDomain.Products;
+using PolyStone.Users.Dto;
 
 
 namespace PolyStone.Communities.Dtos
@@ -28,7 +30,9 @@ namespace PolyStone.Communities.Dtos
         [DisplayName("个人会员ID")]
         [Required]
         [Range(1, 11)]
-        public int MemberId { get; set; }
+        public int UserId { get; set; }
+
+        public UserDto User { get; set; }
 
         /// <summary>
         /// 类别
@@ -39,7 +43,7 @@ namespace PolyStone.Communities.Dtos
         public int CommunityCategoryId { get; set; }
 
 
-        public CommunityCategory CommunityCategory { get; set; }
+        public CommunityCategoryEditDto CommunityCategory { get; set; }
 
         /// <summary>
         /// 标题

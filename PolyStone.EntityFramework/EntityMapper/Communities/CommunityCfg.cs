@@ -27,6 +27,7 @@ namespace PolyStone.EntityMapper.Communities
 
             HasRequired(c => c.CommunityCategory).WithMany(c => c.Communities)
                 .HasForeignKey(c => c.CommunityCategoryId);
+            HasRequired(c => c.User).WithMany(u => u.Communities).HasForeignKey(c => c.UserId);
         }
     }
 }

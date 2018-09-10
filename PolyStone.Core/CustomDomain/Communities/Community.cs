@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.CommunityCategories;
 using PolyStone.CustomDomain.Products;
 
@@ -12,7 +13,10 @@ namespace PolyStone.CustomDomain.Communities
 {
     public class Community : FullAuditedEntity
     {
-        public int MemberId { get; set; }
+        public long UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
 
         public int CommunityCategoryId { get; set; }
 
