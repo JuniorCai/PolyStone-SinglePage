@@ -469,6 +469,7 @@
     <Content Include="App\Main\views\communityCategory\createModal.js" />
     <Content Include="App\Main\views\communityCategory\editModal.js" />
     <Content Include="App\Main\views\communityCategory\index.js" />
+    <Content Include="App\Main\views\community\edit.js" />
     <Content Include="App\Main\views\community\createCommunity.js" />
     <Content Include="App\Main\views\community\index.js" />
     <Content Include="App\Main\views\company\index.js" />
@@ -2741,6 +2742,7 @@
     <Content Include="App\Main\views\company\index.cshtml" />
     <Content Include="App\Main\views\community\createCommunity.cshtml" />
     <Content Include="App\Main\views\community\index.cshtml" />
+    <Content Include="App\Main\views\community\edit.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

@@ -17,6 +17,14 @@ namespace PolyStone.Communities.Dtos
     [AutoMapFrom(typeof(Community))]
     public class CommunityListDto : EntityDto<int>
     {
+
+        [DisplayName("标题")]
+        public string Title { get; set; }
+
+        [DisplayName("图片")]
+        public string ImgUrls { get; set; }
+
+
         /// <summary>
         /// 个人会员ID
         /// </summary>
@@ -33,6 +41,9 @@ namespace PolyStone.Communities.Dtos
 
 
         public CommunityCategoryListDto CommunityCategory { get; set; }
+
+        public string Detail { get; set; }
+
 
         /// <summary>
         /// 刷新时间

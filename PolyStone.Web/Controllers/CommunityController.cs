@@ -53,30 +53,30 @@ namespace PolyStone.Web.Controllers
             return Json(new { success = false, msg = "无操作权限" });
         }
 
-        //        [HttpPost]
-        //        [Route("UpdateCommunity")]
-        //        public async Task<AjaxResponse> UpdateCommunity(CommunityEditDto model)
-        //        {
-        //            if (PermissionChecker.IsGranted("Pages.Community.CreateCommunity"))
-        //            {
-        //                model.ReleaseStatus = ReleaseStatus.UnPublished;
-        //                model.VerifyStatus = VerifyStatus.Pendding;
-        //                model.RefreshDate = DateTime.Now;
-        //
-        //                var edit = await _communityAppService.CreateCommunityAsync(model);
-        //
-        //                if (edit.Id > 0)
-        //                {
-        //                    return new AjaxResponse();
-        //                }
-        //                else
-        //                {
-        //                    return new AjaxResponse(new ErrorInfo("保存失败"));
-        //                }
-        //
-        //            }
-        //            return new AjaxResponse(new ErrorInfo("保存失败"));
-        //        }
+        [HttpPost]
+        [Route("UpdateCommunity")]
+        public async Task<JsonResult> UpdateCommunity(CommunityEditDto model)
+        {
+            if (PermissionChecker.IsGranted("Pages.Community.UpdateCommunity"))
+            {
+                model.RefreshDate = DateTime.Now;
+        
+
+
+
+
+                try
+                {
+                    await _communityAppService.UpdateCommunityAsync(model);
+                    return Json(new { success = true, msg = "" });
+                }
+                catch (Exception e)
+                {
+                    return Json(new { success = false, msg = "保存失败" });
+                }
+            }
+            return Json(new { success = false, msg = "保存失败" });
+        }
 
     }
 }

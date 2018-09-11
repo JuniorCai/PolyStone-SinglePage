@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.index', [
-        '$scope','$location', 'abp.services.app.community', 'abp.services.app.communityCategory',
-        function ($scope, $location, communityService, communityCategory) {
+        '$scope','$location','$state', 'abp.services.app.community', 'abp.services.app.communityCategory',
+        function ($scope, $location, $state, communityService, communityCategory) {
             var vm = this;
 
             vm.categoryList = [];
@@ -32,8 +32,8 @@
                 });
             }
 
-            vm.goToProductDetail = function(path) {
-                $location.path(path);
+            vm.gotoDetail = function(itemId) {
+                $state.go("communityEdit", { id: itemId });
             };
 
 

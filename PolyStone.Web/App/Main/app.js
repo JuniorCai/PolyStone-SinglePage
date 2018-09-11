@@ -90,6 +90,17 @@
                 $urlRouterProvider.otherwise('/community');
             }
 
+            if (abp.auth.hasPermission('Pages.Community.EditCommunity')) {
+                $stateProvider
+                    .state('communityEdit', {
+                        url: '/community/edit/:id',
+                        templateUrl: '/App/Main/views/community/edit.cshtml',
+                        controller:'app.views.community.editCommunity'
+                        //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/community');
+            }
+
             if (abp.auth.hasPermission('Pages.Community.CreateCommunity')) {
                 $stateProvider
                     .state('communityAdd', {
