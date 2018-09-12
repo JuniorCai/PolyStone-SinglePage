@@ -37,14 +37,14 @@
             };
 
 
-            vm.delete = function(category) {
+            vm.delete = function (community) {
                 abp.message.confirm(
-                    "是否删除产品类别 '" + category.categoryName + "'?",
+                    "是否删除产品类别 '" + community.title + "'?",
                     function(result) {
                         if (result) {
-                            communityService.deleteCategory({ id: category.id })
+                            communityService.deleteCommunity({ id: community.id })
                                 .then(function() {
-                                    abp.notify.info("已删除产品类别: " + category.categoryName);
+                                    abp.notify.info("已删除产品类别: " + community.title);
                                     getCommunityList();
                                 });
                         }

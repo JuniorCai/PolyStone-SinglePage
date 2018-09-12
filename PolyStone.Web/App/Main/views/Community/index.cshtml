@@ -88,7 +88,7 @@
                             <td>{{community.title}}</td>
                             <td>{{community.communityCategory.categoryName}}</td>
                             <td>{{community.user.userName}}</td>
-                            <td><img ng-src="{{community.ImgUrls.split(',')[0]}}" class="listImg"/></td>
+                            <td><img ng-src="{{community.imgUrls.split(',')[0]}}" class="listImg"/></td>
                             <td>{{community.refreshDate | date:'yyyy-MM-dd hh:mm:ss'}} </td>
                             <td ng-if="community.verifyStatus==0">审核中</td>
                             <td ng-if="community.verifyStatus==1">通过</td>
@@ -104,7 +104,7 @@
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.gotoDetail(community.id)"><i class="material-icons">create</i>@L("Edit")</a></li>
-                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(community.id)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(community)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
                                 </ul>
                             </td>
                         </tr>

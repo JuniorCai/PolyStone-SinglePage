@@ -36,8 +36,8 @@ namespace PolyStone.Web.Controllers
         {
             if (PermissionChecker.IsGranted("Pages.Community.CreateCommunity"))
             {
-                model.ReleaseStatus = ReleaseStatus.UnPublished;
-                model.VerifyStatus = VerifyStatus.Pendding;
+                model.ReleaseStatus = ReleaseStatus.Publish;
+                model.VerifyStatus = VerifyStatus.Pass;
                 model.RefreshDate = DateTime.Now;
 
                 try
@@ -54,17 +54,15 @@ namespace PolyStone.Web.Controllers
         }
 
         [HttpPost]
-        [Route("UpdateCommunity")]
         public async Task<JsonResult> UpdateCommunity(CommunityEditDto model)
         {
             if (PermissionChecker.IsGranted("Pages.Community.UpdateCommunity"))
             {
                 model.RefreshDate = DateTime.Now;
-        
 
+                CheckModelState();
 
-
-
+                
                 try
                 {
                     await _communityAppService.UpdateCommunityAsync(model);
