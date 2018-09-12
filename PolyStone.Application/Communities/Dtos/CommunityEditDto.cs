@@ -32,7 +32,7 @@ namespace PolyStone.Communities.Dtos
         [Range(1, 11)]
         public int UserId { get; set; }
 
-        public UserDto User { get; set; }
+        //public UserDto User { get; set; }
 
         /// <summary>
         /// 类别

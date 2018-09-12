@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.editCommunity', [
-        '$scope', 'abp.services.app.community', 'abp.services.app.communityCategory', 'FileUploader', '$http','$stateParams',
-        function ($scope, communityService, categoryService, FileUploader, $http, $stateParams) {
+        '$scope', '$state', 'abp.services.app.community', 'abp.services.app.communityCategory', 'FileUploader', '$http', '$stateParams','$timeout',
+        function ($scope, $state, communityService, categoryService, FileUploader, $http, $stateParams, $timeout) {
             var vm = this;
             vm.imgUrls = [];
             vm.uploadImgUrls = [];
@@ -51,18 +51,23 @@
             });
 
 
-            uploader.onAfterAddingAll = function() {
-                if (this.queue.length + vm.uploadImgUrls.length == 6) {
-                    $("#uploadDiv").hide();
-                } else {
-                    $("#uploadDiv").show();
-                }
+            uploader.onAfterAddingAll = function () {
+                isImgAddBtnShow(this.queue.length + vm.uploadImgUrls.length < 6);
+
+//                if (this.queue.length + vm.uploadImgUrls.length == 6) {
+//                    $("#uploadDiv").hide();
+//                } else {
+//                    $("#uploadDiv").show();
+//                }
             };
 
             vm.delImg = function() {
                 //$scope.fileUploader
             };
 
+            function isImgAddBtnShow(flag) {
+                flag ? $("#uploadDiv").show() : $("#uploadDiv").hide();
+            }
 
             $scope.selectedCategory = "0";
 
@@ -80,7 +85,9 @@
                 communityService.getCommunityById({ id: itemId }).then(function(result) {
                     vm.community = result.data;
                     $scope.selectedCategory = vm.community.communityCategoryId.toString();
-                    vm.uploadImgUrls = vm.imgUrls = vm.community.imgUrls.split(',');
+                    vm.uploadImgUrls =  vm.community.imgUrls.split(',');
+                    vm.imgUrls = vm.community.imgUrls.split(',');
+                    isImgAddBtnShow(vm.uploadImgUrls.length < 6);
                 });
             }
 
@@ -90,7 +97,11 @@
                 var postUrl = $("#frm_create_community").attr("url");
                 $http.post(postUrl, { model: vm.community }).then(function (result) {
                     if (result.data.success) {
-                        abp.notify.info("保存成功");
+                        abp.notify.info("保存成功", "", { timeOut:1500});
+                        $timeout(function () {
+                            $state.go("community");
+                        }, 2000);
+
                     } else {
                         abp.notify.error("保存失败");
                     }

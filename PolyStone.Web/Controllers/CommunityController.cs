@@ -13,6 +13,7 @@ using PolyStone.Communities;
 using PolyStone.Communities.Dtos;
 using PolyStone.CommunityCategories;
 using PolyStone.CustomDomain.Products;
+using PolyStone.Web.Models;
 
 namespace PolyStone.Web.Controllers
 {
@@ -56,7 +57,7 @@ namespace PolyStone.Web.Controllers
         [HttpPost]
         public async Task<JsonResult> UpdateCommunity(CommunityEditDto model)
         {
-            if (PermissionChecker.IsGranted("Pages.Community.UpdateCommunity"))
+            if (PermissionChecker.IsGranted("Pages.Community.EditCommunity"))
             {
                 model.RefreshDate = DateTime.Now;
 
@@ -74,6 +75,12 @@ namespace PolyStone.Web.Controllers
                 }
             }
             return Json(new { success = false, msg = "保存失败" });
+        }
+
+
+        public async Task<JsonResult> SearchCommunity(GetCommunityInput searchModel)
+        {
+
         }
 
     }
