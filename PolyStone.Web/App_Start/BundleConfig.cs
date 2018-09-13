@@ -94,8 +94,8 @@ namespace PolyStone.Web
                         "~/Scripts/angular-animate.min.js",
                         "~/Scripts/angular-sanitize.min.js",
                         "~/Scripts/angular-ui-router.min.js",
-                        "~/Scripts/angular-ui/ui-bootstrap.min.js",
-                        "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+                        "~/Scripts/angular-ui/ui-bootstrap.js",
+                        "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
                         "~/lib/AngularFileUpload/angular-file-upload.js",
 

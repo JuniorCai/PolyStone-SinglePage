@@ -555,3 +555,287 @@ DEBUG 2018-09-12 21:37:05,314 [50   ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 WARN  2018-09-12 21:37:05,355 [87   ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
 DEBUG 2018-09-12 21:37:05,661 [67   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"23c5dc3a-e5e6-48b6-a290-7b5e5bb0d67e","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-12T21:37:05.659804+08:00","Properties":{}}
 DEBUG 2018-09-12 21:37:05,665 [68   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 23c5dc3a-e5e6-48b6-a290-7b5e5bb0d67e
+DEBUG 2018-09-13 14:29:44,733 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-09-13 14:29:44,745 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2018-09-13 14:29:44,750 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Web.PolyStoneWebModule, PolyStone.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneDataModule, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneCoreModule, PolyStone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneApplicationModule, PolyStone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Api.PolyStoneWebApiModule, PolyStone.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:44,756 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2018-09-13 14:29:45,007 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 14:29:45,007 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 14:29:45,007 [1    ] o.Configuration.LanguageManagementConfig - Converted PolyStone (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 14:29:45,007 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 14:29:45,304 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: PolyStone.EntityFramework.PolyStoneDbContext, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 14:29:46,815 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-09-13 14:29:46,957 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-09-13 14:29:46,995 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-09-13 14:29:47,016 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: PolyStone
+DEBUG 2018-09-13 14:29:47,041 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-09-13 14:29:47,077 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-09-13 14:29:47,119 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 35 classes define auto mapping attributes
+DEBUG 2018-09-13 14:29:47,119 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.CreateUserDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UpdateUserDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UserDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.CreateRoleDto
+DEBUG 2018-09-13 14:29:47,121 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.PermissionDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.RoleDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.EditTenantDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.TenantDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyListDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryEditDto
+DEBUG 2018-09-13 14:29:47,122 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryListDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityEditDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityListDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionEditDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionListDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryEditDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryListDto
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantChangeViewModel
+DEBUG 2018-09-13 14:29:47,123 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-09-13 14:29:47,904 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-09-13 14:29:47,904 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-09-13 14:29:47,905 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-09-13 14:29:47,906 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-09-13 14:29:47,906 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Products.IProductAppService' with service name 'app/product'.
+DEBUG 2018-09-13 14:29:47,907 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-09-13 14:29:47,908 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2018-09-13 14:29:47,908 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Authorization.Accounts.IAccountAppService' with service name 'app/account'.
+DEBUG 2018-09-13 14:29:47,909 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Members.IMemberAppService' with service name 'app/member'.
+DEBUG 2018-09-13 14:29:47,910 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyContacts.IContactAppService' with service name 'app/contact'.
+DEBUG 2018-09-13 14:29:47,910 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyAuthes.ICompanyAuthAppService' with service name 'app/companyAuth'.
+DEBUG 2018-09-13 14:29:47,920 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyApplications.ICompanyApplicationAppService' with service name 'app/companyApplication'.
+DEBUG 2018-09-13 14:29:47,921 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Companies.ICompanyAppService' with service name 'app/company'.
+DEBUG 2018-09-13 14:29:47,922 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CommunityCategories.ICommunityCategoryAppService' with service name 'app/communityCategory'.
+DEBUG 2018-09-13 14:29:47,924 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Communities.ICommunityAppService' with service name 'app/community'.
+DEBUG 2018-09-13 14:29:47,925 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Collections.ICollectionAppService' with service name 'app/collection'.
+DEBUG 2018-09-13 14:29:47,926 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Categories.ICategoryAppService' with service name 'app/category'.
+WARN  2018-09-13 14:29:54,987 [14   ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 14:29:55,452 [10   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"ee547513-d20a-4c7a-9bcc-044d88e8b0c7","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T14:29:55.4458213+08:00","Properties":{}}
+DEBUG 2018-09-13 14:29:55,480 [7    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: ee547513-d20a-4c7a-9bcc-044d88e8b0c7
+DEBUG 2018-09-13 14:57:20,375 [225  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: ee547513-d20a-4c7a-9bcc-044d88e8b0c7
+WARN  2018-09-13 14:57:20,520 [222  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 14:57:20,779 [230  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"0b450e4c-d9f6-4359-a57f-0de7a0cdc88b","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T14:57:20.7773269+08:00","Properties":{}}
+DEBUG 2018-09-13 14:57:20,782 [221  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 0b450e4c-d9f6-4359-a57f-0de7a0cdc88b
+DEBUG 2018-09-13 14:58:35,520 [213  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 0b450e4c-d9f6-4359-a57f-0de7a0cdc88b
+WARN  2018-09-13 14:58:35,663 [222  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 14:58:38,349 [212  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"deccc4cb-d2c9-4697-946b-64eec828e69f","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T14:58:38.3475783+08:00","Properties":{}}
+DEBUG 2018-09-13 14:58:38,355 [220  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: deccc4cb-d2c9-4697-946b-64eec828e69f
+DEBUG 2018-09-13 14:59:16,828 [232  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: deccc4cb-d2c9-4697-946b-64eec828e69f
+WARN  2018-09-13 14:59:16,977 [215  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 14:59:19,275 [232  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"60b01915-51fc-419d-b504-2b95ee8ca4c6","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T14:59:19.273207+08:00","Properties":{}}
+DEBUG 2018-09-13 14:59:19,694 [197  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 60b01915-51fc-419d-b504-2b95ee8ca4c6
+DEBUG 2018-09-13 15:00:11,793 [205  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 60b01915-51fc-419d-b504-2b95ee8ca4c6
+WARN  2018-09-13 15:00:11,937 [165  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:00:12,316 [209  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"66351abb-74d9-4818-a1e6-968a989b6d4d","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:00:12.3144934+08:00","Properties":{}}
+DEBUG 2018-09-13 15:00:12,321 [189  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 66351abb-74d9-4818-a1e6-968a989b6d4d
+DEBUG 2018-09-13 15:19:54,629 [174  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 66351abb-74d9-4818-a1e6-968a989b6d4d
+WARN  2018-09-13 15:19:54,786 [197  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:19:55,105 [179  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f3ae294f-ad92-492d-932a-40d95f763c85","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:19:55.1039346+08:00","Properties":{}}
+DEBUG 2018-09-13 15:19:55,111 [197  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: f3ae294f-ad92-492d-932a-40d95f763c85
+DEBUG 2018-09-13 15:26:24,257 [216  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f3ae294f-ad92-492d-932a-40d95f763c85
+WARN  2018-09-13 15:26:24,419 [179  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:26:48,209 [191  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"19e5d746-5ed4-4e5a-95bf-553de8680066","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:26:48.2063758+08:00","Properties":{}}
+DEBUG 2018-09-13 15:26:48,238 [184  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 19e5d746-5ed4-4e5a-95bf-553de8680066
+DEBUG 2018-09-13 15:27:13,111 [203  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 19e5d746-5ed4-4e5a-95bf-553de8680066
+WARN  2018-09-13 15:27:13,164 [218  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:27:14,739 [199  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"92318226-d309-4764-b3a7-ee70b79c425a","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:27:14.7373956+08:00","Properties":{}}
+DEBUG 2018-09-13 15:27:30,546 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 92318226-d309-4764-b3a7-ee70b79c425a
+DEBUG 2018-09-13 15:36:10,926 [198  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 92318226-d309-4764-b3a7-ee70b79c425a
+WARN  2018-09-13 15:36:11,095 [169  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:36:13,439 [179  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"73f46b3d-bcc4-4643-93c8-107883830a2a","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:36:13.4371548+08:00","Properties":{}}
+DEBUG 2018-09-13 15:36:13,620 [188  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 73f46b3d-bcc4-4643-93c8-107883830a2a
+DEBUG 2018-09-13 15:39:30,640 [179  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 73f46b3d-bcc4-4643-93c8-107883830a2a
+WARN  2018-09-13 15:39:30,793 [188  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:39:31,110 [208  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"a981cdf0-7358-489d-90df-ecd7bfac45ff","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:39:31.1083594+08:00","Properties":{}}
+DEBUG 2018-09-13 15:39:31,116 [205  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: a981cdf0-7358-489d-90df-ecd7bfac45ff
+DEBUG 2018-09-13 15:39:42,649 [191  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: a981cdf0-7358-489d-90df-ecd7bfac45ff
+WARN  2018-09-13 15:39:42,789 [195  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:39:43,182 [216  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"ea6872e7-7955-4a6e-b14a-9e2dcbf87b16","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:39:43.1808157+08:00","Properties":{}}
+DEBUG 2018-09-13 15:39:43,193 [223  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: ea6872e7-7955-4a6e-b14a-9e2dcbf87b16
+DEBUG 2018-09-13 15:41:29,436 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: ea6872e7-7955-4a6e-b14a-9e2dcbf87b16
+WARN  2018-09-13 15:41:29,598 [197  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:41:31,327 [203  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"867db156-c033-49c3-a90e-1cb33cc3c4d6","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:41:31.3257208+08:00","Properties":{}}
+DEBUG 2018-09-13 15:41:31,529 [170  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 867db156-c033-49c3-a90e-1cb33cc3c4d6
+DEBUG 2018-09-13 15:44:35,668 [170  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 867db156-c033-49c3-a90e-1cb33cc3c4d6
+WARN  2018-09-13 15:44:35,842 [176  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:44:37,566 [172  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"07e326c1-b159-44af-ac0e-39fad48d10ed","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:44:37.5638174+08:00","Properties":{}}
+DEBUG 2018-09-13 15:44:37,785 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 07e326c1-b159-44af-ac0e-39fad48d10ed
+DEBUG 2018-09-13 15:47:07,513 [174  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-09-13 15:47:07,514 [174  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-09-13 15:47:07,515 [174  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-09-13 15:47:07,515 [174  ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2018-09-13 15:47:14,531 [181  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-09-13 15:47:14,542 [181  ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2018-09-13 15:47:14,546 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Web.PolyStoneWebModule, PolyStone.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,547 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneDataModule, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneCoreModule, PolyStone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,548 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneApplicationModule, PolyStone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Api.PolyStoneWebApiModule, PolyStone.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,549 [181  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:14,551 [181  ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2018-09-13 15:47:14,688 [181  ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 15:47:14,688 [181  ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 15:47:14,688 [181  ] o.Configuration.LanguageManagementConfig - Converted PolyStone (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 15:47:14,688 [181  ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-09-13 15:47:14,976 [181  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: PolyStone.EntityFramework.PolyStoneDbContext, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-09-13 15:47:16,043 [181  ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-09-13 15:47:16,071 [181  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-09-13 15:47:16,108 [181  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-09-13 15:47:16,126 [181  ] Abp.Localization.LocalizationManager     - Initialized localization source: PolyStone
+DEBUG 2018-09-13 15:47:16,150 [181  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-09-13 15:47:16,185 [181  ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-09-13 15:47:16,217 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 35 classes define auto mapping attributes
+DEBUG 2018-09-13 15:47:16,217 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.CreateUserDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UpdateUserDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UserDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.CreateRoleDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.PermissionDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.RoleDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionEditDto
+DEBUG 2018-09-13 15:47:16,220 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.EditTenantDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.TenantDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryEditDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryListDto
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantChangeViewModel
+DEBUG 2018-09-13 15:47:16,221 [181  ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-09-13 15:47:16,963 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-09-13 15:47:16,964 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-09-13 15:47:16,965 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-09-13 15:47:16,966 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-09-13 15:47:16,966 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Products.IProductAppService' with service name 'app/product'.
+DEBUG 2018-09-13 15:47:16,967 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-09-13 15:47:16,968 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2018-09-13 15:47:16,969 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Authorization.Accounts.IAccountAppService' with service name 'app/account'.
+DEBUG 2018-09-13 15:47:16,969 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Members.IMemberAppService' with service name 'app/member'.
+DEBUG 2018-09-13 15:47:16,970 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyContacts.IContactAppService' with service name 'app/contact'.
+DEBUG 2018-09-13 15:47:16,971 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyAuthes.ICompanyAuthAppService' with service name 'app/companyAuth'.
+DEBUG 2018-09-13 15:47:16,972 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyApplications.ICompanyApplicationAppService' with service name 'app/companyApplication'.
+DEBUG 2018-09-13 15:47:16,972 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Companies.ICompanyAppService' with service name 'app/company'.
+DEBUG 2018-09-13 15:47:16,973 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CommunityCategories.ICommunityCategoryAppService' with service name 'app/communityCategory'.
+DEBUG 2018-09-13 15:47:16,974 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Communities.ICommunityAppService' with service name 'app/community'.
+DEBUG 2018-09-13 15:47:16,975 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Collections.ICollectionAppService' with service name 'app/collection'.
+DEBUG 2018-09-13 15:47:16,975 [181  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Categories.ICategoryAppService' with service name 'app/category'.
+DEBUG 2018-09-13 15:47:19,322 [169  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"07e326c1-b159-44af-ac0e-39fad48d10ed","IpAddress":null,"TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:47:19.2677075+08:00","Properties":{}}
+DEBUG 2018-09-13 15:47:22,031 [184  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 07e326c1-b159-44af-ac0e-39fad48d10ed
+WARN  2018-09-13 15:47:22,623 [179  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:47:23,033 [231  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"9cb2c389-abb6-479a-9a4c-0caaf1b631fb","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:47:23.0296458+08:00","Properties":{}}
+DEBUG 2018-09-13 15:47:23,048 [168  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 9cb2c389-abb6-479a-9a4c-0caaf1b631fb
+DEBUG 2018-09-13 15:51:40,034 [197  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 9cb2c389-abb6-479a-9a4c-0caaf1b631fb
+WARN  2018-09-13 15:51:40,197 [176  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+ERROR 2018-09-13 15:51:40,223 [216  ] nHandling.AbpApiExceptionFilterAttribute - 已取消该操作。
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
+ERROR 2018-09-13 15:51:40,251 [203  ] nHandling.AbpApiExceptionFilterAttribute - 已取消该操作。
+System.OperationCanceledException: 已取消该操作。
+   在 System.Threading.CancellationToken.ThrowOperationCanceledException()
+   在 System.Web.Http.HostAuthenticationFilter.<AuthenticateAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
+DEBUG 2018-09-13 15:51:40,550 [218  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e25be0cf-b883-4192-9822-385093e082fa","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:51:40.5470785+08:00","Properties":{}}
+DEBUG 2018-09-13 15:51:40,555 [168  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e25be0cf-b883-4192-9822-385093e082fa
+DEBUG 2018-09-13 15:53:57,275 [173  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: e25be0cf-b883-4192-9822-385093e082fa
+WARN  2018-09-13 15:53:57,351 [215  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:53:57,770 [223  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"491d035d-dcec-4b11-a905-5f78110fc014","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:53:57.7661083+08:00","Properties":{}}
+DEBUG 2018-09-13 15:53:57,803 [173  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 491d035d-dcec-4b11-a905-5f78110fc014
+DEBUG 2018-09-13 15:54:23,361 [172  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 491d035d-dcec-4b11-a905-5f78110fc014
+WARN  2018-09-13 15:54:23,501 [168  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:54:23,853 [218  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"78607e81-a1e7-452b-ab51-e8128a47577c","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:54:23.8518702+08:00","Properties":{}}
+DEBUG 2018-09-13 15:54:23,860 [195  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 78607e81-a1e7-452b-ab51-e8128a47577c
+DEBUG 2018-09-13 15:55:12,267 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 78607e81-a1e7-452b-ab51-e8128a47577c
+WARN  2018-09-13 15:55:12,440 [205  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:55:12,807 [179  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"0e1481ac-aec1-4961-9bd4-cbbe0029f0ab","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:55:12.8021716+08:00","Properties":{}}
+DEBUG 2018-09-13 15:55:12,813 [205  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 0e1481ac-aec1-4961-9bd4-cbbe0029f0ab
+DEBUG 2018-09-13 15:55:27,316 [188  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 0e1481ac-aec1-4961-9bd4-cbbe0029f0ab
+WARN  2018-09-13 15:55:27,453 [191  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 15:55:27,834 [169  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"d1cfd983-7176-41c2-b17a-1441c012b408","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T15:55:27.832348+08:00","Properties":{}}
+DEBUG 2018-09-13 15:55:27,840 [231  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: d1cfd983-7176-41c2-b17a-1441c012b408
+DEBUG 2018-09-13 16:07:41,633 [218  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: d1cfd983-7176-41c2-b17a-1441c012b408
+WARN  2018-09-13 16:07:41,677 [173  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 16:07:42,035 [201  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"455d43fd-31ef-411d-b40e-36e1c4c85f06","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T16:07:42.0334573+08:00","Properties":{}}
+DEBUG 2018-09-13 16:07:42,052 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 455d43fd-31ef-411d-b40e-36e1c4c85f06
+DEBUG 2018-09-13 16:09:57,496 [171  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 455d43fd-31ef-411d-b40e-36e1c4c85f06
+WARN  2018-09-13 16:09:57,551 [197  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 16:09:57,899 [198  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e36a4da8-f7d3-432b-9434-ff126357523b","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T16:09:57.8964943+08:00","Properties":{}}
+DEBUG 2018-09-13 16:09:57,903 [173  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e36a4da8-f7d3-432b-9434-ff126357523b
+DEBUG 2018-09-13 16:10:35,125 [176  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: e36a4da8-f7d3-432b-9434-ff126357523b
+WARN  2018-09-13 16:10:35,269 [216  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-09-13 16:10:35,620 [184  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"1b03dbc5-e0c2-4503-9c1b-3184acfa89e6","IpAddress":"192.168.7.110","TenantId":1,"UserId":2,"ConnectTime":"2018-09-13T16:10:35.6187235+08:00","Properties":{}}
+DEBUG 2018-09-13 16:10:35,625 [216  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 1b03dbc5-e0c2-4503-9c1b-3184acfa89e6

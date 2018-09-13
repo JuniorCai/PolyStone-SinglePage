@@ -78,10 +78,10 @@ namespace PolyStone.Web.Controllers
         }
 
 
-        public async Task<JsonResult> SearchCommunity(GetCommunityInput searchModel)
-        {
-
-        }
+//        public async Task<JsonResult> SearchCommunity(GetCommunityInput searchModel)
+//        {
+//
+//        }
 
     }
 }

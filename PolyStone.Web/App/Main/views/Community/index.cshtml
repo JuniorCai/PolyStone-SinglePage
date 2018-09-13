@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped" style="margin-bottom: 40px">
                     <thead>
                         <tr>
                             <th><input type="checkbox" /></th>
@@ -33,53 +33,52 @@
                             <th>@L("CreationTime")</th>
                             <th>@L("Actions")</th>
                         </tr>
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
-                        <td><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
-                        <td>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
+                            <td><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
+                            <td>
 
-                            <select ng-model="selectedCategory" >
-                                <option value="-1" >选择类目</option>
-                                <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
-                            </select>
-                        </td>
-                        <td style="width: 8%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
-                        <td></td>
-                        <td>
-
-                        </td>
-                        <td>
-                            <select ng-model="selectedVerify">
-                                <option value="-1" >审核状态</option>
-                                <option value="0">待审核</option>
-                                <option value="1">已通过</option>
-                                <option value="2">未通过</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select ng-model="selectedRelease">
-                                <option value="-1" >发布状态</option>
-                                <option value="0">未发布</option>
-                                <option value="1">发布中</option>
-                                <option value="2">已下线</option>
-                                <option value="3">过期</option>
-                            </select>
-                        </td>
-                        <td style="width: 15%">
-                            <input type="text" class="ui-datepicker" id="fromDate"/>
-                            <input type="text" class="ui-datepicker" id="endDate"/>
-                        </td>
-                        <td><div class="margin-bottom-5">
-                                <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
-                                    <i class="fa fa-search"></i> 查找
+                                <select ng-model="selectedCategory">
+                                    <option value="-1">选择类目</option>
+                                    <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                </select>
+                            </td>
+                            <td style="width: 8%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <select ng-model="selectedVerify">
+                                    <option value="-1">审核状态</option>
+                                    <option value="0">待审核</option>
+                                    <option value="1">已通过</option>
+                                    <option value="2">未通过</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select ng-model="selectedRelease">
+                                    <option value="-1">发布状态</option>
+                                    <option value="0">未发布</option>
+                                    <option value="1">发布中</option>
+                                    <option value="2">已下线</option>
+                                    <option value="3">过期</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%">
+                                <input type="text" class="ui-datepicker" id="fromDate" />
+                                <input type="text" class="ui-datepicker" id="endDate" />
+                            </td>
+                            <td>
+                                <div class="margin-bottom-5">
+                                    <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
+                                        <i class="fa fa-search"></i> 查找
+                                    </button>
+                                </div>
+                                <button class="btn btn-sm red btn-outline filter-cancel">
+                                    <i class="fa fa-times"></i> 重置
                                 </button>
-                            </div>
-                            <button class="btn btn-sm red btn-outline filter-cancel">
-                                <i class="fa fa-times"></i> 重置
-                            </button>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="community in vm.communityList">
@@ -88,7 +87,7 @@
                             <td>{{community.title}}</td>
                             <td>{{community.communityCategory.categoryName}}</td>
                             <td>{{community.user.userName}}</td>
-                            <td><img ng-src="{{community.imgUrls.split(',')[0]}}" class="listImg"/></td>
+                            <td><img ng-src="{{community.imgUrls.split(',')[0]}}" class="listImg" /></td>
                             <td>{{community.refreshDate | date:'yyyy-MM-dd hh:mm:ss'}} </td>
                             <td ng-if="community.verifyStatus==0">审核中</td>
                             <td ng-if="community.verifyStatus==1">通过</td>
@@ -110,8 +109,11 @@
                         </tr>
                     </tbody>
                 </table>
+                <ul  uib-pagination total-items="totalItems" ng-model="pageIndex" max-size="maxPageNumber" first-text="第一页"
+                                previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="true"
+                                ng-change="vm.getCommunityList(pageIndex)" items-per-page="pageSize"></ul>
 
-                <a ui-sref="communityAdd"  class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" >
+                <a ui-sref="communityAdd" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right">
                     <i class="material-icons">add</i>
                 </a>
             </div>
