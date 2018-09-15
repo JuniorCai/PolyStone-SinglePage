@@ -11,6 +11,7 @@ using Abp.Linq.Extensions;
 using PolyStone.Communities.Dtos;
 using PolyStone.CustomDomain.Communities;
 using PolyStone.CustomDomain.Communities.Authorization;
+using PolyStone.CustomDomain.Products;
 
 namespace PolyStone.Communities
 {
@@ -59,7 +60,14 @@ namespace PolyStone.Communities
 
             var query = _communityRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
-
+            query = query.WhereIf(input.Id > 0, c => c.Id == input.Id)
+                .WhereIf(string.IsNullOrEmpty(input.Title), c => c.Title.Contains(input.Title))
+                .WhereIf(input.CommunityCategoryId > 0, c => c.CommunityCategoryId == input.CommunityCategoryId)
+                .WhereIf(input.UserId > 0, c => c.UserId == input.UserId)
+                .WhereIf(input.VerifyStatus != VerifyStatus.Invalid, c => c.VerifyStatus == input.VerifyStatus)
+                .WhereIf(input.ReleaseStatus != ReleaseStatus.Invalid, c => c.ReleaseStatus == input.ReleaseStatus)
+                .WhereIf(input.FromTime != null, c => c.CreationTime >= input.EndTime)
+                .WhereIf(input.EndTime != null, c => c.CreationTime <= input.EndTime);
             var communityCount = await query.CountAsync();
 
             var communitys = await query

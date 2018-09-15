@@ -35,13 +35,16 @@ namespace PolyStone.CustomDomain.Products
 
     public enum VerifyStatus
     {
-        NoPass = -1,
-        Pendding = 0,
-        Pass = 1
+        Invalid = -1,
+        Pending = 0,
+        Pass = 1,
+        NoPass = 2
+
     }
 
     public enum ReleaseStatus
     {
+        Invalid = -1,
         UnPublished = 0,
         Publish = 1,
         OffLine = 2,

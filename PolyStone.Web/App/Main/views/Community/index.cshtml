@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" /></td>
-                            <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
+                            <td style="width: 8%"><input type="text" name="communityId" ng-model="vm.search.communityId" required maxlength="32" class="form-control"></td>
                             <td><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
                             <td>
 
@@ -44,7 +44,7 @@
                                     <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
                                 </select>
                             </td>
-                            <td style="width: 8%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                            <td style="width: 8%"><input type="text" name="userId" ng-model="vm.search.userId" required maxlength="32" class="form-control"></td>
                             <td></td>
                             <td></td>
                             <td>
@@ -65,12 +65,12 @@
                                 </select>
                             </td>
                             <td style="width: 15%">
-                                <input type="text" class="ui-datepicker" id="fromDate" />
-                                <input type="text" class="ui-datepicker" id="endDate" />
+                                <input type="text" class="ui-datepicker" id="fromDate" ng-model="vm.search.fromDate" />
+                                <input type="text" class="ui-datepicker" id="endDate" ng-model="endDate" />
                             </td>
                             <td>
                                 <div class="margin-bottom-5">
-                                    <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
+                                    <button class="btn btn-sm green btn-outline filter-submit margin-bottom" ng-click="vm.getCommunityList(1)">
                                         <i class="fa fa-search"></i> 查找
                                     </button>
                                 </div>

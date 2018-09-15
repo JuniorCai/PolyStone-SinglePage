@@ -78,10 +78,23 @@ namespace PolyStone.Web.Controllers
         }
 
 
-//        public async Task<JsonResult> SearchCommunity(GetCommunityInput searchModel)
-//        {
-//
-//        }
+        public async Task<JsonResult> SearchCommunity(GetCommunityInput searchModel)
+        {
+            if (searchModel == null)
+            {
+                return Json(new { success = false, msg = "无效参数" });
+            }
+
+            try
+            {
+                await _communityAppService.GetPagedCommunitysAsync(searchModel);
+                return Json(new { success = true, msg = "" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, msg = "保存失败" });
+            }
+        }
 
     }
 }

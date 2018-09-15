@@ -7,6 +7,13 @@
             vm.categoryList = [];
 
             vm.communityList = [];
+            vm.search = {
+                communityId: 0,
+                title: "",
+                userId: 0,
+                fromDate: "",
+                endDate:"",
+            };
 
             $scope.selectedCategory = "-1";
             $scope.selectedVerify = "-1";
@@ -15,14 +22,11 @@
 
             //Pagination Config
             $scope.maxPageNumber = 6;
-            //$scope.totalItems = 0;
+            $scope.totalItems = 0;
             //每页显示条数(默认10条)
             $scope.pageSize =2;
 
             $scope.pageIndex = 1;
-            $scope.param = {};
-            $scope.data = {}; // 参数
-            $scope.data.param = $scope.param;
 
 
 
@@ -38,19 +42,26 @@
             }
 
 
-            vm.getCommunityList = function (page) {
-                var searchParams = {};
-
-                communityService.getPagedCommunitys
-                ({
-                    filterText: "",
+            vm.getCommunityList = function(page) {
+                var searchParams = {
+                    id: vm.search.communityId,
+                    title: vm.search.title,
+                    communityCategoryId: $scope.selectedCategory,
+                    userId: vm.search.userId,
+                    verifyStatus: $scope.selectedVerify,
+                    releaseStatus: $scope.selectedRelease,
+                    fromTime: vm.search.fromDate,
+                    endDate: vm.search.endDate,
+                    sorting: "CreationTime",
                     maxResultCount: $scope.pageSize,
                     skipCount: (page - 1) * $scope.pageSize,
-                    sorting: "CreationTime"
-                }).then(function(result) {
-                    vm.communityList = result.data.items;
-                    $scope.totalItems = result.data.totalCount;
-                });
+                };
+
+                communityService.getPagedCommunitys
+                    (searchParams).then(function(result) {
+                        vm.communityList = result.data.items;
+                        $scope.totalItems = result.data.totalCount;
+                    });
             };
 
             vm.gotoDetail = function(itemId) {
