@@ -5011,9 +5011,14 @@ section.content {
     -moz-box-shadow: none !important;
     -ms-box-shadow: none !important;
     box-shadow: none !important; }
-
-.input-group.input-group-sm .input-group-addon i {
-  font-size: 14px; }
+    .input-group .form-control.datePicker {
+        padding: 5px 10px;
+        background-color: #eef1f5;
+        border: 1px solid #c2cad8;
+    }
+    .input-group.input-group-sm .input-group-addon i {
+        font-size: 14px;
+    }
 
 .input-group.input-group-sm .form-control {
   font-size: 12px; }

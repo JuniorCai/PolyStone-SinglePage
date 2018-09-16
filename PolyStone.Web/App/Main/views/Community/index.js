@@ -7,17 +7,7 @@
             vm.categoryList = [];
 
             vm.communityList = [];
-            vm.search = {
-                communityId: 0,
-                title: "",
-                userId: 0,
-                fromDate: "",
-                endDate:"",
-            };
-
-            $scope.selectedCategory = "-1";
-            $scope.selectedVerify = "-1";
-            $scope.selectedRelease = "-1";
+           
 
 
             //Pagination Config
@@ -31,6 +21,32 @@
 
 
             //Pagination Config End
+            function initParams() {
+                vm.search = {
+                    communityId: 0,
+                    title: "",
+                    userId: 0,
+                    fromDate: "",
+                    endDate: ""
+                };
+
+                $scope.selectedCategory = "-1";
+                $scope.selectedVerify = "-1";
+                $scope.selectedRelease = "-1";
+            }
+
+
+            function initPickers() {
+                //init date pickers
+                $('.date-picker').datepicker({
+                    rtl: false,
+                    autoclose: true,
+                    language: 'zh-CN',
+                    pickerPosition: 'top-right',
+                    format: 'yyyy-mm-dd'
+            });
+            }
+
 
             function getCategoryList() {
                 communityCategory.getPagedCommunityCategorys({
@@ -41,6 +57,9 @@
                 });
             }
 
+            vm.resetSearch = function() {
+                initParams();
+            };
 
             vm.getCommunityList = function(page) {
                 var searchParams = {
@@ -51,7 +70,7 @@
                     verifyStatus: $scope.selectedVerify,
                     releaseStatus: $scope.selectedRelease,
                     fromTime: vm.search.fromDate,
-                    endDate: vm.search.endDate,
+                    endTime: vm.search.endDate,
                     sorting: "CreationTime",
                     maxResultCount: $scope.pageSize,
                     skipCount: (page - 1) * $scope.pageSize,
@@ -87,6 +106,8 @@
                 getCommunityList();
             };
 
+            initPickers();
+            initParams();
             vm.getCommunityList($scope.pageIndex);
             getCategoryList();
         }

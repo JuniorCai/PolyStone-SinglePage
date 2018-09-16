@@ -65,6 +65,7 @@ namespace PolyStone.Web
                     .Include("~/css/materialize.css", new CssRewriteUrlTransform())
                     .Include("~/css/style.css", new CssRewriteUrlTransform())
                     .Include("~/css/bootstrap-fileinput.css", new CssRewriteUrlTransform())
+                    .Include("~/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css", new CssRewriteUrlTransform())
                     .Include("~/css/components.css", new CssRewriteUrlTransform())
                     .Include("~/css/themes/all-themes.css", new CssRewriteUrlTransform())
                 );
@@ -98,6 +99,7 @@ namespace PolyStone.Web
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
                         "~/lib/AngularFileUpload/angular-file-upload.js",
+                        "~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js",
 
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",

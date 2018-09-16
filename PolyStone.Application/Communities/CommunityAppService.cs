@@ -66,7 +66,7 @@ namespace PolyStone.Communities
                 .WhereIf(input.UserId > 0, c => c.UserId == input.UserId)
                 .WhereIf(input.VerifyStatus != VerifyStatus.Invalid, c => c.VerifyStatus == input.VerifyStatus)
                 .WhereIf(input.ReleaseStatus != ReleaseStatus.Invalid, c => c.ReleaseStatus == input.ReleaseStatus)
-                .WhereIf(input.FromTime != null, c => c.CreationTime >= input.EndTime)
+                .WhereIf(input.FromTime != null, c => c.CreationTime >= input.FromTime)
                 .WhereIf(input.EndTime != null, c => c.CreationTime <= input.EndTime);
             var communityCount = await query.CountAsync();
 
