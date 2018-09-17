@@ -80,6 +80,15 @@ namespace PolyStone.Companies.Dtos
         [Range(1, 11)]
         public   int  RegionId { get; set; }
 
+
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        [DisplayName("是否启用")]
+        [Required]
+        public bool IsActive { get; set; }
+
+
         /// <summary>
         /// 企业地址
         /// </summary>

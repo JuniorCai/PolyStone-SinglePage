@@ -52,6 +52,7 @@ namespace PolyStone.Authorization.Users
     {
         Admin = 0,
         Person = 1,
-        Company = 2
+        Company = 2,
+        VipCompany = 3
     }
 }

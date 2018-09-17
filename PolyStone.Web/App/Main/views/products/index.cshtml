@@ -26,46 +26,56 @@
                             <th>@L("Title")</th>
                             <th>@L("CategoryName")</th>
                             <th>@L("CompanyName")</th>
-                            <th>产品图片</th>
+                            <th>图片</th>
                             <th>@L("VerifyStatus")</th>
                             <th>@L("ReleaseStatus")</th>
                             <th>@L("CreationTime")</th>
                             <th>@L("Actions")</th>
                         </tr>
-                    <tr>
-                        <th><input type="checkbox" /></th>
-                        <td><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
-                        <td><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
-                        <td>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
+                            <td style="width: 15%"><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
+                            <td>
 
-                            <select ng-model="selectedCategory" >
-                                <option value="0" selected="selected">选择类目</option>
-                                <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
-                            </select>
-                        </td>
-                        <td><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
-                        <td></td>
-                        <td>
-                            <select ng-model="selectedVerify">
-                                <option value="0">待审核</option>
-                                <option value="1">已通过</option>
-                                <option value="2">未通过</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select ng-model="selectedRelease">
-                                <option value="0">未发布</option>
-                                <option value="1">发布中</option>
-                                <option value="2">已下线</option>
-                                <option value="3">过期</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" class="ui-datepicker" id="fromDate"/>
-                            <input type="text" class="ui-datepicker" id="endDate"/>
-                        </td>
-                        <td></td>
-                    </tr>
+                                <select ng-model="selectedCategory">
+                                    <option value="-1" selected="selected">选择类目</option>
+                                    <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                            <td></td>
+                            <td style="width: 15%">
+                                <div class="input-group date-picker date">
+                                    <input type="text" class="form-control datePicker" ng-model="vm.search.fromDate" placeholder="选择起始日期">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+                                <div class="input-group date-picker date">
+                                    <input type="text" class="form-control datePicker" ng-model="vm.search.endDate" placeholder="选择结束日期">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+
+                            </td>
+                            <td>
+                                <select ng-model="selectedVerify">
+                                    <option value="-1">审核状态</option>
+                                    <option value="0">待审核</option>
+                                    <option value="1">已通过</option>
+                                    <option value="2">未通过</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select ng-model="selectedRelease">
+                                    <option value="-1">发布状态</option>
+                                    <option value="0">未发布</option>
+                                    <option value="1">发布中</option>
+                                    <option value="2">已下线</option>
+                                    <option value="3">过期</option>
+                                </select>
+                            </td>
+
+                            <td></td>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="product in vm.productList">

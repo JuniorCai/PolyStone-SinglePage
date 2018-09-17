@@ -10,6 +10,34 @@
 
             $scope.selectedCategory = "0";
 
+            function initParams() {
+                vm.search = {
+                    productId: 0,
+                    title: "",
+                    categoryId:"-1",
+                    companyId: 0,
+                    verifyStatus: "-1",
+                    releaseStatus:"-1",
+                    fromDate: "",
+                    endDate: ""
+                };
+
+                $scope.selectedCategory = "-1";
+                $scope.selectedVerify = "-1";
+                $scope.selectedRelease = "-1";
+            }
+
+            function initPickers() {
+                //init date pickers
+                $('.date-picker').datepicker({
+                    rtl: false,
+                    autoclose: true,
+                    language: 'zh-CN',
+                    pickerPosition: 'top-right',
+                    format: 'yyyy-mm-dd'
+                });
+            }
+
             function getCategoryList() {
                 categoryService.getPagedCategorys({
                     filterText: "",
@@ -74,6 +102,9 @@
                 getProductList();
             };
 
+
+            initParams();
+            initPickers();
             getProductList();
             getCategoryList();
         }

@@ -4,6 +4,7 @@ using PolyStone.Authorization;
 using PolyStone.CustomDomain.Categories.Authorization;
 using PolyStone.CustomDomain.Communities.Authorization;
 using PolyStone.CustomDomain.CommunityCategories.Authorization;
+using PolyStone.CustomDomain.Companies.Authorization;
 using PolyStone.CustomDomain.Products.Authorization;
 using PolyStone.CustomDomain.Regions.Authorization;
 
@@ -102,6 +103,21 @@ namespace PolyStone.Web
                         )
                     )
                 ).AddItem(
+                    new MenuItemDefinition(
+                        "CompanyManagement",
+                        L("CompanyManagement"),
+                        icon: "fa fa-cogs"
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Company",
+                            L("Company"),
+                            url: "#company",
+                            icon: "fa fa-users",
+                            requiredPermissionName: CompanyAppPermissions.Company
+                        )
+                    )
+                )
+                .AddItem(
                     new MenuItemDefinition(
                         "Configuration",
                         L("Configuration"),

@@ -44,7 +44,7 @@
                     language: 'zh-CN',
                     pickerPosition: 'top-right',
                     format: 'yyyy-mm-dd'
-            });
+                });
             }
 
 

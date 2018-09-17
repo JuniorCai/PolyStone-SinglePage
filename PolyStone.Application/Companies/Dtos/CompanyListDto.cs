@@ -19,7 +19,7 @@ using PolyStone.CustomDomain.Companies;
 	#endregion
 namespace PolyStone.Companies.Dtos
 {
-	/// <summary>
+    /// <summary>
     /// 企业表列表Dto
     /// </summary>
     [AutoMapFrom(typeof(Company))]
@@ -29,55 +29,72 @@ namespace PolyStone.Companies.Dtos
         /// 企业LOGO
         /// </summary>
         [DisplayName("企业LOGO")]
-        public      string Logo { get; set; }
+        public string Logo { get; set; }
+
         /// <summary>
         /// 企业名称
         /// </summary>
         [DisplayName("企业名称")]
-        public      string CompanyName { get; set; }
+        public string CompanyName { get; set; }
+
         /// <summary>
         /// 企业类型
         /// </summary>
         [DisplayName("企业类型")]
-        public      CompanyType CompanyType { get; set; }
-		/// <summary>
+        public CompanyType CompanyType { get; set; }
+
+        /// <summary>
         /// 企业类型(枚举描述)
         /// </summary>
         public string CompanyTypeName { get; set; }
+
         /// <summary>
         /// 会员ID
         /// </summary>
         [DisplayName("会员ID")]
-        public      int MemberId { get; set; }
+        public int MemberId { get; set; }
+
         /// <summary>
         /// 是否已认证
         /// </summary>
         [DisplayName("是否已认证")]
-        public      bool IsAuthed { get; set; }
+        public bool IsAuthed { get; set; }
+
         /// <summary>
         /// 主营范围
         /// </summary>
         [DisplayName("主营范围")]
-        public      string Bussiness { get; set; }
+        public string Bussiness { get; set; }
+
         /// <summary>
         /// 企业简介
         /// </summary>
         [DisplayName("企业简介")]
-        public      string Introduction { get; set; }
+        public string Introduction { get; set; }
+
         /// <summary>
         /// 地区ID
         /// </summary>
         [DisplayName("地区ID")]
-        public      int RegionId { get; set; }
+        public int RegionId { get; set; }
+
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        [DisplayName("是否启用")]
+        public bool IsActive { get; set; }
+
+
         /// <summary>
         /// 企业地址
         /// </summary>
         [DisplayName("企业地址")]
-        public      string Address { get; set; }
+        public string Address { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>
         [DisplayName("创建时间")]
-        public      DateTime CreationTime { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }

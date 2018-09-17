@@ -28,6 +28,8 @@ namespace PolyStone.CustomDomain.Companies
 
         public string Address { get; set; }
 
+        public bool IsActive { get; set; }
+
         public ICollection<Product> Products { get; set; }
     }
 

@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201809101405561_AlterCommunity-User.Designer.cs">
       <DependentUpon>201809101405561_AlterCommunity-User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809170631263_AddCompanyCol-IsActive.cs" />
+    <Compile Include="Migrations\201809170631263_AddCompanyCol-IsActive.Designer.cs">
+      <DependentUpon>201809170631263_AddCompanyCol-IsActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -288,18 +292,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808270754173_AlterCategory-IndustryCode.resx">
       <DependentUpon>201808270754173_AlterCategory-IndustryCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809061329585_AlterProductRelation.resx">
       <DependentUpon>201809061329585_AlterProductRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809090614582_AlterCommunityRelation.resx">
       <DependentUpon>201809090614582_AlterCommunityRelation.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809091129466_AlterCommunityImgUrls.resx">
       <DependentUpon>201809091129466_AlterCommunityImgUrls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809101405561_AlterCommunity-User.resx">
       <DependentUpon>201809101405561_AlterCommunity-User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809170631263_AddCompanyCol-IsActive.resx">
+      <DependentUpon>201809170631263_AddCompanyCol-IsActive.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

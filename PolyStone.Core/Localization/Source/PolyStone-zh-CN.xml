@@ -75,6 +75,7 @@
 
     <!-- 个人会员信息表管理 -->
     <text name="Member" value="个人会员信息" />
+    <text name="MemberLevel" value="会员类别" />
     <text name="MemberHeaderInfo" value="个人会员信息管理列表" />
     <text name="CreateMember" value="新增个人会员信息" />
     <text name="EditMember" value="编辑个人会员信息" />
@@ -153,6 +154,7 @@
 
 
     <!-- 企业表管理 -->
+    <text name="CompanyManagement" value="企业管理" />
     <text name="Company" value="企业" />
     <text name="CompanyHeaderInfo" value="企业管理列表" />
     <text name="CreateCompany" value="新增企业" />

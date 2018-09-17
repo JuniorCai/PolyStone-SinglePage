@@ -16,15 +16,20 @@
                     createMenuItem(App.localize("Roles"), "Pages.Roles", "", "roles")
                 ]),
 
-                createMenuItem(App.localize("ProductManagement"), "", "menu", "", [
+                createMenuItem(App.localize("ProductManagement"), "", "storage", "", [
                     createMenuItem(App.localize("Product"), "Pages.Product", "", "products"),
                     createMenuItem(App.localize("Category"), "Pages.Category", "", "category")
                     //createMenuItem(App.localize("Users"), "Pages.Users", "people", "users"),
                 ]),
-                createMenuItem(App.localize("CommunityManagement"), "", "menu", "", [
+                createMenuItem(App.localize("CommunityManagement"), "", "public", "", [
                     createMenuItem(App.localize("Community"), "Pages.Community", "", "community"),
                     //createMenuItem(App.localize("Users"), "Pages.Users", "people", "users"),
                     createMenuItem(App.localize("CommunityCategory"), "Pages.CommunityCategory", "", "communityCategory")
+                ]),
+                createMenuItem(App.localize("CompanyManagement"), "", "business", "", [
+                    createMenuItem(App.localize("Company"), "Pages.Company", "", "company")//,
+                    //createMenuItem(App.localize("Users"), "Pages.Users", "people", "users"),
+                    //createMenuItem(App.localize("CommunityCategory"), "Pages.CommunityCategory", "", "communityCategory")
                 ]),
                 createMenuItem(App.localize("Configuration"), "", "settings", "", [
                     createMenuItem(App.localize("Region"), "Pages.Region", "", "regions")

@@ -472,6 +472,7 @@
     <Content Include="App\Main\views\community\edit.js" />
     <Content Include="App\Main\views\community\createCommunity.js" />
     <Content Include="App\Main\views\community\index.js" />
+    <Content Include="App\Main\views\company\createCompany.js" />
     <Content Include="App\Main\views\company\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
@@ -487,6 +488,9 @@
     <Content Include="App\Main\views\products\createProduct.js" />
     <Content Include="App\Main\views\products\editModel.js" />
     <Content Include="App\Main\views\products\index.js" />
+    <Content Include="App\Main\views\regions\createModal.js" />
+    <Content Include="App\Main\views\regions\editModal.js" />
+    <Content Include="App\Main\views\regions\index.js" />
     <Content Include="App\Main\views\roles\editModal.js" />
     <Content Include="App\Main\views\roles\createModal.js" />
     <Content Include="App\Main\views\roles\index.js" />
@@ -2835,6 +2839,10 @@
     <Content Include="App\Main\views\community\createCommunity.cshtml" />
     <Content Include="App\Main\views\community\index.cshtml" />
     <Content Include="App\Main\views\community\edit.cshtml" />
+    <Content Include="App\Main\views\regions\createModal.cshtml" />
+    <Content Include="App\Main\views\regions\editModal.cshtml" />
+    <Content Include="App\Main\views\regions\index.cshtml" />
+    <Content Include="App\Main\views\company\createCompany.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -3843,7 +3851,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Main\views\regions\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Resource\" />

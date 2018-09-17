@@ -4960,7 +4960,7 @@ Dropdown Menu
     display: block;
     clear: both;
     font-weight: 300;
-    line-height: 18px;
+    line-height: 25px;
     white-space: nowrap; }
     .dropdown-menu > li > a > [class^="fa-"],
     .dropdown-menu > li > a > [class*=" fa-"] {

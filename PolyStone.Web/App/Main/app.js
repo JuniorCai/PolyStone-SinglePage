@@ -113,6 +113,16 @@
             }
 
 
+            if (abp.auth.hasPermission('Pages.Company')) {
+                $stateProvider
+                    .state('company', {
+                        url: '/company',
+                        templateUrl: '/App/Main/views/company/index.cshtml'//,
+                        //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/company');
+            }
+
             if (abp.auth.hasPermission('Pages.Region')) {
                 $stateProvider
                     .state('regions', {
@@ -120,7 +130,7 @@
                         templateUrl: '/App/Main/views/regions/index.cshtml'//,
                         //menu: 'Regions' //Matches to name of 'Regions' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/products');
+                $urlRouterProvider.otherwise('/regions');
             }
 
             if (abp.auth.hasPermission('Pages.Product')) {
@@ -142,7 +152,7 @@
                         controller:'app.views.product.createProduct'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/products/add');
+                $urlRouterProvider.otherwise('/');
             }
 
             $stateProvider
