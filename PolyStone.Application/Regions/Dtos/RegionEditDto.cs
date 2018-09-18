@@ -36,6 +36,14 @@ namespace PolyStone.Regions.Dtos
         public   int  ParentId { get; set; }
 
         /// <summary>
+        /// 编号
+        /// </summary>
+        [DisplayName("编号")]
+        [Required]
+        public string RegionCode { get; set; }
+
+
+        /// <summary>
         /// 是否显示
         /// </summary>
         [DisplayName("是否显示")]

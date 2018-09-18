@@ -8,11 +8,11 @@
             vm.cityList = [];
             vm.areaList = [];
 
-            function getRegionList(code,type) {
+            function getRegionList(code, type) {
                 regionService.getPagedRegions({
                     regionCode: code,
                     sorting: "id"
-                }).then(function (result) {
+                }).then(function(result) {
                     if (type == "province") {
                         vm.provinceList = result.data.items;
                     } else if (type == "city") {
@@ -21,7 +21,7 @@
                         vm.areaList = result.data.items;
                     }
                 });
-            }
+            };
 
 
             vm.openRegionEditModal = function (region) {
@@ -61,6 +61,24 @@
 
             vm.refresh = function () {
                 getRegionList("", "province");
+            };
+
+            vm.getRegionListByType = function ($event, type) {
+                var region = {};
+                var obj = {};
+                switch (type) {
+                    case "city":
+                        region = $event.province;
+                        break;
+                    case "area":
+                        region = $event.city;
+                        break;
+                    default:
+                        break;
+                }
+                $("#item_" + region.regionCode).addClass("active");
+                $("#item_" + region.regionCode).parent().siblings().find("a").removeClass("active");
+                getRegionList(region.regionCode, type);
             };
 
             getRegionList("","province");

@@ -8059,3 +8059,11 @@ table.table > thead th, table.table > thead td {
     text-align: center;
     vertical-align: middle;
 }
+
+div.body ul {
+    padding: 0;
+}
+
+div.body ul li {
+    list-style: none;
+}

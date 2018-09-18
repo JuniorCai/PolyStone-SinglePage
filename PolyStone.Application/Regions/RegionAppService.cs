@@ -60,7 +60,15 @@ namespace PolyStone.Regions
             var query = _regionRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
-            query = query.WhereIf(string.IsNullOrEmpty(input.RegionCode), r => r.ParentId == 1 && r.RegionCode != "100000");
+            if (string.IsNullOrEmpty(input.RegionCode))
+            {
+                query = query.Where(r => r.ParentId == 1 && r.RegionCode != "100000");
+            }
+            else
+            {
+                int parentCode = int.Parse(input.RegionCode);
+                query = query.Where(r => r.ParentId == parentCode);
+            }
 
             var regionCount = await query.CountAsync();
 
