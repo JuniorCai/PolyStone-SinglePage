@@ -264,6 +264,14 @@
     <Compile Include="Migrations\201809170631263_AddCompanyCol-IsActive.Designer.cs">
       <DependentUpon>201809170631263_AddCompanyCol-IsActive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809180209568_AddRegion-Index.cs" />
+    <Compile Include="Migrations\201809180209568_AddRegion-Index.Designer.cs">
+      <DependentUpon>201809180209568_AddRegion-Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809180218520_alterRegionCol-Sort.cs" />
+    <Compile Include="Migrations\201809180218520_alterRegionCol-Sort.Designer.cs">
+      <DependentUpon>201809180218520_alterRegionCol-Sort.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -310,6 +318,12 @@
     <EmbeddedResource Include="Migrations\201809170631263_AddCompanyCol-IsActive.resx">
       <DependentUpon>201809170631263_AddCompanyCol-IsActive.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809180209568_AddRegion-Index.resx">
+      <DependentUpon>201809180209568_AddRegion-Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809180218520_alterRegionCol-Sort.resx">
+      <DependentUpon>201809180218520_alterRegionCol-Sort.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

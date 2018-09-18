@@ -36,14 +36,6 @@ namespace PolyStone.Regions.Dtos
         public   int  ParentId { get; set; }
 
         /// <summary>
-        /// 排序
-        /// </summary>
-        [DisplayName("排序")]
-        [Required]
-        [Range(1, 11)]
-        public   int  Sort { get; set; }
-
-        /// <summary>
         /// 是否显示
         /// </summary>
         [DisplayName("是否显示")]

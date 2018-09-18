@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace PolyStone.CustomDomain.Regions
     {
         public string RegionName { get; set; }
 
+        public string RegionCode { get; set; }
+
         public int ParentId { get; set; }
 
-        public int Sort { get; set; }
-
         public bool IsShow { get; set; }
+
+        public ICollection<Region> ChildrenRegions { get; set; }
     }
 }

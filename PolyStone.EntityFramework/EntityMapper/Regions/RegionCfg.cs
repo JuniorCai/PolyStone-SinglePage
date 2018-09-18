@@ -19,6 +19,7 @@ namespace PolyStone.EntityMapper.Regions
 
             // 地区名称
             Property(a => a.RegionName).HasMaxLength(50);
+
         }
     }
 }
