@@ -11,9 +11,9 @@ namespace PolyStone.Regions.Dtos
         //DOTO:在这里增加查询参数
 
 		/// <summary>
-	    /// 模糊查询参数
+	    /// 地区编码
 		/// </summary>
-		public string FilterText { get; set; }
+		public string RegionCode { get; set; }
 
 		/// <summary>
 	    /// 用于排序的默认值

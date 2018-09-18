@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201809180218520_alterRegionCol-Sort.Designer.cs">
       <DependentUpon>201809180218520_alterRegionCol-Sort.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809180656419_AlterRegion.cs" />
+    <Compile Include="Migrations\201809180656419_AlterRegion.Designer.cs">
+      <DependentUpon>201809180656419_AlterRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -324,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809180218520_alterRegionCol-Sort.resx">
       <DependentUpon>201809180218520_alterRegionCol-Sort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809180656419_AlterRegion.resx">
+      <DependentUpon>201809180656419_AlterRegion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

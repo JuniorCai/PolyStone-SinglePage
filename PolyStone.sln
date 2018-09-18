@@ -30,6 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyStone.Migrator", "Tools
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{748D381A-CED5-419C-9826-B632652C0999}"
 	ProjectSection(SolutionItems) = preProject
+		sql\Region表.sql = sql\Region表.sql
 		sql\企业行业分类.sql = sql\企业行业分类.sql
 		sql\供应产品行业分类.sql = sql\供应产品行业分类.sql
 		sql\地区表.sql = sql\地区表.sql

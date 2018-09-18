@@ -60,6 +60,8 @@ namespace PolyStone.Regions
             var query = _regionRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
+            query = query.WhereIf(string.IsNullOrEmpty(input.RegionCode), r => r.ParentId == 1 && r.RegionCode != "100000");
+
             var regionCount = await query.CountAsync();
 
             var regions = await query
@@ -107,7 +109,7 @@ namespace PolyStone.Regions
 
             return entity.MapTo<RegionListDto>();
         }
-        
+
 
 
         /// <summary>
@@ -174,7 +176,6 @@ namespace PolyStone.Regions
         }
 
         #endregion
-
         
     }
 }

@@ -1,35 +1,28 @@
 ﻿(function () {
     angular.module('app').controller('app.views.region.index', [
-        '$scope', '$uibModal', 'abp.services.app.region',
-        function ($scope, $uibModal, regionService) {
+        '$scope', 'abp.services.app.region',
+        function ($scope, regionService) {
             var vm = this;
 
-            vm.regionList = [];
+            vm.provinceList = [];
+            vm.cityList = [];
+            vm.areaList = [];
 
-            function getRegionList() {
+            function getRegionList(code,type) {
                 regionService.getPagedRegions({
-                    filterText: "",
-                    sorting: "CreationTime"
+                    regionCode: code,
+                    sorting: "id"
                 }).then(function (result) {
-                    vm.regionList = result.data.items;
+                    if (type == "province") {
+                        vm.provinceList = result.data.items;
+                    } else if (type == "city") {
+                        vm.cityList = result.data.items;
+                    } else {
+                        vm.areaList = result.data.items;
+                    }
                 });
             }
 
-            vm.openRegionCreationModal = function () {
-                var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/region/createModal.cshtml',
-                    controller: 'app.views.region.createModal as vm',
-                    backdrop: 'static'
-                });
-
-                modalInstance.rendered.then(function () {
-                    $.AdminBSB.input.activate();
-                });
-
-                modalInstance.result.then(function () {
-                    getRegionList();
-                });
-            };
 
             vm.openRegionEditModal = function (region) {
                 var modalInstance = $uibModal.open({
@@ -67,10 +60,10 @@
             };
 
             vm.refresh = function () {
-                getRegionList();
+                getRegionList("", "province");
             };
 
-            getRegionList();
+            getRegionList("","province");
         }
     ]);
 })();
