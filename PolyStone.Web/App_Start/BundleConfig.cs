@@ -67,6 +67,7 @@ namespace PolyStone.Web
                     .Include("~/css/bootstrap-fileinput.css", new CssRewriteUrlTransform())
                     .Include("~/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css", new CssRewriteUrlTransform())
                     .Include("~/css/components.css", new CssRewriteUrlTransform())
+                    .Include("~/lib/bootstrap-select/dist/css/bootstrap-select.css",new CssRewriteUrlTransform())
                     .Include("~/css/themes/all-themes.css", new CssRewriteUrlTransform())
                 );
 

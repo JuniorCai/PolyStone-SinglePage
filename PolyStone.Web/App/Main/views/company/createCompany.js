@@ -10,9 +10,9 @@
             };
             vm.categoryList = [];
             
-            var uploader = $scope.fileUploader = new FileUploader({
+            var uploader = $scope.fileUploader1 = $scope.fileUploader = new FileUploader({
                 url: "/Resource/Upload",
-                queueLimit: 6,
+                queueLimit: 1,
                 headers: {
                     'x-xsrf-token': abp.security.antiForgery.getToken()
                 }
@@ -35,7 +35,7 @@
 
 
             uploader.onAfterAddingAll = function() {
-                if (this.queue.length == 6) {
+                if (this.queue.length == 1) {
                     $("#uploadDiv").hide();
                 } else {
                     $("#uploadDiv").show();

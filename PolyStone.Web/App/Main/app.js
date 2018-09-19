@@ -123,6 +123,17 @@
                 $urlRouterProvider.otherwise('/company');
             }
 
+            if (abp.auth.hasPermission('Pages.Company.CreateCompany')) {
+                $stateProvider
+                    .state('companyAdd', {
+                        url: '/company/add',
+                        templateUrl: '/App/Main/views/company/createCompany.cshtml',
+                        controller: 'app.views.company.createCompany'
+                        //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/company');
+            }
+
             if (abp.auth.hasPermission('Pages.Region')) {
                 $stateProvider
                     .state('regions', {

@@ -33,6 +33,11 @@
                 getCompanyList();
             };
 
+            vm.goToCompanyDetail = function (path) {
+                $location.path(path);
+            };
+
+
             getCompanyList();
         }
     ]);
