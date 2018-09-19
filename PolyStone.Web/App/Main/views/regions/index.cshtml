@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span>省份</span>
                     <ul >
                         <li ng-repeat="province in vm.provinceList">
@@ -26,19 +26,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span>城市</span>
                     <ul>
                         <li ng-repeat="city in vm.cityList">
-                            <a id="{{'item_'+city.regionCode}}" class="list-group-item" ng-click="vm.getRegionListByType(this,'area')">{{city.regionName}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <span>地区</span>
-                    <ul>
-                        <li ng-repeat="area in vm.areaList">
-                            <a id="{{'item_'+area.regionCode}}" class="list-group-item"  >{{area.regionName}}</a>
+                            <a id="{{'item_'+city.regionCode}}" class="list-group-item" >{{city.regionName}}</a>
                         </li>
                     </ul>
                 </div>
