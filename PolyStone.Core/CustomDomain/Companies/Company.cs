@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Products;
+using PolyStone.CustomDomain.Regions;
 
 namespace PolyStone.CustomDomain.Companies
 {
@@ -13,6 +16,8 @@ namespace PolyStone.CustomDomain.Companies
         public string Logo { get; set; }
 
         public string CompanyName { get; set; }
+
+        public string ShortName { get; set; }
 
         public CompanyType CompanyType { get; set; }
 
@@ -26,11 +31,16 @@ namespace PolyStone.CustomDomain.Companies
 
         public int RegionId { get; set; }
 
+        [ForeignKey("RegionId")]
+        public virtual Region Region { get; set; }
+
         public string Address { get; set; }
 
         public bool IsActive { get; set; }
 
         public ICollection<Product> Products { get; set; }
+
+        public ICollection<CompanyIndustry> Industries { get; set; }
     }
 
     public enum CompanyType

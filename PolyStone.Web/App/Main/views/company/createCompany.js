@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.createCompany', [
-        '$scope', 'abp.services.app.company', 'abp.services.app.category','FileUploader',
-        function ($scope, companyService, categoryService,FileUploader) {
+        '$scope', 'abp.services.app.company', 'abp.services.app.category','abp.services.app.region','FileUploader',
+        function ($scope, companyService, categoryService,regionService,FileUploader) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {
@@ -47,15 +47,20 @@
             };
 
 
-            vm.product = {
-                title: "",
-                categoryId: "0",
-                companyId:"",
-                imgUrls: "",
-                detail:"",
-                isActive: true,
-                isDeleted:false
+            vm.company = {
+                companyName: "",
+                shortName: "0",
+                companyType:1,
+                logo:"",
+                industry: "",
+                business:"",
+                regionId: true,
+                introduction: false,
+                isAuthed:true,
+                isActive:false
             };
+
+
 
             $scope.selectedCategory = "0";
 

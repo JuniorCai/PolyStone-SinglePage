@@ -225,7 +225,29 @@
     <text name="Business" value="主营范围" />
     <text name="AuthStauts" value="认证状态" />
 
-    
+
+    <!-- 企业行业表管理 -->
+    <text name="Industry" value="企业行业" />
+    <text name="IndustryHeaderInfo" value="企业行业表管理列表" />
+    <text name="CreateIndustry" value="新增企业行业表" />
+    <text name="EditIndustry" value="编辑企业行业表" />
+    <text name="DeleteIndustry" value="删除企业行业表" />
+    <text name="IndustryDeleteWarningMessage" value="企业行业表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="IndustryName" value="行业名称" />
+    <text name="IndustryCode" value="编号" />
+    <text name="ParentCode" value="父级编号" />
+
+
+    <!-- 企业行业关系表管理 -->
+    <text name="CompanyIndustry" value="企业行业关系表" />
+    <text name="CompanyIndustryHeaderInfo" value="企业行业关系表管理列表" />
+    <text name="CreateCompanyIndustry" value="新增企业行业关系表" />
+    <text name="EditCompanyIndustry" value="编辑企业行业关系表" />
+    <text name="DeleteCompanyIndustry" value="删除企业行业关系表" />
+    <text name="CompanyIndustryDeleteWarningMessage" value="企业行业关系表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="IndustryId" value="行业ID" />
     
     <!-- 地区表管理 -->
     <text name="Region" value="地区表" />

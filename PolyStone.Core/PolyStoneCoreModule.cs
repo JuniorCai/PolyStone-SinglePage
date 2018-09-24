@@ -16,6 +16,8 @@ using PolyStone.CustomDomain.Companies.Authorization;
 using PolyStone.CustomDomain.CompanyApplications.Authorization;
 using PolyStone.CustomDomain.CompanyAuths.Authorization;
 using PolyStone.CustomDomain.CompanyContacts.Authorization;
+using PolyStone.CustomDomain.CompanyIndustries.CompanyIndustries.Authorization;
+using PolyStone.CustomDomain.CompanyIndustries.Industries.Authorization;
 using PolyStone.CustomDomain.Members.Authorization;
 using PolyStone.CustomDomain.Products.Authorization;
 using PolyStone.CustomDomain.Regions.Authorization;
@@ -64,6 +66,9 @@ namespace PolyStone
             Configuration.Authorization.Providers.Add<CompanyAuthAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<CompanyApplicationAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<RegionAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<IndustryAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<CompanyIndustryAppAuthorizationProvider>();
+
             Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
 

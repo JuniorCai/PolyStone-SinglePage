@@ -220,6 +220,10 @@
     <Compile Include="CustomDomain\Companies\Authorization\CompanyAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Companies\Authorization\CompanyAppPermissions.cs" />
     <Compile Include="CustomDomain\Companies\Company.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\CompanyIndustries\Authorization\CompanyIndustryAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\CompanyIndustries\Authorization\CompanyIndustryAppPermissions.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\CompanyIndustries\CompanyIndustryManage.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\CompanyIndustry.cs" />
     <Compile Include="CustomDomain\Companies\CompanyManage.cs" />
     <Compile Include="CustomDomain\Companies\____CompanyReadme.cs" />
     <Compile Include="CustomDomain\CompanyApplications\Authorization\CompanyApplicationAppAuthorizationProvider.cs" />
@@ -237,6 +241,10 @@
     <Compile Include="CustomDomain\CompanyContacts\Contact.cs" />
     <Compile Include="CustomDomain\CompanyContacts\ContactManage.cs" />
     <Compile Include="CustomDomain\CompanyContacts\____ContactReadme.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\Industries\Authorization\IndustryAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\Industries\Authorization\IndustryAppPermissions.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\Industries\IndustryManage.cs" />
+    <Compile Include="CustomDomain\CompanyIndustries\Industry.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Members\Authorization\MemberAppPermissions.cs" />
     <Compile Include="CustomDomain\Members\Member.cs" />

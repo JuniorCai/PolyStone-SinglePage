@@ -3854,6 +3854,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Resource\" />
+    <Folder Include="_GeneratedCode\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolyStone.Application\PolyStone.Application.csproj">

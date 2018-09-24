@@ -233,6 +233,8 @@
     <Compile Include="EntityMapper\CompanyApplications\CompanyApplicationCfg.cs" />
     <Compile Include="EntityMapper\CompanyAuthes\CompanyAuthCfg.cs" />
     <Compile Include="EntityMapper\CompanyContacts\ContactCfg.cs" />
+    <Compile Include="EntityMapper\CompanyIndustries\CompanyIndustryCfg.cs" />
+    <Compile Include="EntityMapper\Industries\IndustryCfg.cs" />
     <Compile Include="EntityMapper\Members\MemberCfg.cs" />
     <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />
@@ -275,6 +277,10 @@
     <Compile Include="Migrations\201809180656419_AlterRegion.cs" />
     <Compile Include="Migrations\201809180656419_AlterRegion.Designer.cs">
       <DependentUpon>201809180656419_AlterRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809241432514_CreateIndustryTable.cs" />
+    <Compile Include="Migrations\201809241432514_CreateIndustryTable.Designer.cs">
+      <DependentUpon>201809241432514_CreateIndustryTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809180656419_AlterRegion.resx">
       <DependentUpon>201809180656419_AlterRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809241432514_CreateIndustryTable.resx">
+      <DependentUpon>201809241432514_CreateIndustryTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
