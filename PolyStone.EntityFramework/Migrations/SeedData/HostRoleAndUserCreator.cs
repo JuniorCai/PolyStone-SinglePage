@@ -16,6 +16,8 @@ using PolyStone.CustomDomain.Companies.Authorization;
 using PolyStone.CustomDomain.CompanyApplications.Authorization;
 using PolyStone.CustomDomain.CompanyAuths.Authorization;
 using PolyStone.CustomDomain.CompanyContacts.Authorization;
+using PolyStone.CustomDomain.CompanyIndustries.CompanyIndustries.Authorization;
+using PolyStone.CustomDomain.CompanyIndustries.Industries.Authorization;
 using PolyStone.CustomDomain.Products.Authorization;
 using PolyStone.CustomDomain.Regions.Authorization;
 
@@ -52,7 +54,8 @@ namespace PolyStone.Migrations.SeedData
                         new CommunityCategoryAppAuthorizationProvider(), new CompanyAppAuthorizationProvider(),
                         new CompanyApplicationAppAuthorizationProvider(), new CompanyAuthAppAuthorizationProvider(),
                         new ContactAppAuthorizationProvider(), new ProductAppAuthorizationProvider(),
-                        new RegionAppAuthorizationProvider())
+                        new RegionAppAuthorizationProvider(),new IndustryAppAuthorizationProvider(),
+                        new CompanyIndustryAppAuthorizationProvider())
                     .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host))
                     .ToList();
 

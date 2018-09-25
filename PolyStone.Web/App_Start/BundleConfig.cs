@@ -67,7 +67,7 @@ namespace PolyStone.Web
                     .Include("~/css/bootstrap-fileinput.css", new CssRewriteUrlTransform())
                     .Include("~/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css", new CssRewriteUrlTransform())
                     .Include("~/css/components.css", new CssRewriteUrlTransform())
-                    .Include("~/lib/bootstrap-select/dist/css/bootstrap-select.css",new CssRewriteUrlTransform())
+                    //.Include("~/lib/bootstrap-select/dist/css/bootstrap-select.css",new CssRewriteUrlTransform())
                     .Include("~/css/themes/all-themes.css", new CssRewriteUrlTransform())
                 );
 
@@ -86,7 +86,6 @@ namespace PolyStone.Web
                         "~/lib/sweetalert/dist/sweetalert.min.js",
                         "~/lib/spin.js/spin.js",
                         "~/lib/spin.js/jquery.spin.js",
-                        "~/lib/bootstrap-select/dist/js/bootstrap-select.js",
                         "~/lib/jquery-slimscroll/jquery.slimscroll.js",
                         "~/lib/Waves/dist/waves.js",
                         "~/lib/push.js/push.js",
@@ -100,6 +99,7 @@ namespace PolyStone.Web
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
                         "~/lib/AngularFileUpload/angular-file-upload.js",
+                        //"~/lib/bootstrap-select/dist/js/bootstrap-select.js",
                         "~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js",
 
                         "~/Abp/Framework/scripts/abp.js",

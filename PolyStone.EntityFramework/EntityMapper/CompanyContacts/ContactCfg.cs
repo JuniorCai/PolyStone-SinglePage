@@ -37,8 +37,6 @@ namespace PolyStone.EntityMapper.CompanyContacts
             Property(a => a.Phone).HasMaxLength(20);
             // 电话
             Property(a => a.Tel).HasMaxLength(20);
-            // 传真
-            Property(a => a.Fax).HasMaxLength(20);
             // 邮编
             Property(a => a.Email).HasMaxLength(50);
         }

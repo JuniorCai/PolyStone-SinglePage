@@ -17,7 +17,7 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <input id="name" class="hasInputBorder form-control " name="name" type="text" ng-model="vm.product.title" />
+                                            <input id="companyName" class="hasInputBorder form-control " name="name" type="text" ng-model="vm.company.companyEditDto.companyName" />
                                         </div>
                                     </div>
                                 </div>
@@ -27,7 +27,7 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <input id="name" class="hasInputBorder form-control " name="name" type="text" ng-model="vm.product.title" />
+                                            <input id="shortName" class="hasInputBorder form-control " name="name" type="text" ng-model="vm.company.companyEditDto.shortName" />
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +55,8 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <select class="selectpicker" ng-model="selectedCategory">
-                                                <option value="0" selected="selected">选择类目</option>
+                                            <select class="" ng-model="selectedIndustry">
+                                                <option value="-1" selected="selected">选择行业类别</option>
                                                 <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
                                             </select>
                                         </div>
@@ -66,7 +66,7 @@
                                     <label class="control-label col-md-2">经营范围</label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <input id="companyId" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.product.companyId" />
+                                            <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.business" />
                                         </div>
                                     </div>
                                 </div>
@@ -76,9 +76,8 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
                                             <select ng-model="selectedCategory">
-                                                <option value="0" selected="selected">选择类目</option>
+                                                <option value="0" selected="selected">选择地区</option>
                                                 <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
                                             </select>
                                         </div>
@@ -88,8 +87,7 @@
                                     <label class="control-label col-md-2">公司介绍</label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
-                                            <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.product.detail"></textarea>
+                                            <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.company.companyEditDto.introduction"></textarea>
                                         </div>
                                     </div>
                                 </div>

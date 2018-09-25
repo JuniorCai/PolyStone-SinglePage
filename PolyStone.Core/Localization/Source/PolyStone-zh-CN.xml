@@ -235,7 +235,6 @@
     <text name="IndustryDeleteWarningMessage" value="企业行业表名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="IndustryName" value="行业名称" />
-    <text name="IndustryCode" value="编号" />
     <text name="ParentCode" value="父级编号" />
 
 

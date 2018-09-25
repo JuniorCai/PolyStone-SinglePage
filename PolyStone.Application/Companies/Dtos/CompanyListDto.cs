@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using PolyStone.CustomDomain.Companies;
+using PolyStone.CustomDomain.CompanyContacts;
+using PolyStone.CustomDomain.CompanyIndustries;
+using PolyStone.CustomDomain.Products;
 
 #region 代码生成器相关信息_ABP Code Generator Info
    //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -96,5 +100,12 @@ namespace PolyStone.Companies.Dtos
         /// </summary>
         [DisplayName("创建时间")]
         public DateTime CreationTime { get; set; }
+
+        public ICollection<Contact> Contacts { get; set; }
+
+        public ICollection<Product> Products { get; set; }
+
+        public ICollection<CompanyIndustry> Industries { get; set; }
+
     }
 }

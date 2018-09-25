@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.CompanyContacts;
 using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Products;
 using PolyStone.CustomDomain.Regions;
@@ -37,6 +38,8 @@ namespace PolyStone.CustomDomain.Companies
         public string Address { get; set; }
 
         public bool IsActive { get; set; }
+
+        public ICollection<Contact> Contacts { get; set; }
 
         public ICollection<Product> Products { get; set; }
 

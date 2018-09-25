@@ -1,14 +1,14 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.createCompany', [
-        '$scope', 'abp.services.app.company', 'abp.services.app.category','abp.services.app.region','FileUploader',
-        function ($scope, companyService, categoryService,regionService,FileUploader) {
+        '$scope', 'abp.services.app.company', 'abp.services.app.industry','abp.services.app.region','FileUploader',
+        function ($scope, companyService, industryService,regionService,FileUploader) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {
                 status: true,
                 msg:""
             };
-            vm.categoryList = [];
+            vm.industryList = [];
             
             var uploader = $scope.fileUploader1 = $scope.fileUploader = new FileUploader({
                 url: "/Resource/Upload",
@@ -32,8 +32,6 @@
                     return item.size <= 1048576;
                 }
             });
-
-
             uploader.onAfterAddingAll = function() {
                 if (this.queue.length == 1) {
                     $("#uploadDiv").hide();
@@ -48,37 +46,59 @@
 
 
             vm.company = {
-                companyName: "",
-                shortName: "0",
-                companyType:1,
-                logo:"",
-                industry: "",
-                business:"",
-                regionId: true,
-                introduction: false,
-                isAuthed:true,
-                isActive:false
+                companyEditDto: {
+                    companyName: "",
+                    shortName: "",
+                    companyType: 1,
+                    logo: "",
+                    memberId:0,
+                    industry: "",
+                    business: "",
+                    regionId: "-1",
+                    introduction: "",
+                    isAuthed: true,
+                    isActive: true
+                },
+                companyAuthEditDto: {
+                    companyId: -1,
+                    legalPerson: "",
+                    frontImg: "",
+                    backImg: "",
+                    license:""
+                },
+                contactEditDto: {
+                    companyId: -1,
+                    linkMan: "",
+                    phone: "",
+                    tel: "",
+                    email: "",
+                    isDefault:false
+                }
             };
 
+            function initPageData() {
+                
+            }
 
 
-            $scope.selectedCategory = "0";
+            $scope.selectedIndustry = "-1";
+            $scope.selectedRegion = "-1";
 
-            function getCategoryList() {
-                categoryService.getPagedCategorys({
+            function getIndustryList() {
+                industryService.getPagedIndustrys({
                     filterText: "",
                     sorting: "CreationTime"
                 }).then(function (result) {
-                    vm.categoryList = result.data.items;
+                    vm.industryList = result.data.items;
                 });
             }
 
             vm.save = function () {
-                if ($scope.selectedCategory == "0") {
+                if ($scope.selectedIndustry == "0") {
                     abp.notify.error("未选择分类");
                     return;
                 } else {
-                    vm.product.categoryId = $scope.selectedCategory;
+                    vm.product.categoryId = $scope.selectedIndustry;
                     if ($.trim(vm.product.title).length == 0) {
                         abp.notify.error("产品标题未填写");
                         return;
@@ -120,7 +140,7 @@
 
                 if (vm.uploadResult.status) {
                     vm.product.imgUrls = imgUrls.join(',');
-                    productService.createProduct(vm.product)
+                    companyService.createCompany(vm.product)
                         .then(function() {
                             abp.notify.success(App.localize('SavedSuccessfully'));
                         });
@@ -132,7 +152,9 @@
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});
             };
-            getCategoryList();
+
+            initPageData();
+            getIndustryList();
         }
     ]);
 })();

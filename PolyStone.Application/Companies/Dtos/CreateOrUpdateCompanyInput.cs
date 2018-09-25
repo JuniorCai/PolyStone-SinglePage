@@ -1,4 +1,7 @@
 ﻿
+using PolyStone.CompanyAuthes.Dtos;
+using PolyStone.CompanyContacts.Dtos;
+
 namespace PolyStone.Companies.Dtos
 {
     /// <summary>
@@ -11,6 +14,10 @@ namespace PolyStone.Companies.Dtos
     /// 企业表编辑Dto
     /// </summary>
 		public CompanyEditDto  CompanyEditDto {get;set;}
+
+        public CompanyAuthEditDto CompanyAuthEditDto { get; set; }
+
+        public ContactEditDto ContactEditDto { get; set; }
  
     }
 }

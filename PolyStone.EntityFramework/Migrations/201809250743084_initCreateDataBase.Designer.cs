@@ -7,13 +7,13 @@ namespace PolyStone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AlterCategoryIndustryCode : IMigrationMetadata
+    public sealed partial class initCreateDataBase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AlterCategoryIndustryCode));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initCreateDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808270754173_AlterCategory-IndustryCode"; }
+            get { return "201809250743084_initCreateDataBase"; }
         }
         
         string IMigrationMetadata.Source

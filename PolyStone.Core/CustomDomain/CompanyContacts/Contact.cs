@@ -17,8 +17,6 @@ namespace PolyStone.CustomDomain.CompanyContacts
 
         public string Tel { get; set; }
 
-        public string Fax { get; set; }
-
         public string Email { get; set; }
 
         public bool IsDefault { get; set; }

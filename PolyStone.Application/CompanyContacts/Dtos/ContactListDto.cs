@@ -33,11 +33,6 @@ namespace PolyStone.CompanyContacts.Dtos
         [DisplayName("电话")]
         public      string Tel { get; set; }
         /// <summary>
-        /// 传真
-        /// </summary>
-        [DisplayName("传真")]
-        public      string Fax { get; set; }
-        /// <summary>
         /// 邮编
         /// </summary>
         [DisplayName("邮编")]
