@@ -15,6 +15,8 @@ namespace PolyStone.Regions.Dtos
 		/// </summary>
 		public string RegionCode { get; set; }
 
+        
+
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>

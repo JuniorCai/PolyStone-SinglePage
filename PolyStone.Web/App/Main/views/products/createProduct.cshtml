@@ -22,7 +22,6 @@
                             <label class="control-label col-md-2">类目</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">
-                                    @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
                                     <select ng-model="selectedCategory">
                                         <option value="0" selected="selected">选择类目</option>
                                         <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>

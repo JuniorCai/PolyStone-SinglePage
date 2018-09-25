@@ -55,9 +55,9 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <select class="" ng-model="selectedIndustry">
+                                            <select class="" ng-model="vm.selectedIndustry">
                                                 <option value="-1" selected="selected">选择行业类别</option>
-                                                <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                                <option ng-repeat="x in vm.industryList" value="{{x.id}}">{{x.industryName}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -76,9 +76,13 @@
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <select ng-model="selectedCategory">
-                                                <option value="0" selected="selected">选择地区</option>
-                                                <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                            <select ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()">
+                                                <option value="-1" selected="selected">选择省份</option>
+                                                <option ng-repeat="x in vm.regionList" value="{{x.regionCode}}">{{x.regionName}}</option>
+                                            </select>
+                                            <select ng-model="vm.selectedCity" id="cityList" ng-show="isCityShow">
+                                                <option value="-1" selected="selected">选择城市</option>
+                                                <option ng-repeat="y in vm.cityList" value="{{y.regionCode}}">{{y.regionName}}</option>
                                             </select>
                                         </div>
                                     </div>

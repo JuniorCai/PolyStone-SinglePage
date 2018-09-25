@@ -8,7 +8,6 @@
                 status: true,
                 msg:""
             };
-            vm.industryList = [];
             
             var uploader = $scope.fileUploader1 = $scope.fileUploader = new FileUploader({
                 url: "/Resource/Upload",
@@ -77,12 +76,18 @@
             };
 
             function initPageData() {
-                
+                getIndustryList();
+                getRegionList();
             }
 
+            vm.industryList = [];
+            vm.regionList = [];
+            vm.cityList = [];
 
-            $scope.selectedIndustry = "-1";
-            $scope.selectedRegion = "-1";
+            vm.selectedIndustry = "-1";
+            vm.selectedProvince = "-1";
+            vm.selectedCity = "-1";
+            vm.isCityShow = false;
 
             function getIndustryList() {
                 industryService.getPagedIndustrys({
@@ -93,22 +98,53 @@
                 });
             }
 
+            function getRegionList() {
+                regionService.getPagedRegions({
+                    regionCode: "",
+                    maxResultCount:100,
+                    sorting: "Id"
+                }).then(function (result) {
+                    vm.regionList = result.data.items;
+                });
+            }
+
+            vm.chooseRegion = function () {
+                if (vm.selectedProvince == "-1") {
+                    $scope.isCityShow = false;
+                } else {
+                    vm.cityList = [];
+                    regionService.getPagedRegions({
+                        regionCode: vm.selectedProvince,
+                        maxResultCount: 100,
+                        sorting: "Id"
+                    }).then(function (result) {
+                        vm.cityList = result.data.items;
+                        if (vm.cityList.length > 0) {
+                            $scope.isCityShow = true;
+                        } else {
+                            $scope.isCityShow = false;
+                        }
+                    });
+                    
+                }
+            };
+
             vm.save = function () {
-                if ($scope.selectedIndustry == "0") {
+                if (vm.selectedIndustry == "0") {
                     abp.notify.error("未选择分类");
                     return;
                 } else {
-                    vm.product.categoryId = $scope.selectedIndustry;
-                    if ($.trim(vm.product.title).length == 0) {
-                        abp.notify.error("产品标题未填写");
-                        return;
-                    }else if (vm.product.companyId <= 0) {
-                        abp.notify.error("关联企业ID无效");
-                        return;
-                    } else if ($.trim(vm.product.detail).lengt == 0) {
-                        abp.notify.error("产品描述未填写");
-                        return;
-                    }
+//                    vm.product.categoryId = $scope.selectedIndustry;
+//                    if ($.trim(vm.product.title).length == 0) {
+//                        abp.notify.error("产品标题未填写");
+//                        return;
+//                    }else if (vm.product.companyId <= 0) {
+//                        abp.notify.error("关联企业ID无效");
+//                        return;
+//                    } else if ($.trim(vm.product.detail).lengt == 0) {
+//                        abp.notify.error("产品描述未填写");
+//                        return;
+//                    }
                 }
                 if (uploader.queue.length == 0) {
                     abp.notify.error("需上传至少一张产品图片");
@@ -150,11 +186,9 @@
             }
 
             vm.cancel = function () {
-                $uibModalInstance.dismiss({});
             };
 
             initPageData();
-            getIndustryList();
         }
     ]);
 })();
