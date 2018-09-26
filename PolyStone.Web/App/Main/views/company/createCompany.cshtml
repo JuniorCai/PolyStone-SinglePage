@@ -35,15 +35,15 @@
                                     <label class="control-label col-md-2">企业LOGO</label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in logoFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="uploadDiv">
+                                            <div style="clear: both; padding: 10px 0" id="logoUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#logoUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile1" uploader="fileUploader1" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="logoUploadFile" uploader="logoFileUploader" ng-show="false" />
                                             </div>
                                         </div>
 
@@ -101,19 +101,16 @@
                                     <label class="control-label col-md-2">营业执照</label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="uploadDiv">
+                                            <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
                                             </div>
-                                            <div style="clear: both; padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
-
-
                                         </div>
 
                                     </div>
@@ -130,19 +127,16 @@
                                     <label class="control-label col-md-2">法人身份证人像面照</label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="uploadDiv">
+                                            <div style="clear: both; padding: 10px 0" id="personUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#personUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
                                             </div>
-                                            <div style="clear: both; padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
-
-
                                         </div>
 
                                     </div>
@@ -151,19 +145,16 @@
                                     <label class="control-label col-md-2">法人身份证国徽面照</label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="uploadDiv">
+                                            <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#uploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#nationalUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
                                             </div>
-                                            <div style="clear: both; padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
-
-
                                         </div>
 
                                     </div>
