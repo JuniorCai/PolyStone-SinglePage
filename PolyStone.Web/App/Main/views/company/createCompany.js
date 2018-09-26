@@ -4,6 +4,7 @@
         function ($scope, companyService, industryService,regionService,FileUploader) {
             var vm = this;
             var imgUrls = [];
+            $scope.showAuthBlock = false;
             vm.uploadResult1 = {
                 status: true,
                 msg:""
@@ -133,6 +134,7 @@
             vm.selectedIndustry = "-1";
             vm.selectedProvince = "-1";
             vm.selectedCity = "-1";
+            vm.selectedRegion = 0;
             vm.isCityShow = false;
 
             function getIndustryList() {
@@ -156,90 +158,126 @@
 
             vm.chooseRegion = function () {
                 if (vm.selectedProvince == "-1") {
-                    $scope.isCityShow = false;
+                    vm.isCityShow = false;
                 } else {
+                    vm.selectedRegion = vm.selectedProvince.id;
                     vm.cityList = [];
                     regionService.getPagedRegions({
-                        regionCode: vm.selectedProvince,
+                        regionCode: vm.selectedProvince.regionCode,
                         maxResultCount: 100,
                         sorting: "Id"
                     }).then(function (result) {
                         vm.cityList = result.data.items;
                         if (vm.cityList.length > 0) {
-                            $scope.isCityShow = true;
+                            vm.selectedRegion = 0;
+                            vm.isCityShow = true;
                         } else {
-                            $scope.isCityShow = false;
+                            vm.isCityShow = false;
                         }
                     });
                     
                 }
             };
 
+            vm.chooseCity = function() {
+                vm.selectedRegion = vm.selectedCity.id;
+            }
+
             vm.save = function () {
-                if (vm.selectedIndustry == "0") {
-                    abp.notify.error("未选择分类");
+                bindCompanyInfo();
+                
+//                if (fileUploader1.queue.length > 0 &&
+//                    fileUploader1.queue.length > 0 &&
+//                    fileUploader1.queue.length > 0) {
+//
+//                }
+
+//                fileUploader2.uploadAll();
+//                fileUploader3.uploadAll();
+//                fileUploader4.uploadAll();
+//
+//                if (vm.uploadResult1.status &&
+//                    vm.uploadResult2.status &&
+//                    vm.uploadResult3.status &&
+//                    vm.uploadResult4.status) {
+//                    bindAuthInfo();
+//                }
+
+            };
+
+            function bindCompanyInfo() {
+                if (vm.selectedIndustry == "-1") {
+                    abp.notify.error("未选择行业分类");
                     return;
+                } else if (vm.selectedRegion <= 0) {
+                    abp.notify.error("未选择所在地区");
+                    return;
+                }
+                else {
+                    vm.company.companyEditDto.industry = vm.selectedIndustry;
+                    vm.company.companyEditDto.regionId = vm.selectedRegion;
+                    if ($.trim(vm.company.companyEditDto.companyName).length == 0) {
+                        abp.notify.error("企业全称未填写");
+                        return;
+                    } else if ($.trim(vm.company.companyEditDto.shortName).length == 0) {
+                        abp.notify.error("企业简称未填写");
+                        return;
+                    }
+                }
+
+                if (fileUploader1.queue.length > 0) {
+                    fileUploader1.uploadAll();
                 } else {
-//                    vm.product.categoryId = $scope.selectedIndustry;
-//                    if ($.trim(vm.product.title).length == 0) {
-//                        abp.notify.error("产品标题未填写");
-//                        return;
-//                    }else if (vm.product.companyId <= 0) {
-//                        abp.notify.error("关联企业ID无效");
-//                        return;
-//                    } else if ($.trim(vm.product.detail).lengt == 0) {
-//                        abp.notify.error("产品描述未填写");
-//                        return;
-//                    }
+                    postData();
                 }
-                if (uploader.queue.length == 0) {
-                    abp.notify.error("需上传至少一张产品图片");
-                    return;
-                }
-                fileUploader1.uploadAll();
-                fileUploader2.uploadAll();
-                fileUploader3.uploadAll();
-                fileUploader4.uploadAll();
+            }
 
-            };
+            function bindAuthInfo() {
+
+            }
+
+            function postData() {
+                companyService.createCompany(vm.company)
+                    .then(function () {
+                        abp.notify.success(App.localize('SavedSuccessfully'));
+                    });
+            }
 
 
-            fileUploader1.onSuccessItem = function (item, response, status, headers)
-            {
-                vm.uploadResult.status = response.result.success;
-                vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " "+response.result.msg;
-                if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
-                else {
-                    imgUrls.push(response.result.msg);
+            fileUploader1.onSuccessItem = function(item, response) {
+                vm.uploadResult1.status = response.result.success;
+                vm.uploadResult1.msg =
+                    response.result.success ? response.result.msg : item.name + " " + response.result.msg;
+                if (!vm.uploadResult1.status) {
+                    fileUploader1.cancelAll();
                 }
             };
-            fileUploader2.onSuccessItem = function (item, response, status, headers) {
-                vm.uploadResult.status = response.result.success;
-                vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
-                else {
-                    imgUrls.push(response.result.msg);
+            fileUploader1.onCompleteAll = function() {
+                if (vm.uploadResult1.status) {
+                    vm.company.companyEditDto.logo = vm.uploadResult1.msg;
+                    postData();
+                } else {
+                    abp.notify.error("企业logo上传失败");
                 }
             };
-            fileUploader3.onSuccessItem = function (item, response, status, headers) {
-                vm.uploadResult.status = response.result.success;
-                vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
-                else {
-                    imgUrls.push(response.result.msg);
-                }
+
+            fileUploader2.onSuccessItem = function (item, response) {
+                vm.uploadResult2.status = response.result.success;
+                vm.uploadResult2.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
+                if (!vm.uploadResult2.status)
+                    fileUploader2.cancelAll();
             };
-            fileUploader4.onSuccessItem = function (item, response, status, headers) {
-                vm.uploadResult.status = response.result.success;
-                vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
-                else {
-                    imgUrls.push(response.result.msg);
-                }
+            fileUploader3.onSuccessItem = function (item, response) {
+                vm.uploadResult3.status = response.result.success;
+                vm.uploadResult3.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
+                if (!vm.uploadResult3.status)
+                    fileUploader3.cancelAll();
+            };
+            fileUploader4.onSuccessItem = function (item, response) {
+                vm.uploadResult4.status = response.result.success;
+                vm.uploadResult4.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
+                if (!vm.uploadResult4.status)
+                    fileUploader4.cancelAll();
             };
 
 //            uploader.onCompleteAll = function () {

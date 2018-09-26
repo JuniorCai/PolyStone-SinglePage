@@ -12,7 +12,8 @@
                         <uib-tabset class="tab-container tabbable-line">
                             <uib-tab heading="基本信息">
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">企业全称
+                                    <label class="control-label col-md-2">
+                                        企业全称
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <div class="col-md-4">
@@ -22,7 +23,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">企业简称
+                                    <label class="control-label col-md-2">
+                                        企业简称
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <div class="col-md-4">
@@ -50,7 +52,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">所属行业
+                                    <label class="control-label col-md-2">
+                                        所属行业
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <div class="col-md-4">
@@ -71,19 +74,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">地区
+                                    <label class="control-label col-md-2">
+                                        地区
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <select ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()">
-                                                <option value="-1" selected="selected">选择省份</option>
-                                                <option ng-repeat="x in vm.regionList" value="{{x.regionCode}}">{{x.regionName}}</option>
-                                            </select>
-                                            <select ng-model="vm.selectedCity" id="cityList" ng-show="isCityShow">
-                                                <option value="-1" selected="selected">选择城市</option>
-                                                <option ng-repeat="y in vm.cityList" value="{{y.regionCode}}">{{y.regionName}}</option>
-                                            </select>
+                                            <select id="provinceList" ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()" ng-options="x.regionName for x in vm.regionList"></select>
+                                            <select id="cityList" ng-show="vm.isCityShow" ng-model="vm.selectedCity" ng-change="vm.chooseCity()" ng-options="x.regionName for x in vm.cityList"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -95,71 +93,84 @@
                                         </div>
                                     </div>
                                 </div>
-                            </uib-tab>
-                            <uib-tab heading="资质认证">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">营业执照</label>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                            </div>
-                                            <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
-
-                                                <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
-                                                </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">法人姓名</label>
+                               
+                                <div class="form-group" >
+                                    <label class="control-label col-md-2"></label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.product.title" />
+                                            <input id="isactive" type="checkbox" name="IsActive" ng-model="showAuthBlock"  class="form-control" />
+                                            <label for="isactive" class="form-label">添加企业认证</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">法人身份证人像面照</label>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                            </div>
-                                            <div style="clear: both; padding: 10px 0" id="personUploadDiv">
+                                <div  id="authBlock" ng-show="showAuthBlock">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">营业执照</label>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                </div>
+                                                <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
 
-                                                <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#personUploadFile').click();" />
-                                                </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
+                                                    <label>
+                                                        <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
+                                                    </label>
+                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">
+                                            法人姓名
+                                            <span class="required" aria-required="true"> * </span>
+
+                                        </label>
+                                        <div class="col-md-4">
+                                            <div class="input-icon right" style="float: none !important">
+                                                <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.product.title" />
                                             </div>
                                         </div>
-
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">法人身份证国徽面照</label>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                            </div>
-                                            <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">法人身份证人像面照</label>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                </div>
+                                                <div style="clear: both; padding: 10px 0" id="personUploadDiv">
 
-                                                <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#nationalUploadFile').click();" />
-                                                </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
+                                                    <label>
+                                                        <img class="thumbDefault" onclick="javascript: $('#personUploadFile').click();" />
+                                                    </label>
+                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
+                                                </div>
                                             </div>
+
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">法人身份证国徽面照</label>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                </div>
+                                                <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">
 
+                                                    <label>
+                                                        <img class="thumbDefault" onclick="javascript: $('#nationalUploadFile').click();" />
+                                                    </label>
+                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-
                             </uib-tab>
                             <uib-tab heading="联系方式">
                                 <div class="form-group">
