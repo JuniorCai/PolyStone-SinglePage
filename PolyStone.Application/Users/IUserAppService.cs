@@ -10,6 +10,6 @@ namespace PolyStone.Users
     {
         Task<ListResultDto<RoleDto>> GetRoles();
 
-        Task<bool> IsUserNameExist(string userName);
+        Task<UserDto> IsUserNameExist(string userName);
     }
 }

@@ -23,7 +23,6 @@ namespace PolyStone.CompanyContacts.Dtos
         /// </summary>
         [DisplayName("企业ID")]
         [Required]
-        [Range(1, 11)]
         public int CompanyId { get; set; }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.createCompany', [
-        '$scope','abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry','abp.services.app.region','FileUploader',
-        function ($scope,userService, companyService, industryService,regionService,FileUploader) {
+        '$scope', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'FileUploader', '$http',
+        function ($scope,userService, companyService, industryService,regionService,FileUploader,$http) {
             var vm = this;
             var imgUrls = [];
             vm.showAuthBlock = false;
@@ -95,12 +95,12 @@
                 companyEditDto: {
                     companyName: "",
                     shortName: "",
-                    userName:"",
+                    userName: "",
                     companyType: 1,
                     logo: "",
                     memberId:0,
                     industry: "",
-                    business: "",
+                    bussiness: "",
                     regionId: "-1",
                     introduction: "",
                     isAuthed: true,
@@ -191,14 +191,17 @@
                 } else {
                     userService.isUserNameExist(vm.company.companyEditDto.userName)
                         .then(function (result) {
-                            if (!result.data)
+                            if (result.data==null)
                                 abp.notify.error("所关联的用户名不存在!");
                             else {
+                                vm.company.companyEditDto.memberId = result.data.id;
                                 var flag = bindCompanyInfo();
                                 if (flag) {
                                     if (vm.showAuthBlock) {
                                         bindAuthInfo();
                                     } else {
+                                        vm.company.companyAuthEditDto = null;
+                                        vm.company.contactEditDto = null;
                                         postData();
                                     }
                                 }
@@ -206,24 +209,6 @@
                         });
                 }
                 
-                
-//                if (fileUploader1.queue.length > 0 &&
-//                    fileUploader1.queue.length > 0 &&
-//                    fileUploader1.queue.length > 0) {
-//
-//                }
-
-//                fileUploader2.uploadAll();
-//                fileUploader3.uploadAll();
-//                fileUploader4.uploadAll();
-//
-//                if (vm.uploadResult1.status &&
-//                    vm.uploadResult2.status &&
-//                    vm.uploadResult3.status &&
-//                    vm.uploadResult4.status) {
-//                    bindAuthInfo();
-//                }
-
             };
 
             function bindCompanyInfo() {
@@ -275,10 +260,20 @@
             }
 
             function postData() {
-                companyService.createCompany(vm.company)
-                    .then(function (result) {
-                        abp.notify.success(App.localize('SavedSuccessfully'));
-                    });
+                var postUrl = $("#frm_create_company").attr("url");
+                $http.post(postUrl, { model: vm.company }).then(function (result) {
+                    if (result.data.success) {
+                        abp.notify.info("保存成功");
+                    } else {
+                        abp.notify.error("保存失败");
+                    }
+
+                });
+
+//                companyService.createCompany(vm.company)
+//                    .then(function (result) {
+//                        abp.notify.success(App.localize('SavedSuccessfully'));
+//                    });
             }
 
 

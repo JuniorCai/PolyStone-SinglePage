@@ -6,6 +6,7 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Authorization.Users;
+using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
 using PolyStone.Authorization;
@@ -99,10 +100,16 @@ namespace PolyStone.Users
             return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
         }
 
-        public async Task<bool> IsUserNameExist(string userName)
+        public async Task<UserDto> IsUserNameExist(string userName)
         {
+            UserDto userDto = null;
             IdentityResult result = await _userManager.CheckDuplicateUsernameOrEmailAddressAsync(null, userName, "");
-            return !result.Succeeded;
+            if (!result.Succeeded)
+            {
+                var  user = _userManager.FindByNameOrEmailAsync(userName);
+                userDto = user.Result.MapTo<UserDto>();
+            }
+            return userDto;
         }
 
         protected override User MapToEntity(CreateUserDto createInput)

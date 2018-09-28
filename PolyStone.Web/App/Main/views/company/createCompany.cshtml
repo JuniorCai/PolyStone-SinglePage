@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="form" style="margin: 20px">
-                <form id="frm_create_company" name="companyCreateForm" class="form-horizontal form-bordered bordered" novalidate>
+                <form id="frm_create_company" name="companyCreateForm" url="@Url.Action("CreateCompany","Company")" class="form-horizontal form-bordered bordered" novalidate>
                     <div class="form-body">
                         <uib-tabset class="tab-container tabbable-line">
                             <uib-tab heading="基本信息">
@@ -80,7 +80,7 @@
                                     <label class="control-label col-md-2">经营范围</label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.business" />
+                                            <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.bussiness" />
                                         </div>
                                     </div>
                                 </div>

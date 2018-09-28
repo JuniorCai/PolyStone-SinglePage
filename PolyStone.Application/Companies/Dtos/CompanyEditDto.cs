@@ -22,7 +22,6 @@ namespace PolyStone.Companies.Dtos
         /// 企业LOGO
         /// </summary>
         [DisplayName("企业LOGO")]
-        [Required]
         [MaxLength(50)]
         public string Logo { get; set; }
 
@@ -78,7 +77,6 @@ namespace PolyStone.Companies.Dtos
         /// 企业简介
         /// </summary>
         [DisplayName("企业简介")]
-        [Required]
         [MaxLength(2000)]
         public string Introduction { get; set; }
 
@@ -87,7 +85,6 @@ namespace PolyStone.Companies.Dtos
         /// </summary>
         [DisplayName("地区ID")]
         [Required]
-        [Range(1, 11)]
         public int RegionId { get; set; }
 
 
@@ -103,7 +100,6 @@ namespace PolyStone.Companies.Dtos
         /// 企业地址
         /// </summary>
         [DisplayName("企业地址")]
-        [Required]
         [MaxLength(100)]
         public string Address { get; set; }
 
