@@ -99,6 +99,12 @@ namespace PolyStone.Users
             return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
         }
 
+        public async Task<bool> IsUserNameExist(string userName)
+        {
+            IdentityResult result = await _userManager.CheckDuplicateUsernameOrEmailAddressAsync(null, userName, "");
+            return !result.Succeeded;
+        }
+
         protected override User MapToEntity(CreateUserDto createInput)
         {
             var user = ObjectMapper.Map<User>(createInput);

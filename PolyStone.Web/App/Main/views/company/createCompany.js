@@ -1,10 +1,10 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.createCompany', [
-        '$scope', 'abp.services.app.company', 'abp.services.app.industry','abp.services.app.region','FileUploader',
-        function ($scope, companyService, industryService,regionService,FileUploader) {
+        '$scope','abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry','abp.services.app.region','FileUploader',
+        function ($scope,userService, companyService, industryService,regionService,FileUploader) {
             var vm = this;
             var imgUrls = [];
-            $scope.showAuthBlock = false;
+            vm.showAuthBlock = false;
             vm.uploadResult1 = {
                 status: true,
                 msg:""
@@ -95,6 +95,7 @@
                 companyEditDto: {
                     companyName: "",
                     shortName: "",
+                    userName:"",
                     companyType: 1,
                     logo: "",
                     memberId:0,
@@ -184,7 +185,27 @@
             }
 
             vm.save = function () {
-                bindCompanyInfo();
+                if ($.trim(vm.company.companyEditDto.userName).length == 0) {
+                    abp.notify.error("请填写需要关联的用户名");
+                    return false;
+                } else {
+                    userService.isUserNameExist(vm.company.companyEditDto.userName)
+                        .then(function (result) {
+                            if (!result.data)
+                                abp.notify.error("所关联的用户名不存在!");
+                            else {
+                                var flag = bindCompanyInfo();
+                                if (flag) {
+                                    if (vm.showAuthBlock) {
+                                        bindAuthInfo();
+                                    } else {
+                                        postData();
+                                    }
+                                }
+                            }
+                        });
+                }
+                
                 
 //                if (fileUploader1.queue.length > 0 &&
 //                    fileUploader1.queue.length > 0 &&
@@ -208,37 +229,54 @@
             function bindCompanyInfo() {
                 if (vm.selectedIndustry == "-1") {
                     abp.notify.error("未选择行业分类");
-                    return;
+                    return false;
                 } else if (vm.selectedRegion <= 0) {
                     abp.notify.error("未选择所在地区");
-                    return;
+                    return false;
                 }
                 else {
                     vm.company.companyEditDto.industry = vm.selectedIndustry;
                     vm.company.companyEditDto.regionId = vm.selectedRegion;
                     if ($.trim(vm.company.companyEditDto.companyName).length == 0) {
                         abp.notify.error("企业全称未填写");
-                        return;
+                        return false;
                     } else if ($.trim(vm.company.companyEditDto.shortName).length == 0) {
                         abp.notify.error("企业简称未填写");
-                        return;
+                        return false;
                     }
                 }
 
                 if (fileUploader1.queue.length > 0) {
                     fileUploader1.uploadAll();
+                    return false;
                 } else {
-                    postData();
+                    return true;
                 }
             }
 
             function bindAuthInfo() {
-
+                if (fileUploader2.queue.length == 0) {
+                    abp.notify.error("请上传营业执照");
+                    return;
+                }
+                if ($.trim(vm.company.companyAuthEditDto.legalPerson).length == 0) {
+                    abp.notify.error("未填写法人姓名");
+                    return;
+                }
+                if (fileUploader3.queue.length == 0) {
+                    abp.notify.error("请上传法人身份证人像照");
+                    return;
+                }
+                if (fileUploader3.queue.length == 0) {
+                    abp.notify.error("请上传法人身份证国徽照");
+                    return;
+                }
+                fileUploader2.uploadAll();
             }
 
             function postData() {
                 companyService.createCompany(vm.company)
-                    .then(function () {
+                    .then(function (result) {
                         abp.notify.success(App.localize('SavedSuccessfully'));
                     });
             }
@@ -255,7 +293,11 @@
             fileUploader1.onCompleteAll = function() {
                 if (vm.uploadResult1.status) {
                     vm.company.companyEditDto.logo = vm.uploadResult1.msg;
-                    postData();
+                    if (!vm.showAuthBlock) {
+                        postData();
+                    }else {
+                        bindAuthInfo();
+                    }
                 } else {
                     abp.notify.error("企业logo上传失败");
                 }
@@ -264,24 +306,47 @@
             fileUploader2.onSuccessItem = function (item, response) {
                 vm.uploadResult2.status = response.result.success;
                 vm.uploadResult2.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult2.status)
+                if (!vm.uploadResult2.status) {
+                    abp.notify.error("请上传营业执照");
                     fileUploader2.cancelAll();
+                }
+                else {
+                    vm.company.companyAuthEditDto.license = vm.uploadResult2.msg;
+                    fileUploader3.uploadAll();
+                }
             };
             fileUploader3.onSuccessItem = function (item, response) {
                 vm.uploadResult3.status = response.result.success;
                 vm.uploadResult3.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult3.status)
+                if (!vm.uploadResult3.status) {
+                    abp.notify.error("请上传法人身份证人像照");
                     fileUploader3.cancelAll();
+                }
+                else {
+                    vm.company.companyAuthEditDto.frontImg = vm.uploadResult3.msg;
+                    fileUploader4.uploadAll();
+                }
             };
             fileUploader4.onSuccessItem = function (item, response) {
                 vm.uploadResult4.status = response.result.success;
                 vm.uploadResult4.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
-                if (!vm.uploadResult4.status)
+                if (!vm.uploadResult4.status) {
+                    abp.notify.error("请上传法人身份证国徽照");
                     fileUploader4.cancelAll();
+                }
+                else
+                    vm.company.companyAuthEditDto.backImg = vm.uploadResult4.msg;
             };
 
-//            uploader.onCompleteAll = function () {
-//
+            fileUploader4.onCompleteAll = function () {
+                if (vm.uploadResult1.status &&
+                    vm.uploadResult2.status &&
+                    vm.uploadResult3.status &&
+                    vm.uploadResult4.status) {
+                    postData();
+                }
+
+
 //                if (vm.uploadResult.status) {
 //                    vm.product.imgUrls = imgUrls.join(',');
 //                    companyService.createCompany(vm.product)
@@ -291,7 +356,7 @@
 //                } else {
 //                    abp.notify.error(vm.uploadResult.msg);
 //                }                
-//            }
+            }
 
             vm.cancel = function () {
             };

@@ -9,5 +9,7 @@ namespace PolyStone.Users
     public interface IUserAppService : IAsyncCrudAppService<UserDto, long, PagedResultRequestDto, CreateUserDto, UpdateUserDto>
     {
         Task<ListResultDto<RoleDto>> GetRoles();
+
+        Task<bool> IsUserNameExist(string userName);
     }
 }
