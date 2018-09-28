@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.createCompany', [
-        '$scope', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'FileUploader', '$http',
-        function ($scope,userService, companyService, industryService,regionService,FileUploader,$http) {
+        '$scope', '$state', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'FileUploader', '$http','$timeout',
+        function ($scope, $state, userService, companyService, industryService, regionService, FileUploader, $http, $timeout) {
             var vm = this;
             var imgUrls = [];
             vm.showAuthBlock = false;
@@ -263,7 +263,11 @@
                 var postUrl = $("#frm_create_company").attr("url");
                 $http.post(postUrl, { model: vm.company }).then(function (result) {
                     if (result.data.success) {
-                        abp.notify.info("保存成功");
+                        abp.notify.info("保存成功", "", { timeOut: 1500 });
+
+                        $timeout(function () {
+                            $state.go("company");
+                        }, 2000);
                     } else {
                         abp.notify.error("保存失败");
                     }
