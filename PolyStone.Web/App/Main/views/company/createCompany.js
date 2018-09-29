@@ -269,7 +269,7 @@
                             $state.go("company");
                         }, 2000);
                     } else {
-                        abp.notify.error("保存失败");
+                        abp.notify.error(result.data.msg);
                     }
 
                 });
@@ -342,6 +342,7 @@
                     vm.uploadResult2.status &&
                     vm.uploadResult3.status &&
                     vm.uploadResult4.status) {
+                    vm.company.contactEditDto = null;
                     postData();
                 }
 
@@ -358,6 +359,7 @@
             }
 
             vm.cancel = function () {
+                $state.go("company");
             };
 
             initPageData();

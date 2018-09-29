@@ -111,10 +111,17 @@ namespace PolyStone.Companies
             return entity.MapTo<CompanyListDto>();
         }
 
+        /// <summary>
+        /// 通过指定UserId获取企业ListDto信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<CompanyListDto> GetCompanyByUserId(int userId)
+        {
+            var entity = await _companyRepository.FirstOrDefaultAsync(c => c.MemberId == userId);
 
-
-
-
+            return entity.MapTo<CompanyListDto>();
+        }
 
 
         /// <summary>
@@ -142,8 +149,8 @@ namespace PolyStone.Companies
 
             var entity = input.MapTo<Company>();
 
-            entity = await _companyRepository.InsertAsync(entity);
-            return entity.MapTo<CompanyEditDto>();
+            input.Id = await _companyRepository.InsertAndGetIdAsync(entity);
+            return input;
         }
 
         /// <summary>

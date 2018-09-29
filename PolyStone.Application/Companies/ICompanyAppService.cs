@@ -30,6 +30,8 @@ namespace PolyStone.Companies
         Task<CompanyListDto> GetCompanyByIdAsync(EntityDto<int> input);
 
 
+        Task<CompanyListDto> GetCompanyByUserId(int userId);
+
 
         /// <summary>
         /// 新增或更改企业表

@@ -23,11 +23,11 @@ namespace PolyStone.EntityMapper.CompanyAuthes
             // 法人姓名
             Property(a => a.LegalPerson).HasMaxLength(50);
             // 法人身份证正面
-            Property(a => a.FrontImg).HasMaxLength(50);
+            Property(a => a.FrontImg).HasMaxLength(100);
             // 法人身份证反面
-            Property(a => a.BackImg).HasMaxLength(50);
+            Property(a => a.BackImg).HasMaxLength(100);
             // 营业执照
-            Property(a => a.License).HasMaxLength(50);
+            Property(a => a.License).HasMaxLength(100);
         }
     }
 }

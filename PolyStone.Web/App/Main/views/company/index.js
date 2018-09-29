@@ -15,14 +15,14 @@
                 });
             }
 
-            vm.delete = function (category) {
+            vm.delete = function (model) {
                 abp.message.confirm(
-                    "是否删除产品类别 '" + category.categoryName + "'?",
+                    "是否删除企业 '" + model.companyName + "'，以及相关企业认证信息?",
                     function (result) {
                         if (result) {
-                            companyService.deleteCategory({ id: category.id })
+                            companyService.deleteCompany({ id: model.id })
                                 .then(function () {
-                                    abp.notify.info("已删除产品类别: " + category.categoryName);
+                                    abp.notify.info("已删除企业: " + category.categoryName);
                                     getCompanyList();
                                 });
                         }

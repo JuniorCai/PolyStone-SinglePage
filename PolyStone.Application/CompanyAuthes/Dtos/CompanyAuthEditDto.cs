@@ -16,7 +16,6 @@ namespace PolyStone.CompanyAuthes.Dtos
         ///   主键Id
         /// </summary>
         [DisplayName("主键Id")]
-        [Required]
         public int? Id { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ namespace PolyStone.CompanyAuthes.Dtos
         /// 法人身份证正面
         /// </summary>
         [DisplayName("法人身份证正面")]
-        [MaxLength(50)]
+        [MaxLength(100)]
         [Required]
         public string FrontImg { get; set; }
 
@@ -46,7 +45,7 @@ namespace PolyStone.CompanyAuthes.Dtos
         /// 法人身份证反面
         /// </summary>
         [DisplayName("法人身份证反面")]
-        [MaxLength(50)]
+        [MaxLength(100)]
         [Required]
         public string BackImg { get; set; }
 
@@ -54,7 +53,7 @@ namespace PolyStone.CompanyAuthes.Dtos
         /// 营业执照
         /// </summary>
         [DisplayName("营业执照")]
-        [MaxLength(50)]
+        [MaxLength(100)]
         [Required]
         public string License { get; set; }
 
