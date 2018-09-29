@@ -8,6 +8,7 @@ using Abp.Authorization;
 using PolyStone.Companies;
 using PolyStone.Companies.Dtos;
 using PolyStone.CompanyAuthes;
+using PolyStone.CompanyContacts;
 
 namespace PolyStone.Web.Controllers
 {
@@ -15,12 +16,13 @@ namespace PolyStone.Web.Controllers
     {
         private readonly ICompanyAppService _companyService;
         private readonly ICompanyAuthAppService _companyAuthAppService;
-//        private readonly ICompany
+        private readonly IContactAppService _contactAppService;
 
-        public CompanyController(ICompanyAppService companyAppService, ICompanyAuthAppService companyAuthAppService)
+        public CompanyController(ICompanyAppService companyAppService, ICompanyAuthAppService companyAuthAppService,IContactAppService contactAppService)
         {
             _companyService = companyAppService;
             _companyAuthAppService = companyAuthAppService;
+            _contactAppService = contactAppService;
         }
 
 
@@ -43,12 +45,24 @@ namespace PolyStone.Web.Controllers
 
                     var newModel = await _companyService.CreateCompanyAsync(model.CompanyEditDto);
 
-                    if (model.CompanyAuthEditDto != null && newModel.Id > 0)
+
+                    if (newModel.Id > 0)
                     {
-                        model.CompanyAuthEditDto.CompanyId = newModel.Id.Value;
-                        var newAuthModel =
-                            await _companyAuthAppService.CreateCompanyAuthAsync(model.CompanyAuthEditDto);
+                        if (model.CompanyAuthEditDto != null)
+                        {
+                            model.CompanyAuthEditDto.CompanyId = newModel.Id.Value;
+                            var newAuthModel =
+                                await _companyAuthAppService.CreateCompanyAuthAsync(model.CompanyAuthEditDto);
+                        }
+
+                        if (model.ContactEditDto != null)
+                        {
+                            model.ContactEditDto.CompanyId = newModel.Id.Value;
+                            var newContactModel = await _contactAppService.CreateContactAsync(model.ContactEditDto);
+                        }
                     }
+
+                    
                     return Json(new { success = true, msg = "" });
                 }
                 catch (Exception e)

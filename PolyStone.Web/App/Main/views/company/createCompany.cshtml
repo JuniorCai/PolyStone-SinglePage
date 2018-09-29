@@ -10,53 +10,126 @@
                 <form id="frm_create_company" name="companyCreateForm" url="@Url.Action("CreateCompany","Company")" class="form-horizontal form-bordered bordered" novalidate>
                     <div class="form-body">
                         <uib-tabset class="tab-container tabbable-line">
-                            <uib-tab heading="基本信息">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">
-                                        企业全称
-                                        <span class="required" aria-required="true"> * </span>
-                                    </label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="companyName" class="hasInputBorder form-control " name="companyName" type="text" ng-model="vm.company.companyEditDto.companyName" />
-                                        </div>
+                        <uib-tab heading="基本信息">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    企业全称
+                                    <span class="required" aria-required="true"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <input id="companyName" class="hasInputBorder form-control " name="companyName" type="text" ng-model="vm.company.companyEditDto.companyName" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">
-                                        企业简称
-                                        <span class="required" aria-required="true"> * </span>
-                                    </label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="shortName" class="hasInputBorder form-control " name="shortName" type="text" ng-model="vm.company.companyEditDto.shortName" />
-                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    企业简称
+                                    <span class="required" aria-required="true"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <input id="shortName" class="hasInputBorder form-control " name="shortName" type="text" ng-model="vm.company.companyEditDto.shortName" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">
-                                        关联会员用户名
-                                        <span class="required" aria-required="true"> * </span>
-                                    </label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-model="vm.company.companyEditDto.userName" />
-                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    关联会员用户名
+                                    <span class="required" aria-required="true"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-model="vm.company.companyEditDto.userName" />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">企业LOGO</label>
+                                <div class="col-md-6">
+                                    <div>
+                                        <div ng-repeat="item in logoFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                        </div>
+                                        <div style="clear: both; padding: 10px 0" id="logoUploadDiv">
+
+                                            <label>
+                                                <img class="thumbDefault" onclick="javascript: $('#logoUploadFile').click();" />
+                                            </label>
+                                            <input type="file" nv-file-select multiple="" filters="imageFilter" id="logoUploadFile" uploader="logoFileUploader" ng-show="false" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    所属行业
+                                    <span class="required" aria-required="true"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <select class="" ng-model="vm.selectedIndustry">
+                                            <option value="-1" selected="selected">选择行业类别</option>
+                                            <option ng-repeat="x in vm.industryList" value="{{x.id}}">{{x.industryName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">经营范围</label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.bussiness" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    地区
+                                    <span class="required" aria-required="true"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <select id="provinceList" ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()" ng-options="x.regionName for x in vm.regionList"></select>
+                                        <select id="cityList" ng-show="vm.isCityShow" ng-model="vm.selectedCity" ng-change="vm.chooseCity()" ng-options="x.regionName for x in vm.cityList"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">公司介绍</label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.company.companyEditDto.introduction"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                               
+                            <div class="form-group" >
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right" style="float: none !important">
+                                        <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.showAuthBlock"  class="form-control" />
+                                        <label for="isactive" class="form-label">添加企业认证</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  id="authBlock" ng-show="vm.showAuthBlock">
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">企业LOGO</label>
+                                    <label class="control-label col-md-2">营业执照
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in logoFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="logoUploadDiv">
+                                            <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#logoUploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="logoUploadFile" uploader="logoFileUploader" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
                                             </div>
                                         </div>
 
@@ -64,164 +137,152 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">
-                                        所属行业
+                                        法人姓名
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <div class="col-md-4">
                                         <div class="input-icon right" style="float: none !important">
-                                            <select class="" ng-model="vm.selectedIndustry">
-                                                <option value="-1" selected="selected">选择行业类别</option>
-                                                <option ng-repeat="x in vm.industryList" value="{{x.id}}">{{x.industryName}}</option>
-                                            </select>
+                                            <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.company.companyAuthEditDto.legalPerson" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">经营范围</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.bussiness" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">
-                                        地区
+                                    <label class="control-label col-md-2">法人身份证人像面照
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <select id="provinceList" ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()" ng-options="x.regionName for x in vm.regionList"></select>
-                                            <select id="cityList" ng-show="vm.isCityShow" ng-model="vm.selectedCity" ng-change="vm.chooseCity()" ng-options="x.regionName for x in vm.cityList"></select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">公司介绍</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.company.companyEditDto.introduction"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="form-group" >
-                                    <label class="control-label col-md-2"></label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.showAuthBlock"  class="form-control" />
-                                            <label for="isactive" class="form-label">添加企业认证</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div  id="authBlock" ng-show="vm.showAuthBlock">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-2">营业执照
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                                </div>
-                                                <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
-
-                                                    <label>
-                                                        <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
-                                                    </label>
-                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
-                                                </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
+                                            <div style="clear: both; padding: 10px 0" id="personUploadDiv">
 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-2">
-                                            法人姓名
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <div class="col-md-4">
-                                            <div class="input-icon right" style="float: none !important">
-                                                <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.company.companyAuthEditDto.legalPerson" />
+                                                <label>
+                                                    <img class="thumbDefault" onclick="javascript: $('#personUploadFile').click();" />
+                                                </label>
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-2">法人身份证人像面照
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                                </div>
-                                                <div style="clear: both; padding: 10px 0" id="personUploadDiv">
 
-                                                    <label>
-                                                        <img class="thumbDefault" onclick="javascript: $('#personUploadFile').click();" />
-                                                    </label>
-                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
-                                                </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">法人身份证国徽面照
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
+                                            <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">
 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-2">法人身份证国徽面照
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                                    <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
-                                                </div>
-                                                <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">
-
-                                                    <label>
-                                                        <img class="thumbDefault" onclick="javascript: $('#nationalUploadFile').click();" />
-                                                    </label>
-                                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
-                                                </div>
+                                                <label>
+                                                    <img class="thumbDefault" onclick="javascript: $('#nationalUploadFile').click();" />
+                                                </label>
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
                                             </div>
+                                        </div>
 
-                                        </div>
                                     </div>
                                 </div>
-                            </uib-tab>
-                            <uib-tab heading="联系方式">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">联系人</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.product.title" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">手机号码</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.product.title" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">传真电话</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.product.title" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">详细地址</label>
-                                    <div class="col-md-4">
-                                        <div class="input-icon right" style="float: none !important">
-                                            <input id="address" class="hasInputBorder form-control " name="address" type="text" ng-model="vm.product.title" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </uib-tab>
+                            </div>
+                        </uib-tab>
+                        <uib-tab heading="联系方式">
+                            <div class="header">
+                                <h2>
+                                    @L("Company")
+                                </h2>
+                                <ul class="header-dropdown m-r--5">
+                                    <i class="fa fa-spin fa-spinner" ng-if="isTableLoading"></i>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="material-icons">more_vert</i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="javascript:void(0);" class="waves-effect <waves-block></waves-block>" ng-click="vm.refresh();"><i class="material-icons">refresh</i> 刷新</a></li>
+                                            <li><a href="javascript:void(0);" class="waves-effect <waves-block></waves-block>" style="color: #F44336" ng-click="vm.multiDelete();"><i style="color: #F44336" class="material-icons">delete</i> 删除</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body table-responsive">
+
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" /></th>
+                                            <th>@L("LinkMan")</th>
+                                            <th>@L("Phone")</th>
+                                            <th>@L("Tel")</th>
+                                            <th>@L("Email")</th>
+                                            <th>@L("IsDefault")</th>
+                                            <th>@L("Actions")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="contact in vm.contactList">
+                                            <td><input type="checkbox" /></td>
+                                            <td>{{contact.linkMan}}</td>
+                                            <td>{{contact.phone}}</td>
+                                            <td>{{contact.tel}}</td>
+                                            <td>{{contact.email}}</td>
+                                            <td>
+                                                <i class="material-icons" ng-if="contact.isDefault" style="color:green;">check_box</i>
+                                                <i class="material-icons" ng-if="!contact.isDefault" style="color:red;">indeterminate_check_box</i>
+                                            </td>
+                                            <td class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="material-icons">menu</i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.openCompanyEdit(company)"><i class="material-icons">create</i>@L("Edit")</a></li>
+                                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(company)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a ui-sref="companyAdd" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">add</i>
+                                </a>
+                            </div>
+                        </uib-tab>
+
+                        @* <uib-tab heading="联系方式"> *@
+                        @*         <div class="form-group"> *@
+                        @*             <label class="control-label col-md-2">联系人</label> *@
+                        @*             <div class="col-md-4"> *@
+                        @*                 <div class="input-icon right" style="float: none !important"> *@
+                        @*                     <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.product.title" /> *@
+                        @*                 </div> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*         <div class="form-group"> *@
+                        @*             <label class="control-label col-md-2">手机号码</label> *@
+                        @*             <div class="col-md-4"> *@
+                        @*                 <div class="input-icon right" style="float: none !important"> *@
+                        @*                     <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.product.title" /> *@
+                        @*                 </div> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*         <div class="form-group"> *@
+                        @*             <label class="control-label col-md-2">传真电话</label> *@
+                        @*             <div class="col-md-4"> *@
+                        @*                 <div class="input-icon right" style="float: none !important"> *@
+                        @*                     <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.product.title" /> *@
+                        @*                 </div> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*         <div class="form-group"> *@
+                        @*             <label class="control-label col-md-2">详细地址</label> *@
+                        @*             <div class="col-md-4"> *@
+                        @*                 <div class="input-icon right" style="float: none !important"> *@
+                        @*                     <input id="address" class="hasInputBorder form-control " name="address" type="text" ng-model="vm.product.title" /> *@
+                        @*                 </div> *@
+                        @*             </div> *@
+                        @*         </div> *@
+                        @*     </uib-tab> *@
                         </uib-tabset>
                     </div>
                     <div class=" form-actions">
