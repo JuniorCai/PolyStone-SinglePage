@@ -45,16 +45,14 @@ namespace PolyStone.CompanyContacts.Dtos
         /// 电话
         /// </summary>
         [DisplayName("电话")]
-        [Required]
         [MaxLength(20)]
         public string Tel { get; set; }
 
 
         /// <summary>
-        /// 邮编
+        /// 邮件
         /// </summary>
-        [DisplayName("邮编")]
-        [Required]
+        [DisplayName("邮件")]
         [MaxLength(50)]
         public string Email { get; set; }
 

@@ -195,8 +195,8 @@
     <text name="LinkMan" value="联系人姓名" />
     <text name="Tel" value="电话" />
     <text name="Fax" value="传真" />
-    <text name="Email" value="邮编" />
-    <text name="IsDefault" value="是否默认联系方式" />
+    <text name="Email" value="邮件" />
+    <text name="IsDefault" value="默认联系方式" />
 
 
 

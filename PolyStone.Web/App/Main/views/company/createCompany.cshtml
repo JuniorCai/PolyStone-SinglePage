@@ -40,7 +40,8 @@
                                 </label>
                                 <div class="col-md-4">
                                     <div class="input-icon right" style="float: none !important">
-                                        <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-model="vm.company.companyEditDto.userName" />
+                                        <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-blur="vm.getDefaultContact()" ng-model="vm.company.companyEditDto.userName" />
+                                        <input type="hidden" value="0" id="isUserValid"/>
                                     </div>
                                 </div>
                             </div>
@@ -188,101 +189,45 @@
                                 </div>
                             </div>
                         </uib-tab>
-                        <uib-tab heading="联系方式">
-                            <div class="header">
-                                <h2>
-                                    @L("Company")
-                                </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <i class="fa fa-spin fa-spinner" ng-if="isTableLoading"></i>
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);" class="waves-effect <waves-block></waves-block>" ng-click="vm.refresh();"><i class="material-icons">refresh</i> 刷新</a></li>
-                                            <li><a href="javascript:void(0);" class="waves-effect <waves-block></waves-block>" style="color: #F44336" ng-click="vm.multiDelete();"><i style="color: #F44336" class="material-icons">delete</i> 删除</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="body table-responsive">
 
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th><input type="checkbox" /></th>
-                                            <th>@L("LinkMan")</th>
-                                            <th>@L("Phone")</th>
-                                            <th>@L("Tel")</th>
-                                            <th>@L("Email")</th>
-                                            <th>@L("IsDefault")</th>
-                                            <th>@L("Actions")</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="contact in vm.contactList">
-                                            <td><input type="checkbox" /></td>
-                                            <td>{{contact.linkMan}}</td>
-                                            <td>{{contact.phone}}</td>
-                                            <td>{{contact.tel}}</td>
-                                            <td>{{contact.email}}</td>
-                                            <td>
-                                                <i class="material-icons" ng-if="contact.isDefault" style="color:green;">check_box</i>
-                                                <i class="material-icons" ng-if="!contact.isDefault" style="color:red;">indeterminate_check_box</i>
-                                            </td>
-                                            <td class="dropdown">
-                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="material-icons">menu</i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.openCompanyEdit(company)"><i class="material-icons">create</i>@L("Edit")</a></li>
-                                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(company)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a ui-sref="companyAdd" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right">
-                                    <i class="material-icons">add</i>
-                                </a>
-                            </div>
-                        </uib-tab>
-
-                        @* <uib-tab heading="联系方式"> *@
-                        @*         <div class="form-group"> *@
-                        @*             <label class="control-label col-md-2">联系人</label> *@
-                        @*             <div class="col-md-4"> *@
-                        @*                 <div class="input-icon right" style="float: none !important"> *@
-                        @*                     <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.product.title" /> *@
-                        @*                 </div> *@
-                        @*             </div> *@
-                        @*         </div> *@
-                        @*         <div class="form-group"> *@
-                        @*             <label class="control-label col-md-2">手机号码</label> *@
-                        @*             <div class="col-md-4"> *@
-                        @*                 <div class="input-icon right" style="float: none !important"> *@
-                        @*                     <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.product.title" /> *@
-                        @*                 </div> *@
-                        @*             </div> *@
-                        @*         </div> *@
-                        @*         <div class="form-group"> *@
-                        @*             <label class="control-label col-md-2">传真电话</label> *@
-                        @*             <div class="col-md-4"> *@
-                        @*                 <div class="input-icon right" style="float: none !important"> *@
-                        @*                     <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.product.title" /> *@
-                        @*                 </div> *@
-                        @*             </div> *@
-                        @*         </div> *@
-                        @*         <div class="form-group"> *@
-                        @*             <label class="control-label col-md-2">详细地址</label> *@
-                        @*             <div class="col-md-4"> *@
-                        @*                 <div class="input-icon right" style="float: none !important"> *@
-                        @*                     <input id="address" class="hasInputBorder form-control " name="address" type="text" ng-model="vm.product.title" /> *@
-                        @*                 </div> *@
-                        @*             </div> *@
-                        @*         </div> *@
-                        @*     </uib-tab> *@
+                         <uib-tab heading="联系方式"> 
+                                 <div class="form-group"> 
+                                     <label class="control-label col-md-2">联系人
+                                         <span class="required" aria-required="true"> * </span>
+                                     </label> 
+                                     <div class="col-md-4"> 
+                                         <div class="input-icon right" style="float: none !important"> 
+                                             <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.company.contactEditDto.linkMan" /> 
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                                 <div class="form-group"> 
+                                     <label class="control-label col-md-2">手机号码
+                                         <span class="required" aria-required="true"> * </span>
+                                     </label> 
+                                     <div class="col-md-4"> 
+                                         <div class="input-icon right" style="float: none !important"> 
+                                             <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.company.contactEditDto.phone" /> 
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                                 <div class="form-group"> 
+                                     <label class="control-label col-md-2">传真电话</label> 
+                                     <div class="col-md-4"> 
+                                         <div class="input-icon right" style="float: none !important"> 
+                                             <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.company.contactEditDto.tel" /> 
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                                 <div class="form-group"> 
+                                     <label class="control-label col-md-2">邮箱</label> 
+                                     <div class="col-md-4"> 
+                                         <div class="input-icon right" style="float: none !important"> 
+                                             <input id="email" class="hasInputBorder form-control " name="email" type="text" ng-model="vm.company.contactEditDto.email" /> 
+                                         </div> 
+                                     </div> 
+                                 </div> 
+                             </uib-tab> 
                         </uib-tabset>
                     </div>
                     <div class=" form-actions">

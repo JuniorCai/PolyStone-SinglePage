@@ -157,6 +157,24 @@
                 });
             }
 
+            vm.getDefaultContact = function() {
+                if ($.trim(vm.company.companyEditDto.userName).length > 0) {
+                    userService.isUserNameExist(vm.company.companyEditDto.userName)
+                        .then(function (result) {
+                            if (result.data == null) {
+                                angular.element("#isUserValid").val("false");
+                                vm.company.contactEditDto.linkMan = "";
+                                vm.company.contactEditDto.phone = "";
+                            }
+                            else {
+                                angular.element("#isUserValid").val(result.data.id);
+                                vm.company.contactEditDto.linkMan = result.data.fullName;
+                                vm.company.contactEditDto.phone = result.data.phoneNumber;
+                            }
+                        });
+                }
+            };
+
             vm.chooseRegion = function () {
                 if (vm.selectedProvince == "-1") {
                     vm.isCityShow = false;
@@ -182,33 +200,31 @@
 
             vm.chooseCity = function() {
                 vm.selectedRegion = vm.selectedCity.id;
-            }
+            };
 
-            vm.save = function () {
+            vm.save = function() {
                 if ($.trim(vm.company.companyEditDto.userName).length == 0) {
                     abp.notify.error("请填写需要关联的用户名");
                     return false;
                 } else {
-                    userService.isUserNameExist(vm.company.companyEditDto.userName)
-                        .then(function (result) {
-                            if (result.data==null)
-                                abp.notify.error("所关联的用户名不存在!");
-                            else {
-                                vm.company.companyEditDto.memberId = result.data.id;
-                                var flag = bindCompanyInfo();
-                                if (flag) {
-                                    if (vm.showAuthBlock) {
-                                        bindAuthInfo();
-                                    } else {
-                                        vm.company.companyAuthEditDto = null;
-                                        vm.company.contactEditDto = null;
-                                        postData();
-                                    }
+                    if (angular.element("#isUserValid").val() > 0) {
+                        vm.company.companyEditDto.memberId = angular.element("#isUserValid").val();
+                        var flag = bindCompanyInfo();
+                        if (flag) {
+                            if (vm.showAuthBlock) {
+                                bindAuthInfo();
+                            } else {
+                                if (bindContactInfo()) {
+                                    vm.company.companyAuthEditDto = null;
+
+                                    postData();
                                 }
                             }
-                        });
+                        }
+                    } else {
+                        abp.notify.error("所关联的用户名不存在!");
+                    }
                 }
-                
             };
 
             function bindCompanyInfo() {
@@ -259,6 +275,18 @@
                 fileUploader2.uploadAll();
             }
 
+            function bindContactInfo() {
+                if ($.trim(vm.company.contactEditDto.linkMan).length == 0) {
+                    abp.notify.error("请填写联系人名称");
+                    return false;
+                }
+                if ($.trim(vm.company.contactEditDto.phone).length == 0) {
+                    abp.notify.error("请填写电话号码");
+                    return false;
+                }
+                return true;
+            }
+
             function postData() {
                 var postUrl = $("#frm_create_company").attr("url");
                 $http.post(postUrl, { model: vm.company }).then(function (result) {
@@ -273,11 +301,6 @@
                     }
 
                 });
-
-//                companyService.createCompany(vm.company)
-//                    .then(function (result) {
-//                        abp.notify.success(App.localize('SavedSuccessfully'));
-//                    });
             }
 
 
@@ -342,20 +365,10 @@
                     vm.uploadResult2.status &&
                     vm.uploadResult3.status &&
                     vm.uploadResult4.status) {
-                    vm.company.contactEditDto = null;
-                    postData();
+                    if (bindContactInfo())
+                        postData();
                 }
-
-
-//                if (vm.uploadResult.status) {
-//                    vm.product.imgUrls = imgUrls.join(',');
-//                    companyService.createCompany(vm.product)
-//                        .then(function() {
-//                            abp.notify.success(App.localize('SavedSuccessfully'));
-//                        });
-//                } else {
-//                    abp.notify.error(vm.uploadResult.msg);
-//                }                
+            
             }
 
             vm.cancel = function () {

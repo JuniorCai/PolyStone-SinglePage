@@ -144,6 +144,16 @@ namespace PolyStone.CompanyContacts
             }
         }
 
+        [AbpAuthorize(ContactAppPermissions.Contact_EditContact)]
+        public virtual async Task SetContactDefault(int companyId, int contactId)
+        {
+            var entity = await _contactRepository.GetAsync(contactId);
+            entity.IsDefault = true;
+            await _contactRepository.UpdateAsync(entity);
+
+
+        }
+
         /// <summary>
         /// 新增企业联系表
         /// </summary>

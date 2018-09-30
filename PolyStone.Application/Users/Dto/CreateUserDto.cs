@@ -26,6 +26,11 @@ namespace PolyStone.Users.Dto
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
 
+        [Required]
+        [Phone]
+        [StringLength(AbpUserBase.MaxPhoneNumberLength)]
+        public string PhoneNumber { get; set; }
+
         public bool IsActive { get; set; }
 
         public string[] RoleNames { get; set; }

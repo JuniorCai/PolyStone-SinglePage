@@ -59,6 +59,10 @@ namespace PolyStone.Web.Controllers
                         {
                             model.ContactEditDto.CompanyId = newModel.Id.Value;
                             var newContactModel = await _contactAppService.CreateContactAsync(model.ContactEditDto);
+                            if (model.ContactEditDto.IsDefault)
+                            {
+                                
+                            }
                         }
                     }
 
