@@ -19,7 +19,7 @@ namespace PolyStone.EntityMapper.Companies
 
 
             // 企业LOGO
-            Property(a => a.Logo).HasMaxLength(50);
+            Property(a => a.Logo).HasMaxLength(100);
             // 企业名称
             Property(a => a.CompanyName).HasMaxLength(50);
             // 主营范围
@@ -29,7 +29,9 @@ namespace PolyStone.EntityMapper.Companies
             // 企业地址
             Property(a => a.Address).HasMaxLength(100);
 
+            HasRequired(c => c.User).WithMany().HasForeignKey(c => c.UserId);
             HasRequired(c => c.Region).WithMany().HasForeignKey(c => c.RegionId);
+            HasMany(c => c.Industries).WithRequired(ci => ci.Company).HasForeignKey(ci => ci.CompanyId);
         }
     }
 }

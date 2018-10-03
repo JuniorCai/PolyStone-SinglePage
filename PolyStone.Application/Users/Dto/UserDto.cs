@@ -30,6 +30,8 @@ namespace PolyStone.Users.Dto
         [StringLength(AbpUserBase.MaxPhoneNumberLength)]
         public string PhoneNumber { get; set; }
 
+        public UserType UserType { get; set; }
+
         public bool IsActive { get; set; }
 
         public string FullName { get; set; }

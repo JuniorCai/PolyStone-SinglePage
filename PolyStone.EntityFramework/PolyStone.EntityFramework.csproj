@@ -238,13 +238,17 @@
     <Compile Include="EntityMapper\Members\MemberCfg.cs" />
     <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />
-    <Compile Include="Migrations\201809250743084_initCreateDataBase.cs" />
-    <Compile Include="Migrations\201809250743084_initCreateDataBase.Designer.cs">
-      <DependentUpon>201809250743084_initCreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\201810020946531_initialDatabase.cs" />
+    <Compile Include="Migrations\201810020946531_initialDatabase.Designer.cs">
+      <DependentUpon>201810020946531_initialDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809291402451_alterPolyStone.cs" />
-    <Compile Include="Migrations\201809291402451_alterPolyStone.Designer.cs">
-      <DependentUpon>201809291402451_alterPolyStone.cs</DependentUpon>
+    <Compile Include="Migrations\201810021210117_AlterCompanyIndex.cs" />
+    <Compile Include="Migrations\201810021210117_AlterCompanyIndex.Designer.cs">
+      <DependentUpon>201810021210117_AlterCompanyIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810021400097_AlterCompanyUserIndex.cs" />
+    <Compile Include="Migrations\201810021400097_AlterCompanyUserIndex.Designer.cs">
+      <DependentUpon>201810021400097_AlterCompanyUserIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -269,11 +273,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809250743084_initCreateDataBase.resx">
-      <DependentUpon>201809250743084_initCreateDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810020946531_initialDatabase.resx">
+      <DependentUpon>201810020946531_initialDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809291402451_alterPolyStone.resx">
-      <DependentUpon>201809291402451_alterPolyStone.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810021210117_AlterCompanyIndex.resx">
+      <DependentUpon>201810021210117_AlterCompanyIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021400097_AlterCompanyUserIndex.resx">
+      <DependentUpon>201810021400097_AlterCompanyUserIndex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

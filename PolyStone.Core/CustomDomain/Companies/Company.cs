@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.CompanyContacts;
 using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Products;
@@ -22,7 +23,10 @@ namespace PolyStone.CustomDomain.Companies
 
         public CompanyType CompanyType { get; set; }
 
-        public int MemberId { get; set; }
+        public long UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
 
         public bool IsAuthed { get; set; }
 
@@ -39,11 +43,11 @@ namespace PolyStone.CustomDomain.Companies
 
         public bool IsActive { get; set; }
 
-        public ICollection<Contact> Contacts { get; set; }
+        public virtual ICollection<Contact> Contacts { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
-        public ICollection<CompanyIndustry> Industries { get; set; }
+        public virtual ICollection<CompanyIndustry> Industries { get; set; }
     }
 
     public enum CompanyType

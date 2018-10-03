@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
+using Newtonsoft.Json;
 using PolyStone.CustomDomain.Companies;
 
 namespace PolyStone.CustomDomain.CompanyIndustries
@@ -8,12 +9,13 @@ namespace PolyStone.CustomDomain.CompanyIndustries
     {
         public int CompanyId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("CompanyId")]
-        public Company Company { get; set; }
+        public virtual Company Company { get; set; }
 
         public int IndustryId { get; set; }
 
         [ForeignKey("IndustryId")]
-        public Industry Industry { get; set; }
+        public virtual Industry Industry { get; set; }
     }
 }

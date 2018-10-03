@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
+using Abp.Configuration;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using PolyStone.CustomDomain.Communities;
+using PolyStone.CustomDomain.Companies;
 
 namespace PolyStone.Authorization.Users
 {
@@ -32,7 +36,44 @@ namespace PolyStone.Authorization.Users
             return user;
         }
 
+        [JsonIgnore]
         public virtual ICollection<Community> Communities { get; set; }
+
+        /// <summary>
+        /// Login definitions for this user.
+        /// </summary>
+        [JsonIgnore]
+        [ForeignKey("UserId")]
+        public override ICollection<UserLogin> Logins { get; set; }
+
+        /// <summary>
+        /// Roles of this user.
+        /// </summary>
+        [ForeignKey("UserId")]
+        [JsonIgnore]
+        public override ICollection<UserRole> Roles { get; set; }
+
+        /// <summary>
+        /// Claims of this user.
+        /// </summary>
+        [ForeignKey("UserId")]
+        [JsonIgnore]
+        public  override ICollection<UserClaim> Claims { get; set; }
+
+        /// <summary>
+        /// Permission definitions for this user.
+        /// </summary>
+        [ForeignKey("UserId")]
+        [JsonIgnore]
+        public override ICollection<UserPermissionSetting> Permissions { get; set; }
+
+        /// <summary>
+        /// Settings for this user.
+        /// </summary>
+        [ForeignKey("UserId")]
+        [JsonIgnore]
+        public override ICollection<Setting> Settings { get; set; }
+
 
         public override string FullName => Surname + " " + Name;
 
@@ -43,6 +84,8 @@ namespace PolyStone.Authorization.Users
         public string NickName { get; set; }
 
         public UserType UserType { get; set; }
+
+        //public virtual Company Company { get; set; }
     }
 
     /// <summary>

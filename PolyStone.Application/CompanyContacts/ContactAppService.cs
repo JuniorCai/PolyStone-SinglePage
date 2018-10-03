@@ -144,13 +144,26 @@ namespace PolyStone.CompanyContacts
             }
         }
 
+
+        /// <summary>
+        /// 设置联系方式为默认
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <param name="contactId"></param>
+        /// <returns></returns>
         [AbpAuthorize(ContactAppPermissions.Contact_EditContact)]
         public virtual async Task SetContactDefault(int companyId, int contactId)
         {
+
+            foreach (var contact in _contactRepository.GetAll().Where(c=>c.CompanyId == companyId).ToList())
+            {
+                contact.IsDefault = false;
+                await _contactRepository.UpdateAsync(contact);
+            }
+
             var entity = await _contactRepository.GetAsync(contactId);
             entity.IsDefault = true;
             await _contactRepository.UpdateAsync(entity);
-
 
         }
 
@@ -164,7 +177,7 @@ namespace PolyStone.CompanyContacts
 
             var entity = input.MapTo<Contact>();
 
-            entity = await _contactRepository.InsertAsync(entity);
+            entity.Id = await _contactRepository.InsertAndGetIdAsync(entity);
             return entity.MapTo<ContactEditDto>();
         }
 

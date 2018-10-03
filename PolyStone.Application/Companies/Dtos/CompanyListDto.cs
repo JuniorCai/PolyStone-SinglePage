@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using PolyStone.Authorization.Users;
+using PolyStone.CompanyContacts.Dtos;
+using PolyStone.CompanyIndustries.Dtos;
 using PolyStone.CustomDomain.Companies;
 using PolyStone.CustomDomain.CompanyContacts;
 using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Products;
+using PolyStone.Products.Dtos;
+using PolyStone.Regions.Dtos;
+using PolyStone.Users.Dto;
 
-#region 代码生成器相关信息_ABP Code Generator Info
-   //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
-   //我的邮箱:werltm@hotmail.com
-   // 官方网站:"http://www.yoyocms.com"
- // 交流QQ群：104390185  
- //微信公众号：角落的白板报
-// 演示地址:"vue版本：http://vue.yoyocms.com angularJs版本:ng1.yoyocms.com"
-//博客地址：http://www.cnblogs.com/wer-ltm/
-//代码生成器帮助文档：http://www.cnblogs.com/wer-ltm/p/5777190.html
-// <Author-作者>梁桐铭 ,微软MVP</Author-作者>
-// Copyright © YoYoCms@China.2018-08-02T16:25:40. All Rights Reserved.
-//<生成时间>2018-08-02T16:25:40</生成时间>
-	#endregion
+
 namespace PolyStone.Companies.Dtos
 {
     /// <summary>
@@ -56,7 +51,12 @@ namespace PolyStone.Companies.Dtos
         /// 会员ID
         /// </summary>
         [DisplayName("会员ID")]
-        public int MemberId { get; set; }
+        public int UserId { get; set; }
+
+        public UserDto User { get; set; }
+
+        public UserType UserType { get; set; }
+
 
         /// <summary>
         /// 是否已认证
@@ -82,6 +82,9 @@ namespace PolyStone.Companies.Dtos
         [DisplayName("地区ID")]
         public int RegionId { get; set; }
 
+        [DisplayName("地区")]
+        public RegionListDto Region { get; set; }
+
         /// <summary>
         /// 是否启用
         /// </summary>
@@ -101,11 +104,11 @@ namespace PolyStone.Companies.Dtos
         [DisplayName("创建时间")]
         public DateTime CreationTime { get; set; }
 
-        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<ContactListDto> Contacts { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<ProductListDto> Products { get; set; }
 
-        public ICollection<CompanyIndustry> Industries { get; set; }
+        public ICollection<CompanyIndustryListDto> Industries { get; set; }
 
     }
 }

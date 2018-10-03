@@ -49,7 +49,7 @@ namespace PolyStone.CompanyContacts
         Task CreateOrUpdateContactAsync(CreateOrUpdateContactInput input);
 
 
-        Task SetContactDefault(int id);
+        Task SetContactDefault(int companyId, int contactId);
 
 
         /// <summary>

@@ -98,7 +98,7 @@
                     userName: "",
                     companyType: 1,
                     logo: "",
-                    memberId:0,
+                    userId:0,
                     industry: "",
                     bussiness: "",
                     regionId: "-1",
@@ -208,17 +208,20 @@
                     return false;
                 } else {
                     if (angular.element("#isUserValid").val() > 0) {
-                        vm.company.companyEditDto.memberId = angular.element("#isUserValid").val();
-                        var flag = bindCompanyInfo();
-                        if (flag) {
+                        vm.company.companyEditDto.userId = angular.element("#isUserValid").val();
+                        if (bindCompanyInfo() && bindContactInfo()) {
                             if (vm.showAuthBlock) {
-                                bindAuthInfo();
+                                if (bindAuthInfo())
+                                    fileUploader1.uploadAll();
                             } else {
-                                if (bindContactInfo()) {
-                                    vm.company.companyAuthEditDto = null;
+                                vm.company.companyAuthEditDto = null;
 
+                                if (fileUploader1.queue.length > 0) {
+                                    fileUploader1.uploadAll();
+                                } else {
                                     postData();
                                 }
+
                             }
                         }
                     } else {
@@ -246,33 +249,27 @@
                         return false;
                     }
                 }
-
-                if (fileUploader1.queue.length > 0) {
-                    fileUploader1.uploadAll();
-                    return false;
-                } else {
-                    return true;
-                }
+                return true;
             }
 
             function bindAuthInfo() {
                 if (fileUploader2.queue.length == 0) {
                     abp.notify.error("请上传营业执照");
-                    return;
+                    return false;
                 }
                 if ($.trim(vm.company.companyAuthEditDto.legalPerson).length == 0) {
                     abp.notify.error("未填写法人姓名");
-                    return;
+                    return false;
                 }
                 if (fileUploader3.queue.length == 0) {
                     abp.notify.error("请上传法人身份证人像照");
-                    return;
+                    return false;
                 }
-                if (fileUploader3.queue.length == 0) {
+                if (fileUploader4.queue.length == 0) {
                     abp.notify.error("请上传法人身份证国徽照");
-                    return;
+                    return false;
                 }
-                fileUploader2.uploadAll();
+                return true;
             }
 
             function bindContactInfo() {
@@ -318,7 +315,7 @@
                     if (!vm.showAuthBlock) {
                         postData();
                     }else {
-                        bindAuthInfo();
+                        fileUploader2.uploadAll();
                     }
                 } else {
                     abp.notify.error("企业logo上传失败");
@@ -365,8 +362,8 @@
                     vm.uploadResult2.status &&
                     vm.uploadResult3.status &&
                     vm.uploadResult4.status) {
-                    if (bindContactInfo())
-                        postData();
+                    postData();
+                        
                 }
             
             }

@@ -36,12 +36,14 @@
                         <tr ng-repeat="company in vm.companyList">
                             <td><input type="checkbox" /></td>
                             <td>{{company.companyName}}</td>
-                            <td>{{company.companyType}}</td>
-                            <td>{{company.user.userType}}</td>
+                            <td ng-if="company.companyType==0">企业</td>
+                            <td ng-if="company.companyType==1">店铺</td>
+                            <td ng-if="company.user.userType==2">未认证企业</td>
+                            <td ng-if="company.user.userType==3">认证企业</td>
                             <td>{{company.region.regionName}}</td>
                             <td>
-                                <i class="material-icons" ng-if="category.isActive" style="color:green;">check_box</i>
-                                <i class="material-icons" ng-if="!category.isActive" style="color:red;">indeterminate_check_box</i>
+                                <i class="material-icons" ng-if="company.isActive" style="color:green;">check_box</i>
+                                <i class="material-icons" ng-if="!company.isActive" style="color:red;">indeterminate_check_box</i>
                             </td>
                             <td class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

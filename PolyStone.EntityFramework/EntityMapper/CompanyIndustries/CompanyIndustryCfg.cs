@@ -18,7 +18,7 @@ namespace PolyStone.EntityMapper.CompanyIndustries
 
 
             // 企业信息 - 关系映射
-            HasRequired(a => a.Company).WithMany().HasForeignKey(c => c.CompanyId);
+            HasRequired(a => a.Company).WithMany(c => c.Industries).HasForeignKey(c => c.CompanyId);
             // 行业信息 - 关系映射
             HasRequired(a => a.Industry).WithMany().HasForeignKey(c => c.IndustryId);
         }

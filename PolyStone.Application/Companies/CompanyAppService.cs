@@ -59,18 +59,18 @@ namespace PolyStone.Companies
         /// </summary>
         public async Task<PagedResultDto<CompanyListDto>> GetPagedCompanysAsync(GetCompanyInput input)
         {
-
             var query = _companyRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
             var companyCount = await query.CountAsync();
 
-            var companys = await query
+            var companys =  query
                 .OrderBy(input.Sorting)
                 .PageBy(input)
-                .ToListAsync();
+                .ToListAsync().Result;
 
             var companyListDtos = companys.MapTo<List<CompanyListDto>>();
+
             return new PagedResultDto<CompanyListDto>(
                 companyCount,
                 companyListDtos
@@ -118,7 +118,7 @@ namespace PolyStone.Companies
         /// <returns></returns>
         public async Task<CompanyListDto> GetCompanyByUserId(int userId)
         {
-            var entity = await _companyRepository.FirstOrDefaultAsync(c => c.MemberId == userId);
+            var entity = await _companyRepository.FirstOrDefaultAsync(c => c.UserId == userId);
 
             return entity.MapTo<CompanyListDto>();
         }

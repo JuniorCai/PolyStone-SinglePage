@@ -88,6 +88,18 @@ namespace PolyStone.Users
             return await Get(input);
         }
 
+        public async Task<bool> UpdateUser(UserDto input)
+        {
+            CheckUpdatePermission();
+
+            var user = await _userManager.GetUserByIdAsync(input.Id);
+            MapToEntity(input, user);
+
+            CheckErrors(await _userManager.UpdateAsync(user));
+            return true;
+        }
+
+
         public override async Task Delete(EntityDto<long> input)
         {
             var user = await _userManager.GetUserByIdAsync(input.Id);
@@ -112,6 +124,7 @@ namespace PolyStone.Users
             return userDto;
         }
 
+
         protected override User MapToEntity(CreateUserDto createInput)
         {
             var user = ObjectMapper.Map<User>(createInput);
@@ -119,6 +132,11 @@ namespace PolyStone.Users
         }
 
         protected override void MapToEntity(UpdateUserDto input, User user)
+        {
+            ObjectMapper.Map(input, user);
+        }
+
+        protected void MapToEntity(UserDto input, User user)
         {
             ObjectMapper.Map(input, user);
         }
