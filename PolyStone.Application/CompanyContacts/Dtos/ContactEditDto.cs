@@ -13,13 +13,13 @@ namespace PolyStone.CompanyContacts.Dtos
     {
 
         /// <summary>
-        ///   主键Id
+        ///   Id
         /// </summary>
-        [DisplayName("主键Id")]
+        [DisplayName("Id")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// 企业ID
+        /// 企业ID-主键ID
         /// </summary>
         [DisplayName("企业ID")]
         [Required]

@@ -34,7 +34,7 @@
             };
 
             vm.goToCompanyDetail = function (companyId) {
-                $state.go("editCompany", { id: companyId});
+                $state.go("companyEdit", { id: companyId});
                 //$location.path(path);
             };
 
