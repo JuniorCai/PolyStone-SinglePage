@@ -74,6 +74,12 @@ namespace PolyStone.Authorization.Users
         [JsonIgnore]
         public override ICollection<Setting> Settings { get; set; }
 
+        [JsonIgnore]
+        public override User DeleterUser { get; set; }
+        [JsonIgnore]
+        public override User CreatorUser { get; set; }
+        [JsonIgnore]
+        public override User LastModifierUser { get; set; }
 
         public override string FullName => Surname + " " + Name;
 

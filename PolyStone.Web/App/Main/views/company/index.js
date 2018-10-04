@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.index', [
-        '$scope', '$uibModal', 'abp.services.app.company',
-        function ($scope, $uibModal, companyService) {
+        '$scope','$state', '$uibModal', 'abp.services.app.company',
+        function ($scope, $state, $uibModal, companyService) {
             var vm = this;
 
             vm.companyList = [];
@@ -33,8 +33,9 @@
                 getCompanyList();
             };
 
-            vm.goToCompanyDetail = function (path) {
-                $location.path(path);
+            vm.goToCompanyDetail = function (companyId) {
+                $state.go("editCompany", { id: companyId});
+                //$location.path(path);
             };
 
 

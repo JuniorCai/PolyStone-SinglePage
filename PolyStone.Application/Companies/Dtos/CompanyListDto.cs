@@ -5,6 +5,7 @@ using System.Drawing;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using PolyStone.Authorization.Users;
+using PolyStone.CompanyAuthes.Dtos;
 using PolyStone.CompanyContacts.Dtos;
 using PolyStone.CompanyIndustries.Dtos;
 using PolyStone.CustomDomain.Companies;
@@ -54,6 +55,8 @@ namespace PolyStone.Companies.Dtos
         public int UserId { get; set; }
 
         public UserDto User { get; set; }
+
+        public CompanyAuthListDto CompanyAuth { get; set; }
 
         public UserType UserType { get; set; }
 

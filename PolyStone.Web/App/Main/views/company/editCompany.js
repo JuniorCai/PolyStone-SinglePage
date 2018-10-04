@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.editCompany', [
-        '$scope', '$uibModal', '$state', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
-        function ($scope, $uibModal, $state, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
+        '$scope', '$uibModal', '$state','$stateParams', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
+        function ($scope, $uibModal, $state, $stateParams, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
             var vm = this;
             var imgUrls = [];
             vm.showAuthBlock = false;
@@ -126,6 +126,13 @@
             function initPageData() {
                 getIndustryList();
                 getRegionList();
+            }
+
+            function initCompany() {
+                var companyId = $stateParams.id;
+                companyService.getCompanyById({ id: companyId }).then(function(result) {
+
+                });
             }
 
             vm.industryList = [];
@@ -366,6 +373,7 @@
             };
 
             initPageData();
+            initCompany();
         }
     ]);
 })();

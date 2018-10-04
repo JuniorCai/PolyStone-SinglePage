@@ -32,6 +32,7 @@ namespace PolyStone.EntityMapper.Companies
             HasRequired(c => c.User).WithMany().HasForeignKey(c => c.UserId);
             HasRequired(c => c.Region).WithMany().HasForeignKey(c => c.RegionId);
             HasMany(c => c.Industries).WithRequired(ci => ci.Company).HasForeignKey(ci => ci.CompanyId);
+            HasOptional(c => c.CompanyAuth).WithRequired(ca => ca.Company);
         }
     }
 }

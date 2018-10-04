@@ -28,6 +28,7 @@ namespace PolyStone.EntityMapper.CompanyAuthes
             Property(a => a.BackImg).HasMaxLength(100);
             // 营业执照
             Property(a => a.License).HasMaxLength(100);
+            HasRequired(ca => ca.Company).WithOptional(c => c.CompanyAuth);
         }
     }
 }

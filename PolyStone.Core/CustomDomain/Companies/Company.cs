@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
 using PolyStone.Authorization.Users;
+using PolyStone.CustomDomain.CompanyAuths;
 using PolyStone.CustomDomain.CompanyContacts;
 using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Products;
@@ -43,11 +44,14 @@ namespace PolyStone.CustomDomain.Companies
 
         public bool IsActive { get; set; }
 
+        public virtual CompanyAuth CompanyAuth { get; set; }
+
         public virtual ICollection<Contact> Contacts { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
 
         public virtual ICollection<CompanyIndustry> Industries { get; set; }
+
     }
 
     public enum CompanyType

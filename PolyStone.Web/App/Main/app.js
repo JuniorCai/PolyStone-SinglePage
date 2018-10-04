@@ -134,6 +134,17 @@
                 $urlRouterProvider.otherwise('/company');
             }
 
+            if (abp.auth.hasPermission('Pages.Company.EditCompany')) {
+                $stateProvider
+                    .state('companyEdit', {
+                        url: '/company/edit/:id',
+                        templateUrl: '/App/Main/views/company/editCompany.cshtml',
+                        controller: 'app.views.company.editCompany'
+                        //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/company');
+            }
+
             if (abp.auth.hasPermission('Pages.Region')) {
                 $stateProvider
                     .state('regions', {
