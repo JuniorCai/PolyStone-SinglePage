@@ -374,7 +374,14 @@
                 var modalInstance = $uibModal.open({
                     templateUrl: '/App/Main/views/company/createContactModal.cshtml',
                     controller: 'app.views.company.createContactModal as vm',
-                    backdrop: 'static'
+                    backdrop: 'static',
+                    resolve: {
+                        companyId: function () {
+                            return vm.company.companyEditDto.id;
+                        },
+                        id: function() {
+                            return null;
+                        }}
                 });
 
                 modalInstance.rendered.then(function () {
@@ -386,8 +393,37 @@
                 });
             };  
 
+            vm.openContactEditModal = function (contact) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: '/App/Main/views/company/createContactModal.cshtml',
+                    controller: 'app.views.company.createContactModal as vm',
+                    backdrop: 'static',
+                    resolve: {
+                        companyId: function() {
+                            return 0;
+                        },
+                        id: function() {
+                            return contact.id;
+                        }
+                    }
+                });
+
+                modalInstance.rendered.then(function () {
+                    $.AdminBSB.input.activate();
+                });
+
+                modalInstance.result.then(function () {
+                    getContactList();
+                });
+            };
+
             function getContactList() {
-                
+                contactService.getPagedContacts({
+                    companyId: vm.company.companyEditDto.id,
+                    sort: "id"
+                }).then(function(result) {
+                    vm.company.contactEditList = result.data.items;
+                });
             }
 
             vm.cancel = function () {

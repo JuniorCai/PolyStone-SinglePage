@@ -15,6 +15,8 @@ namespace PolyStone.CompanyContacts.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public int CompanyId { get; set; }
+
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>

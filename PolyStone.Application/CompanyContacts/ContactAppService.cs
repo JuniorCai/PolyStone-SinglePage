@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -75,6 +76,8 @@ namespace PolyStone.CompanyContacts
             var query = _contactRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
+            query = query.WhereIf(input.CompanyId > 0, c => c.CompanyId == input.CompanyId);
+
             var contactCount = await query.CountAsync();
 
             var contacts = await query
@@ -134,13 +137,27 @@ namespace PolyStone.CompanyContacts
         /// </summary>
         public async Task CreateOrUpdateContactAsync(CreateOrUpdateContactInput input)
         {
-            if (input.ContactEditDto.Id.HasValue)
+            using (var _unitWork = UnitOfWorkManager.Begin())
             {
-                await UpdateContactAsync(input.ContactEditDto);
-            }
-            else
-            {
-                await CreateContactAsync(input.ContactEditDto);
+                int contactId = 0;
+                if (input.ContactEditDto.Id.HasValue)
+                {
+                    await UpdateContactAsync(input.ContactEditDto);
+                    contactId = input.ContactEditDto.Id.Value;
+                }
+                else
+                {
+                    var model = await CreateContactAsync(input.ContactEditDto);
+                    contactId = model.Id.Value;
+                }
+
+                if (input.ContactEditDto.IsDefault)
+                {
+                    await SetContactDefault(input.ContactEditDto.CompanyId, contactId);
+                }
+
+
+                _unitWork.Complete();
             }
         }
 
