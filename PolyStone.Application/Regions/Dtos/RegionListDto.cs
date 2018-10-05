@@ -22,8 +22,8 @@ namespace PolyStone.Regions.Dtos
         /// <summary>
         /// 父类ID
         /// </summary>
-        [DisplayName("父类ID")]
-        public int ParentId { get; set; }
+        [DisplayName("父类编号")]
+        public string ParentCode { get; set; }
 
         [DisplayName("编号")]
         public string RegionCode { get; set; }

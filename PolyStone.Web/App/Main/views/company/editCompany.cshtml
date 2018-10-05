@@ -70,7 +70,7 @@
                                 <div class="col-md-4">
                                     <div class="input-icon right" style="float: none !important">
                                         <select class="" ng-model="vm.selectedIndustry">
-                                            <option value="-1" selected="selected">选择行业类别</option>
+                                            <option value="-1" selected="selected">-- 请选择 --</option>
                                             <option ng-repeat="x in vm.industryList" value="{{x.id}}">{{x.industryName}}</option>
                                         </select>
                                     </div>
@@ -91,7 +91,9 @@
                                 </label>
                                 <div class="col-md-4">
                                     <div class="input-icon right" style="float: none !important">
-                                        <select id="provinceList" ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()" ng-options="x.regionName for x in vm.regionList"></select>
+                                        <select id="provinceList" ng-model="vm.selectedProvince" ng-change="vm.chooseRegion()" ng-options="x.regionName for x in vm.regionList">
+                                            <option value="-1">-- 请选择 --</option>
+                                        </select>
                                         <select id="cityList" ng-show="vm.isCityShow" ng-model="vm.selectedCity" ng-change="vm.chooseCity()" ng-options="x.regionName for x in vm.cityList"></select>
                                     </div>
                                 </div>
@@ -217,7 +219,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="contact in vm.contactList">
+                                        <tr ng-repeat="contact in vm.company.contactEditList">
                                             <td><input type="checkbox" /></td>
                                             <td>{{contact.linkMan}}</td>
                                             <td>{{contact.phone}}</td>

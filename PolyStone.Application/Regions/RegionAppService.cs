@@ -62,12 +62,12 @@ namespace PolyStone.Regions
 
             if (string.IsNullOrEmpty(input.RegionCode))
             {
-                query = query.Where(r => r.ParentId == 1 && r.RegionCode != "100000");
+                query = query.Where(r => r.ParentCode == "1" && r.RegionCode != "100000");
             }
             else
             {
-                int parentCode = int.Parse(input.RegionCode);
-                query = query.Where(r => r.ParentId == parentCode);
+                string parentCode = input.RegionCode;
+                query = query.Where(r => r.ParentCode == parentCode);
             }
 
             var regionCount = await query.CountAsync();
@@ -81,6 +81,23 @@ namespace PolyStone.Regions
             return new PagedResultDto<RegionListDto>(
                 regionCount,
                 regionListDtos
+            );
+        }
+
+        /// <summary>
+        /// 通过Id获取地区表信息进行编辑或修改 
+        /// </summary>
+        public async Task<PagedResultDto<RegionListDto>> GetPagedRegionsByRegionIdAsync(int regionId)
+        {
+            var region = await _regionRepository.GetAsync(regionId);
+            if (region != null)
+            {
+                return await GetPagedRegionsAsync(new GetRegionInput() {RegionCode = region.RegionCode, MaxResultCount = 100,Sorting = "Id"});
+            }
+
+            return new PagedResultDto<RegionListDto>(
+                0,
+                new List<RegionListDto>()
             );
         }
 

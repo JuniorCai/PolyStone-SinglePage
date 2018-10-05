@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using Newtonsoft.Json;
 using PolyStone.CustomDomain.Companies;
 
 namespace PolyStone.CustomDomain.CompanyContacts
@@ -13,6 +14,7 @@ namespace PolyStone.CustomDomain.CompanyContacts
     {
         public int CompanyId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("CompanyId")]
         public Company Company { get; set; }
 

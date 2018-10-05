@@ -37,6 +37,11 @@ namespace PolyStone.Companies.Dtos
         [DisplayName("企业名称")]
         public string CompanyName { get; set; }
 
+
+        [DisplayName("企业简称")]
+        public string ShortName { get; set; }
+
+
         /// <summary>
         /// 企业类型
         /// </summary>

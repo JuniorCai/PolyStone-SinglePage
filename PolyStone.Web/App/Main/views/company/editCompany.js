@@ -93,6 +93,7 @@
 
             vm.company = {
                 companyEditDto: {
+                    id:0,
                     companyName: "",
                     shortName: "",
                     userName: "",
@@ -113,14 +114,7 @@
                     backImg: "",
                     license:""
                 },
-                contactEditDto: {
-                    companyId: -1,
-                    linkMan: "",
-                    phone: "",
-                    tel: "",
-                    email: "",
-                    isDefault:false
-                }
+                contactEditList: []
             };
 
             function initPageData() {
@@ -131,7 +125,25 @@
             function initCompany() {
                 var companyId = $stateParams.id;
                 companyService.getCompanyById({ id: companyId }).then(function(result) {
+                    vm.company.companyEditDto = result.data;
+                    vm.company.companyAuthEditDto = result.data.companyAuth;
+                    vm.company.contactEditList = result.data.contacts;
+                    vm.company.companyEditDto.userName = result.data.user.userName;
+                    vm.selectedIndustry = result.data.industries[0].id.toString();
+                    vm.selectedRegion = result.data.region;
+                    bindRegionSelect();
+                });
+            }
 
+            function bindRegionSelect() {
+                
+                angular.forEach(vm.regionList, function (item, index) {
+                    if (item.regionCode == vm.selectedRegion.parentCode) {
+                        vm.selectedProvince = item;
+                        vm.chooseRegion(true);
+                    } else if (item.regionCode == vm.selectedRegion.regionCode) {
+                        vm.selectedProvince = item;
+                    }
                 });
             }
 
@@ -164,11 +176,12 @@
                 });
             }
 
-            vm.chooseRegion = function () {
+            vm.chooseRegion = function (isFirstBind = false) {
+
                 if (vm.selectedProvince == "-1") {
                     vm.isCityShow = false;
                 } else {
-                    vm.selectedRegion = vm.selectedProvince.id;
+                    vm.selectedRegion = vm.selectedProvince;
                     vm.cityList = [];
                     regionService.getPagedRegions({
                         regionCode: vm.selectedProvince.regionCode,
@@ -177,7 +190,16 @@
                     }).then(function (result) {
                         vm.cityList = result.data.items;
                         if (vm.cityList.length > 0) {
-                            vm.selectedRegion = 0;
+                            if (isFirstBind) {
+                                angular.forEach(vm.cityList,
+                                    function(item, index) {
+                                        if (item.regionCode == vm.company.companyEditDto.region.regionCode) {
+                                            vm.selectedCity = item;
+                                        }
+                                    });
+                            } else {
+                                vm.selectedRegion = 0;
+                            }
                             vm.isCityShow = true;
                         } else {
                             vm.isCityShow = false;
@@ -188,7 +210,7 @@
             };
 
             vm.chooseCity = function() {
-                vm.selectedRegion = vm.selectedCity.id;
+                vm.selectedRegion = vm.selectedCity;
             };
 
             vm.save = function () {
@@ -227,7 +249,7 @@
                 }
                 else {
                     vm.company.companyEditDto.industry = vm.selectedIndustry;
-                    vm.company.companyEditDto.regionId = vm.selectedRegion;
+                    vm.company.companyEditDto.regionId = vm.selectedRegion.id;
                     if ($.trim(vm.company.companyEditDto.companyName).length == 0) {
                         abp.notify.error("企业全称未填写");
                         return false;

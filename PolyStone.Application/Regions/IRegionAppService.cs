@@ -19,6 +19,14 @@ namespace PolyStone.Regions
         /// </summary>
         Task<PagedResultDto<RegionListDto>> GetPagedRegionsAsync(GetRegionInput input);
 
+
+        /// <summary>
+        /// 根据地区ID获取该地区下属地区分页列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<PagedResultDto<RegionListDto>> GetPagedRegionsByRegionIdAsync(int regionId);
+
         /// <summary>
         /// 通过Id获取地区表信息进行编辑或修改 
         /// </summary>
