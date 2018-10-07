@@ -11,6 +11,7 @@ using PolyStone.Authorization.Users;
 using PolyStone.Companies;
 using PolyStone.Companies.Dtos;
 using PolyStone.CompanyAuthes;
+using PolyStone.CompanyAuthes.Dtos;
 using PolyStone.CompanyContacts;
 using PolyStone.CompanyIndustries;
 using PolyStone.CompanyIndustries.Dtos;
@@ -82,13 +83,15 @@ namespace PolyStone.Web.Controllers
                             var user = _userAppService.UpdateUser(loginUser);
 
 
-                            if (model.ContactEditDto != null)
+                            if (model.ContactEdit != null )
                             {
-                                model.ContactEditDto.CompanyId = newModel.Id.Value;
-                                var newContactModel = await _contactAppService.CreateContactAsync(model.ContactEditDto);
-                                if (model.ContactEditDto.IsDefault)
+                                var contactEditDto = model.ContactEdit;
+                                contactEditDto.CompanyId = newModel.Id.Value;
+                                var newContactModel = await _contactAppService.CreateContactAsync(contactEditDto);
+                                if (contactEditDto.IsDefault)
                                 {
-                                    await _contactAppService.SetContactDefault(newContactModel.CompanyId, newContactModel.Id.Value);
+                                    await _contactAppService.SetContactDefault(newContactModel.CompanyId,
+                                        newContactModel.Id.Value);
                                 }
                             }
                         }
@@ -103,6 +106,64 @@ namespace PolyStone.Web.Controllers
             }
             return Json(new { success = false, msg = "无操作权限" });
         }
+
+
+
+        [HttpPost]
+        public async Task<JsonResult> SaveCompany(CreateOrUpdateCompanyInput model)
+        {
+            if (PermissionChecker.IsGranted("Pages.Company.EditCompany"))
+            {
+
+                try
+                {
+                    var oldCompany = await _companyService.GetCompanyByUserId(model.CompanyEditDto.UserId);
+                    if (oldCompany == null || oldCompany.Id != model.CompanyEditDto.Id)
+                    {
+                        return Json(new {success = false, msg = "不存在操作对象"});
+                    }
+
+                    CheckModelState();
+
+                    using (var unitWork = UnitOfWorkManager.Begin())
+                    {
+
+                        await _companyService.UpdateCompanyAsync(model.CompanyEditDto);
+
+                        await _contactAppService.DeleteContactByCompanyIdAsync(model.CompanyEditDto.Id.Value);
+                        List<string> industryIds = model.CompanyEditDto.Industry.Split(',').ToList();
+                        foreach (string industryId in industryIds)
+                        {
+                            CreateOrUpdateCompanyIndustryInput industryInput = new CreateOrUpdateCompanyIndustryInput();
+                            CompanyIndustryEditDto dto = new CompanyIndustryEditDto() { CompanyId = model.CompanyEditDto.Id.Value, IndustryId = int.Parse(industryId) };
+                            industryInput.CompanyIndustryEditDto = dto;
+                            await _companyIndustryAppService.CreateOrUpdateCompanyIndustryAsync(industryInput);
+                        }
+
+                        var loginUser = _userAppService.Get(new EntityDto<long> { Id = AbpSession.UserId.Value }).Result;
+                        loginUser.UserType = UserType.Company;
+
+                        if (model.CompanyAuthEditDto != null)
+                        {
+                            loginUser.UserType = UserType.VipCompany;
+                            await _companyAuthAppService.CreateOrUpdateCompanyAuthAsync(new CreateOrUpdateCompanyAuthInput(){CompanyAuthEditDto = model.CompanyAuthEditDto });
+                        }
+
+                        var user = _userAppService.UpdateUser(loginUser);
+
+
+                        unitWork.Complete();
+                    }
+                    return Json(new { success = true, msg = "" });
+                }
+                catch (Exception e)
+                {
+                    return Json(new { success = false, msg = "保存失败" });
+                }
+            }
+            return Json(new { success = false, msg = "无操作权限" });
+        }
+
 
 
 //        public async Task<JsonResult> DeleteCompany(int companyId)

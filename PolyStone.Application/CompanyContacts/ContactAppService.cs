@@ -223,6 +223,16 @@ namespace PolyStone.CompanyContacts
         }
 
         /// <summary>
+        /// 删除企业联系表
+        /// </summary>
+        [AbpAuthorize(ContactAppPermissions.Contact_DeleteContact)]
+        public async Task DeleteContactByCompanyIdAsync(int companyId)
+        {
+            //TODO:删除前的逻辑判断，是否允许删除
+            await _contactRepository.DeleteAsync(c => c.CompanyId == companyId);
+        }
+
+        /// <summary>
         /// 批量删除企业联系表
         /// </summary>
         [AbpAuthorize(ContactAppPermissions.Contact_DeleteContact)]

@@ -68,6 +68,13 @@ namespace PolyStone.CompanyContacts
         Task DeleteContactAsync(EntityDto<int> input);
 
         /// <summary>
+        /// 根据企业ID删除企业联系表
+        /// </summary>
+        Task DeleteContactByCompanyIdAsync(int companyId);
+
+
+
+        /// <summary>
         /// 批量删除企业联系表
         /// </summary>
         Task BatchDeleteContactAsync(List<int> input);

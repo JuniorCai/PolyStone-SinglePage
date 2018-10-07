@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using PolyStone.CompanyAuthes.Dtos;
 using PolyStone.CompanyContacts.Dtos;
 
@@ -17,7 +18,7 @@ namespace PolyStone.Companies.Dtos
 
         public CompanyAuthEditDto CompanyAuthEditDto { get; set; }
 
-        public ContactEditDto ContactEditDto { get; set; }
+        public ContactEditDto ContactEdit { get; set; }
  
     }
 }

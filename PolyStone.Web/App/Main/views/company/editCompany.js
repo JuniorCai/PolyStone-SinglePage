@@ -1,30 +1,36 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.editCompany', [
-        '$scope', '$uibModal', '$state','$stateParams', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
-        function ($scope, $uibModal, $state, $stateParams, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
+        '$scope','$q','$uibModal', '$state','$stateParams', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
+        function ($scope,$q,$uibModal, $state, $stateParams, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
             var vm = this;
             var imgUrls = [];
+
+            var initDefer = $q.defer();
+            var initPromise = initDefer.promise;
+
+
             vm.showAuthBlock = false;
             vm.uploadResult1 = {
                 status: true,
                 msg:""
             };
             vm.uploadResult2 = {
-                status: true,
+                status: false,
                 msg: ""
             };
             vm.uploadResult3 = {
-                status: true,
+                status: false,
                 msg: ""
             };
             vm.uploadResult4 = {
-                status: true,
+                status: false,
                 msg: ""
             };
 
             var fileUploaderCfg = {
                 url: "/Resource/Upload",
                 queueLimit: 1,
+                removeAfterUpload:true,
                 headers: {
                     'x-xsrf-token': abp.security.antiForgery.getToken()
                 }
@@ -47,7 +53,7 @@
             };
             
             var fileUploader1 = $scope.logoFileUploader = new FileUploader(fileUploaderCfg);
-            var fileUploader2 = $scope.licenceFileUploader = new FileUploader(fileUploaderCfg);
+            var fileUploader2 = $scope.licenseFileUploader = new FileUploader(fileUploaderCfg);
             var fileUploader3 = $scope.personFileUploader = new FileUploader(fileUploaderCfg);
             var fileUploader4 = $scope.nationalFileUploader = new FileUploader(fileUploaderCfg);
 
@@ -64,18 +70,29 @@
             fileUploader4.filters.push(imageFilter);
             fileUploader4.filters.push(sizeFilter);
 
-            fileUploader1.onAfterAddingFile = function() {
-                toggleUploadDiv("#logoUploadDiv", this.queue.length >= 1);
+            fileUploader1.onAfterAddingFile = function () {
+                if (this.queue.length > 1)
+                    fileUploader1.removeFromQueue(0);
+                //toggleUploadDiv("#logoUploadDiv", this.queue.length >= 1);
             };
             fileUploader2.onAfterAddingFile = function () {
-                toggleUploadDiv("#licenseUploadDiv", this.queue.length >= 1);
+                if (this.queue.length > 1)
+                    fileUploader2.removeFromQueue(0);
+
+                //toggleUploadDiv("#licenseUploadDiv", this.queue.length >= 1);
             };
             fileUploader3.onAfterAddingFile = function () {
-                toggleUploadDiv("#personUploadDiv", this.queue.length >= 1);
+                if (this.queue.length > 1)
+                    fileUploader3.removeFromQueue(0);
+
+                //toggleUploadDiv("#personUploadDiv", this.queue.length >= 1);
 
             };
             fileUploader4.onAfterAddingFile = function () {
-                toggleUploadDiv("#nationalUploadDiv", this.queue.length >= 1);
+                if (this.queue.length > 1)
+                    fileUploader4.removeFromQueue(0);
+
+                //toggleUploadDiv("#nationalUploadDiv", this.queue.length >= 1);
             };
 
             function toggleUploadDiv(divId, isHide) {
@@ -86,8 +103,21 @@
                 }
             }
 
-            vm.delImg = function() {
-                //$scope.fileUploader
+            vm.delImg = function(type) {
+                switch (type) {
+                    case "logo":
+                        vm.company.companyEditDto.logo = "";
+                        break;
+                    case "license":
+                        vm.company.companyAuthEditDto.license = "";
+                        break;
+                    case "frontImg":
+                        vm.company.companyAuthEditDto.frontImg = "";
+                        break;
+                    case "backImg":
+                        vm.company.companyAuthEditDto.backImg = "";
+                        break;
+                }
             };
 
 
@@ -126,7 +156,12 @@
                 var companyId = $stateParams.id;
                 companyService.getCompanyById({ id: companyId }).then(function(result) {
                     vm.company.companyEditDto = result.data;
-                    vm.company.companyAuthEditDto = result.data.companyAuth;
+                    if (result.data.companyAuth != null) {
+                        vm.company.companyAuthEditDto = result.data.companyAuth;
+                        vm.showAuthBlock = true;
+                    } else {
+                        vm.showAuthBlock = false;
+                    }
                     vm.company.contactEditList = result.data.contacts;
                     vm.company.companyEditDto.userName = result.data.user.userName;
                     vm.selectedIndustry = result.data.industries[0].id.toString();
@@ -176,6 +211,24 @@
                 });
             }
 
+            vm.getDefaultContact = function () {
+                if ($.trim(vm.company.companyEditDto.userName).length > 0) {
+                    userService.isUserNameExist(vm.company.companyEditDto.userName)
+                        .then(function (result) {
+                            if (result.data == null) {
+                                angular.element("#isUserValid").val("false");
+                                vm.company.contactEditDto.linkMan = "";
+                                vm.company.contactEditDto.phone = "";
+                            }
+                            else {
+                                angular.element("#isUserValid").val(result.data.id);
+                                vm.company.contactEditDto.linkMan = result.data.fullName;
+                                vm.company.contactEditDto.phone = result.data.phoneNumber;
+                            }
+                        });
+                }
+            };
+
             vm.chooseRegion = function (isFirstBind = false) {
 
                 if (vm.selectedProvince == "-1") {
@@ -213,31 +266,54 @@
                 vm.selectedRegion = vm.selectedCity;
             };
 
+
             vm.save = function () {
                 if ($.trim(vm.company.companyEditDto.userName).length == 0) {
                     abp.notify.error("请填写需要关联的用户名");
                     return false;
                 } else {
-                    userService.isUserNameExist(vm.company.companyEditDto.userName)
-                        .then(function (result) {
-                            if (result.data==null)
-                                abp.notify.error("所关联的用户名不存在!");
-                            else {
-                                vm.company.companyEditDto.memberId = result.data.id;
-                                var flag = bindCompanyInfo();
-                                if (flag) {
-                                    if (vm.showAuthBlock) {
-                                        bindAuthInfo();
-                                    } else {
-                                        vm.company.companyAuthEditDto = null;
-                                        vm.company.contactEditDto = null;
-                                        postData();
-                                    }
+                    if (angular.element("#isUserValid").val() > 0) {
+                        vm.company.companyEditDto.userId = angular.element("#isUserValid").val();
+                        if (bindCompanyInfo()) {
+                            if (vm.showAuthBlock) {
+                                if (bindAuthInfo()) {
+                                    uploadFile();
                                 }
+                            } else {
+                                vm.company.companyAuthEditDto = null;
+
+                                if (fileUploader1.queue.length > 0) {
+                                    fileUploader1.uploadAll();
+                                } else {
+                                    postData();
+                                }
+
                             }
-                        });
+                        }
+                    } else {
+                        abp.notify.error("所关联的用户名不存在!");
+                    }
+
+                    
                 }
             };
+
+            function uploadFile() {
+                if (fileUploader1.queue.length > 0)
+                    fileUploader1.uploadAll();
+                else if (fileUploader2.queue.length > 0)
+                    fileUploader2.uploadAll();
+                else if (fileUploader3.queue.length > 0)
+                    fileUploader3.uploadAll();
+                else if (fileUploader4.queue.length > 0)
+                    fileUploader4.uploadAll();
+                else if (vm.company.companyAuthEditDto.license.length > 0 &&
+                    vm.company.companyAuthEditDto.frontImg.length > 0 &&
+                    vm.company.companyAuthEditDto.backImg.length > 0) {
+                    vm.company.contactEditDto = null;
+                    postData();
+                }
+            }
 
             function bindCompanyInfo() {
                 if (vm.selectedIndustry == "-1") {
@@ -258,36 +334,32 @@
                         return false;
                     }
                 }
-
-                if (fileUploader1.queue.length > 0) {
-                    fileUploader1.uploadAll();
-                    return false;
-                } else {
-                    return true;
-                }
+                return true;
             }
 
             function bindAuthInfo() {
-                if (fileUploader2.queue.length == 0) {
+                if (vm.company.companyAuthEditDto.license.length==0&&fileUploader2.queue.length == 0) {
                     abp.notify.error("请上传营业执照");
-                    return;
+                    return false;
                 }
                 if ($.trim(vm.company.companyAuthEditDto.legalPerson).length == 0) {
                     abp.notify.error("未填写法人姓名");
-                    return;
+                    return false;
                 }
-                if (fileUploader3.queue.length == 0) {
+                if (vm.company.companyAuthEditDto.frontImg.length == 0 &&fileUploader3.queue.length == 0) {
                     abp.notify.error("请上传法人身份证人像照");
-                    return;
+                    return false;
                 }
-                if (fileUploader3.queue.length == 0) {
+                if (vm.company.companyAuthEditDto.backImg.length == 0 &&fileUploader4.queue.length == 0) {
                     abp.notify.error("请上传法人身份证国徽照");
-                    return;
+                    return false;
                 }
-                fileUploader2.uploadAll();
+                return true;
+
             }
 
-            function postData() {
+            function postData(deferParam) {
+                return;
                 var postUrl = $("#frm_create_company").attr("url");
                 $http.post(postUrl, { model: vm.company }).then(function (result) {
                     if (result.data.success) {
@@ -304,6 +376,7 @@
             }
 
 
+
             fileUploader1.onSuccessItem = function(item, response) {
                 vm.uploadResult1.status = response.result.success;
                 vm.uploadResult1.msg =
@@ -317,8 +390,9 @@
                     vm.company.companyEditDto.logo = vm.uploadResult1.msg;
                     if (!vm.showAuthBlock) {
                         postData();
-                    }else {
-                        bindAuthInfo();
+                    } else {
+                        uploadFile();
+                        //fileUploader2.uploadAll();
                     }
                 } else {
                     abp.notify.error("企业logo上传失败");
@@ -334,7 +408,8 @@
                 }
                 else {
                     vm.company.companyAuthEditDto.license = vm.uploadResult2.msg;
-                    fileUploader3.uploadAll();
+                    uploadFile();
+                    //fileUploader3.uploadAll();
                 }
             };
             fileUploader3.onSuccessItem = function (item, response) {
@@ -346,9 +421,14 @@
                 }
                 else {
                     vm.company.companyAuthEditDto.frontImg = vm.uploadResult3.msg;
-                    fileUploader4.uploadAll();
+                    
+                    //fileUploader4.uploadAll();
                 }
             };
+            fileUploader3.onCompleteAll = function() {
+                uploadFile();
+            };
+
             fileUploader4.onSuccessItem = function (item, response) {
                 vm.uploadResult4.status = response.result.success;
                 vm.uploadResult4.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
@@ -359,12 +439,10 @@
                 else
                     vm.company.companyAuthEditDto.backImg = vm.uploadResult4.msg;
             };
-
             fileUploader4.onCompleteAll = function () {
-                if (vm.uploadResult1.status &&
-                    vm.uploadResult2.status &&
-                    vm.uploadResult3.status &&
-                    vm.uploadResult4.status) {
+                if (vm.company.companyAuthEditDto.license.length > 0 &&
+                    vm.company.companyAuthEditDto.frontImg.length > 0 &&
+                    vm.company.companyAuthEditDto.backImg.length > 0) {
                     vm.company.contactEditDto = null;
                     postData();
                 }          
@@ -417,6 +495,7 @@
                 });
             };
 
+
             function getContactList() {
                 contactService.getPagedContacts({
                     companyId: vm.company.companyEditDto.id,
@@ -426,12 +505,31 @@
                 });
             }
 
+            //联系方式删除逻辑
+            vm.delete = function (contactId) {
+                abp.message.confirm(
+                    "是否删除该联系方式?",
+                    function (result) {
+                        if (result) {
+                            contactService.deleteContact({ id: contactId })
+                                .then(function () {
+                                    abp.notify.info("删除成功");
+                                    getContactList();
+                                });
+                        }
+                    });
+            };
+
             vm.cancel = function () {
                 $state.go("company");
             };
 
-            initPageData();
-            initCompany();
+            $timeout(function () {
+                initPageData();
+            }, 1000).then(function () {
+                initCompany(); 
+            });
+
         }
     ]);
 })();
