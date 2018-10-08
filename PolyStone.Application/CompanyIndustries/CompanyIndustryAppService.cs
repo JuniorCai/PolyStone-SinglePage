@@ -170,6 +170,13 @@ namespace PolyStone.CompanyIndustries
             await _companyIndustryRepository.DeleteAsync(input.Id);
         }
 
+        [AbpAuthorize(CompanyIndustryAppPermissions.CompanyIndustry_DeleteCompanyIndustry)]
+        public async Task DeleteCompanyIndustryByCompanyIdAsync(int companyId)
+        {
+            await _companyIndustryRepository.DeleteAsync(c => c.CompanyId == companyId);
+        }
+
+
         /// <summary>
         /// 批量删除企业行业关系表
         /// </summary>

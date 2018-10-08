@@ -130,7 +130,7 @@ namespace PolyStone.Web.Controllers
 
                         await _companyService.UpdateCompanyAsync(model.CompanyEditDto);
 
-                        await _contactAppService.DeleteContactByCompanyIdAsync(model.CompanyEditDto.Id.Value);
+                        await _companyIndustryAppService.DeleteCompanyIndustryByCompanyIdAsync(model.CompanyEditDto.Id.Value);
                         List<string> industryIds = model.CompanyEditDto.Industry.Split(',').ToList();
                         foreach (string industryId in industryIds)
                         {

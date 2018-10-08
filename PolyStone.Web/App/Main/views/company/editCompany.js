@@ -1,12 +1,10 @@
 ﻿(function () {
     angular.module('app').controller('app.views.company.editCompany', [
-        '$scope','$q','$uibModal', '$state','$stateParams', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
-        function ($scope,$q,$uibModal, $state, $stateParams, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
+        '$scope','$uibModal', '$state','$stateParams', 'abp.services.app.user', 'abp.services.app.company', 'abp.services.app.industry', 'abp.services.app.region', 'abp.services.app.contact', 'FileUploader', '$http','$timeout',
+        function ($scope,$uibModal, $state, $stateParams, userService, companyService, industryService, regionService,contactService, FileUploader, $http, $timeout) {
             var vm = this;
             var imgUrls = [];
 
-            var initDefer = $q.defer();
-            var initPromise = initDefer.promise;
 
 
             vm.showAuthBlock = false;
@@ -144,12 +142,13 @@
                     backImg: "",
                     license:""
                 },
-                contactEditList: []
             };
 
+            vm.contactEditList = [];
+
             function initPageData() {
-                getIndustryList();
                 getRegionList();
+                getIndustryList();
             }
 
             function initCompany() {
@@ -162,9 +161,9 @@
                     } else {
                         vm.showAuthBlock = false;
                     }
-                    vm.company.contactEditList = result.data.contacts;
+                    vm.contactEditList = result.data.contacts;
                     vm.company.companyEditDto.userName = result.data.user.userName;
-                    vm.selectedIndustry = result.data.industries[0].id.toString();
+                    vm.selectedIndustry = result.data.industries[0].industryId.toString();
                     vm.selectedRegion = result.data.region;
                     bindRegionSelect();
                 });
@@ -248,6 +247,7 @@
                                     function(item, index) {
                                         if (item.regionCode == vm.company.companyEditDto.region.regionCode) {
                                             vm.selectedCity = item;
+                                            vm.chooseCity();
                                         }
                                     });
                             } else {
@@ -359,8 +359,12 @@
             }
 
             function postData(deferParam) {
-                return;
                 var postUrl = $("#frm_create_company").attr("url");
+
+                //防止JSON过长无法提交，无业务功能
+                vm.company.companyEditDto.contacts = [];
+                vm.company.companyEditDto.industries = [];
+
                 $http.post(postUrl, { model: vm.company }).then(function (result) {
                     if (result.data.success) {
                         abp.notify.info("保存成功", "", { timeOut: 1500 });
@@ -395,7 +399,7 @@
                         //fileUploader2.uploadAll();
                     }
                 } else {
-                    abp.notify.error("企业logo上传失败");
+                    abp.notify.error(vm.uploadResult1.msg.length == 0 ? "企业logo上传失败" : vm.uploadResult1.msg);
                 }
             };
 
@@ -403,20 +407,24 @@
                 vm.uploadResult2.status = response.result.success;
                 vm.uploadResult2.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
                 if (!vm.uploadResult2.status) {
-                    abp.notify.error("请上传营业执照");
+                    abp.notify.error(vm.uploadResult2.msg);
                     fileUploader2.cancelAll();
                 }
                 else {
                     vm.company.companyAuthEditDto.license = vm.uploadResult2.msg;
-                    uploadFile();
                     //fileUploader3.uploadAll();
                 }
             };
+
+            fileUploader2.onCompleteAll = function () {
+                uploadFile();
+            };
+
             fileUploader3.onSuccessItem = function (item, response) {
                 vm.uploadResult3.status = response.result.success;
                 vm.uploadResult3.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
                 if (!vm.uploadResult3.status) {
-                    abp.notify.error("请上传法人身份证人像照");
+                    abp.notify.error(vm.uploadResult3.msg);
                     fileUploader3.cancelAll();
                 }
                 else {
@@ -433,7 +441,7 @@
                 vm.uploadResult4.status = response.result.success;
                 vm.uploadResult4.msg = response.result.success ? response.result.msg : item.name + " " + response.result.msg;
                 if (!vm.uploadResult4.status) {
-                    abp.notify.error("请上传法人身份证国徽照");
+                    abp.notify.error(vm.uploadResult4.msg);
                     fileUploader4.cancelAll();
                 }
                 else
@@ -501,7 +509,7 @@
                     companyId: vm.company.companyEditDto.id,
                     sort: "id"
                 }).then(function(result) {
-                    vm.company.contactEditList = result.data.items;
+                    vm.contactEditList = result.data.items;
                 });
             }
 
@@ -523,12 +531,10 @@
             vm.cancel = function () {
                 $state.go("company");
             };
-
-            $timeout(function () {
-                initPageData();
-            }, 1000).then(function () {
-                initCompany(); 
-            });
+            initPageData();
+            $timeout(function() {
+                    initCompany();
+                },500);
 
         }
     ]);

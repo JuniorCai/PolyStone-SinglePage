@@ -55,6 +55,12 @@ namespace PolyStone.CompanyIndustries
         /// </summary>
         Task DeleteCompanyIndustryAsync(EntityDto<int> input);
 
+
+        /// <summary>
+        /// 根据企业ID删除企业行业关系表
+        /// </summary>
+        Task DeleteCompanyIndustryByCompanyIdAsync(int companyId);
+
         /// <summary>
         /// 批量删除企业行业关系表
         /// </summary>

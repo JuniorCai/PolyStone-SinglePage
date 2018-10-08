@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="form" style="margin: 20px">
-                <form id="frm_create_company" name="companyCreateForm" url="@Url.Action("CreateCompany","Company")" class="form-horizontal form-bordered bordered" novalidate>
+                <form id="frm_create_company" name="companyCreateForm" url="@Url.Action("SaveCompany","Company")" class="form-horizontal form-bordered bordered" novalidate>
                     <div class="form-body">
                         <uib-tabset class="tab-container tabbable-line">
                         <uib-tab heading="基本信息">
@@ -111,12 +111,12 @@
                                     </div>
                                 </div>
                             </div>                           
-                            <div class="form-group" >
+                            <div class="form-group" ng-hide="vm.company.companyAuthEditDto.companyId>0">
                                 <label class="control-label col-md-2"></label>
                                 <div class="col-md-4">
                                     <div class="input-icon right" style="float: none !important">
                                         <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.showAuthBlock"  class="form-control" />
-                                        <label for="isactive" class="form-label">添加企业认证</label>
+                                        <label for="isactive" class="form-label" >添加企业认证</label>
                                     </div>
                                 </div>
                             </div>
@@ -132,9 +132,9 @@
                                             </div>
 
                                             <div ng-repeat="item in licenseFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.license.length==0" onclick="javascript: $('#licenseFileUploader').click();">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#licenseUploadFile').click();"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="licenseUploadDiv" ng-show="logoFileUploader.queue.length==0">
+                                            <div style="clear: both; padding: 10px 0" id="licenseUploadDiv" ng-show="licenseFileUploader.queue.length==0">
 
                                                 <label ng-show="vm.company.companyAuthEditDto.license.length==0" onclick="javascript: $('#licenseUploadFile').click();">
                                                     <img class="thumbDefault" />
@@ -167,9 +167,9 @@
                                             </div>
 
                                             <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.frontImg.length==0" onclick="javascript: $('#personFileUploader').click();">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#personUploadFile').click();"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="personUploadDiv" ng-show="logoFileUploader.queue.length==0">
+                                            <div style="clear: both; padding: 10px 0" id="personUploadDiv" ng-show="personFileUploader.queue.length==0">
 
                                                 <label ng-show="vm.company.companyAuthEditDto.frontImg.length==0" onclick="javascript: $('#personUploadFile').click();">
                                                     <img class="thumbDefault" />
@@ -191,9 +191,9 @@
                                             </div>
 
                                             <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.backImg.length==0" onclick="javascript: $('#nationalFileUploader').click();">
-                                                <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
+                                                <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#nationalUploadFile').click();"></div>
                                             </div>
-                                            <div style="clear: both; padding: 10px 0" id="nationalUploadDiv" ng-show="logoFileUploader.queue.length==0">
+                                            <div style="clear: both; padding: 10px 0" id="nationalUploadDiv" ng-show="nationalFileUploader.queue.length==0">
 
                                                 <label>
                                                     <img class="thumbDefault" ng-show="vm.company.companyAuthEditDto.backImg.length==0" onclick="javascript: $('#nationalUploadFile').click();"/>
@@ -236,7 +236,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="contact in vm.company.contactEditList">
+                                        <tr ng-repeat="contact in vm.contactEditList">
                                             <td><input type="checkbox" /></td>
                                             <td>{{contact.linkMan}}</td>
                                             <td>{{contact.phone}}</td>
