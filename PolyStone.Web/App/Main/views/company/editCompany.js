@@ -165,6 +165,7 @@
                     vm.company.companyEditDto.userName = result.data.user.userName;
                     vm.selectedIndustry = result.data.industries[0].industryId.toString();
                     vm.selectedRegion = result.data.region;
+                    vm.selectedCompanyType = result.data.companyType.toString();
                     bindRegionSelect();
                 });
             }
@@ -316,7 +317,10 @@
             }
 
             function bindCompanyInfo() {
-                if (vm.selectedIndustry == "-1") {
+                if (vm.selectedCompanyType == "-1") {
+                    abp.notify.error("未选择企业类别");
+                    return false;
+                }else if (vm.selectedIndustry == "-1") {
                     abp.notify.error("未选择行业分类");
                     return false;
                 } else if (vm.selectedRegion <= 0) {
@@ -326,6 +330,7 @@
                 else {
                     vm.company.companyEditDto.industry = vm.selectedIndustry;
                     vm.company.companyEditDto.regionId = vm.selectedRegion.id;
+                    vm.company.companyEditDto.companyType = vm.selectedCompanyType;
                     if ($.trim(vm.company.companyEditDto.companyName).length == 0) {
                         abp.notify.error("企业全称未填写");
                         return false;
