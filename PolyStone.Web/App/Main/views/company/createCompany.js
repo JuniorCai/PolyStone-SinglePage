@@ -47,7 +47,7 @@
             };
             
             var fileUploader1 = $scope.logoFileUploader = new FileUploader(fileUploaderCfg);
-            var fileUploader2 = $scope.licenceFileUploader = new FileUploader(fileUploaderCfg);
+            var fileUploader2 = $scope.licenseFileUploader = new FileUploader(fileUploaderCfg);
             var fileUploader3 = $scope.personFileUploader = new FileUploader(fileUploaderCfg);
             var fileUploader4 = $scope.nationalFileUploader = new FileUploader(fileUploaderCfg);
 
@@ -64,17 +64,28 @@
             fileUploader4.filters.push(imageFilter);
             fileUploader4.filters.push(sizeFilter);
 
-            fileUploader1.onAfterAddingFile = function() {
+            fileUploader1.onAfterAddingFile = function () {
+                if (this.queue.length > 1)
+                    fileUploader1.removeFromQueue(0);
+
                 toggleUploadDiv("#logoUploadDiv", this.queue.length >= 1);
             };
             fileUploader2.onAfterAddingFile = function () {
+                if (this.queue.length > 1)
+                    fileUploader2.removeFromQueue(0);
+
                 toggleUploadDiv("#licenseUploadDiv", this.queue.length >= 1);
             };
             fileUploader3.onAfterAddingFile = function () {
-                toggleUploadDiv("#personUploadDiv", this.queue.length >= 1);
+                if (this.queue.length > 1)
+                    fileUploader3.removeFromQueue(0);
 
+                toggleUploadDiv("#personUploadDiv", this.queue.length >= 1);
             };
             fileUploader4.onAfterAddingFile = function () {
+                if (this.queue.length > 1)
+                    fileUploader4.removeFromQueue(0);
+
                 toggleUploadDiv("#nationalUploadDiv", this.queue.length >= 1);
             };
 

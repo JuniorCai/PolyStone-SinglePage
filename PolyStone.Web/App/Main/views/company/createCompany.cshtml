@@ -49,7 +49,7 @@
                                 <label class="control-label col-md-2">企业LOGO</label>
                                 <div class="col-md-6">
                                     <div>
-                                        <div ng-repeat="item in logoFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                        <div ng-repeat="item in logoFileUploader.queue" style="float: left" class="thumbUploaded"  onclick="javascript: $('#logoUploadFile').click();">
                                             <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                         </div>
                                         <div style="clear: both; padding: 10px 0" id="logoUploadDiv">
@@ -122,15 +122,15 @@
                                     </label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" onclick="javascript: $('#licenseUploadFile').click();">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
                                             <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">
 
                                                 <label>
-                                                    <img class="thumbDefault" onclick="javascript: $('#licenceUploadFile').click();" />
+                                                    <img class="thumbDefault" onclick="javascript: $('#licenseUploadFile').click();" />
                                                 </label>
-                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenceUploadFile" uploader="licenceFileUploader" ng-show="false" />
+                                                <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenseUploadFile" uploader="licenseFileUploader" ng-show="false" />
                                             </div>
                                         </div>
 
@@ -153,7 +153,7 @@
                                     </label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" onclick="javascript: $('#personUploadFile').click();">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
                                             <div style="clear: both; padding: 10px 0" id="personUploadDiv">
@@ -173,7 +173,7 @@
                                     </label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
+                                            <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" onclick="javascript: $('#nationalUploadFile').click();">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
                                             <div style="clear: both; padding: 10px 0" id="nationalUploadDiv">

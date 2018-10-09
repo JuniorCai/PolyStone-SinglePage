@@ -71,25 +71,34 @@
             fileUploader1.onAfterAddingFile = function () {
                 if (this.queue.length > 1)
                     fileUploader1.removeFromQueue(0);
-                //toggleUploadDiv("#logoUploadDiv", this.queue.length >= 1);
+                if (vm.company.companyEditDto.logo.length > 0) {
+                    vm.company.companyEditDto.logo = "";
+                }
+                //toggleUploadDiv("#logoUploadDiv", this.queue.length >= 1);ng-click="vm.delImg('logo')"
             };
             fileUploader2.onAfterAddingFile = function () {
                 if (this.queue.length > 1)
                     fileUploader2.removeFromQueue(0);
-
+                if (vm.company.companyAuthEditDto.license.length > 0) {
+                    vm.company.companyAuthEditDto.license = "";
+                }
                 //toggleUploadDiv("#licenseUploadDiv", this.queue.length >= 1);
             };
             fileUploader3.onAfterAddingFile = function () {
                 if (this.queue.length > 1)
                     fileUploader3.removeFromQueue(0);
-
+                if (vm.company.companyAuthEditDto.frontImg.length > 0) {
+                    vm.company.companyAuthEditDto.frontImg = "";
+                }
                 //toggleUploadDiv("#personUploadDiv", this.queue.length >= 1);
 
             };
             fileUploader4.onAfterAddingFile = function () {
                 if (this.queue.length > 1)
                     fileUploader4.removeFromQueue(0);
-
+                if (vm.company.companyAuthEditDto.backImg.length > 0) {
+                    vm.company.companyAuthEditDto.backImg = "";
+                }
                 //toggleUploadDiv("#nationalUploadDiv", this.queue.length >= 1);
             };
 

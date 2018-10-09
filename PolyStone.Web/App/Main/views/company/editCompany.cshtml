@@ -49,7 +49,7 @@
                             <label class="control-label col-md-2">企业LOGO</label>
                             <div class="col-md-6">
                                 <div>
-                                    <div  style="float: left" class="thumbUploaded logoExist" ng-click="vm.delImg('logo')" ng-show="vm.company.companyEditDto.logo.length>0">
+                                    <div  style="float: left" class="thumbUploaded logoExist"  onclick="javascript: $('#logoUploadFile').click();" ng-show="vm.company.companyEditDto.logo.length>0">
                                         <img ng-src="{{vm.company.companyEditDto.logo}}" style="width: 80px;height: 80px"/>
                                     </div>
 
@@ -143,7 +143,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div>
-                                        <div  style="float: left" class="thumbUploaded licenseExist" ng-click="vm.delImg('license')" ng-show="vm.company.companyAuthEditDto.license.length>0">
+                                        <div  style="float: left" class="thumbUploaded licenseExist" onclick="javascript: $('#licenseUploadFile').click();" ng-show="vm.company.companyAuthEditDto.license.length>0">
                                             <img ng-src="{{vm.company.companyAuthEditDto.license}}" style="width: 80px;height: 80px"/>
                                         </div>
 
@@ -178,7 +178,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div>
-                                        <div  style="float: left" class="thumbUploaded frontImgExist" ng-click="vm.delImg('frontImg')" ng-show="vm.company.companyAuthEditDto.frontImg.length>0">
+                                        <div  style="float: left" class="thumbUploaded frontImgExist" onclick="javascript: $('#personUploadFile').click();" ng-show="vm.company.companyAuthEditDto.frontImg.length>0">
                                             <img ng-src="{{vm.company.companyAuthEditDto.frontImg}}" style="width: 80px;height: 80px"/>
                                         </div>
 
@@ -202,7 +202,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div>
-                                        <div  style="float: left" class="thumbUploaded backImgExist" ng-click="vm.delImg('backImg')" ng-show="vm.company.companyAuthEditDto.backImg.length>0">
+                                        <div  style="float: left" class="thumbUploaded backImgExist" onclick="javascript: $('#nationalUploadFile').click();" ng-show="vm.company.companyAuthEditDto.backImg.length>0">
                                             <img ng-src="{{vm.company.companyAuthEditDto.backImg}}" style="width: 80px;height: 80px"/>
                                         </div>
 
