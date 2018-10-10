@@ -43,7 +43,7 @@ namespace PolyStone.Communities.Dtos
         public int CommunityCategoryId { get; set; }
 
 
-        public CommunityCategoryEditDto CommunityCategory { get; set; }
+        //public CommunityCategoryEditDto CommunityCategory { get; set; }
 
         /// <summary>
         /// 标题

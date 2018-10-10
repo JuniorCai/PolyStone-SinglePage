@@ -37044,3 +37044,277 @@ DEBUG 2018-10-10 14:10:07,837 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 WARN  2018-10-10 14:10:09,076 [7    ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
 DEBUG 2018-10-10 14:10:09,852 [7    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e2f880a6-68a8-4ed5-8f99-914ed466e519","IpAddress":"192.168.0.105","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T14:10:09.8475272+08:00","Properties":{}}
 DEBUG 2018-10-10 14:10:09,878 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e2f880a6-68a8-4ed5-8f99-914ed466e519
+DEBUG 2018-10-10 20:32:27,772 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-10-10 20:32:28,051 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2018-10-10 20:32:28,055 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Web.PolyStoneWebModule, PolyStone.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,057 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneDataModule, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,057 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,057 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,057 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneCoreModule, PolyStone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneApplicationModule, PolyStone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Api.PolyStoneWebApiModule, PolyStone.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:28,063 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2018-10-10 20:32:28,689 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:32:28,689 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:32:28,689 [1    ] o.Configuration.LanguageManagementConfig - Converted PolyStone (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:32:28,689 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:32:29,027 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: PolyStone.EntityFramework.PolyStoneDbContext, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:32:29,924 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-10-10 20:32:30,076 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-10-10 20:32:30,114 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-10-10 20:32:30,134 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: PolyStone
+DEBUG 2018-10-10 20:32:30,159 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-10-10 20:32:30,236 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-10-10 20:32:30,280 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 39 classes define auto mapping attributes
+DEBUG 2018-10-10 20:32:30,280 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-10-10 20:32:30,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-10-10 20:32:30,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.CreateUserDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UpdateUserDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UserDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.CreateRoleDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.PermissionDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.RoleDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionEditDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionListDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductEditDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductListDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.EditTenantDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.TenantDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberEditDto
+DEBUG 2018-10-10 20:32:30,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Industries.Dtos.IndustryEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Industries.Dtos.IndustryListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyIndustries.Dtos.CompanyIndustryEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyIndustries.Dtos.CompanyIndustryListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryEditDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryListDto
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantChangeViewModel
+DEBUG 2018-10-10 20:32:30,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-10-10 20:32:31,650 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-10-10 20:32:31,651 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-10-10 20:32:31,652 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-10-10 20:32:31,653 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-10-10 20:32:31,653 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Products.IProductAppService' with service name 'app/product'.
+DEBUG 2018-10-10 20:32:31,654 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-10-10 20:32:31,655 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2018-10-10 20:32:31,656 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Authorization.Accounts.IAccountAppService' with service name 'app/account'.
+DEBUG 2018-10-10 20:32:31,656 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Members.IMemberAppService' with service name 'app/member'.
+DEBUG 2018-10-10 20:32:31,657 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Industries.IIndustryAppService' with service name 'app/industry'.
+DEBUG 2018-10-10 20:32:31,658 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyIndustries.ICompanyIndustryAppService' with service name 'app/companyIndustry'.
+DEBUG 2018-10-10 20:32:31,658 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyContacts.IContactAppService' with service name 'app/contact'.
+DEBUG 2018-10-10 20:32:31,659 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyAuthes.ICompanyAuthAppService' with service name 'app/companyAuth'.
+DEBUG 2018-10-10 20:32:31,660 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyApplications.ICompanyApplicationAppService' with service name 'app/companyApplication'.
+DEBUG 2018-10-10 20:32:31,661 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Companies.ICompanyAppService' with service name 'app/company'.
+DEBUG 2018-10-10 20:32:31,661 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CommunityCategories.ICommunityCategoryAppService' with service name 'app/communityCategory'.
+DEBUG 2018-10-10 20:32:31,662 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Communities.ICommunityAppService' with service name 'app/community'.
+DEBUG 2018-10-10 20:32:31,663 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Collections.ICollectionAppService' with service name 'app/collection'.
+DEBUG 2018-10-10 20:32:31,664 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Categories.ICategoryAppService' with service name 'app/category'.
+WARN  2018-10-10 20:32:37,409 [6    ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   在 Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException(Task task)
+   在 Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   在 System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException(Task task)
+   在 Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   在 Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo, Type type)
+   在 Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   在 Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException(Task task)
+   在 Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   在 System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException(Task task)
+   在 Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   在 Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo, Type type)
+   在 Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+WARN  2018-10-10 20:32:55,152 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-10-10 20:32:56,533 [10   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"6ba6fdd5-0361-4267-9a49-e92effb93bd1","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:32:56.5266996+08:00","Properties":{}}
+DEBUG 2018-10-10 20:32:56,571 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 6ba6fdd5-0361-4267-9a49-e92effb93bd1
+DEBUG 2018-10-10 20:34:34,656 [11   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 6ba6fdd5-0361-4267-9a49-e92effb93bd1
+WARN  2018-10-10 20:34:34,822 [21   ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-10-10 20:34:35,219 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"180f1cd9-821e-4183-9507-60283061e5c6","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:34:35.2169323+08:00","Properties":{}}
+DEBUG 2018-10-10 20:34:35,225 [16   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 180f1cd9-821e-4183-9507-60283061e5c6
+ERROR 2018-10-10 20:35:27,833 [12   ] tone.Web.Controllers.CommunityController - Conflicting changes to the role 'Community_CommunityCategory_Target' of the relationship 'PolyStone.EntityFramework.Community_CommunityCategory' have been detected.
+System.InvalidOperationException: Conflicting changes to the role 'Community_CommunityCategory_Target' of the relationship 'PolyStone.EntityFramework.Community_CommunityCategory' have been detected.
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.DetectConflicts(IList`1 entries)
+   在 System.Data.Entity.Core.Objects.ObjectStateManager.DetectChanges()
+   在 System.Data.Entity.Core.Objects.ObjectContext.DetectChanges()
+   在 System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   在 System.Data.Entity.Internal.InternalContext.GetStateEntries(Func`2 predicate)
+   在 System.Data.Entity.Internal.InternalContext.GetStateEntries()
+   在 System.Data.Entity.Infrastructure.DbChangeTracker.Entries()
+   在 Abp.EntityFramework.AbpDbContext.ApplyAbpConcepts()
+   在 Abp.EntityFramework.AbpDbContext.SaveChanges()
+   在 PolyStone.EntityFramework.PolyStoneDbContext.SaveChanges() 位置 E:\GitHubRepository\PolyStone-SinglePage\PolyStone.EntityFramework\EntityFramework\PolyStoneDbContext.cs:行号 119
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.SaveChangesInDbContext(DbContext dbContext)
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.SaveChanges()
+   在 Abp.EntityFramework.Uow.EfUnitOfWork.CompleteUow()
+   在 Abp.Domain.Uow.UnitOfWorkBase.Complete()
+   在 Abp.Web.Mvc.Uow.AbpMvcUowFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+DEBUG 2018-10-10 20:40:47,991 [42   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 180f1cd9-821e-4183-9507-60283061e5c6
+WARN  2018-10-10 20:40:48,041 [46   ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-10-10 20:40:48,245 [49   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"ea2568ca-d567-4669-abec-c19db24a9354","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:40:48.2438696+08:00","Properties":{}}
+DEBUG 2018-10-10 20:40:48,249 [52   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: ea2568ca-d567-4669-abec-c19db24a9354
+DEBUG 2018-10-10 20:50:47,931 [104  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: ea2568ca-d567-4669-abec-c19db24a9354
+WARN  2018-10-10 20:50:47,982 [107  ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-10-10 20:50:48,207 [115  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"a93efc64-c52c-440b-9248-aa6e2c181584","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:50:48.2050754+08:00","Properties":{}}
+DEBUG 2018-10-10 20:50:48,212 [124  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: a93efc64-c52c-440b-9248-aa6e2c181584
+DEBUG 2018-10-10 20:51:27,206 [107  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is reconnected: {"ConnectionId":"a93efc64-c52c-440b-9248-aa6e2c181584","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:50:48.2050754+08:00","Properties":{}}
+DEBUG 2018-10-10 20:56:48,219 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-10-10 20:56:48,233 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2018-10-10 20:56:48,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Web.PolyStoneWebModule, PolyStone.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneDataModule, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneCoreModule, PolyStone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.PolyStoneApplicationModule, PolyStone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: PolyStone.Api.PolyStoneWebApiModule, PolyStone.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:48,245 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2018-10-10 20:56:48,489 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:56:48,489 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:56:48,489 [1    ] o.Configuration.LanguageManagementConfig - Converted PolyStone (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:56:48,489 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-10-10 20:56:48,768 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: PolyStone.EntityFramework.PolyStoneDbContext, PolyStone.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-10-10 20:56:50,647 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-10-10 20:56:50,795 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-10-10 20:56:50,842 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-10-10 20:56:50,870 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: PolyStone
+DEBUG 2018-10-10 20:56:50,901 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-10-10 20:56:50,983 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-10-10 20:56:51,027 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 39 classes define auto mapping attributes
+DEBUG 2018-10-10 20:56:51,027 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-10-10 20:56:51,029 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-10-10 20:56:51,029 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.CreateUserDto
+DEBUG 2018-10-10 20:56:51,029 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UpdateUserDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Users.Dto.UserDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.CreateRoleDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.PermissionDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Roles.Dto.RoleDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Regions.Dtos.RegionListDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Products.Dtos.ProductListDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.EditTenantDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.MultiTenancy.Dto.TenantDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Members.Dtos.MemberListDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Industries.Dtos.IndustryEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Industries.Dtos.IndustryListDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyIndustries.Dtos.CompanyIndustryEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyIndustries.Dtos.CompanyIndustryListDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactEditDto
+DEBUG 2018-10-10 20:56:51,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyContacts.Dtos.ContactListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyAuthes.Dtos.CompanyAuthListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CompanyApplications.Dtos.CompanyApplicationListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Companies.Dtos.CompanyListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.CommunityCategories.Dtos.CommunityCategoryListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Communities.Dtos.CommunityListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Collections.Dtos.CollectionListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryEditDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Categories.Dtos.CategoryListDto
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantChangeViewModel
+DEBUG 2018-10-10 20:56:51,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - PolyStone.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-10-10 20:56:52,425 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-10-10 20:56:52,425 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-10-10 20:56:52,426 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-10-10 20:56:52,427 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-10-10 20:56:52,427 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Products.IProductAppService' with service name 'app/product'.
+DEBUG 2018-10-10 20:56:52,428 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-10-10 20:56:52,429 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2018-10-10 20:56:52,430 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Authorization.Accounts.IAccountAppService' with service name 'app/account'.
+DEBUG 2018-10-10 20:56:52,430 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Members.IMemberAppService' with service name 'app/member'.
+DEBUG 2018-10-10 20:56:52,431 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Industries.IIndustryAppService' with service name 'app/industry'.
+DEBUG 2018-10-10 20:56:52,432 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyIndustries.ICompanyIndustryAppService' with service name 'app/companyIndustry'.
+DEBUG 2018-10-10 20:56:52,433 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyContacts.IContactAppService' with service name 'app/contact'.
+DEBUG 2018-10-10 20:56:52,433 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyAuthes.ICompanyAuthAppService' with service name 'app/companyAuth'.
+DEBUG 2018-10-10 20:56:52,434 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CompanyApplications.ICompanyApplicationAppService' with service name 'app/companyApplication'.
+DEBUG 2018-10-10 20:56:52,435 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Companies.ICompanyAppService' with service name 'app/company'.
+DEBUG 2018-10-10 20:56:52,435 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.CommunityCategories.ICommunityCategoryAppService' with service name 'app/communityCategory'.
+DEBUG 2018-10-10 20:56:52,436 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Communities.ICommunityAppService' with service name 'app/community'.
+DEBUG 2018-10-10 20:56:52,437 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Collections.ICollectionAppService' with service name 'app/collection'.
+DEBUG 2018-10-10 20:56:52,438 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'PolyStone.Categories.ICategoryAppService' with service name 'app/category'.
+WARN  2018-10-10 20:56:59,315 [9    ] naries.DictionaryBasedLocalizationSource - Can not find 'Regions' in localization source 'PolyStone'!
+DEBUG 2018-10-10 20:57:00,035 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"e2d076ee-dfac-485e-a297-abed7c9487ac","IpAddress":"192.168.7.104","TenantId":1,"UserId":2,"ConnectTime":"2018-10-10T20:57:00.0294176+08:00","Properties":{}}
+DEBUG 2018-10-10 20:57:00,059 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: e2d076ee-dfac-485e-a297-abed7c9487ac
