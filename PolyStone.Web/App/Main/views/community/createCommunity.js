@@ -119,7 +119,7 @@
                     var postUrl = $("#frm_create_community").attr("url");
                     $http.post(postUrl, { model: vm.community }).then(function (result) {
                         if (result.data.success) {
-                            abp.notify.info("保存成功");
+                            abp.notify.success("保存成功");
                             $timeout(function () {
                                 $state.go("company");
                             }, 2000);

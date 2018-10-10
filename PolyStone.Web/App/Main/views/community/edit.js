@@ -97,7 +97,7 @@
                 var postUrl = $("#frm_create_community").attr("url");
                 $http.post(postUrl, { model: vm.community }).then(function (result) {
                     if (result.data.success) {
-                        abp.notify.info("保存成功", "", { timeOut:1500});
+                        abp.notify.success("保存成功", "", { timeOut:1500});
                         $timeout(function () {
                             $state.go("community");
                         }, 2000);

@@ -17,12 +17,12 @@ namespace PolyStone.CustomDomain.Products
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         public int CompanyId { get; set; }
 
         [ForeignKey("CompanyId")]
-        public Company Company { get; set; }
+        public  Company Company { get; set; }
 
         public string ImgUrls { get; set; }
 

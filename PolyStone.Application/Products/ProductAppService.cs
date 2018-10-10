@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -57,22 +58,29 @@ namespace PolyStone.Products
         /// </summary>
         public async Task<PagedResultDto<ProductListDto>> GetPagedProductsAsync(GetProductInput input)
         {
+            try
+            {
+                var query = _productRepositoryAsNoTrack;
+                //TODO:根据传入的参数添加过滤条件
 
-            var query = _productRepositoryAsNoTrack;
-            //TODO:根据传入的参数添加过滤条件
+                var productCount = await query.CountAsync();
 
-            var productCount = await query.CountAsync();
+                var products = await query
+                    .OrderBy(input.Sorting)
+                    .PageBy(input)
+                    .ToListAsync();
 
-            var products = await query
-                .OrderBy(input.Sorting)
-                .PageBy(input)
-                .ToListAsync();
-
-            var productListDtos = products.MapTo<List<ProductListDto>>();
-            return new PagedResultDto<ProductListDto>(
-                productCount,
-                productListDtos
-            );
+                var productListDtos = products.MapTo<List<ProductListDto>>();
+                return new PagedResultDto<ProductListDto>(
+                    productCount,
+                    productListDtos
+                );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         /// <summary>
