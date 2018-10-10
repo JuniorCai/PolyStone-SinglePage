@@ -3,12 +3,11 @@
         <div class="card main-content">
             <div class="header">
                 <h2>
-                    @L("CreateCommunity")
+                    @L("EditCommunity")
                 </h2>
             </div>
             <div class="form" style="margin: 20px">
                 <form id="frm_create_community" name="communityCreateForm" class="form-horizontal form-bordered bordered" url="@Url.Action("UpdateCommunity","Community")" novalidate>
-                    @Html.AntiForgeryToken()
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-2">标题</label>

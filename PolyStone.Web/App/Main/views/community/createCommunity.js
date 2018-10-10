@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.createCommunity', [
-        '$scope', 'abp.services.app.community', 'abp.services.app.communityCategory','FileUploader','$http',
-        function ($scope, communityService, categoryService,FileUploader,$http) {
+        '$scope','$state', 'abp.services.app.community', 'abp.services.app.communityCategory','FileUploader','$http',
+        function ($scope, $state, communityService, categoryService,FileUploader,$http) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {
@@ -120,15 +120,14 @@
                     $http.post(postUrl, { model: vm.community }).then(function (result) {
                         if (result.data.success) {
                             abp.notify.info("保存成功");
+                            $timeout(function () {
+                                $state.go("company");
+                            }, 2000);
                         } else {
                             abp.notify.error("保存失败");
                         }
 
                     });
-                    //communityService.createProduct(vm.product)
-//                        .then(function() {
-//                            abp.notify.success(App.localize('SavedSuccessfully'));
-//                        });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
                 }                
