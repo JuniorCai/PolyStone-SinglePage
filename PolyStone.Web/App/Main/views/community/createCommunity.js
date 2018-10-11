@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.createCommunity', [
-        '$scope','$state', 'abp.services.app.community', 'abp.services.app.communityCategory','FileUploader','$http',
-        function ($scope, $state, communityService, categoryService,FileUploader,$http) {
+        '$scope', '$state','$timeout', 'abp.services.app.community', 'abp.services.app.communityCategory','FileUploader','$http',
+        function ($scope, $state, $timeout, communityService, categoryService,FileUploader,$http) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {

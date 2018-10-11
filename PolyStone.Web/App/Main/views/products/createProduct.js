@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.product.createProduct', [
-        '$scope', 'abp.services.app.product', 'abp.services.app.category','FileUploader',
-        function ($scope, productService, categoryService,FileUploader) {
+        '$scope', '$state','$timeout', 'abp.services.app.product', 'abp.services.app.category','FileUploader',
+        function ($scope, $state, $timeout, productService, categoryService,FileUploader) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {
@@ -46,13 +46,14 @@
                 //$scope.fileUploader
             };
 
-
             vm.product = {
                 title: "",
                 categoryId: "0",
                 companyId:"",
                 imgUrls: "",
-                detail:"",
+                detail: "",
+                verifyStatus: 0,
+                releaseStatus:0,
                 isActive: true,
                 isDeleted:false
             };
@@ -69,6 +70,7 @@
             }
 
             vm.save = function () {
+                var temp = vm.product.releaseStatus;
                 if ($scope.selectedCategory == "0") {
                     abp.notify.error("未选择分类");
                     return;
@@ -111,23 +113,29 @@
                 vm.fileUploader.cancelAll();
             };
 
-            uploader.onCompleteAll = function () {
+            uploader.onCompleteAll = function() {
 
                 if (vm.uploadResult.status) {
                     vm.product.imgUrls = imgUrls.join(',');
                     productService.createProduct(vm.product)
                         .then(function() {
                             abp.notify.success(App.localize('SavedSuccessfully'));
+
+                            $timeout(function() {
+                                    $state.go("products");
+                                },
+                                2000);
                         });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
-                }                
-            }
+                }
+            };
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});
             };
             getCategoryList();
+            //$("label .btn").button();
         }
     ]);
 })();

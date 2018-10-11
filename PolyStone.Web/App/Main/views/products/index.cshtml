@@ -27,9 +27,9 @@
                             <th>@L("CategoryName")</th>
                             <th>@L("CompanyName")</th>
                             <th>图片</th>
-                            <th>@L("VerifyStatus")</th>
-                            <th>@L("ReleaseStatus")</th>
                             <th>@L("CreationTime")</th>
+                            <th>@L("ReleaseStatus")</th>
+                            <th>@L("VerifyStatus")</th>
                             <th>@L("Actions")</th>
                         </tr>
                         <tr>
@@ -85,14 +85,15 @@
                             <td>{{product.category.categoryName}}</td>
                             <td>{{product.company.companyName}}</td>
                             <td><img ng-src="{{product.imgUrls.split(',')[0]}}" class="listImg"/></td>
-                            <td ng-if="product.verifyStatus==0">审核中</td>
-                            <td ng-if="product.verifyStatus==1">通过</td>
-                            <td ng-if="product.verifyStatus==-1">未通过</td>
+                            <td>{{product.creationTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
                             <td ng-if="product.releaseStatus==0">未发布</td>
                             <td ng-if="product.releaseStatus==1">通过</td>
                             <td ng-if="product.releaseStatus==2">下线</td>
                             <td ng-if="product.releaseStatus==3">已过期</td>
-                            <td>{{product.creationTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                            <td ng-if="product.verifyStatus==0">审核中</td>
+                            <td ng-if="product.verifyStatus==1">通过</td>
+                            <td ng-if="product.verifyStatus==-1">未通过</td>
+
                             <td class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">menu</i>
