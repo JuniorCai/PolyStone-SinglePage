@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.product.index', [
-        '$scope', '$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
-        function ($scope, $location, $uibModal,productService, categoryService) {
+        '$scope','$state', '$location', '$uibModal', 'abp.services.app.product', 'abp.services.app.category',
+        function ($scope, $state, $location, $uibModal,productService, categoryService) {
             var vm = this;
 
             vm.categoryList = [];
@@ -84,22 +84,26 @@
                 });
             };
 
-            vm.delete = function (category) {
+            vm.delete = function(item) {
                 abp.message.confirm(
-                    "是否删除产品类别 '" + category.categoryName + "'?",
-                    function (result) {
+                    "是否删除产品类别 '" + item.title + "'?",
+                    function(result) {
                         if (result) {
-                            productService.deleteCategory({ id: category.id })
-                                .then(function () {
-                                    abp.notify.info("已删除产品类别: " + category.categoryName);
+                            productService.deleteProduct({ id: item.id })
+                                .then(function() {
+                                    abp.notify.info("已删除产品: " + item.title);
                                     getProductList();
                                 });
                         }
                     });
-            }
+            };
 
             vm.refresh = function () {
                 getProductList();
+            };
+
+            vm.gotoDetail = function (itemId) {
+                $state.go("productEdit", { id: itemId });
             };
 
 
