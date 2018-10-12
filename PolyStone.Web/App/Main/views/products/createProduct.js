@@ -70,7 +70,7 @@
             }
 
             vm.save = function () {
-                var temp = vm.product.releaseStatus;
+
                 if ($scope.selectedCategory == "0") {
                     abp.notify.error("未选择分类");
                     return;
@@ -114,6 +114,8 @@
             };
 
             uploader.onCompleteAll = function() {
+                vm.product.verifyStatus = angular.element(".btn.yellow-gold.active").attr("value");
+                vm.product.releaseStatus = angular.element(".btn.yellow-lemon.active").attr("value");
 
                 if (vm.uploadResult.status) {
                     vm.product.imgUrls = imgUrls.join(',');
