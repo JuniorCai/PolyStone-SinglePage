@@ -122,3 +122,15 @@
     margin-right: 20px;
     margin-bottom: 10px;
 }
+
+.thumbUploaded .thumb-icon {
+    position: absolute;
+    right: -13px;
+    top: -13px;
+    /* margin: 7px; */
+    font-size: 20px;
+}
+
+    .thumbUploaded .thumb-icon a {
+        color: #F44336
+    }

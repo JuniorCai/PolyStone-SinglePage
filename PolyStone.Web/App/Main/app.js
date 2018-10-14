@@ -177,6 +177,17 @@
                 $urlRouterProvider.otherwise('/');
             }
 
+            if (abp.auth.hasPermission('Pages.Product.EditProduct')) {
+                $stateProvider
+                    .state('productEdit', {
+                        url: '/products/edit/:id',
+                        templateUrl: '/App/Main/views/products/editProduct.cshtml',
+                        controller: 'app.views.product.editProduct'
+                        //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/products');
+            }
+
             $stateProvider
                 .state('home', {
                     url: '/',

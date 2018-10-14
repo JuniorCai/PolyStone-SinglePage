@@ -1,9 +1,13 @@
 ﻿(function () {
     angular.module('app').controller('app.views.product.createProduct', [
-        '$scope', '$state','$timeout', 'abp.services.app.product', 'abp.services.app.category','FileUploader',
-        function ($scope, $state, $timeout, productService, categoryService,FileUploader) {
+        '$scope', '$state', '$timeout', 'abp.services.app.product', 'abp.services.app.category', 'FileUploader','$http',
+        function ($scope, $state, $timeout, productService, categoryService,FileUploader,$http) {
             var vm = this;
             var imgUrls = [];
+
+            vm.verify = 0;
+            vm.release = 0;
+
             vm.uploadResult = {
                 status: true,
                 msg:""
@@ -119,19 +123,37 @@
 
                 if (vm.uploadResult.status) {
                     vm.product.imgUrls = imgUrls.join(',');
-                    productService.createProduct(vm.product)
-                        .then(function() {
-                            abp.notify.success(App.localize('SavedSuccessfully'));
-
-                            $timeout(function() {
-                                    $state.go("products");
-                                },
-                                2000);
-                        });
+                    postData();
+//                    productService.createProduct(vm.product)
+//                        .then(function() {
+//                            abp.notify.success(App.localize('SavedSuccessfully'));
+//
+//                            $timeout(function() {
+//                                    $state.go("products");
+//                                },
+//                                2000);
+//                        });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
                 }
             };
+
+            function postData() {
+                var postUrl = $("#form_create_product").attr("url");
+
+                $http.post(postUrl, { model: vm.product }).then(function (result) {
+                    if (result.data.success) {
+                        abp.notify.success("保存成功", "", { timeOut: 1500 });
+                        $timeout(function () {
+                            $state.go("products");
+                        }, 2000);
+                    } else {
+                        abp.notify.error(result.data.msg);
+                    }
+
+                });
+            }
+
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});

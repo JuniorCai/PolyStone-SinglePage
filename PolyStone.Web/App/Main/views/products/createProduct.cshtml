@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="form" style="margin: 20px">
-                <form id="form_create_product" name="productCreateForm" class="form-horizontal form-bordered bordered" novalidate>
+                <form id="form_create_product" url="@Url.Action("CreateProduct","Product")" name="productCreateForm" class="form-horizontal form-bordered bordered" novalidate>
                     @Html.AntiForgeryToken()
                     <div class="form-body">
                         <div class="form-group">
@@ -76,13 +76,13 @@
                             <label class="control-label col-md-2">审核状态</label>
                             <div class="col-md-4">
                                 <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn yellow-gold active" value="0">
+                                    <label class="btn yellow-gold" ng-class="vm.verify==0?'active':''" value="0">
                                         <input type="radio" name="verifyStatus"  > 待审核
                                     </label>
-                                    <label class="btn yellow-gold" value="1">
+                                    <label class="btn yellow-gold" ng-class="vm.verify==1?'active':''" value="1">
                                         <input type="radio" name="verifyStatus"  > 已通过
                                     </label>
-                                    <label class="btn yellow-gold" value="2">
+                                    <label class="btn yellow-gold" ng-class="vm.verify==2?'active':''" value="2">
                                         <input type="radio" name="verifyStatus"  > 未通过
                                     </label>
                                 </div>
@@ -92,16 +92,16 @@
                             <label class="control-label col-md-2">发布状态</label>
                             <div class="col-md-4">
                                 <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn yellow-lemon active" value="0">
+                                    <label class="btn yellow-lemon" ng-class="vm.release==0?'active':''" value="0">
                                         <input type="radio" name="releaseStatus" > 未发布
                                     </label>
-                                    <label class="btn yellow-lemon" value="1">
+                                    <label class="btn yellow-lemon" ng-class="vm.release==1?'active':''" value="1">
                                         <input type="radio" name="releaseStatus" > 已发布
                                     </label>
-                                    <label class="btn yellow-lemon" value="2">
+                                    <label class="btn yellow-lemon" ng-class="vm.release==2?'active':''" value="2">
                                         <input type="radio" name="releaseStatus" > 已下线
                                     </label>
-                                    <label class="btn yellow-lemon" value="3">
+                                    <label class="btn yellow-lemon" ng-class="vm.release==3?'active':''" value="3">
                                         <input type="radio" name="releaseStatus" > 已过期
                                     </label>
                                 </div>

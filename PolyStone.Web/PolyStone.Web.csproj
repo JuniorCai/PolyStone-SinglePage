@@ -488,7 +488,7 @@
     <Content Include="App\Main\views\layout\sidebar-user-area.js" />
     <Content Include="App\Main\views\layout\topbar.js" />
     <Content Include="App\Main\views\products\createProduct.js" />
-    <Content Include="App\Main\views\products\editModel.js" />
+    <Content Include="App\Main\views\products\editProduct.js" />
     <Content Include="App\Main\views\products\index.js" />
     <Content Include="App\Main\views\regions\createModal.js" />
     <Content Include="App\Main\views\regions\editModal.js" />
@@ -2836,7 +2836,7 @@
     <Content Include="App\Main\views\communityCategory\editModal.cshtml" />
     <Content Include="App\Main\views\products\index.cshtml" />
     <Content Include="App\Main\views\products\createProduct.cshtml" />
-    <Content Include="App\Main\views\products\editModel.cshtml" />
+    <Content Include="App\Main\views\products\editProduct.cshtml" />
     <Content Include="App\Main\views\company\index.cshtml" />
     <Content Include="App\Main\views\community\createCommunity.cshtml" />
     <Content Include="App\Main\views\community\index.cshtml" />
@@ -3704,6 +3704,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PolyStoneControllerBase.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Global.asax.cs">
@@ -3859,6 +3860,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Community\" />
     <Folder Include="Views\Company\" />
+    <Folder Include="Views\Product\" />
     <Folder Include="Views\Resource\" />
     <Folder Include="_GeneratedCode\" />
   </ItemGroup>
