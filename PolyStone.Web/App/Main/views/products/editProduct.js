@@ -45,10 +45,6 @@
                 }
             };
 
-            vm.delImg = function() {
-                //$scope.fileUploader
-            };
-
             vm.product = {
                 title: "",
                 categoryId: "0",
@@ -101,12 +97,14 @@
                         return;
                     }
                 }
-                if (uploader.queue.length == 0) {
+                if (uploader.queue.length > 0) {
+                    uploader.uploadAll();
+                } else if (vm.product.imgUrls.length > 0) {
+                    postData();
+                } else {
                     abp.notify.error("需上传至少一张产品图片");
                     return;
                 }
-                uploader.uploadAll();
-
             };
 
 
@@ -114,8 +112,10 @@
             {
                 vm.uploadResult.status = response.result.success;
                 vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " "+response.result.msg;
-                if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
+                if (!vm.uploadResult.status) {
+                    abp.notify.error(vm.uploadResult.msg);
+                    uploader.cancelAll();
+                }
                 else {
                     imgUrls.push(response.result.msg);
                 }
@@ -124,31 +124,23 @@
             uploader.onErrorItem = function(item, response, status, headers) {
                 vm.uploadResult.status = false;
                 vm.uploadResult.msg = item.name + "上传失败";
-                vm.fileUploader.cancelAll();
+                uploader.cancelAll();
             };
 
             uploader.onCompleteAll = function() {
-                vm.product.verifyStatus = angular.element(".btn.yellow-gold.active").attr("value");
-                vm.product.releaseStatus = angular.element(".btn.yellow-lemon.active").attr("value");
 
                 if (vm.uploadResult.status) {
-                    vm.product.imgUrls = imgUrls.join(',');
+                    vm.product.imgUrls = vm.product.imgUrls+","+imgUrls.join(',');
                     postData();
-//                    productService.createProduct(vm.product)
-//                        .then(function() {
-//                            abp.notify.success(App.localize('SavedSuccessfully'));
-//
-//                            $timeout(function() {
-//                                    $state.go("products");
-//                                },
-//                                2000);
-//                        });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
                 }
             };
 
             function postData() {
+                vm.product.verifyStatus = angular.element(".btn.yellow-gold.active").attr("value");
+                vm.product.releaseStatus = angular.element(".btn.yellow-lemon.active").attr("value");
+
                 var postUrl = $("#form_edit_product").attr("url");
 
                 $http.post(postUrl, { model: vm.product }).then(function (result) {
@@ -160,7 +152,6 @@
                     } else {
                         abp.notify.error(result.data.msg);
                     }
-
                 });
             }
 
@@ -174,7 +165,7 @@
                         }
 
                     });
-            }
+            };
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});
