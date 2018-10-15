@@ -10,12 +10,14 @@ namespace PolyStone.Categories.Dtos
     {
         //DOTO:在这里增加查询参数
 
-		/// <summary>
+        /// <summary>
 	    /// 模糊查询参数
 		/// </summary>
 		public string FilterText { get; set; }
 
-		/// <summary>
+        public bool GetActive { get; set; } = false;
+
+        /// <summary>
 	    /// 用于排序的默认值
 		/// </summary>
         public void Normalize()

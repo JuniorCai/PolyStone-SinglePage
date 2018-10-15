@@ -4,6 +4,7 @@
         function ($scope, $state, $timeout, productService, categoryService,FileUploader,$stateParams,$http) {
             var vm = this;
             var imgUrls = [];
+            vm.showImgs = [];
 
             vm.verify = 0;
             vm.release = 0;
@@ -37,13 +38,28 @@
             });
 
 
-            uploader.onAfterAddingAll = function() {
-                if (this.queue.length == 6) {
-                    $("#uploadDiv").hide();
-                } else {
-                    $("#uploadDiv").show();
+            uploader.onAfterAddingAll = function () {
+                var existCount = vm.showImgs.split(',').length;
+                var notAddCount = this.queue.length + existCount - 6;
+                var queueLength = this.queue.length;
+
+                if (notAddCount>0) {
+                    for (var i = 1; i <= notAddCount; i++) {
+                        uploader.removeFromQueue(queueLength - i);
+                    }
+                    abp.notify.warn("每个产品图片最多上传6张");
                 }
+                toggleUploadDiv("#uploadDiv", notAddCount >= 0);
+                
             };
+
+            function toggleUploadDiv(divId, isHide) {
+                if (isHide) {
+                    $(divId).hide();
+                } else {
+                    $(divId).show();
+                }
+            }
 
             vm.product = {
                 title: "",
@@ -63,6 +79,7 @@
                 var pid = $stateParams.id;
                 productService.getProductById({ id: pid }).then(function(result) {
                     vm.product = result.data;
+                    vm.showImgs = vm.product.imgUrls;
                     $scope.selectedCategory = vm.product.categoryId.toString();
                     vm.verify = vm.product.verifyStatus;
                     vm.release = vm.product.releaseStatus;
@@ -73,7 +90,8 @@
             function getCategoryList() {
                 categoryService.getPagedCategorys({
                     filterText: "",
-                    sorting: "CreationTime"
+                    sorting: "CreationTime",
+                    getActive:true
                 }).then(function (result) {
                     vm.categoryList = result.data.items;
                 });
@@ -99,7 +117,8 @@
                 }
                 if (uploader.queue.length > 0) {
                     uploader.uploadAll();
-                } else if (vm.product.imgUrls.length > 0) {
+                } else if (vm.showImgs.length > 0) {
+                    vm.product.imgUrls = vm.showImgs;
                     postData();
                 } else {
                     abp.notify.error("需上传至少一张产品图片");
@@ -130,7 +149,7 @@
             uploader.onCompleteAll = function() {
 
                 if (vm.uploadResult.status) {
-                    vm.product.imgUrls = vm.product.imgUrls+","+imgUrls.join(',');
+                    vm.product.imgUrls = vm.showImgs+","+imgUrls.join(',');
                     postData();
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
@@ -155,16 +174,24 @@
                 });
             }
 
-            vm.removeImg = function(img) {
-                var imgCollection = vm.product.imgUrls.split(',');
-                angular.forEach(imgCollection,
-                    function(item, index) {
-                        if (item == img) {
-                            imgCollection.splice(index, 1);
-                            vm.product.imgUrls = imgCollection.join(',');
-                        }
+            vm.removeImg = function (img) {
+                var existCount = vm.showImgs.split(',').length;
 
-                    });
+                if (uploader.isFile(img._file)) {
+                    uploader.removeFromQueue(img);
+                } else {
+                    var imgCollection = vm.showImgs.split(',');
+                    angular.forEach(imgCollection,
+                        function (item, index) {
+                            if (item == img) {
+                                imgCollection.splice(index, 1);
+                                vm.showImgs = imgCollection.join(',');
+                                existCount = imgCollection.length;
+                            }
+                        });
+                }
+                toggleUploadDiv("#uploadDiv", uploader.queue.length + existCount >= 6);
+
             };
 
             vm.cancel = function () {

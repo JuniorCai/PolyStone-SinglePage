@@ -60,6 +60,7 @@ namespace PolyStone.Categories
 
             var query = _categoryRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            query = query.WhereIf(input.GetActive, c => c.IsActive == true);
 
             var categoryCount = await query.CountAsync();
 

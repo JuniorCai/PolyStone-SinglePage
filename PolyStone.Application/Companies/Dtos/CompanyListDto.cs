@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using Newtonsoft.Json;
 using PolyStone.Authorization.Users;
 using PolyStone.CompanyAuthes.Dtos;
 using PolyStone.CompanyContacts.Dtos;
@@ -114,6 +115,7 @@ namespace PolyStone.Companies.Dtos
 
         public ICollection<ContactListDto> Contacts { get; set; }
 
+        [JsonIgnore]
         public ICollection<ProductListDto> Products { get; set; }
 
         public ICollection<CompanyIndustryListDto> Industries { get; set; }

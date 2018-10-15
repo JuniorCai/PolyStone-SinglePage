@@ -41,7 +41,8 @@
             function getCategoryList() {
                 categoryService.getPagedCategorys({
                     filterText: "",
-                    sorting: "CreationTime"
+                    sorting: "CreationTime",
+                    getActive: true
                 }).then(function(result) {
                     vm.categoryList = result.data.items;
                 });

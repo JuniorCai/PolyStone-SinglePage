@@ -39,7 +39,7 @@
 
 
             uploader.onAfterAddingAll = function() {
-                if (this.queue.length == 6) {
+                if (this.queue.length >= 6) {
                     $("#uploadDiv").hide();
                 } else {
                     $("#uploadDiv").show();
@@ -67,7 +67,8 @@
             function getCategoryList() {
                 categoryService.getPagedCategorys({
                     filterText: "",
-                    sorting: "CreationTime"
+                    sorting: "CreationTime",
+                    getActive: true
                 }).then(function (result) {
                     vm.categoryList = result.data.items;
                 });
