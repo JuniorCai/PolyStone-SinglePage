@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.createCommunity', [
-        '$scope', '$state','$timeout', 'abp.services.app.community', 'abp.services.app.communityCategory','FileUploader','$http',
-        function ($scope, $state, $timeout, communityService, categoryService,FileUploader,$http) {
+        '$scope', '$state', '$timeout', 'abp.services.app.community', 'abp.services.app.communityCategory', 'abp.services.app.category','FileUploader','$http',
+        function ($scope, $state, $timeout, communityService, categoryService, productCategoryService,FileUploader,$http) {
             var vm = this;
             var imgUrls = [];
             vm.uploadResult = {
@@ -9,7 +9,8 @@
                 msg:""
             };
             vm.categoryList = [];
-            
+            vm.productCategoryList = [];
+
             var uploader = $scope.fileUploader = new FileUploader({
                 url: "/Resource/Upload",
                 queueLimit: 6,
@@ -58,6 +59,7 @@
             };
 
             $scope.selectedCategory = "0";
+            $scope.selectedProductCategory = "0";
 
             function getCategoryList() {
                 categoryService.getPagedCommunityCategorys({
@@ -65,6 +67,16 @@
                     sorting: "CreationTime"
                 }).then(function (result) {
                     vm.categoryList = result.data.items;
+                });
+            }
+
+            function getProductCategoryList() {
+                productCategoryService.getPagedCategorys({
+                    filterText: "",
+                    sorting: "CreationTime",
+                    getActive:true
+                }).then(function (result) {
+                    vm.productCategoryList = result.data.items;
                 });
             }
 
@@ -111,18 +123,19 @@
                 vm.fileUploader.cancelAll();
             };
 
-            uploader.onCompleteAll = function () {
+            uploader.onCompleteAll = function() {
 
                 if (vm.uploadResult.status) {
                     vm.community.imgUrls = imgUrls.join(',');
 
                     var postUrl = $("#frm_create_community").attr("url");
-                    $http.post(postUrl, { model: vm.community }).then(function (result) {
+                    $http.post(postUrl, { model: vm.community }).then(function(result) {
                         if (result.data.success) {
                             abp.notify.success("保存成功");
-                            $timeout(function () {
-                                $state.go("company");
-                            }, 2000);
+                            $timeout(function() {
+                                    $state.go("company");
+                                },
+                                2000);
                         } else {
                             abp.notify.error("保存失败");
                         }
@@ -130,13 +143,14 @@
                     });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
-                }                
-            }
+                }
+            };
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss({});
             };
             getCategoryList();
+            getProductCategoryList();
         }
     ]);
 })();

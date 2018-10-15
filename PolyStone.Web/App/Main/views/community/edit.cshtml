@@ -30,6 +30,18 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-2">产品类别</label>
+                            <div class="col-md-4">
+                                <div class="input-icon right" style="float:none !important">
+                                    @*                                    <input id="name" class="hasInputBorder form-control" name="name" type="text" value="" />*@
+                                    <select ng-model="selectedProductCategory">
+                                        <option value="0" selected="selected">选择类目</option>
+                                        <option ng-repeat="x in vm.productCategoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-2">所属会员ID</label>
                             <div class="col-md-4">
                                 <div class="input-icon right" style="float:none !important">

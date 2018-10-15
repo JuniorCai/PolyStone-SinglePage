@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('app.views.community.editCommunity', [
-        '$scope', '$state', 'abp.services.app.community', 'abp.services.app.communityCategory', 'FileUploader', '$http', '$stateParams','$timeout',
-        function ($scope, $state, communityService, categoryService, FileUploader, $http, $stateParams, $timeout) {
+        '$scope', '$state', 'abp.services.app.community', 'abp.services.app.communityCategory', 'abp.services.app.category', 'FileUploader', '$http', '$stateParams','$timeout',
+        function ($scope, $state, communityService, categoryService, productCategoryService, FileUploader, $http, $stateParams, $timeout) {
             var vm = this;
             vm.imgUrls = [];
             vm.uploadImgUrls = [];
@@ -79,6 +79,17 @@
                     vm.categoryList = result.data.items;
                 });
             }
+
+            function getProductCategoryList() {
+                productCategoryService.getPagedCategorys({
+                    filterText: "",
+                    sorting: "CreationTime",
+                    getActive: true
+                }).then(function (result) {
+                    vm.productCategoryList = result.data.items;
+                });
+            }
+
 
             function initPage() {
                 var itemId = $stateParams.id;
@@ -166,6 +177,8 @@
             vm.cancel = function () {
             };
             getCategoryList();
+            getProductCategoryList();
+
             initPage();
         }
     ]);
