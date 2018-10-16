@@ -472,6 +472,7 @@
     <Content Include="App\Main\views\community\edit.js" />
     <Content Include="App\Main\views\community\createCommunity.js" />
     <Content Include="App\Main\views\community\index.js" />
+    <Content Include="App\Main\views\companyApplication\edit.js" />
     <Content Include="App\Main\views\companyApplication\index.js" />
     <Content Include="App\Main\views\company\editCompany.js" />
     <Content Include="App\Main\views\company\createCompany.js" />
@@ -2849,6 +2850,7 @@
     <Content Include="App\Main\views\company\createContactModal.cshtml" />
     <Content Include="App\Main\views\company\editCompany.cshtml" />
     <Content Include="App\Main\views\companyApplication\index.cshtml" />
+    <Content Include="App\Main\views\companyApplication\edit.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

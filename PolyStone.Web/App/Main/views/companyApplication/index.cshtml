@@ -23,29 +23,26 @@
                         <tr>
                             <th><input type="checkbox" /></th>
                             <th>@L("Id")</th>
-                            <th>@L("Title")</th>
-                            <th>@L("CategoryName")</th>
                             <th>@L("CompanyName")</th>
-                            <th>图片</th>
+                            <th>@L("CompanyType")</th>
+                            <th>@L("RegionName")</th>
                             <th>@L("CreationTime")</th>
-                            <th>@L("ReleaseStatus")</th>
-                            <th>@L("VerifyStatus")</th>
+                            <th>@L("AuthStauts")</th>
                             <th>@L("Actions")</th>
                         </tr>
                         <tr>
                             <th><input type="checkbox" /></th>
-                            <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
-                            <td style="width: 15%"><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
-                            <td>
+                            <td style="width: 5%"><input type="text" name="applicationId" ng-model="vm.search.applicationId" required maxlength="32" class="form-control"></td>
+                            <td style="width: 15%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                            <td style="width: 10%">
 
                                 <select ng-model="selectedCategory">
                                     <option value="-1" selected="selected">选择类目</option>
                                     <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
                                 </select>
                             </td>
-                            <td style="width: 15%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
-                            <td></td>
-                            <td style="width: 15%">
+                            <td style="width: 10%"><input type="text" name="regionName" ng-model="vm.search.regionName" required maxlength="32" class="form-control"></td>
+                            <td style="width: 20%">
                                 <div class="input-group date-picker date">
                                     <input type="text" class="form-control datePicker" ng-model="vm.search.fromDate" placeholder="选择起始日期">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
@@ -56,44 +53,30 @@
                                 </div>
 
                             </td>
-                            <td>
-                                <select ng-model="selectedVerify">
+                            <td style="width: 10%">
+                                <select ng-model="selectedAuth">
                                     <option value="-1">审核状态</option>
                                     <option value="0">待审核</option>
                                     <option value="1">已通过</option>
                                     <option value="2">未通过</option>
                                 </select>
                             </td>
-                            <td>
-                                <select ng-model="selectedRelease">
-                                    <option value="-1">发布状态</option>
-                                    <option value="0">未发布</option>
-                                    <option value="1">发布中</option>
-                                    <option value="2">已下线</option>
-                                    <option value="3">过期</option>
-                                </select>
-                            </td>
-
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="product in vm.productList">
+                        <tr ng-repeat="application in vm.applicationList">
                             <td><input type="checkbox" /></td>
-                            <td>{{product.id}}</td>
-                            <td>{{product.title}}</td>
-                            <td>{{product.category.categoryName}}</td>
-                            <td>{{product.company.companyName}}</td>
-                            <td><img ng-src="{{product.imgUrls.split(',')[0]}}" class="listImg"/></td>
-                            <td>{{product.creationTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
-                            <td ng-if="product.releaseStatus==0">未发布</td>
-                            <td ng-if="product.releaseStatus==1">通过</td>
-                            <td ng-if="product.releaseStatus==2">下线</td>
-                            <td ng-if="product.releaseStatus==3">已过期</td>
-                            <td ng-if="product.verifyStatus==0">审核中</td>
-                            <td ng-if="product.verifyStatus==1">通过</td>
-                            <td ng-if="product.verifyStatus==-1">未通过</td>
-
+                            <td>{{application.id}}</td>
+                            <td>{{application.companyName}}</td>
+                            <td ng-if="company.companyType==0">企业</td>
+                            <td ng-if="company.companyType==1">店铺</td>
+                            <td>{{application.region.regionName}}</td>
+                            <td>{{application.creationTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                            <td ng-if="application.releaseStatus==0">未发布</td>
+                            <td ng-if="application.releaseStatus==1">通过</td>
+                            <td ng-if="application.releaseStatus==2">下线</td>
+                            <td ng-if="application.releaseStatus==3">已过期</td>
                             <td class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">menu</i>
@@ -107,7 +90,7 @@
                     </tbody>
                 </table>
 
-                <a ui-sref="productsAdd"  class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" >
+                <a ui-sref="companyApplicationEdit"  class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" >
                     <i class="material-icons">add</i>
                 </a>
             </div>

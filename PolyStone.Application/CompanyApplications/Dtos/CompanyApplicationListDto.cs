@@ -4,7 +4,8 @@ using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using PolyStone.CustomDomain.Companies;
 using PolyStone.CustomDomain.CompanyApplications;
-
+using PolyStone.Regions.Dtos;
+using PolyStone.Users.Dto;
 
 
 namespace PolyStone.CompanyApplications.Dtos
@@ -15,6 +16,11 @@ namespace PolyStone.CompanyApplications.Dtos
     [AutoMapFrom(typeof(CompanyApplication))]
     public class CompanyApplicationListDto : EntityDto<int>
     {
+
+        public int UserId { get; set; }
+
+        public UserDto User { get; set; }
+
         /// <summary>
         /// 公司类型
         /// </summary>
@@ -67,6 +73,8 @@ namespace PolyStone.CompanyApplications.Dtos
         /// </summary>
         [DisplayName("地区ID")]
         public int RegionId { get; set; }
+
+        public RegionListDto Region { get; set; }
 
         /// <summary>
         /// 联系人姓名

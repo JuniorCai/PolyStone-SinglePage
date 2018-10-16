@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.Companies;
+using PolyStone.CustomDomain.Regions;
 
 namespace PolyStone.CustomDomain.CompanyApplications
 {
     public class CompanyApplication:FullAuditedEntity
     {
+        public long UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+
         public CompanyType CompanyType { get; set; }
 
         public string License { get; set; }
@@ -25,6 +33,9 @@ namespace PolyStone.CustomDomain.CompanyApplications
         public string Business { get; set; }
 
         public int RegionId { get; set; }
+
+        [ForeignKey("RegionId")]
+        public Region Region { get; set; }
 
         public string LinkMan { get; set; }
 

@@ -4,11 +4,8 @@
         function ($scope, $state,companyApplicationService) {
             var vm = this;
 
-            vm.categoryList = [];
 
-            vm.productList = [];
-
-            $scope.selectedCategory = "0";
+            vm.applicationList = [];
 
             function initParams() {
                 vm.search = {
@@ -22,8 +19,6 @@
                     endDate: ""
                 };
 
-                $scope.selectedCategory = "-1";
-                $scope.selectedVerify = "-1";
                 $scope.selectedRelease = "-1";
             }
 
@@ -41,11 +36,11 @@
 
 
             function getApplicationList() {
-                companyApplicationService.getPagedProducts({
+                companyApplicationService.getPagedCompanyApplications({
                     filterText: "",
                     sorting: "CreationTime"
                 }).then(function(result) {
-                    vm.productList = result.data.items;
+                    vm.applicationList = result.data.items;
                 });
             }
          
@@ -55,12 +50,12 @@
 
             vm.delete = function(item) {
                 abp.message.confirm(
-                    "是否删除产品类别 '" + item.title + "'?",
+                    "是否删除企业申请 '" + item.title + "'?",
                     function(result) {
                         if (result) {
-                            companyApplicationService.deleteProduct({ id: item.id })
+                            companyApplicationService.deleteCompanyApplication({ id: item.id })
                                 .then(function() {
-                                    abp.notify.info("已删除产品: " + item.title);
+                                    abp.notify.info("已删除企业申请: " + item.title);
                                     getApplicationList();
                                 });
                         }
@@ -72,7 +67,7 @@
             };
 
             vm.gotoDetail = function (itemId) {
-                $state.go("productEdit", { id: itemId });
+                $state.go("applicationEdit", { id: itemId });
             };
 
 
