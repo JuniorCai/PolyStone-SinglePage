@@ -145,6 +145,26 @@
                 $urlRouterProvider.otherwise('/company');
             }
 
+            if (abp.auth.hasPermission('Pages.CompanyApplication')) {
+                $stateProvider
+                    .state('companyApplication', {
+                        url: '/companyApplications',
+                        templateUrl: '/App/Main/views/companyApplication/index.cshtml'//,
+                        //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/companyApplications');
+            }
+
+            if (abp.auth.hasPermission('Pages.CompanyApplication.EditCompanyApplication')) {
+                $stateProvider
+                    .state('companyApplicationEdit', {
+                        url: '/companyApplications/edit/:id',
+                        templateUrl: '/App/Main/views/companyApplication/edit.cshtml'//,
+                        //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/companyApplications');
+            }
+
             if (abp.auth.hasPermission('Pages.Region')) {
                 $stateProvider
                     .state('regions', {

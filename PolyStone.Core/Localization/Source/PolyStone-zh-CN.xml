@@ -215,12 +215,12 @@
 
 
     <!-- 个人会员升级企业申请表管理 -->
-    <text name="CompanyApplication" value="个人会员升级企业申请" />
-    <text name="CompanyApplicationHeaderInfo" value="个人会员升级企业申请管理列表" />
-    <text name="CreateCompanyApplication" value="新增个人会员升级企业申请" />
-    <text name="EditCompanyApplication" value="编辑个人会员升级企业申请" />
-    <text name="DeleteCompanyApplication" value="删除个人会员升级企业申请" />
-    <text name="CompanyApplicationDeleteWarningMessage" value="个人会员升级企业申请名称: {0} 将被删除,是否确定删除它。" />
+    <text name="CompanyApplication" value="企业申请" />
+    <text name="CompanyApplicationHeaderInfo" value="企业申请管理列表" />
+    <text name="CreateCompanyApplication" value="新增企业申请" />
+    <text name="EditCompanyApplication" value="编辑企业申请" />
+    <text name="DeleteCompanyApplication" value="删除企业申请" />
+    <text name="CompanyApplicationDeleteWarningMessage" value="企业申请名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="Business" value="主营范围" />
     <text name="AuthStauts" value="认证状态" />

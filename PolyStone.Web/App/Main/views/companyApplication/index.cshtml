@@ -1,0 +1,116 @@
+﻿<div class="row clearfix" ng-controller="app.views.companyApplication.index as vm">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    @L("Product")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <i class="fa fa-spin fa-spinner" ng-if="isTableLoading"></i>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);" class="waves-effect <waves-block></waves-block>" ng-click="vm.refresh();"><i class="material-icons">refresh</i> Refresh</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <th>@L("Id")</th>
+                            <th>@L("Title")</th>
+                            <th>@L("CategoryName")</th>
+                            <th>@L("CompanyName")</th>
+                            <th>图片</th>
+                            <th>@L("CreationTime")</th>
+                            <th>@L("ReleaseStatus")</th>
+                            <th>@L("VerifyStatus")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <td style="width: 8%"><input type="text" name="productId" ng-model="vm.search.productId" required maxlength="32" class="form-control"></td>
+                            <td style="width: 15%"><input type="text" name="title" ng-model="vm.search.title" required maxlength="32" class="form-control"></td>
+                            <td>
+
+                                <select ng-model="selectedCategory">
+                                    <option value="-1" selected="selected">选择类目</option>
+                                    <option ng-repeat="x in vm.categoryList" value="{{x.id}}">{{x.categoryName}}</option>
+                                </select>
+                            </td>
+                            <td style="width: 15%"><input type="text" name="companyName" ng-model="vm.search.companyName" required maxlength="32" class="form-control"></td>
+                            <td></td>
+                            <td style="width: 15%">
+                                <div class="input-group date-picker date">
+                                    <input type="text" class="form-control datePicker" ng-model="vm.search.fromDate" placeholder="选择起始日期">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+                                <div class="input-group date-picker date">
+                                    <input type="text" class="form-control datePicker" ng-model="vm.search.endDate" placeholder="选择结束日期">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+
+                            </td>
+                            <td>
+                                <select ng-model="selectedVerify">
+                                    <option value="-1">审核状态</option>
+                                    <option value="0">待审核</option>
+                                    <option value="1">已通过</option>
+                                    <option value="2">未通过</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select ng-model="selectedRelease">
+                                    <option value="-1">发布状态</option>
+                                    <option value="0">未发布</option>
+                                    <option value="1">发布中</option>
+                                    <option value="2">已下线</option>
+                                    <option value="3">过期</option>
+                                </select>
+                            </td>
+
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in vm.productList">
+                            <td><input type="checkbox" /></td>
+                            <td>{{product.id}}</td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.category.categoryName}}</td>
+                            <td>{{product.company.companyName}}</td>
+                            <td><img ng-src="{{product.imgUrls.split(',')[0]}}" class="listImg"/></td>
+                            <td>{{product.creationTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                            <td ng-if="product.releaseStatus==0">未发布</td>
+                            <td ng-if="product.releaseStatus==1">通过</td>
+                            <td ng-if="product.releaseStatus==2">下线</td>
+                            <td ng-if="product.releaseStatus==3">已过期</td>
+                            <td ng-if="product.verifyStatus==0">审核中</td>
+                            <td ng-if="product.verifyStatus==1">通过</td>
+                            <td ng-if="product.verifyStatus==-1">未通过</td>
+
+                            <td class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">menu</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.gotoDetail(product.id)"><i class="material-icons">create</i>@L("Edit")</a></li>
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(product)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a ui-sref="productsAdd"  class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" >
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

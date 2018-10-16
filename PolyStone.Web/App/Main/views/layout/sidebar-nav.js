@@ -27,8 +27,8 @@
                     createMenuItem(App.localize("CommunityCategory"), "Pages.CommunityCategory", "", "communityCategory")
                 ]),
                 createMenuItem(App.localize("CompanyManagement"), "", "business", "", [
-                    createMenuItem(App.localize("Company"), "Pages.Company", "", "company")//,
-                    //createMenuItem(App.localize("Users"), "Pages.Users", "people", "users"),
+                    createMenuItem(App.localize("Company"), "Pages.Company", "", "company"),
+                    createMenuItem(App.localize("CompanyApplication"), "Pages.CompanyApplication", "", "companyApplication")//,
                     //createMenuItem(App.localize("CommunityCategory"), "Pages.CommunityCategory", "", "communityCategory")
                 ]),
                 createMenuItem(App.localize("Configuration"), "", "settings", "", [
