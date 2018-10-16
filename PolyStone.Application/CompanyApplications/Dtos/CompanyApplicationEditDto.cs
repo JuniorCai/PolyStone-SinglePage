@@ -118,7 +118,7 @@ namespace PolyStone.CompanyApplications.Dtos
         /// 认证状态
         /// </summary>
         [DisplayName("认证状态")]
-        [Required] public AuthStauts AuthStauts { get; set; }
+        [Required] public AuthStatus AuthStatus { get; set; }
 
     }
 }

@@ -6,20 +6,18 @@
 
 
             vm.applicationList = [];
+            $scope.selectedRelease = "-1";
 
             function initParams() {
                 vm.search = {
-                    productId: 0,
-                    title: "",
-                    categoryId:"-1",
-                    companyId: 0,
-                    verifyStatus: "-1",
-                    releaseStatus:"-1",
+                    applicationId: 0,
+                    companyName: "",
+                    regionId:"-1",
+                    companyType: 0,
+                    authStatus: "-1",
                     fromDate: "",
                     endDate: ""
                 };
-
-                $scope.selectedRelease = "-1";
             }
 
             function initPickers() {

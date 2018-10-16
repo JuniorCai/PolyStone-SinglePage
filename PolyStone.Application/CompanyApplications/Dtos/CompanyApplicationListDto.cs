@@ -104,7 +104,7 @@ namespace PolyStone.CompanyApplications.Dtos
         /// 认证状态
         /// </summary>
         [DisplayName("认证状态")]
-        public AuthStauts AuthStauts { get; set; }
+        public AuthStatus AuthStatus { get; set; }
 
         /// <summary>
         /// 认证状态(枚举描述)

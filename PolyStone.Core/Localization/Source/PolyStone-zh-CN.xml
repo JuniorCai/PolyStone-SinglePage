@@ -223,7 +223,7 @@
     <text name="CompanyApplicationDeleteWarningMessage" value="企业申请名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="Business" value="主营范围" />
-    <text name="AuthStauts" value="认证状态" />
+    <text name="AuthStatus" value="认证状态" />
 
 
     <!-- 企业行业表管理 -->

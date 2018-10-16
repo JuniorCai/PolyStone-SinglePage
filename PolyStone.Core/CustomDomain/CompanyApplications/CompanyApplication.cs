@@ -45,13 +45,13 @@ namespace PolyStone.CustomDomain.CompanyApplications
 
         public string Address { get; set; }
 
-        public AuthStauts AuthStauts { get; set; }
+        public AuthStatus AuthStatus { get; set; }
     }
 
-    public enum AuthStauts
+    public enum AuthStatus
     {
         NoPass = -1,
-        Pendding = 0,
+        Pending = 0,
         Pass=1
     }
 }
