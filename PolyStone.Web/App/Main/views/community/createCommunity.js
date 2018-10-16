@@ -9,7 +9,6 @@
                 msg:""
             };
             vm.categoryList = [];
-            vm.productCategoryList = [];
 
             var uploader = $scope.fileUploader = new FileUploader({
                 url: "/Resource/Upload",
@@ -59,7 +58,6 @@
             };
 
             $scope.selectedCategory = "0";
-            $scope.selectedProductCategory = "0";
 
             function getCategoryList() {
                 categoryService.getPagedCommunityCategorys({
@@ -70,15 +68,6 @@
                 });
             }
 
-            function getProductCategoryList() {
-                productCategoryService.getPagedCategorys({
-                    filterText: "",
-                    sorting: "CreationTime",
-                    getActive:true
-                }).then(function (result) {
-                    vm.productCategoryList = result.data.items;
-                });
-            }
 
             vm.save = function () {
                 if ($scope.selectedCategory == "0") {
@@ -150,7 +139,6 @@
                 $uibModalInstance.dismiss({});
             };
             getCategoryList();
-            getProductCategoryList();
         }
     ]);
 })();

@@ -80,17 +80,6 @@
                 });
             }
 
-            function getProductCategoryList() {
-                productCategoryService.getPagedCategorys({
-                    filterText: "",
-                    sorting: "CreationTime",
-                    getActive: true
-                }).then(function (result) {
-                    vm.productCategoryList = result.data.items;
-                });
-            }
-
-
             function initPage() {
                 var itemId = $stateParams.id;
                 communityService.getCommunityById({ id: itemId }).then(function(result) {
@@ -177,8 +166,6 @@
             vm.cancel = function () {
             };
             getCategoryList();
-            getProductCategoryList();
-
             initPage();
         }
     ]);
