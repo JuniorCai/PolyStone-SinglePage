@@ -1,4 +1,4 @@
-﻿<div class="row clearfix" ng-controller="app.views.company.editCompany as vm">
+﻿<div class="row clearfix" ng-controller="app.views.companyApplication.editCompany as vm">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card main-content">
             <div class="header">
@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="form" style="margin: 20px">
-                <form id="frm_create_company" name="companyCreateForm" url="@Url.Action("SaveCompany","Company")" class="form-horizontal form-bordered bordered" novalidate>
+                <form id="frm_create_company" name="applicationEditForm" url="@Url.Action("Save","CompanyApplication")" class="form-horizontal form-bordered bordered" novalidate>
                 <div class="form-body">
                 <uib-tabset class="tab-container tabbable-line">
                 <uib-tab heading="基本信息">
@@ -18,7 +18,7 @@
                         </label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="companyName" class="hasInputBorder form-control " name="companyName" type="text" ng-model="vm.company.companyEditDto.companyName" />
+                                <input id="companyName" class="hasInputBorder form-control " name="companyName" type="text" ng-model="vm.application.companyName" />
                             </div>
                         </div>
                     </div>
@@ -44,8 +44,8 @@
                         </label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-model="vm.company.companyEditDto.userName" />
-                                <input type="hidden" value="{{vm.company.companyEditDto.userId}}" id="isUserValid" />
+                                <input id="userName" class="hasInputBorder form-control " name="userName" type="text" ng-model="vm.application.user.userName" />
+                                <input type="hidden" value="{{vm.application.userId}}" id="isUserValid" />
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         <label class="control-label col-md-2">经营范围</label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.bussiness" />
+                                <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.application.business" />
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <label class="control-label col-md-2">公司介绍</label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.company.companyEditDto.introduction"></textarea>
+                                <textarea cols="80" rows="10" style="padding: 12px" ng-model="vm.application.introduction"></textarea>
                             </div>
                         </div>
                     </div>
@@ -90,19 +90,8 @@
                         </label>
                         <div class="col-md-6">
                             <div>
-                                <div style="float: left" class="thumbUploaded licenseExist" onclick="javascript: $('#licenseUploadFile').click();" ng-show="vm.company.companyAuthEditDto.license.length>0">
-                                    <img ng-src="{{vm.company.companyAuthEditDto.license}}" style="width: 80px;height: 80px" />
-                                </div>
-
-                                <div ng-repeat="item in licenseFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.license.length==0" onclick="javascript: $('#licenseFileUploader').click();">
-                                    <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#licenseUploadFile').click();"></div>
-                                </div>
-                                <div style="clear: both; padding: 10px 0" id="licenseUploadDiv" ng-show="licenseFileUploader.queue.length==0">
-
-                                    <label ng-show="vm.company.companyAuthEditDto.license.length==0" onclick="javascript: $('#licenseUploadFile').click();">
-                                        <img class="thumbDefault" />
-                                    </label>
-                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="licenseUploadFile" uploader="licenseFileUploader" ng-show="false" />
+                                <div style="float: left" class="thumbUploaded licenseExist" onclick="javascript: $('#licenseUploadFile').click();" ng-show="vm.application.license.length>0">
+                                    <img ng-src="{{vm.application.license}}" style="width: 80px;height: 80px" />
                                 </div>
                             </div>
 
@@ -115,7 +104,7 @@
                         </label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.company.companyAuthEditDto.legalPerson" />
+                                <input id="legalPerson" class="hasInputBorder form-control " name="legalPerson" type="text" ng-model="vm.application.legalPerson" />
                             </div>
                         </div>
                     </div>
@@ -126,20 +115,10 @@
                         </label>
                         <div class="col-md-6">
                             <div>
-                                <div style="float: left" class="thumbUploaded frontImgExist" onclick="javascript: $('#personUploadFile').click();" ng-show="vm.company.companyAuthEditDto.frontImg.length>0">
-                                    <img ng-src="{{vm.company.companyAuthEditDto.frontImg}}" style="width: 80px;height: 80px" />
+                                <div style="float: left" class="thumbUploaded frontImgExist" onclick="javascript: $('#personUploadFile').click();" ng-show="vm.application.frontImg.length>0">
+                                    <img ng-src="{{vm.application.frontImg}}" style="width: 80px;height: 80px" />
                                 </div>
 
-                                <div ng-repeat="item in personFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.frontImg.length==0" onclick="javascript: $('#personFileUploader').click();">
-                                    <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#personUploadFile').click();"></div>
-                                </div>
-                                <div style="clear: both; padding: 10px 0" id="personUploadDiv" ng-show="personFileUploader.queue.length==0">
-
-                                    <label ng-show="vm.company.companyAuthEditDto.frontImg.length==0" onclick="javascript: $('#personUploadFile').click();">
-                                        <img class="thumbDefault" />
-                                    </label>
-                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="personUploadFile" uploader="personFileUploader" ng-show="false" />
-                                </div>
                             </div>
 
                         </div>
@@ -151,20 +130,10 @@
                         </label>
                         <div class="col-md-6">
                             <div>
-                                <div style="float: left" class="thumbUploaded backImgExist" onclick="javascript: $('#nationalUploadFile').click();" ng-show="vm.company.companyAuthEditDto.backImg.length>0">
-                                    <img ng-src="{{vm.company.companyAuthEditDto.backImg}}" style="width: 80px;height: 80px" />
+                                <div style="float: left" class="thumbUploaded backImgExist" onclick="javascript: $('#nationalUploadFile').click();" ng-show="vm.application.backImg.length>0">
+                                    <img ng-src="{{vm.application.backImg}}" style="width: 80px;height: 80px" />
                                 </div>
 
-                                <div ng-repeat="item in nationalFileUploader.queue" style="float: left" class="thumbUploaded" ng-show="vm.company.companyAuthEditDto.backImg.length==0" onclick="javascript: $('#nationalFileUploader').click();">
-                                    <div ng-thumb="{file:item._file, height: 80,width:80}" onclick="javascript: $('#nationalUploadFile').click();"></div>
-                                </div>
-                                <div style="clear: both; padding: 10px 0" id="nationalUploadDiv" ng-show="nationalFileUploader.queue.length==0">
-
-                                    <label>
-                                        <img class="thumbDefault" ng-show="vm.company.companyAuthEditDto.backImg.length==0" onclick="javascript: $('#nationalUploadFile').click();" />
-                                    </label>
-                                    <input type="file" nv-file-select multiple="" filters="imageFilter" id="nationalUploadFile" uploader="nationalFileUploader" ng-show="false" />
-                                </div>
                             </div>
 
                         </div>
@@ -179,7 +148,7 @@
                         </label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.company.contactEditDto.linkMan" />
+                                <input id="linkMan" class="hasInputBorder form-control " name="linkMan" type="text" ng-model="vm.application.linkMan" />
                             </div>
                         </div>
                     </div>
@@ -190,7 +159,7 @@
                         </label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.company.contactEditDto.phone" />
+                                <input id="mobile" class="hasInputBorder form-control " name="mobile" type="text" ng-model="vm.application.phone" />
                             </div>
                         </div>
                     </div>
@@ -198,7 +167,7 @@
                         <label class="control-label col-md-2">传真电话</label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.company.contactEditDto.tel" />
+                                <input id="tel" class="hasInputBorder form-control " name="tel" type="text" ng-model="vm.application.tel" />
                             </div>
                         </div>
                     </div>
@@ -206,7 +175,7 @@
                         <label class="control-label col-md-2">邮箱</label>
                         <div class="col-md-4">
                             <div class="input-icon right" style="float: none !important">
-                                <input id="email" class="hasInputBorder form-control " name="email" type="text" ng-model="vm.company.contactEditDto.email" />
+                                <input id="email" class="hasInputBorder form-control " name="email" type="text" ng-model="vm.application.email" />
                             </div>
                         </div>
                     </div>
@@ -219,7 +188,7 @@
                             <button type="button" class="btn gray " ng-click="vm.cancel()">
                                 @L("Cancel")
                             </button>
-                            <button type="submit" class="btn green" ng-click="vm.save()" ng-disabled="productCreateForm.$invalid">
+                            <button type="submit" class="btn green" ng-click="vm.save()" ng-disabled="applicationEditForm.$invalid">
                                 @L("Save")
                             </button>
                         </div>

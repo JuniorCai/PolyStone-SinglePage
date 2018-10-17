@@ -30,6 +30,7 @@
                 }
 
                 vm.user.roleNames = assingnedRoles;
+                vm.user.emailAddress = "";
                 userService.create(vm.user)
                     .then(function () {
                         abp.notify.info(App.localize('SavedSuccessfully'));

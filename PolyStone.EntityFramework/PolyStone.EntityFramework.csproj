@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201810161328058_changeApplicationColName-AuthStatus.Designer.cs">
       <DependentUpon>201810161328058_changeApplicationColName-AuthStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.cs" />
+    <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.Designer.cs">
+      <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -295,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810161328058_changeApplicationColName-AuthStatus.resx">
       <DependentUpon>201810161328058_changeApplicationColName-AuthStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810170835565_changeCompanyApplicationCol.resx">
+      <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

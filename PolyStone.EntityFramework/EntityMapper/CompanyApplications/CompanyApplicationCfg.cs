@@ -19,13 +19,13 @@ namespace PolyStone.EntityMapper.CompanyApplications
 
 
             // 营业执照
-            Property(a => a.License).HasMaxLength(50);
+            Property(a => a.License).HasMaxLength(100);
             // 法人姓名
             Property(a => a.LegalPerson).HasMaxLength(50);
             // 身份证正面照
-            Property(a => a.FrontImg).HasMaxLength(50);
+            Property(a => a.FrontImg).HasMaxLength(100);
             // 身份证背面照
-            Property(a => a.BackImg).HasMaxLength(50);
+            Property(a => a.BackImg).HasMaxLength(100);
             // 企业名称
             Property(a => a.CompanyName).HasMaxLength(50);
             // 主营范围

@@ -16,7 +16,7 @@ namespace PolyStone.CustomDomain.CompanyApplications
         public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         public CompanyType CompanyType { get; set; }
 
@@ -35,7 +35,7 @@ namespace PolyStone.CustomDomain.CompanyApplications
         public int RegionId { get; set; }
 
         [ForeignKey("RegionId")]
-        public Region Region { get; set; }
+        public virtual Region Region { get; set; }
 
         public string LinkMan { get; set; }
 

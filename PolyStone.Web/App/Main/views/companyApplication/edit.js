@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('app').controller('app.views.company.editCompany', [
+    angular.module('app').controller('app.views.companyApplication.editCompany', [
         '$scope', '$state','$stateParams', 'abp.services.app.companyApplication', 'abp.services.app.region', '$http','$timeout',
         function ($scope, $state, $stateParams, companyApplicationService, regionService , $http, $timeout) {
             var vm = this;
@@ -9,32 +9,10 @@
 
 
 
-            vm.application = {
-                companyEditDto: {
-                    id:0,
-                    companyName: "",
-                    shortName: "",
-                    userName: "",
-                    companyType: 1,
-                    logo: "",
-                    memberId:0,
-                    industry: "",
-                    business: "",
-                    regionId: "-1",
-                    introduction: "",
-                    isAuthed: true,
-                    isActive: true
-                },
-                companyAuthEditDto: {
-                    companyId: -1,
-                    legalPerson: "",
-                    frontImg: "",
-                    backImg: "",
-                    license:""
-                },
-            };
+            vm.application = {};
 
             vm.contactEditList = [];
+            vm.selectedCompanyType = "0";
 
             function initPageData() {
                 getRegionList();
@@ -45,7 +23,6 @@
                 companyApplicationService.getCompanyApplicationById({ id: applicationId }).then(function(result) {
                     vm.application = result.data;
                     
-                    vm.selectedIndustry = result.data.industries[0].industryId.toString();
                     vm.selectedRegion = result.data.region;
                     vm.selectedCompanyType = result.data.companyType.toString();
                     bindRegionSelect();
@@ -67,7 +44,6 @@
             vm.regionList = [];
             vm.cityList = [];
 
-            vm.selectedIndustry = "-1";
             vm.selectedProvince = "-1";
             vm.selectedCity = "-1";
             vm.selectedRegion = 0;
@@ -102,7 +78,7 @@
                             if (isFirstBind) {
                                 angular.forEach(vm.cityList,
                                     function(item, index) {
-                                        if (item.regionCode == vm.company.companyEditDto.region.regionCode) {
+                                        if (item.regionCode == vm.application.region.regionCode) {
                                             vm.selectedCity = item;
                                             vm.chooseCity();
                                         }

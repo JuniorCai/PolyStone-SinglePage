@@ -21,8 +21,7 @@ namespace PolyStone.Users.Dto
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
 

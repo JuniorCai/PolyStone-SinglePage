@@ -65,7 +65,7 @@
             };
 
             vm.gotoDetail = function (itemId) {
-                $state.go("applicationEdit", { id: itemId });
+                $state.go("companyApplicationEdit", { id: itemId });
             };
 
 
