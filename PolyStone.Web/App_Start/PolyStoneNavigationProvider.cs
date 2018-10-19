@@ -6,6 +6,7 @@ using PolyStone.CustomDomain.Communities.Authorization;
 using PolyStone.CustomDomain.CommunityCategories.Authorization;
 using PolyStone.CustomDomain.Companies.Authorization;
 using PolyStone.CustomDomain.CompanyApplications.Authorization;
+using PolyStone.CustomDomain.Modules.Authorization;
 using PolyStone.CustomDomain.Products.Authorization;
 using PolyStone.CustomDomain.Regions.Authorization;
 
@@ -139,7 +140,13 @@ namespace PolyStone.Web
                             icon: "fa fa-users",
                             requiredPermissionName: RegionAppPermissions.Region
                         )
-                    )
+                    ).AddItem(new MenuItemDefinition(
+                        "Module",
+                        L("Module"),
+                        url: "modules",
+                        icon: "icon-grid",
+                        requiredPermissionName: ModuleAppPermissions.Module
+                    ))
                 ).AddItem(
                     new MenuItemDefinition(
                         "About",

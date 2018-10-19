@@ -236,6 +236,7 @@
     <Compile Include="EntityMapper\CompanyIndustries\CompanyIndustryCfg.cs" />
     <Compile Include="EntityMapper\Industries\IndustryCfg.cs" />
     <Compile Include="EntityMapper\Members\MemberCfg.cs" />
+    <Compile Include="EntityMapper\Modules\ModuleCfg.cs" />
     <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />
     <Compile Include="Migrations\201810031455087_InitialDatabase.cs" />
@@ -261,6 +262,10 @@
     <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.cs" />
     <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.Designer.cs">
       <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810190304211_addModuleTable.cs" />
+    <Compile Include="Migrations\201810190304211_addModuleTable.Designer.cs">
+      <DependentUpon>201810190304211_addModuleTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -302,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810170835565_changeCompanyApplicationCol.resx">
       <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810190304211_addModuleTable.resx">
+      <DependentUpon>201810190304211_addModuleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

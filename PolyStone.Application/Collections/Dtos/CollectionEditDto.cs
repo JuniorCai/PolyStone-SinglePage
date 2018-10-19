@@ -20,7 +20,7 @@ namespace PolyStone.Collections.Dtos
 	public int? Id{get;set;}
 
         [Range(1, 255)]
-        public   int  Type { get; set; }
+        public   int ModuleId { get; set; }
 
         [MaxLength(200)]
         public   string  Name { get; set; }

@@ -250,6 +250,11 @@
     <Compile Include="CustomDomain\Members\Member.cs" />
     <Compile Include="CustomDomain\Members\MemberManage.cs" />
     <Compile Include="CustomDomain\Members\____MemberReadme.cs" />
+    <Compile Include="CustomDomain\Modules\Authorization\ModuleAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\Modules\Authorization\ModuleAppPermissions.cs" />
+    <Compile Include="CustomDomain\Modules\Module.cs" />
+    <Compile Include="CustomDomain\Modules\ModuleManage.cs" />
+    <Compile Include="CustomDomain\Modules\____ModuleReadme.cs" />
     <Compile Include="CustomDomain\Products\Authorization\ProductAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Products\Authorization\ProductAppPermissions.cs" />
     <Compile Include="CustomDomain\Products\Product.cs" />

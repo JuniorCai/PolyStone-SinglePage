@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using PolyStone.CustomDomain.Collections;
+using PolyStone.Modules.Dtos;
 
 namespace PolyStone.Collections.Dtos
 {
@@ -12,7 +13,8 @@ namespace PolyStone.Collections.Dtos
     [AutoMapFrom(typeof(Collection))]
     public class CollectionListDto : EntityDto<int>
     {
-        public int Type { get; set; }
+        public int ModuleId { get; set; }
+        public ModuleListDto Module { get; set; }
         public string Name { get; set; }
         public int RelativeId { get; set; }
 

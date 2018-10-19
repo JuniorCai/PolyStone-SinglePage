@@ -16,6 +16,7 @@ using PolyStone.CustomDomain.CompanyAuths;
 using PolyStone.CustomDomain.CompanyContacts;
 using PolyStone.CustomDomain.CompanyIndustries;
 using PolyStone.CustomDomain.Members;
+using PolyStone.CustomDomain.Modules;
 using PolyStone.CustomDomain.Products;
 using PolyStone.CustomDomain.Regions;
 using PolyStone.EntityMapper.Categories;
@@ -29,6 +30,7 @@ using PolyStone.EntityMapper.CompanyContacts;
 using PolyStone.EntityMapper.CompanyIndustries;
 using PolyStone.EntityMapper.Industries;
 using PolyStone.EntityMapper.Members;
+using PolyStone.EntityMapper.Modules;
 using PolyStone.EntityMapper.Products;
 using PolyStone.EntityMapper.Regions;
 using PolyStone.MultiTenancy;
@@ -55,6 +57,7 @@ namespace PolyStone.EntityFramework
         public IDbSet<Industry> Industrys { get; set; }
 
         public IDbSet<CompanyIndustry> CompanyIndustrys { get; set; }
+        public IDbSet<Module> Modules { get; set; }
 
 
 
@@ -107,6 +110,7 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new CompanyApplicationCfg());
             modelBuilder.Configurations.Add(new CompanyIndustryCfg());
             modelBuilder.Configurations.Add(new IndustryCfg());
+            modelBuilder.Configurations.Add(new ModuleCfg());
 
             base.OnModelCreating(modelBuilder);
 

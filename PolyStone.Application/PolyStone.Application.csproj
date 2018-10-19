@@ -308,6 +308,14 @@
     <Compile Include="Members\IMemberAppService.cs" />
     <Compile Include="Members\Mappers\MemberDtoMapper.cs" />
     <Compile Include="Members\MemberAppService.cs" />
+    <Compile Include="Modules\Dtos\CreateOrUpdateModuleInput.cs" />
+    <Compile Include="Modules\Dtos\GetModuleForEditOutput.cs" />
+    <Compile Include="Modules\Dtos\GetModuleInput.cs" />
+    <Compile Include="Modules\Dtos\ModuleEditDto.cs" />
+    <Compile Include="Modules\Dtos\ModuleListDto.cs" />
+    <Compile Include="Modules\IModuleAppService.cs" />
+    <Compile Include="Modules\Mappers\ModuleDtoMapper.cs" />
+    <Compile Include="Modules\ModuleAppService.cs" />
     <Compile Include="PolyStoneApplicationModule.cs" />
     <Compile Include="PolyStoneAppServiceBase.cs" />
     <Compile Include="Authorization\Accounts\AccountAppService.cs" />
