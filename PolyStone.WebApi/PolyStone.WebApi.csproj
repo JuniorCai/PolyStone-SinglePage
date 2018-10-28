@@ -242,6 +242,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\AuthController.cs" />
     <Compile Include="Api\OAuthOptions.cs" />
     <Compile Include="Api\PolyStoneWebApiModule.cs" />
     <Compile Include="Api\Controllers\AccountController.cs" />
