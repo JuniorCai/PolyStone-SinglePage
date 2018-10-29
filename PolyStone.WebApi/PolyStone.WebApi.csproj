@@ -254,6 +254,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="WxMiniProgram.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolyStone.Application\PolyStone.Application.csproj">
