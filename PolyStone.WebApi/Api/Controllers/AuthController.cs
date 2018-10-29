@@ -10,6 +10,7 @@ using Abp;
 using Abp.Web.Models;
 using Abp.WebApi.Client;
 using Abp.WebApi.Controllers;
+using PolyStone.Helpers;
 
 namespace PolyStone.Api.Controllers
 {
@@ -33,7 +34,7 @@ namespace PolyStone.Api.Controllers
                 string authCodeUrl =
                     $"https://api.weixin.qq.com/sns/jscode2session?appid={_appId}&secret={_appSecret}&js_code={code}&grant_type=authorization_code";
 
-                var result = await _abpWebApiClient.PostAsync<CodeResult>(authCodeUrl);
+                var result = await _abpWebApiClient.GetAsync<CodeResult>(authCodeUrl);
                 return new AjaxResponse(result);
             }
             catch (Exception e)

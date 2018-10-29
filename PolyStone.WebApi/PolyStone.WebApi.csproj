@@ -249,6 +249,7 @@
     <Compile Include="Api\Models\LoginModel.cs" />
     <Compile Include="Api\Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Api\Providers\SimpleRefreshTokenProvider.cs" />
+    <Compile Include="Helpers\AbpWebApiHttpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
