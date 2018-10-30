@@ -52,7 +52,10 @@ namespace PolyStone.Users
             var user = ObjectMapper.Map<User>(input);
 
             user.TenantId = AbpSession.TenantId;
-            user.Password = new PasswordHasher().HashPassword(input.Password);
+            user.Password =
+                new PasswordHasher().HashPassword(string.IsNullOrEmpty(input.Password)
+                    ? User.DefaultPassword
+                    : input.Password);
             user.IsEmailConfirmed = true;
 
             //Assign roles

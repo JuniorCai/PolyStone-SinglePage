@@ -61,6 +61,9 @@ namespace PolyStone.UserAuthorizations
 
             var query = _userAuthorizationRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            query = query.WhereIf(string.IsNullOrEmpty(input.OpenId), u => u.OpenId == input.OpenId);
+            query = query.WhereIf(input.UserId>0, u => u.UserId == input.UserId);
+
 
             var userAuthorizationCount = await query.CountAsync();
 

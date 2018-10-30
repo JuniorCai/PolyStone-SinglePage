@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Abp.Authorization;
 using Abp.Localization;
+using PolyStone.Authorization;
+using PolyStone.CustomDomain.CompanyContacts.Authorization;
 
 namespace PolyStone.CustomDomain.UserAuthorizations.Authorization
 {
@@ -15,16 +17,18 @@ namespace PolyStone.CustomDomain.UserAuthorizations.Authorization
         {
 					      //在这里配置了UserAuthorization 的权限。
 
-            var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
-
-              var entityNameModel = pages.Children.FirstOrDefault(p => p.Name == AppPermissions.Pages_Administration) 
-                ?? pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));
 
 
 
-           
+            var pages = context.GetPermissionOrNull(PermissionNames.Pages) ??
+                        context.CreatePermission(PermissionNames.Pages, L("Pages"));
 
-            var userAuthorization = entityNameModel.CreateChildPermission(UserAuthorizationAppPermissions.UserAuthorization , L("UserAuthorization"));
+            var userAuthorization = pages.Children.FirstOrDefault(p => p.Name == UserAuthorizationAppPermissions.UserAuthorization)
+                          ?? pages.CreateChildPermission(UserAuthorizationAppPermissions.UserAuthorization, L("UserAuthorization"));
+
+
+
+
             userAuthorization.CreateChildPermission(UserAuthorizationAppPermissions.UserAuthorization_CreateUserAuthorization, L("CreateUserAuthorization"));
             userAuthorization.CreateChildPermission(UserAuthorizationAppPermissions.UserAuthorization_EditUserAuthorization, L("EditUserAuthorization"));           
             userAuthorization.CreateChildPermission(UserAuthorizationAppPermissions. UserAuthorization_DeleteUserAuthorization, L("DeleteUserAuthorization"));
@@ -39,7 +43,7 @@ namespace PolyStone.CustomDomain.UserAuthorizations.Authorization
 
         private static ILocalizableString L(string name)
         {
-            return new LocalizableString(name, CustomDomainConsts.LocalizationSourceName);
+            return new LocalizableString(name, PolyStoneConsts.LocalizationSourceName);
         }
     }
 

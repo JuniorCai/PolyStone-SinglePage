@@ -13,7 +13,7 @@ namespace PolyStone.Helpers
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        public static string GetRandrom(int num)
+        public static string GetRandom(int num)
         {
 
             string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

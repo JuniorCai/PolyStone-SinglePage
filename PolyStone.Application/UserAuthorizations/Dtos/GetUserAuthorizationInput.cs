@@ -15,6 +15,10 @@ namespace PolyStone.UserAuthorizations.Dtos
         /// </summary>
         public string FilterText { get; set; }
 
+        public string OpenId { get; set; }
+
+        public long UserId { get; set; }
+
         /// <summary>
         /// 用于排序的默认值
         /// </summary>

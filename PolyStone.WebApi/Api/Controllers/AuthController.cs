@@ -12,6 +12,9 @@ using Abp.Web.Models;
 using Abp.WebApi.Client;
 using Abp.WebApi.Controllers;
 using PolyStone.Helpers;
+using PolyStone.UserAuthorizations;
+using PolyStone.UserAuthorizations.Dtos;
+using PolyStone.Users.Dto;
 
 namespace PolyStone.Api.Controllers
 {
@@ -20,15 +23,17 @@ namespace PolyStone.Api.Controllers
         private string _appSecret = ConfigurationManager.AppSettings["AppSecret"];
         private string _appId = ConfigurationManager.AppSettings["AppId"];
         private readonly IAbpWebApiClient _abpWebApiClient;
+        private readonly IUserAuthorizationAppService _userAuthorizationAppService;
 
-        public AuthController()
+        public AuthController(IUserAuthorizationAppService userAuthorizationAppService)
         {
             _abpWebApiClient = new AbpWebApiClient();
+            _userAuthorizationAppService = userAuthorizationAppService;
         }
 
         //GET
         [HttpGet]
-        public async Task<AjaxResponse> AuthLoginCode(string code)
+        public async Task<AjaxResponse> AuthLoginCode(string code,string encryptedData,string iv)
         {
             try
             {
@@ -41,7 +46,9 @@ namespace PolyStone.Api.Controllers
                 {
                     case 0:
                         returnResult.Code = CodeStatus.Success;
-                        string randNum = Utils.GetRandrom(16);
+                        string randNum = Utils.GetRandom(16);
+                        
+                        string openId = result.OpenId;
                         break;
                     case -1:
                         returnResult.Code = CodeStatus.Failed;
@@ -60,6 +67,29 @@ namespace PolyStone.Api.Controllers
                 return new AjaxResponse(e);
             }
         }
+
+        private async Task<bool>  CreateUserAuthorization(string openId)
+        {
+
+
+            var list = await _userAuthorizationAppService.GetPagedUserAuthorizationsAsync(new GetUserAuthorizationInput(){OpenId = openId});
+            if (list.TotalCount > 0)
+            {
+                return false;
+            }
+            else
+            {
+               // await CreateUser();
+            }
+
+            return false;
+        }
+
+//        private async Task<UserDto> CreateUser()
+//        {
+//            CreateUserDto newModel = new CreateUserDto();
+//            newModel.Name
+//        }
     }
 
 
