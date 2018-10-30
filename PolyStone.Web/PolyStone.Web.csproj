@@ -3868,7 +3868,9 @@
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Resource\" />
-    <Folder Include="_GeneratedCode\" />
+    <Folder Include="_GeneratedCode\UserAuthorization\Application\" />
+    <Folder Include="_GeneratedCode\UserAuthorization\Core\UserAuthorizations\" />
+    <Folder Include="_GeneratedCode\UserAuthorization\EntityFramework\EntityMapper\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolyStone.Application\PolyStone.Application.csproj">

@@ -9,10 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Abp;
 using Abp.Extensions;
-using Abp.Web.Models;
 using Abp.WebApi.Client;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace PolyStone.Helpers
 {
@@ -68,13 +66,9 @@ namespace PolyStone.Helpers
                                 throw new AbpException("Could not made request to " + url + "! StatusCode: " + response.StatusCode + ", ReasonPhrase: " + response.ReasonPhrase);
                             }
 
-                            var ajaxResponse = JsonString2Object<AjaxResponse<TResult>>(await response.Content.ReadAsStringAsync());
-                            if (!ajaxResponse.Success)
-                            {
-                                throw new AbpRemoteCallException(ajaxResponse.Error);
-                            }
+                            var result = JsonString2Object<TResult>(await response.Content.ReadAsStringAsync());
 
-                            return ajaxResponse.Result;
+                            return result;
                         }
                     }
                 }
@@ -86,4 +80,17 @@ namespace PolyStone.Helpers
             return JsonConvert.DeserializeObject<TObj>(str);
         }
     }
+
+    public class CodeResult
+    {
+        public string Session_Key { get; set; }
+        public string OpenId { get; set; }
+
+        public string UnionId { get; set; }
+
+        public int ErrCode { get; set; }
+
+        public string ErrMsg { get; set; }
+    }
+
 }

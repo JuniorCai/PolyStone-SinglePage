@@ -265,6 +265,11 @@
     <Compile Include="CustomDomain\Regions\Region.cs" />
     <Compile Include="CustomDomain\Regions\RegionManage.cs" />
     <Compile Include="CustomDomain\Regions\____RegionReadme.cs" />
+    <Compile Include="CustomDomain\UserAuthorizations\Authorization\UserAuthorizationAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\UserAuthorizations\Authorization\UserAuthorizationAppPermissions.cs" />
+    <Compile Include="CustomDomain\UserAuthorizations\UserAuthorization.cs" />
+    <Compile Include="CustomDomain\UserAuthorizations\UserAuthorizationManage.cs" />
+    <Compile Include="CustomDomain\UserAuthorizations\____UserAuthorizationReadme.cs" />
     <Compile Include="PagedAndSortedInputDto.cs" />
     <Compile Include="PolyStoneConsts.cs" />
     <Compile Include="PolyStoneCoreModule.cs" />
