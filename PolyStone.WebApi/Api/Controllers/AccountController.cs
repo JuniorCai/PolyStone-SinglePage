@@ -38,6 +38,7 @@ namespace PolyStone.Api.Controllers
         public async Task<AjaxResponse> Authenticate(LoginModel loginModel)
         {
             CheckModelState();
+            loginModel.UsernameOrEmailAddress = loginModel.Phone;
 
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,

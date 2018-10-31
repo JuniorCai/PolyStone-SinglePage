@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Abp.Authorization;
 
 namespace PolyStone.Api.Models
 {
@@ -6,10 +7,24 @@ namespace PolyStone.Api.Models
     {
         public string TenancyName { get; set; }
 
-        [Required]
         public string UsernameOrEmailAddress { get; set; }
 
         [Required]
+        public string Phone { get; set; }
+
+        [Required]
         public string Password { get; set; }
+
+        public LoginType LoginType { get; set; }
+    }
+
+    /// <summary>
+    /// 登录方式
+    /// </summary>
+    public enum LoginType
+    {
+        Account=1,
+        PhoneCode=2,
+        Wx=3
     }
 }
