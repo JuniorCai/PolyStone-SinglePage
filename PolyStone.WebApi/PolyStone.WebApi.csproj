@@ -251,6 +251,7 @@
     <Compile Include="Api\Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Api\Providers\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Helpers\AbpWebApiHttpClient.cs" />
+    <Compile Include="Helpers\CatchException.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\UtilsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

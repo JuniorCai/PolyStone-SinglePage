@@ -17,6 +17,9 @@ namespace PolyStone.Users.Dto
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
 
+        public string Avatar { get; set; }
+
+
         [Required]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }

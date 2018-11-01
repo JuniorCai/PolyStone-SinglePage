@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201810300602508_addTable-UserAuthorization.Designer.cs">
       <DependentUpon>201810300602508_addTable-UserAuthorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811010718016_addUserCol-Avatar.cs" />
+    <Compile Include="Migrations\201811010718016_addUserCol-Avatar.Designer.cs">
+      <DependentUpon>201811010718016_addUserCol-Avatar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810300602508_addTable-UserAuthorization.resx">
       <DependentUpon>201810300602508_addTable-UserAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811010718016_addUserCol-Avatar.resx">
+      <DependentUpon>201811010718016_addUserCol-Avatar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

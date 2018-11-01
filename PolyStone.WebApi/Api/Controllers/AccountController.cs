@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Authorization.Users;
 using Abp.UI;
 using Abp.Web.Models;
+using Abp.WebApi.Authorization;
 using Abp.WebApi.Controllers;
 using PolyStone.Api.Models;
 using PolyStone.Authorization;
@@ -22,16 +24,18 @@ namespace PolyStone.Api.Controllers
         public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
 
         private readonly LogInManager _logInManager;
+        private readonly IUserAppService _userAppService;
 
         static AccountController()
         {
             OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
         }
 
-        public AccountController(LogInManager logInManager)
+        public AccountController(LogInManager logInManager,UserManager userManager, IUserAppService userAppService)
         {
             _logInManager = logInManager;
             LocalizationSourceName = PolyStoneConsts.LocalizationSourceName;
+            _userAppService = userAppService;
         }
 
         [HttpPost]
@@ -118,6 +122,20 @@ namespace PolyStone.Api.Controllers
             {
                 throw new UserFriendlyException("Invalid request!");
             }
+        }
+
+        [AbpApiAuthorize()]
+        public async Task<AjaxResponse> GetCurrentUserInfo()
+        {
+            if (AbpSession.UserId == null || AbpSession.UserId.Value == 0)
+            {
+                ErrorInfo error = new ErrorInfo() { Code = 100007};
+                return new AjaxResponse(error);
+            }
+
+            long userId = AbpSession.UserId.Value;
+            var userDto = await _userAppService.Get(new EntityDto<long> {Id = userId});
+            return new AjaxResponse(userDto);
         }
     }
 }

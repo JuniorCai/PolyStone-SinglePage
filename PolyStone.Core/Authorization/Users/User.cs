@@ -91,6 +91,7 @@ namespace PolyStone.Authorization.Users
 
         public UserType UserType { get; set; }
 
+        public string Avatar { get; set; }
         //public virtual Company Company { get; set; }
     }
 
