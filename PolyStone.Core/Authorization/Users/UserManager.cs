@@ -1,4 +1,5 @@
-﻿using Abp.Authorization;
+﻿using System.Threading.Tasks;
+using Abp.Authorization;
 using Abp.Authorization.Users;
 using Abp.Configuration;
 using Abp.Domain.Repositories;
@@ -13,6 +14,7 @@ namespace PolyStone.Authorization.Users
 {
     public class UserManager : AbpUserManager<Role, User>
     {
+        private readonly UserStore _userStore;
         public UserManager(
             UserStore userStore,
             RoleManager roleManager,
@@ -40,6 +42,14 @@ namespace PolyStone.Authorization.Users
                   settingManager,
                   userTokenProviderAccessor)
         {
+            _userStore = userStore;
         }
+
+        public virtual async Task<User> FindByPhoneAsync(string userNameOrEmailAddress)
+        {
+            return await _userStore.FindByPhoneAsync(userNameOrEmailAddress);
+        }
+
+
     }
 }

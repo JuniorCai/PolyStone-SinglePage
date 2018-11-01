@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
@@ -7,6 +8,8 @@ namespace PolyStone.Authorization.Users
 {
     public class UserStore : AbpUserStore<Role, User>
     {
+        private readonly IRepository<User, long> _userRepository;
+
         public UserStore(
             IRepository<User, long> userRepository,
             IRepository<UserLogin, long> userLoginRepository,
@@ -24,6 +27,15 @@ namespace PolyStone.Authorization.Users
               unitOfWorkManager,
               userClaimStore)
         {
+            _userRepository = userRepository;
         }
+
+        public virtual async Task<User> FindByPhoneAsync(string phoneNum)
+        {
+            return await _userRepository.FirstOrDefaultAsync(
+                user => user.PhoneNumber == phoneNum
+            );
+        }
+
     }
 }
