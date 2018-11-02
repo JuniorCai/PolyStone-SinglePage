@@ -22,12 +22,12 @@ namespace PolyStone.Web
             #region 配置OAuth
 
             //第一步：配置跨域访问
-            app.UseCors(CorsOptions.AllowAll);
-
-            app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
-
-            //第二步：使用OAuth密码认证模式
-            app.UseOAuthAuthorizationServer(OAuthOptions.CreateServerOptions());
+//            app.UseCors(CorsOptions.AllowAll);
+//
+//            app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
+//
+//            //第二步：使用OAuth密码认证模式
+//            app.UseOAuthAuthorizationServer(OAuthOptions.CreateServerOptions());
 
             #endregion
 
