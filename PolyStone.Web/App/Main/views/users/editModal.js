@@ -7,14 +7,12 @@
             vm.user = {
                 isActive: true
             };
+            vm.selectRoleName = "";
 
             vm.roles = [];
 
             var setAssignedRoles = function (user, roles) {
-                for (var i = 0; i < roles.length; i++) {
-                    var role = roles[i];
-                    role.isAssigned = $.inArray(role.name, user.roles) >= 0;
-                }
+                vm.selectRoleName = user.roles.length > 0 ? user.roles[0] : "";
             }
 
             var init = function () {
@@ -30,17 +28,19 @@
                     });
             }
 
+            vm.chooseRole = function(roleName) {
+                vm.selectRoleName = roleName;
+            }
+
             vm.save = function () {
+                if (vm.selectRoleName == "") {
+                    abp.notify.warn("未对用户选择角色");
+                    return;
+                }
                 var assingnedRoles = [];
 
-                for (var i = 0; i < vm.roles.length; i++) {
-                    var role = vm.roles[i];
-                    if (!role.isAssigned) {
-                        continue;
-                    }
+                assingnedRoles.push(vm.selectRoleName);
 
-                    assingnedRoles.push(role.name);
-                }
 
                 vm.user.roleNames = assingnedRoles;
                 userService.update(vm.user)

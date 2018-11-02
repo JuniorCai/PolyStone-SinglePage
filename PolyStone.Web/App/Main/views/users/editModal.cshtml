@@ -67,7 +67,7 @@
                     <div class="col-sm-12 ">
                         <div class="col-sm-6" ng-repeat="role in vm.roles">
                             @*<input type="checkbox" name="role" value="{{role.normalizedName}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-model="role.isAssigned" />*@
-                            <input type="radio" name="role" value="{{role.normalizedName}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-model="role.isAssigned" />
+                            <input type="radio" name="role" ng-value="{{role.name}}" title="{{role.description}}" class="filled-in" id="role-{{role.id}}" ng-checked="role.name==vm.selectRoleName" ng-click="vm.chooseRole(role.name)"/>
                             <label for="role-{{role.id}}" title="{{role.displayName}}">{{role.name}}</label>
                         </div>
                     </div>
