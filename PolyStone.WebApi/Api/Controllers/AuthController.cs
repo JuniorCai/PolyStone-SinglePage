@@ -89,10 +89,11 @@ namespace PolyStone.Api.Controllers
             return false;
         }
 
-//        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
-//        {
-//            
-//        }
+        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
+        {
+            string postUrl = string.Format(_smsSendUrl, _smsAppId, _smsAppKey, phoneNumber);
+            string postResult = _abpWebApiClient.GetAsync(postUrl, 60).Result;
+        }
     }
 
 

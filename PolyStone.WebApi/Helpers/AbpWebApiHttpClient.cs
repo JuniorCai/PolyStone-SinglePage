@@ -18,6 +18,19 @@ namespace PolyStone.Helpers
     {
         public static async Task<TResult> GetAsync<TResult>(this IAbpWebApiClient apiClient,string url, int? timeout = null) where TResult : class
         {
+            var result = JsonString2Object<TResult>(await PostUrlAndGetResult(apiClient, url, timeout));
+
+            return result;
+
+        }
+
+        public static async Task<string> GetAsync(this IAbpWebApiClient apiClient, string url, int? timeout = null)
+        {
+            return await PostUrlAndGetResult(apiClient, url, timeout);
+        }
+
+        private static async Task<string> PostUrlAndGetResult(IAbpWebApiClient apiClient, string url, int? timeout = null)
+        {
             var cookieContainer = new CookieContainer();
             using (var handler = new HttpClientHandler { CookieContainer = cookieContainer })
             {
@@ -66,7 +79,7 @@ namespace PolyStone.Helpers
                                 throw new AbpException("Could not made request to " + url + "! StatusCode: " + response.StatusCode + ", ReasonPhrase: " + response.ReasonPhrase);
                             }
 
-                            var result = JsonString2Object<TResult>(await response.Content.ReadAsStringAsync());
+                            var result = await response.Content.ReadAsStringAsync();
 
                             return result;
                         }
