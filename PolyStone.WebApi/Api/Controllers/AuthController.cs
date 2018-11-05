@@ -22,6 +22,10 @@ namespace PolyStone.Api.Controllers
     {
         private string _appSecret = ConfigurationManager.AppSettings["AppSecret"];
         private string _appId = ConfigurationManager.AppSettings["AppId"];
+        private string _smsAppKey = ConfigurationManager.AppSettings["SmsAppKey"];
+        private string _smsAppId = ConfigurationManager.AppSettings["SmsAppId"];
+        private string _smsSendUrl = ConfigurationManager.AppSettings["SmsSendUrl"];
+
         private readonly IAbpWebApiClient _abpWebApiClient;
         private readonly IUserAuthorizationAppService _userAuthorizationAppService;
 
@@ -85,10 +89,9 @@ namespace PolyStone.Api.Controllers
             return false;
         }
 
-//        private async Task<UserDto> CreateUser()
+//        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
 //        {
-//            CreateUserDto newModel = new CreateUserDto();
-//            newModel.Name
+//            
 //        }
     }
 
