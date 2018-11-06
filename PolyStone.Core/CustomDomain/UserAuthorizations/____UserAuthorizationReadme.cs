@@ -40,7 +40,6 @@ namespace PolyStone.CustomDomain.UserAuthorizations
 	
           //配置权限模块初始化
  //TODO:★需要到请将以下内容剪切到CustomDomainApplicationModule
- //   Configuration.Authorization.Providers.Add<UserAuthorizationAppAuthorizationProvider>();
 		 
  	
 	

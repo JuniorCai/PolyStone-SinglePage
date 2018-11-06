@@ -13,7 +13,9 @@ namespace PolyStone.CustomDomain.UserVerifies
 
         public string Code { get; set; }
 
-        public int CodeType { get; set; }
+        public CodeType CodeType { get; set; }
+
+        public PurposeType Purpose { get; set; }
 
         public string Ip { get; set; }
 
@@ -27,9 +29,21 @@ namespace PolyStone.CustomDomain.UserVerifies
 
     public enum CodeVerifyStatus
     {
-        Pendding=0,
+        Pending=0,
         Success=1,
-        Failed=2,
-        Overdue =3,
+        Invalid=2,
+    }
+
+    public enum CodeType
+    {
+        Mobile=1,
+        Email=2
+    }
+
+    public enum PurposeType
+    {
+        Register=1,
+        ResetPassword,
+        ChangePhoneNumber
     }
 }

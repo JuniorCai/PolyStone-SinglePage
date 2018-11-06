@@ -28,11 +28,13 @@ namespace PolyStone.UserVerifies.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
-        public DateTime CreationTime { get; set; }
+        public DateTime? CreationTime { get; set; }
 
-        public DateTime ExpirationTime { get; set; }
+        public DateTime? ExpirationTime { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public string Ip { get; set; }
 
 
 		/// <summary>

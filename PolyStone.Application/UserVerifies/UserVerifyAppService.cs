@@ -59,6 +59,11 @@ namespace PolyStone.UserVerifies
 
             var query = _userVerifyRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            query = query.WhereIf(string.IsNullOrEmpty(input.PhoneNumber), v => v.PhoneNumber == input.PhoneNumber)
+                .WhereIf(string.IsNullOrEmpty(input.Ip), v => v.Ip == input.Ip)
+                .WhereIf(input.CreationTime != null, v => v.CreationTime >= input.CreationTime.Value)
+                .WhereIf(input.ExpirationTime != null, v => v.ExpirationTime <= input.ExpirationTime.Value);
+
 
             var userVerifyCount = await query.CountAsync();
 
@@ -108,10 +113,13 @@ namespace PolyStone.UserVerifies
             return entity.MapTo<UserVerifyListDto>();
         }
 
+        public async Task<UserVerifyListDto> GetUserVerifyByPhoneNumberAsync(string phoneNumber)
+        {
 
+            var entity = await _userVerifyRepository.SingleAsync(v => v.PhoneNumber == phoneNumber);
+            return entity.MapTo<UserVerifyListDto>();
 
-
-
+        }
 
 
         /// <summary>
@@ -155,6 +163,21 @@ namespace PolyStone.UserVerifies
             input.MapTo(entity);
 
             await _userVerifyRepository.UpdateAsync(entity);
+        }
+
+        public async Task SetPhoneCodeVerifyStatus(string phoneNumber, CodeVerifyStatus targetStatus)
+        {
+
+            var list = await _userVerifyRepository.GetAllListAsync(v =>
+                v.PhoneNumber == phoneNumber && v.VerifyStatus == CodeVerifyStatus.Pending);
+            if (list != null && list.Count > 0)
+            {
+                foreach (UserVerify userVerify in list)
+                {
+                    userVerify.VerifyStatus = targetStatus;
+                    await _userVerifyRepository.UpdateAsync(userVerify);
+                }
+            }
         }
 
         /// <summary>

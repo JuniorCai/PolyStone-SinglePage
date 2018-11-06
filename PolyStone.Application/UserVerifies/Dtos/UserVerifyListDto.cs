@@ -17,9 +17,10 @@ using PolyStone.CustomDomain.UserVerifies;
 // Copyright © YoYoCms@China.2018-11-06T10:28:21. All Rights Reserved.
 //<生成时间>2018-11-06T10:28:21</生成时间>
 	#endregion
+
 namespace PolyStone.UserVerifies.Dtos
 {
-	/// <summary>
+    /// <summary>
     /// 用户验证码列表Dto
     /// </summary>
     [AutoMapFrom(typeof(UserVerify))]
@@ -29,25 +30,29 @@ namespace PolyStone.UserVerifies.Dtos
         /// 验证码类型
         /// </summary>
         [DisplayName("验证码类型")]
-        public      int CodeType { get; set; }
+        public CodeType CodeType { get; set; }
+
         /// <summary>
         /// 失效时间
         /// </summary>
         [DisplayName("失效时间")]
-        public      DateTime ExpirationTime { get; set; }
+        public DateTime ExpirationTime { get; set; }
+
         /// <summary>
         /// 验证状态
         /// </summary>
         [DisplayName("验证状态")]
-        public      CodeVerifyStatus VerifyStatus { get; set; }
-		/// <summary>
+        public CodeVerifyStatus VerifyStatus { get; set; }
+
+        /// <summary>
         /// 验证状态(枚举描述)
         /// </summary>
         public string VerifyStatusName { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>
         [DisplayName("创建时间")]
-        public      DateTime CreationTime { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 }

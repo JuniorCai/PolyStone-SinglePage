@@ -32,36 +32,29 @@ namespace PolyStone.UserVerifies.Mappers
             }
 
         }
-    
-
-
-
-
-	    /// <summary>
-       ///    Configuration.Modules.AbpAutoMapper().Configurators.Add(UserVerifyDtoMapper.CreateMappings);
-      ///注入位置    < see cref = "CustomDomainApplicationModule" /> 
-     /// <param name="configuration"></param>
-    /// </summary>       
-	  private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)
-	  {
-	           
-			      //默认ABP功能已经实现了，如果你要单独对DTO进行拓展，可以在此处放开注释文件。
-
-	  // Configuration.Modules.AbpAutoMapper().Configurators.Add(UserVerifyDtoMapper.CreateMappings);
-
-	    //    Mapper.CreateMap<UserVerify,UserVerifyEditDto>();
-       //     Mapper.CreateMap<UserVerify, UserVerifyListDto>();
-
-     //       Mapper.CreateMap<UserVerifyEditDto, UserVerify>();
-    //        Mapper.CreateMap<UserVerifyListDto,UserVerify>();
-  
 
 
 
 
 
+        /// <summary>
+        ///    Configuration.Modules.AbpAutoMapper().Configurators.Add(UserVerifyDtoMapper.CreateMappings);
+        ///注入位置    < see cref = "CustomDomainApplicationModule" /> 
+        /// <param name="configuration"></param>
+        /// </summary>       
+        private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)
+        {
 
- 	  }
+            //默认ABP功能已经实现了，如果你要单独对DTO进行拓展，可以在此处放开注释文件。
+
+            // Configuration.Modules.AbpAutoMapper().Configurators.Add(UserVerifyDtoMapper.CreateMappings);
+
+            //    Mapper.CreateMap<UserVerify,UserVerifyEditDto>();
+            //     Mapper.CreateMap<UserVerify, UserVerifyListDto>();
+
+            //       Mapper.CreateMap<UserVerifyEditDto, UserVerify>();
+            //        Mapper.CreateMap<UserVerifyListDto,UserVerify>();
+        }
 
 
-}}
+    }}

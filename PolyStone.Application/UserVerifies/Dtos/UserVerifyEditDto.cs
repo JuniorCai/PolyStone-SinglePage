@@ -23,14 +23,14 @@ namespace PolyStone.UserVerifies.Dtos
     /// 用户验证码编辑用Dto
     /// </summary>
     [AutoMap(typeof(UserVerify))]
-    public class UserVerifyEditDto 
+    public class UserVerifyEditDto
     {
 
-	/// <summary>
-    ///   主键Id
-    /// </summary>
-    [DisplayName("主键Id")]
-	public int? Id{get;set;}
+        /// <summary>
+        ///   主键Id
+        /// </summary>
+        [DisplayName("主键Id")]
+        public int? Id { get; set; }
 
         /// <summary>
         /// 手机号
@@ -38,7 +38,7 @@ namespace PolyStone.UserVerifies.Dtos
         [DisplayName("手机号")]
         [Required]
         [MaxLength(20)]
-        public   string  PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// 验证码
@@ -46,34 +46,34 @@ namespace PolyStone.UserVerifies.Dtos
         [DisplayName("验证码")]
         [Required]
         [MaxLength(10)]
-        public   string  Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// 验证码类型
         /// </summary>
         [DisplayName("验证码类型")]
         [Required]
-        public   int  CodeType { get; set; }
+        public CodeType CodeType { get; set; }
 
         /// <summary>
         /// IP地址
         /// </summary>
         [DisplayName("IP地址")]
-        public   string  Ip { get; set; }
+        public string Ip { get; set; }
 
         /// <summary>
         /// 失效时间
         /// </summary>
         [DisplayName("失效时间")]
         [Required]
-        public   DateTime  ExpirationTime { get; set; }
+        public DateTime ExpirationTime { get; set; }
 
         /// <summary>
         /// 验证状态
         /// </summary>
         [DisplayName("验证状态")]
         [Required]
-        public   CodeVerifyStatus  VerifyStatus { get; set; }
+        public CodeVerifyStatus VerifyStatus { get; set; }
 
     }
 }

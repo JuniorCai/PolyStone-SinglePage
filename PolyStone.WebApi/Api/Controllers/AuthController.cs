@@ -15,6 +15,7 @@ using PolyStone.Helpers;
 using PolyStone.UserAuthorizations;
 using PolyStone.UserAuthorizations.Dtos;
 using PolyStone.Users.Dto;
+using PolyStone.UserVerifies;
 
 namespace PolyStone.Api.Controllers
 {
@@ -22,15 +23,16 @@ namespace PolyStone.Api.Controllers
     {
         private string _appSecret = ConfigurationManager.AppSettings["AppSecret"];
         private string _appId = ConfigurationManager.AppSettings["AppId"];
-        private string _smsAppKey = ConfigurationManager.AppSettings["SmsAppKey"];
 
         private readonly IAbpWebApiClient _abpWebApiClient;
         private readonly IUserAuthorizationAppService _userAuthorizationAppService;
+        private readonly IUserVerifyAppService _userVerifyAppService;
 
-        public AuthController(IUserAuthorizationAppService userAuthorizationAppService)
+        public AuthController(IUserAuthorizationAppService userAuthorizationAppService,IUserVerifyAppService userVerifyAppService)
         {
             _abpWebApiClient = new AbpWebApiClient();
             _userAuthorizationAppService = userAuthorizationAppService;
+            _userVerifyAppService = userVerifyAppService;
         }
 
         //GET
@@ -87,11 +89,19 @@ namespace PolyStone.Api.Controllers
             return false;
         }
 
-//        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
-//        {
-//            string postUrl = string.Format(_smsSendUrl, _smsAppId, _smsAppKey, phoneNumber);
-//            string postResult = _abpWebApiClient.GetAsync(postUrl, 60).Result;
-//        }
+        /// <summary>
+        /// 发送验证码
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
+        {
+            SmsManager smsManager=new SmsManager(phoneNumber, _userVerifyAppService);
+            await smsManager.SendAuthCode();
+            var d = smsManager.Result;
+            return new AjaxResponse(d);
+        }
     }
 
 

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using PolyStone.CustomDomain.UserVerifies;
 using PolyStone.UserVerifies.Dtos;
 
 
@@ -51,6 +52,8 @@ namespace PolyStone.UserVerifies
         /// 更新用户验证码
         /// </summary>
         Task UpdateUserVerifyAsync(UserVerifyEditDto input);
+
+        Task SetPhoneCodeVerifyStatus(string phoneNumber, CodeVerifyStatus targetStatus);
 
         /// <summary>
         /// 删除用户验证码
