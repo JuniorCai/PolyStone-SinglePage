@@ -381,6 +381,14 @@
     <Compile Include="Sessions\ISessionAppService.cs" />
     <Compile Include="Sessions\SessionAppService.cs" />
     <Compile Include="Users\UserAppService.cs" />
+    <Compile Include="UserVerifies\Dtos\CreateOrUpdateUserVerifyInput.cs" />
+    <Compile Include="UserVerifies\Dtos\GetUserVerifyForEditOutput.cs" />
+    <Compile Include="UserVerifies\Dtos\GetUserVerifyInput.cs" />
+    <Compile Include="UserVerifies\Dtos\UserVerifyEditDto.cs" />
+    <Compile Include="UserVerifies\Dtos\UserVerifyListDto.cs" />
+    <Compile Include="UserVerifies\IUserVerifyAppService.cs" />
+    <Compile Include="UserVerifies\Mappers\UserVerifyDtoMapper.cs" />
+    <Compile Include="UserVerifies\UserVerifyAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

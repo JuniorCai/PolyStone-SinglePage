@@ -23,8 +23,6 @@ namespace PolyStone.Api.Controllers
         private string _appSecret = ConfigurationManager.AppSettings["AppSecret"];
         private string _appId = ConfigurationManager.AppSettings["AppId"];
         private string _smsAppKey = ConfigurationManager.AppSettings["SmsAppKey"];
-        private string _smsAppId = ConfigurationManager.AppSettings["SmsAppId"];
-        private string _smsSendUrl = ConfigurationManager.AppSettings["SmsSendUrl"];
 
         private readonly IAbpWebApiClient _abpWebApiClient;
         private readonly IUserAuthorizationAppService _userAuthorizationAppService;
@@ -89,11 +87,11 @@ namespace PolyStone.Api.Controllers
             return false;
         }
 
-        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
-        {
-            string postUrl = string.Format(_smsSendUrl, _smsAppId, _smsAppKey, phoneNumber);
-            string postResult = _abpWebApiClient.GetAsync(postUrl, 60).Result;
-        }
+//        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
+//        {
+//            string postUrl = string.Format(_smsSendUrl, _smsAppId, _smsAppKey, phoneNumber);
+//            string postResult = _abpWebApiClient.GetAsync(postUrl, 60).Result;
+//        }
     }
 
 

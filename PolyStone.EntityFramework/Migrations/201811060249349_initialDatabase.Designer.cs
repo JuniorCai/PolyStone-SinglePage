@@ -7,13 +7,13 @@ namespace PolyStone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AlterCompanyApplicationIndex : IMigrationMetadata
+    public sealed partial class initialDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AlterCompanyApplicationIndex));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810160842454_AlterCompanyApplication-Index"; }
+            get { return "201811060249349_initialDatabase"; }
         }
         
         string IMigrationMetadata.Source

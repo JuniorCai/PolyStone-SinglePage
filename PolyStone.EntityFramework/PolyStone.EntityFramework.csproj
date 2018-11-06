@@ -240,45 +240,10 @@
     <Compile Include="EntityMapper\Products\ProductCfg.cs" />
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />
     <Compile Include="EntityMapper\UserAuthorizations\UserAuthorizationCfg.cs" />
-    <Compile Include="Migrations\201810031455087_InitialDatabase.cs" />
-    <Compile Include="Migrations\201810031455087_InitialDatabase.Designer.cs">
-      <DependentUpon>201810031455087_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810040648422_AlterCompany-Contact.cs" />
-    <Compile Include="Migrations\201810040648422_AlterCompany-Contact.Designer.cs">
-      <DependentUpon>201810040648422_AlterCompany-Contact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810050833225_alterRegioncol-parentcode.cs" />
-    <Compile Include="Migrations\201810050833225_alterRegioncol-parentcode.Designer.cs">
-      <DependentUpon>201810050833225_alterRegioncol-parentcode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810160842454_AlterCompanyApplication-Index.cs" />
-    <Compile Include="Migrations\201810160842454_AlterCompanyApplication-Index.Designer.cs">
-      <DependentUpon>201810160842454_AlterCompanyApplication-Index.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810161328058_changeApplicationColName-AuthStatus.cs" />
-    <Compile Include="Migrations\201810161328058_changeApplicationColName-AuthStatus.Designer.cs">
-      <DependentUpon>201810161328058_changeApplicationColName-AuthStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.cs" />
-    <Compile Include="Migrations\201810170835565_changeCompanyApplicationCol.Designer.cs">
-      <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810190304211_addModuleTable.cs" />
-    <Compile Include="Migrations\201810190304211_addModuleTable.Designer.cs">
-      <DependentUpon>201810190304211_addModuleTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810300602508_addTable-UserAuthorization.cs" />
-    <Compile Include="Migrations\201810300602508_addTable-UserAuthorization.Designer.cs">
-      <DependentUpon>201810300602508_addTable-UserAuthorization.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811010718016_addUserCol-Avatar.cs" />
-    <Compile Include="Migrations\201811010718016_addUserCol-Avatar.Designer.cs">
-      <DependentUpon>201811010718016_addUserCol-Avatar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811020711493_ReInitialDatabase.cs" />
-    <Compile Include="Migrations\201811020711493_ReInitialDatabase.Designer.cs">
-      <DependentUpon>201811020711493_ReInitialDatabase.cs</DependentUpon>
+    <Compile Include="EntityMapper\UserVerifies\UserVerifyCfg.cs" />
+    <Compile Include="Migrations\201811060249349_initialDatabase.cs" />
+    <Compile Include="Migrations\201811060249349_initialDatabase.Designer.cs">
+      <DependentUpon>201811060249349_initialDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -303,35 +268,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810031455087_InitialDatabase.resx">
-      <DependentUpon>201810031455087_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810040648422_AlterCompany-Contact.resx">
-      <DependentUpon>201810040648422_AlterCompany-Contact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810050833225_alterRegioncol-parentcode.resx">
-      <DependentUpon>201810050833225_alterRegioncol-parentcode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810160842454_AlterCompanyApplication-Index.resx">
-      <DependentUpon>201810160842454_AlterCompanyApplication-Index.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810161328058_changeApplicationColName-AuthStatus.resx">
-      <DependentUpon>201810161328058_changeApplicationColName-AuthStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810170835565_changeCompanyApplicationCol.resx">
-      <DependentUpon>201810170835565_changeCompanyApplicationCol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810190304211_addModuleTable.resx">
-      <DependentUpon>201810190304211_addModuleTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810300602508_addTable-UserAuthorization.resx">
-      <DependentUpon>201810300602508_addTable-UserAuthorization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811010718016_addUserCol-Avatar.resx">
-      <DependentUpon>201811010718016_addUserCol-Avatar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811020711493_ReInitialDatabase.resx">
-      <DependentUpon>201811020711493_ReInitialDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811060249349_initialDatabase.resx">
+      <DependentUpon>201811060249349_initialDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

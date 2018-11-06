@@ -270,6 +270,11 @@
     <Compile Include="CustomDomain\UserAuthorizations\UserAuthorization.cs" />
     <Compile Include="CustomDomain\UserAuthorizations\UserAuthorizationManage.cs" />
     <Compile Include="CustomDomain\UserAuthorizations\____UserAuthorizationReadme.cs" />
+    <Compile Include="CustomDomain\UserVerifies\Authorization\UserVerifyAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\UserVerifies\Authorization\UserVerifyAppPermissions.cs" />
+    <Compile Include="CustomDomain\UserVerifies\UserVerify.cs" />
+    <Compile Include="CustomDomain\UserVerifies\UserVerifyManage.cs" />
+    <Compile Include="CustomDomain\UserVerifies\____UserVerifyReadme.cs" />
     <Compile Include="PagedAndSortedInputDto.cs" />
     <Compile Include="PolyStoneConsts.cs" />
     <Compile Include="PolyStoneCoreModule.cs" />

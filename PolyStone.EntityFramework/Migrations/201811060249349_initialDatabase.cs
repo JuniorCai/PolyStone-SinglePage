@@ -5,7 +5,7 @@ namespace PolyStone.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDatabase : DbMigration
+    public partial class initialDatabase : DbMigration
     {
         public override void Up()
         {
@@ -253,7 +253,7 @@ namespace PolyStone.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         RegionName = c.String(maxLength: 50, storeType: "nvarchar"),
                         RegionCode = c.String(unicode: false),
-                        ParentId = c.Int(nullable: false),
+                        ParentCode = c.String(unicode: false),
                         IsShow = c.Boolean(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                         DeleterUserId = c.Long(),
@@ -277,11 +277,12 @@ namespace PolyStone.Migrations
                         EmailAddress = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
                         NickName = c.String(maxLength: 32, storeType: "nvarchar"),
                         UserType = c.Int(nullable: false),
+                        Avatar = c.String(unicode: false),
                         AuthenticationSource = c.String(maxLength: 64, storeType: "nvarchar"),
-                        UserName = c.String(nullable: false, maxLength: 32, storeType: "nvarchar"),
+                        UserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
                         TenantId = c.Int(),
-                        Name = c.String(nullable: false, maxLength: 32, storeType: "nvarchar"),
-                        Surname = c.String(nullable: false, maxLength: 32, storeType: "nvarchar"),
+                        Name = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                        Surname = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
                         Password = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
                         EmailConfirmationCode = c.String(maxLength: 328, storeType: "nvarchar"),
                         PasswordResetCode = c.String(maxLength: 328, storeType: "nvarchar"),
@@ -481,7 +482,7 @@ namespace PolyStone.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Type = c.Int(nullable: false),
+                        ModuleId = c.Int(nullable: false),
                         Title = c.String(maxLength: 200, storeType: "nvarchar"),
                         RelativeId = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
@@ -496,6 +497,30 @@ namespace PolyStone.Migrations
                 {
                     { "DynamicFilter_Collection_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Module", t => t.ModuleId, cascadeDelete: true)
+                .Index(t => t.ModuleId);
+            
+            CreateTable(
+                "dbo.Module",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ModuleCode = c.String(maxLength: 10, storeType: "nvarchar"),
+                        Name = c.String(maxLength: 20, storeType: "nvarchar"),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(precision: 0),
+                        LastModificationTime = c.DateTime(precision: 0),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false, precision: 0),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_Module_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
@@ -503,11 +528,12 @@ namespace PolyStone.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        UserId = c.Long(nullable: false),
                         CompanyType = c.Int(nullable: false),
-                        License = c.String(maxLength: 50, storeType: "nvarchar"),
+                        License = c.String(maxLength: 100, storeType: "nvarchar"),
                         LegalPerson = c.String(maxLength: 50, storeType: "nvarchar"),
-                        FrontImg = c.String(maxLength: 50, storeType: "nvarchar"),
-                        BackImg = c.String(maxLength: 50, storeType: "nvarchar"),
+                        FrontImg = c.String(maxLength: 100, storeType: "nvarchar"),
+                        BackImg = c.String(maxLength: 100, storeType: "nvarchar"),
                         CompanyName = c.String(maxLength: 50, storeType: "nvarchar"),
                         Business = c.String(maxLength: 200, storeType: "nvarchar"),
                         RegionId = c.Int(nullable: false),
@@ -515,7 +541,7 @@ namespace PolyStone.Migrations
                         Phone = c.String(maxLength: 20, storeType: "nvarchar"),
                         Tel = c.String(maxLength: 20, storeType: "nvarchar"),
                         Address = c.String(maxLength: 50, storeType: "nvarchar"),
-                        AuthStauts = c.Int(nullable: false),
+                        AuthStatus = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                         DeleterUserId = c.Long(),
                         DeletionTime = c.DateTime(precision: 0),
@@ -528,7 +554,11 @@ namespace PolyStone.Migrations
                 {
                     { "DynamicFilter_CompanyApplication_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Region", t => t.RegionId, cascadeDelete: true)
+                .ForeignKey("dbo.AbpUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RegionId);
             
             CreateTable(
                 "dbo.AbpFeatures",
@@ -806,7 +836,7 @@ namespace PolyStone.Migrations
                         TenantId = c.Int(),
                         UserId = c.Long(nullable: false),
                         UserLinkId = c.Long(),
-                        UserName = c.String(maxLength: 32, storeType: "nvarchar"),
+                        UserName = c.String(maxLength: 256, storeType: "nvarchar"),
                         EmailAddress = c.String(maxLength: 256, storeType: "nvarchar"),
                         LastLoginTime = c.DateTime(precision: 0),
                         IsDeleted = c.Boolean(nullable: false),
@@ -820,6 +850,29 @@ namespace PolyStone.Migrations
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserAccount_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.UserAuthorization",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        OpenId = c.String(maxLength: 100, storeType: "nvarchar"),
+                        UserId = c.Long(nullable: false),
+                        ThirdName = c.String(maxLength: 100, storeType: "nvarchar"),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(precision: 0),
+                        LastModificationTime = c.DateTime(precision: 0),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false, precision: 0),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_UserAuthorization_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id);
             
@@ -883,6 +936,31 @@ namespace PolyStone.Migrations
                 })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.UserVerify",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        PhoneNumber = c.String(maxLength: 20, storeType: "nvarchar"),
+                        Code = c.String(maxLength: 10, storeType: "nvarchar"),
+                        CodeType = c.Int(nullable: false),
+                        Ip = c.String(maxLength: 4000, storeType: "nvarchar"),
+                        ExpirationTime = c.DateTime(nullable: false, precision: 0),
+                        VerifyStatus = c.Int(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(precision: 0),
+                        LastModificationTime = c.DateTime(precision: 0),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false, precision: 0),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_UserVerify_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
@@ -897,6 +975,9 @@ namespace PolyStone.Migrations
             DropForeignKey("dbo.AbpRoles", "CreatorUserId", "dbo.AbpUsers");
             DropForeignKey("dbo.AbpOrganizationUnits", "ParentId", "dbo.AbpOrganizationUnits");
             DropForeignKey("dbo.AbpFeatures", "EditionId", "dbo.AbpEditions");
+            DropForeignKey("dbo.CompanyApplication", "UserId", "dbo.AbpUsers");
+            DropForeignKey("dbo.CompanyApplication", "RegionId", "dbo.Region");
+            DropForeignKey("dbo.Collection", "ModuleId", "dbo.Module");
             DropForeignKey("dbo.Product", "CompanyId", "dbo.Company");
             DropForeignKey("dbo.Company", "UserId", "dbo.AbpUsers");
             DropForeignKey("dbo.AbpSettings", "UserId", "dbo.AbpUsers");
@@ -928,6 +1009,9 @@ namespace PolyStone.Migrations
             DropIndex("dbo.AbpOrganizationUnits", new[] { "ParentId" });
             DropIndex("dbo.AbpNotificationSubscriptions", new[] { "NotificationName", "EntityTypeName", "EntityId", "UserId" });
             DropIndex("dbo.AbpFeatures", new[] { "EditionId" });
+            DropIndex("dbo.CompanyApplication", new[] { "RegionId" });
+            DropIndex("dbo.CompanyApplication", new[] { "UserId" });
+            DropIndex("dbo.Collection", new[] { "ModuleId" });
             DropIndex("dbo.AbpSettings", new[] { "UserId" });
             DropIndex("dbo.AbpUserRoles", new[] { "UserId" });
             DropIndex("dbo.AbpPermissions", new[] { "RoleId" });
@@ -948,6 +1032,11 @@ namespace PolyStone.Migrations
             DropIndex("dbo.Product", new[] { "CompanyId" });
             DropIndex("dbo.Product", new[] { "CategoryId" });
             DropIndex("dbo.AbpBackgroundJobs", new[] { "IsAbandoned", "NextTryTime" });
+            DropTable("dbo.UserVerify",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_UserVerify_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
             DropTable("dbo.AbpUserOrganizationUnits",
                 removedAnnotations: new Dictionary<string, object>
                 {
@@ -963,6 +1052,11 @@ namespace PolyStone.Migrations
                 removedAnnotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserLoginAttempt_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.UserAuthorization",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_UserAuthorization_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 });
             DropTable("dbo.AbpUserAccounts",
                 removedAnnotations: new Dictionary<string, object>
@@ -1029,6 +1123,11 @@ namespace PolyStone.Migrations
                 removedAnnotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CompanyApplication_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.Module",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_Module_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 });
             DropTable("dbo.Collection",
                 removedAnnotations: new Dictionary<string, object>

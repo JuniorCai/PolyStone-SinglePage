@@ -20,6 +20,7 @@ using PolyStone.CustomDomain.Modules;
 using PolyStone.CustomDomain.Products;
 using PolyStone.CustomDomain.Regions;
 using PolyStone.CustomDomain.UserAuthorizations;
+using PolyStone.CustomDomain.UserVerifies;
 using PolyStone.EntityMapper.Categories;
 using PolyStone.EntityMapper.Collections;
 using PolyStone.EntityMapper.Communities;
@@ -35,6 +36,7 @@ using PolyStone.EntityMapper.Modules;
 using PolyStone.EntityMapper.Products;
 using PolyStone.EntityMapper.Regions;
 using PolyStone.EntityMapper.UserAuthorizations;
+using PolyStone.EntityMapper.UserVerifies;
 using PolyStone.MultiTenancy;
 
 namespace PolyStone.EntityFramework
@@ -60,6 +62,7 @@ namespace PolyStone.EntityFramework
 
         public IDbSet<CompanyIndustry> CompanyIndustrys { get; set; }
         public IDbSet<Module> Modules { get; set; }
+        public IDbSet<UserVerify> UserVerifys { get; set; }
 
         public IDbSet<UserAuthorization> UserAuthorizations { get; set; }
 
@@ -116,6 +119,7 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new IndustryCfg());
             modelBuilder.Configurations.Add(new ModuleCfg());
             modelBuilder.Configurations.Add(new UserAuthorizationCfg());
+            modelBuilder.Configurations.Add(new UserVerifyCfg());
 
             base.OnModelCreating(modelBuilder);
 
