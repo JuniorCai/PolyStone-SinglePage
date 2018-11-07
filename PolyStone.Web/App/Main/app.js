@@ -37,7 +37,7 @@
                         templateUrl: '/App/Main/views/users/index.cshtml'//,
                         //menu: 'Users' //Matches to name of 'Users' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/users');
+//                $urlRouterProvider.otherwise('/users');
             }
 
             if (abp.auth.hasPermission('Pages.Roles')) {
@@ -47,7 +47,7 @@
                         templateUrl: '/App/Main/views/roles/index.cshtml'//,
                         //menu: 'Roles' //Matches to name of 'Tenants' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/roles');
+//                $urlRouterProvider.otherwise('/roles');
             }
 
             if (abp.auth.hasPermission('Pages.Tenants')) {
@@ -57,7 +57,7 @@
                         templateUrl: '/App/Main/views/tenants/index.cshtml'//,
                         //menu: 'Tenants' //Matches to name of 'Tenants' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/tenants');
+//                $urlRouterProvider.otherwise('/tenants');
             }
 
             if (abp.auth.hasPermission('Pages.Category')) {
@@ -67,7 +67,7 @@
                         templateUrl: '/App/Main/views/category/index.cshtml'//,
                         //menu: 'Category' //Matches to name of 'Category' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/category');
+//                $urlRouterProvider.otherwise('/category');
             }
 
             if (abp.auth.hasPermission('Pages.CommunityCategory')) {
@@ -77,7 +77,7 @@
                         templateUrl: '/App/Main/views/communityCategory/index.cshtml'//,
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/communityCategory');
+//                $urlRouterProvider.otherwise('/communityCategory');
             }
 
             if (abp.auth.hasPermission('Pages.Community')) {
@@ -87,7 +87,7 @@
                         templateUrl: '/App/Main/views/community/index.cshtml'//,
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/community');
+//                $urlRouterProvider.otherwise('/community');
             }
 
             if (abp.auth.hasPermission('Pages.Community.EditCommunity')) {
@@ -98,7 +98,7 @@
                         controller:'app.views.community.editCommunity'
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/community');
+//                $urlRouterProvider.otherwise('/community');
             }
 
             if (abp.auth.hasPermission('Pages.Community.CreateCommunity')) {
@@ -109,7 +109,7 @@
                         controller: 'app.views.community.createCommunity'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/community/add');
+//                $urlRouterProvider.otherwise('/community');
             }
 
 
@@ -120,7 +120,7 @@
                         templateUrl: '/App/Main/views/company/index.cshtml'//,
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/company');
+//                $urlRouterProvider.otherwise('/company');
             }
 
             if (abp.auth.hasPermission('Pages.Company.CreateCompany')) {
@@ -131,7 +131,7 @@
                         controller: 'app.views.company.createCompany'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/company');
+//                $urlRouterProvider.otherwise('/company');
             }
 
             if (abp.auth.hasPermission('Pages.Company.EditCompany')) {
@@ -142,7 +142,7 @@
                         controller: 'app.views.company.editCompany'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/company');
+//                $urlRouterProvider.otherwise('/company');
             }
 
             if (abp.auth.hasPermission('Pages.CompanyApplication')) {
@@ -152,7 +152,7 @@
                         templateUrl: '/App/Main/views/companyApplication/index.cshtml'//,
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/companyApplications');
+//                $urlRouterProvider.otherwise('/companyApplications');
             }
 
             if (abp.auth.hasPermission('Pages.CompanyApplication.EditCompanyApplication')) {
@@ -162,7 +162,7 @@
                         templateUrl: '/App/Main/views/companyApplication/edit.cshtml'//,
                         //menu: 'CommunityCategory' //Matches to name of 'CommunityCategory' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/companyApplications');
+//                $urlRouterProvider.otherwise('/companyApplications');
             }
 
             if (abp.auth.hasPermission('Pages.Region')) {
@@ -172,7 +172,7 @@
                         templateUrl: '/App/Main/views/regions/index.cshtml'//,
                         //menu: 'Regions' //Matches to name of 'Regions' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/regions');
+//                $urlRouterProvider.otherwise('/regions');
             }
 
             if (abp.auth.hasPermission('Pages.Product')) {
@@ -183,7 +183,7 @@
                         controller: 'app.views.product.index'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/products');
+//                $urlRouterProvider.otherwise('/products');
             }
 
             if (abp.auth.hasPermission('Pages.Product.CreateProduct')) {
@@ -205,7 +205,7 @@
                         controller: 'app.views.product.editProduct'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
-                $urlRouterProvider.otherwise('/products');
+//                $urlRouterProvider.otherwise('/products');
             }
 
             $stateProvider

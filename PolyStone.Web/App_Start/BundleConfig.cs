@@ -7,7 +7,7 @@ namespace PolyStone.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
-
+            BundleTable.EnableOptimizations = false;
             //ACCOUNT BUNDLES
             bundles.Add(
                 new StyleBundle("~/Bundles/account-vendor/css")

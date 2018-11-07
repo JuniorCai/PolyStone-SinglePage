@@ -3660,6 +3660,7 @@
     <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
     <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
     <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

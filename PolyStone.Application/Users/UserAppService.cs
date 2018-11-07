@@ -115,6 +115,7 @@ namespace PolyStone.Users
             return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
         }
 
+        [AbpAllowAnonymous]
         public async Task<UserDto> IsUserNameExist(string userName)
         {
             UserDto userDto = null;
