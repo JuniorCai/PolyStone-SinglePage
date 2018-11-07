@@ -56,7 +56,7 @@ namespace PolyStone.Users
                 new PasswordHasher().HashPassword(string.IsNullOrEmpty(input.Password)
                     ? User.DefaultPassword
                     : input.Password);
-            user.IsEmailConfirmed = true;
+            user.IsPhoneNumberConfirmed = true;
 
             //Assign roles
             user.Roles = new Collection<UserRole>();

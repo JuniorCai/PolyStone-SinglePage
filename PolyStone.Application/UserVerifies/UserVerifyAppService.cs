@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -17,7 +18,7 @@ namespace PolyStone.UserVerifies
     /// <summary>
     /// 用户验证码服务实现
     /// </summary>
-    [AbpAuthorize(UserVerifyAppPermissions.UserVerify)]
+//    [AbpAuthorize(UserVerifyAppPermissions.UserVerify)]
 
 
     public class UserVerifyAppService : PolyStoneAppServiceBase, IUserVerifyAppService
@@ -138,9 +139,35 @@ namespace PolyStone.UserVerifies
         }
 
         /// <summary>
+        /// 验证短信验证码
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <param name="receivedCode"></param>
+        /// <returns></returns>
+        public async Task<bool> CheckPhoneAuthCode(string phoneNumber, string receivedCode)
+        {
+            var entity =
+                await _userVerifyRepository.SingleAsync(v => v.PhoneNumber == phoneNumber 
+                && v.Code == receivedCode 
+                && v.VerifyStatus == CodeVerifyStatus.Pending
+                && v.ExpirationTime >= DateTime.Now);
+            if (entity != null)
+            {
+                entity.VerifyStatus = CodeVerifyStatus.Success;
+                var editDto = entity.MapTo<UserVerifyEditDto>();
+                await UpdateUserVerifyAsync(editDto);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// 新增用户验证码
         /// </summary>
-        [AbpAuthorize(UserVerifyAppPermissions.UserVerify_CreateUserVerify)]
+//        [AbpAuthorize(UserVerifyAppPermissions.UserVerify_CreateUserVerify)]
         public virtual async Task<UserVerifyEditDto> CreateUserVerifyAsync(UserVerifyEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
@@ -154,7 +181,7 @@ namespace PolyStone.UserVerifies
         /// <summary>
         /// 编辑用户验证码
         /// </summary>
-        [AbpAuthorize(UserVerifyAppPermissions.UserVerify_EditUserVerify)]
+//        [AbpAuthorize(UserVerifyAppPermissions.UserVerify_EditUserVerify)]
         public virtual async Task UpdateUserVerifyAsync(UserVerifyEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新

@@ -11,6 +11,13 @@ using PolyStone.UserVerifies.Dtos;
 
 namespace PolyStone.Helpers
 {
+    public class SmsCheckModel
+    {
+        public string PhoneNumber { get; set; }
+
+        public string AuthCode { get; set; }
+    }
+
     public class SmsResult
     {
         public int Code { get; set; }
@@ -29,7 +36,6 @@ namespace PolyStone.Helpers
 
         public SmsResult Result { get; set; }
 
-        private string  _postUrl= ConfigurationManager.AppSettings["SmsSendUrl"];
         private string _smsAppId = ConfigurationManager.AppSettings["SmsAppId"];
         private string _smsAppKey = ConfigurationManager.AppSettings["SmsAppKey"];
         private string _smsSendUrl = ConfigurationManager.AppSettings["SmsSendUrl"];
@@ -59,9 +65,10 @@ namespace PolyStone.Helpers
          * @param int $https https协议
          * @return bool|mixed
          */
-        protected async Task<string> SendPost(bool isPost = false)
+        protected async Task<SmsResult> SendPost(bool isPost = false)
         {
-            var result = await _abpWebApiClient.GetAsync<string>(_postUrl);
+            var result = await _abpWebApiClient.GetAsync<SmsResult>(_smsSendUrl);
+            Result = result;
             return result;
         }
 
@@ -145,19 +152,31 @@ namespace PolyStone.Helpers
                 {
                     GetRandomCode(4, true);
                 }
+                else
+                {
+                    Result = new SmsResult()
+                    {
+                        Code = 403,
+                        Msg = "手机号不能为空",
+                        SmsId = "0"
+                    };
+                    return ;
+                }
 
                 //防用户恶意请求
                 //if(empty($_SESSION['send_code']) or $send_code!=$_SESSION['send_code']){
                 //    exit('请求超时，请刷新页面后重试');
                 //}
 
-                _postUrl = string.Format(_postUrl, _smsAppId, _smsAppKey, PhoneNumber, AuthCode);
+                _smsSendUrl = string.Format(_smsSendUrl, _smsAppId, _smsAppKey, PhoneNumber, AuthCode);
 
 
                 //判断返回值是否成功
-                await SendPost(false);
-
-
+                var sendResult = await SendPost(false);
+                if (sendResult.Code == 2)
+                {
+                    await StoreVerifyCode();
+                }
             }
         }
 
@@ -221,25 +240,18 @@ namespace PolyStone.Helpers
             var list = _userVerifyAppService.GetPagedUserVerifysAsync(filterInput);
             return list.Result.TotalCount > 5;
         }
-//
-//        /**
-//         * 验证短信验证码
-//         * @param $receivedCode
-//         * @return bool
-//         */
-//        function AuthMobileCode($receivedCode)
-//        {
-//        $expirationTime = Carbon::now()->subMinutes(30);
-//        $existCode = $this->VerifyCodeService->CheckMobileVerifyCode($this->Mobile,$receivedCode,$expirationTime);
-//            if ($existCode != null)
-//        {
-//            //置验证码状态
-//            $existCode->status = VerifyCodeStatusEnum::Invalid;
-//            $this->VerifyCodeService->SaveVerify($existCode);
-//
-//                return true;
-//            }
-//            return false;
-//        }
+
+        /**
+         * 验证短信验证码
+         * @param $receivedCode
+         * @return bool
+         */
+        public async Task<bool> AuthPhoneCode(string receivedCode)
+        {
+            if (string.IsNullOrEmpty(PhoneNumber))
+                return false;
+            bool result = await _userVerifyAppService.CheckPhoneAuthCode(PhoneNumber, receivedCode);
+            return result;
+        }
     }
 }

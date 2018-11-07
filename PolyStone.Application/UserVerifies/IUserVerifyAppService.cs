@@ -40,7 +40,7 @@ namespace PolyStone.UserVerifies
         Task CreateOrUpdateUserVerifyAsync(CreateOrUpdateUserVerifyInput input);
 
 
-
+        Task<bool> CheckPhoneAuthCode(string phoneNumber, string receivedCode);
 
 
         /// <summary>

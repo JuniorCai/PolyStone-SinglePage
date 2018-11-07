@@ -94,14 +94,35 @@ namespace PolyStone.Api.Controllers
         /// </summary>
         /// <param name="phoneNumber"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
         {
             SmsManager smsManager=new SmsManager(phoneNumber, _userVerifyAppService);
             await smsManager.SendAuthCode();
-            var d = smsManager.Result;
-            return new AjaxResponse(d);
+            var sendResult = smsManager.Result;
+            switch (sendResult.Code)
+            {
+                case 403:
+                case 406:
+                case 4080:
+                case 4082:
+                    sendResult.Msg = L("Code" + sendResult.Code);
+                    break;
+                default:
+                    sendResult.Msg = "未知错误：" + sendResult.Code;
+                    break;
+            }
+            return new AjaxResponse(sendResult);
         }
+
+        [HttpPost]
+        public async Task<AjaxResponse> AuthPhoneCode(SmsCheckModel model)
+        {
+            SmsManager smsManager = new SmsManager(model.PhoneNumber, _userVerifyAppService);
+            var result = await smsManager.AuthPhoneCode(model.AuthCode);
+            return new AjaxResponse(result);
+        }
+
     }
 
 

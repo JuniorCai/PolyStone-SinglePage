@@ -257,5 +257,14 @@
     <text name="RegionDeleteWarningMessage" value="地区表名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
     <text name="RegionName" value="地区名称" />
+
+    
+    <!--//验证码提示信息-->
+    <text name="Code403" value="手机号码不能为空" />
+    <text name="Code406" value="手机号码格式不正确" />
+    <text name="Code4080" value="同一手机号码同一秒钟之内发送频率不能超过1 条" />
+    <text name="Code4082" value="同一手机号码一天内只能发送5条" />
+
+
   </texts>
 </localizationDictionary>
