@@ -178,6 +178,13 @@ namespace PolyStone.Helpers
                     await StoreVerifyCode();
                 }
             }
+            else
+            {
+                Result = new SmsResult()
+                {
+                    Code = 4082,
+                };
+            }
         }
 
         /**
