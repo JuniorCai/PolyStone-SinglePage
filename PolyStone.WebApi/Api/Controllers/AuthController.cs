@@ -19,7 +19,7 @@ using PolyStone.UserVerifies;
 
 namespace PolyStone.Api.Controllers
 {
-    public class AuthController : AbpApiController
+    public class AuthController : PolyStoneApiControllerBase
     {
         private string _appSecret = ConfigurationManager.AppSettings["AppSecret"];
         private string _appId = ConfigurationManager.AppSettings["AppId"];
