@@ -25,6 +25,9 @@ using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using PolyStone.Authorization.Roles;
+using PolyStone.CustomDomain.UserVerifies;
+using PolyStone.UserVerifies;
+using PolyStone.UserVerifies.Dtos;
 
 namespace PolyStone.Api.Controllers
 {
@@ -37,6 +40,7 @@ namespace PolyStone.Api.Controllers
         private readonly RoleManager _roleManager;
         private readonly UserManager _userManager;
         private readonly ITenantCache _tenantCache;
+        private readonly IUserVerifyAppService _userVerifyAppService;
 
         static AccountController()
         {
@@ -44,7 +48,7 @@ namespace PolyStone.Api.Controllers
         }
 
 
-        public AccountController(LogInManager logInManager,UserManager userManager, IUserAppService userAppService, RoleManager roleManager, ITenantCache tenantCache)
+        public AccountController(LogInManager logInManager,UserManager userManager, IUserAppService userAppService, RoleManager roleManager, ITenantCache tenantCache,IUserVerifyAppService userVerifyAppService)
         {
             _logInManager = logInManager;
             LocalizationSourceName = PolyStoneConsts.LocalizationSourceName;
@@ -52,6 +56,7 @@ namespace PolyStone.Api.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
             _tenantCache = tenantCache;
+            _userVerifyAppService = userVerifyAppService;
         }
 
         [HttpPost]
@@ -165,8 +170,25 @@ namespace PolyStone.Api.Controllers
                     UserName = model.UserName,
                     PhoneNumber = model.PhoneNumber,
                     Password = model.Password,
-                    IsActive = true
+                    IsActive = true,
+                    EmailAddress = "",
+                    Surname = "",
+                    Name = ""
                 };
+                var authedCodeModel = _userVerifyAppService.GetPagedUserVerifysAsync(new GetUserVerifyInput()
+                {
+                    AuthCode = model.AuthCode,
+                    PhoneNumber = model.PhoneNumber,
+                    VerifyStatus = CodeVerifyStatus.Success
+                });
+                if (authedCodeModel != null)
+                {
+                    user.IsPhoneNumberConfirmed = true;
+                }
+                else
+                {
+                    return new AjaxResponse(false);
+                }
 
                 //Get external login info if possible
                 ExternalLoginInfo externalLoginInfo = null;

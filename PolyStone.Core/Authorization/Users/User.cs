@@ -85,6 +85,11 @@ namespace PolyStone.Authorization.Users
 
         [Required(AllowEmptyStrings = true)]
         public override string EmailAddress { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public override string Surname { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public override string Name { get; set; }
+
 
         [StringLength(32)]
         public string NickName { get; set; }

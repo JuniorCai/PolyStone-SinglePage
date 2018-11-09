@@ -249,6 +249,26 @@
     <Compile Include="Migrations\201811060950010_reinitialDatabase.Designer.cs">
       <DependentUpon>201811060950010_reinitialDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811090306296_AlterUserCol.cs" />
+    <Compile Include="Migrations\201811090306296_AlterUserCol.Designer.cs">
+      <DependentUpon>201811090306296_AlterUserCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811090311518_AlterUserCol1.cs" />
+    <Compile Include="Migrations\201811090311518_AlterUserCol1.Designer.cs">
+      <DependentUpon>201811090311518_AlterUserCol1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811090316529_AlterUserCol2.cs" />
+    <Compile Include="Migrations\201811090316529_AlterUserCol2.Designer.cs">
+      <DependentUpon>201811090316529_AlterUserCol2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811090323219_AlterUserCol3.cs" />
+    <Compile Include="Migrations\201811090323219_AlterUserCol3.Designer.cs">
+      <DependentUpon>201811090323219_AlterUserCol3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811090331264_AlterUserCol4.cs" />
+    <Compile Include="Migrations\201811090331264_AlterUserCol4.Designer.cs">
+      <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -277,6 +297,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811060950010_reinitialDatabase.resx">
       <DependentUpon>201811060950010_reinitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811090306296_AlterUserCol.resx">
+      <DependentUpon>201811090306296_AlterUserCol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811090311518_AlterUserCol1.resx">
+      <DependentUpon>201811090311518_AlterUserCol1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811090316529_AlterUserCol2.resx">
+      <DependentUpon>201811090316529_AlterUserCol2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811090323219_AlterUserCol3.resx">
+      <DependentUpon>201811090323219_AlterUserCol3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811090331264_AlterUserCol4.resx">
+      <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

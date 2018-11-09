@@ -8,6 +8,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Extensions;
 using Abp.Linq.Extensions;
 using PolyStone.CustomDomain.UserVerifies;
 using PolyStone.CustomDomain.UserVerifies.Authorization;
@@ -62,6 +63,8 @@ namespace PolyStone.UserVerifies
             //TODO:根据传入的参数添加过滤条件
             query = query.WhereIf(string.IsNullOrEmpty(input.PhoneNumber), v => v.PhoneNumber == input.PhoneNumber)
                 .WhereIf(string.IsNullOrEmpty(input.Ip), v => v.Ip == input.Ip)
+                .WhereIf(input.AuthCode.IsNullOrEmpty(), v => v.Code == input.AuthCode)
+                .WhereIf(input.VerifyStatus != null, v => v.VerifyStatus == input.VerifyStatus)
                 .WhereIf(input.CreationTime != null, v => v.CreationTime >= input.CreationTime.Value)
                 .WhereIf(input.ExpirationTime != null, v => v.ExpirationTime <= input.ExpirationTime.Value);
 
