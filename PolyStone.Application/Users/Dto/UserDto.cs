@@ -14,18 +14,17 @@ namespace PolyStone.Users.Dto
         [StringLength(AbpUserBase.MaxUserNameLength)]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
 
         public string Avatar { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
 
