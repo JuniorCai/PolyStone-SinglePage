@@ -257,6 +257,7 @@
   <ItemGroup>
     <Compile Include="Api\Controllers\AuthController.cs" />
     <Compile Include="Api\Controllers\PolyStoneApiContrpllerBase.cs" />
+    <Compile Include="Api\Controllers\ResourceController.cs" />
     <Compile Include="Api\Models\RegisterModel.cs" />
     <Compile Include="Api\OAuthOptions.cs" />
     <Compile Include="Api\PolyStoneWebApiModule.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Api\Providers\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Helpers\AbpWebApiHttpClient.cs" />
     <Compile Include="Helpers\CatchException.cs" />
+    <Compile Include="Helpers\ImgUploadHelper.cs" />
     <Compile Include="Helpers\SmsManager.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Helpers\UtilsModel.cs" />
