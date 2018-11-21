@@ -6,10 +6,12 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Abp.Web.Models;
+using Abp.WebApi.Authorization;
 using PolyStone.Helpers;
 
 namespace PolyStone.Api.Controllers
 {
+    [AbpApiAuthorize()]
     public class ResourceController : PolyStoneApiControllerBase
     {
         // GET
