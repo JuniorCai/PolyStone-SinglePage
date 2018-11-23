@@ -11,6 +11,7 @@ namespace PolyStone.Users
         Task<ListResultDto<RoleDto>> GetRoles();
 
         Task<UserDto> IsUserNameExist(string userName);
+        Task<bool> IsPhoneExist(string phoneNumber);
 
         Task<bool> UpdateUser(UserDto input);
     }

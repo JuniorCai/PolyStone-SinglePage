@@ -91,6 +91,7 @@ namespace PolyStone.Users
             return await Get(input);
         }
 
+
         public async Task<bool> UpdateUser(UserDto input)
         {
             CheckUpdatePermission();
@@ -126,6 +127,15 @@ namespace PolyStone.Users
                 userDto = user.Result.MapTo<UserDto>();
             }
             return userDto;
+        }
+
+        [AbpAllowAnonymous]
+        public async Task<bool> IsPhoneExist(string phoneNumber)
+        {
+            UserDto userDto = null;
+            IdentityResult result = await _userManager.CheckDuplicatePhoneNumberAsync(null, "", phoneNumber);
+
+            return !result.Succeeded;
         }
 
 
