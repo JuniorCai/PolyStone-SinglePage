@@ -150,11 +150,11 @@ namespace PolyStone.UserVerifies
         public async Task<bool> CheckPhoneAuthCode(string phoneNumber, string receivedCode)
         {
             var entity =
-                await _userVerifyRepository.SingleAsync(v => v.PhoneNumber == phoneNumber 
-                && v.Code == receivedCode 
-                && v.VerifyStatus == CodeVerifyStatus.Pending
-                && v.ExpirationTime >= DateTime.Now);
-            if (entity != null)
+                await _userVerifyRepository.FirstOrDefaultAsync(v => v.PhoneNumber == phoneNumber
+                                                                     && v.Code == receivedCode &&
+                                                                     v.VerifyStatus == CodeVerifyStatus.Pending &&
+                                                                     v.ExpirationTime >= DateTime.Now);
+            if (entity != null )
             {
                 entity.VerifyStatus = CodeVerifyStatus.Success;
                 var editDto = entity.MapTo<UserVerifyEditDto>();
