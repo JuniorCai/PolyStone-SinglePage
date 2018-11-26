@@ -27,6 +27,9 @@ namespace PolyStone.CustomDomain.UserVerifies
 
     }
 
+    /// <summary>
+    /// 验证码验证状态
+    /// </summary>
     public enum CodeVerifyStatus
     {
         Pending=0,
@@ -34,16 +37,35 @@ namespace PolyStone.CustomDomain.UserVerifies
         Invalid=2,
     }
 
+    /// <summary>
+    /// 验证码发送类别
+    /// </summary>
     public enum CodeType
     {
         Mobile=1,
         Email=2
     }
 
+    /// <summary>
+    /// 验证码用途类别
+    /// </summary>
     public enum PurposeType
     {
+        /// <summary>
+        /// 注册用途
+        /// </summary>
         Register=1,
+        /// <summary>
+        /// 修改密码用途
+        /// </summary>
         ResetPassword,
-        ChangePhoneNumber
+        /// <summary>
+        /// 修改手机号用途
+        /// </summary>
+        ChangePhoneNumber,
+        /// <summary>
+        /// 其他
+        /// </summary>
+        Other
     }
 }

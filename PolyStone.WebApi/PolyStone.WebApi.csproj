@@ -259,6 +259,7 @@
     <Compile Include="Api\Controllers\PolyStoneApiContrpllerBase.cs" />
     <Compile Include="Api\Controllers\ResourceController.cs" />
     <Compile Include="Api\Models\RegisterModel.cs" />
+    <Compile Include="Api\Models\ResetModel.cs" />
     <Compile Include="Api\OAuthOptions.cs" />
     <Compile Include="Api\PolyStoneWebApiModule.cs" />
     <Compile Include="Api\Controllers\AccountController.cs" />

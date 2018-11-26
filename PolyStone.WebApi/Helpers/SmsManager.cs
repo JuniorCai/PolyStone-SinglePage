@@ -32,6 +32,8 @@ namespace PolyStone.Helpers
 
         public string AuthCode { get; set; }
 
+        public PurposeType CodePurposeType { get; set; }
+
         public string RequestIp { get; set; }
 
         public SmsResult Result { get; set; }
@@ -55,6 +57,11 @@ namespace PolyStone.Helpers
             PhoneNumber = phoneNumber;
             _smsSendUrl += "&account={0}&password={1}&mobile={2}&content=您的验证码是：{3}。请不要把验证码泄露给其他人。&format=json";
             _userVerifyAppService = userVerifyAppService;
+        }
+
+        public SmsManager(string phoneNumber,PurposeType type, IUserVerifyAppService userVerifyAppService):this(phoneNumber,userVerifyAppService)
+        {
+            CodePurposeType = type;
         }
 
         /**
@@ -214,6 +221,7 @@ namespace PolyStone.Helpers
             editDto.Ip = RequestIp;
             editDto.ExpirationTime = DateTime.Now.AddMinutes(_periodMin);
             editDto.CodeType = CodeType.Mobile;
+            editDto.Purpose = CodePurposeType;
             editDto.VerifyStatus = CodeVerifyStatus.Pending;
             await _userVerifyAppService.CreateOrUpdateUserVerifyAsync(new CreateOrUpdateUserVerifyInput(){UserVerifyEditDto = editDto });
 

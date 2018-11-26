@@ -11,6 +11,7 @@ using Abp.Runtime.Session;
 using Abp.Web.Models;
 using Abp.WebApi.Client;
 using Abp.WebApi.Controllers;
+using PolyStone.CustomDomain.UserVerifies;
 using PolyStone.Helpers;
 using PolyStone.UserAuthorizations;
 using PolyStone.UserAuthorizations.Dtos;
@@ -93,11 +94,12 @@ namespace PolyStone.Api.Controllers
         /// 发送验证码
         /// </summary>
         /// <param name="phoneNumber"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber)
+        public async Task<AjaxResponse> SendPhoneCode(string phoneNumber,PurposeType type)
         {
-            SmsManager smsManager=new SmsManager(phoneNumber, _userVerifyAppService);
+            SmsManager smsManager = new SmsManager(phoneNumber, type, _userVerifyAppService);
             await smsManager.SendAuthCode();
             var sendResult = smsManager.Result;
             switch (sendResult.Code)

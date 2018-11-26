@@ -148,6 +148,33 @@ namespace PolyStone.Api.Controllers
             return new AjaxResponse(userDto);
         }
 
+//        [AbpApiAuthorize()]
+//        public async Task<AjaxResponse> ResetPassword(ResetModel model)
+//        {
+//            if (AbpSession.UserId == null || AbpSession.UserId.Value == 0)
+//            {
+//                ErrorInfo error = new ErrorInfo() { Code = 100007 };
+//                return new AjaxResponse(error);
+//            }
+//
+//            var userAuthCodeVerify = _userVerifyAppService.GetPagedUserVerifysAsync(
+//                new GetUserVerifyInput()
+//                {
+//                    AuthCode = model.AuthCode,
+//                    PhoneNumber = model.PhoneNumber,
+//                    VerifyStatus = CodeVerifyStatus.Success
+//                }).Result;
+//            if (userAuthCodeVerify.TotalCount == 1)
+//            {
+//                
+//            }
+//
+//            long userId = AbpSession.UserId.Value;
+//            var userDto = await _userAppService.Get(new EntityDto<long> { Id = userId });
+//            return new AjaxResponse(userDto);
+//        }
+
+
         private AuthenticationTicket GetTicketByLoginResult(AbpLoginResult<Tenant, User> loginResult)
         {
             var ticket = new AuthenticationTicket(loginResult.Identity, new AuthenticationProperties());

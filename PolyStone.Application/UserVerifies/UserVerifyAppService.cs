@@ -120,7 +120,7 @@ namespace PolyStone.UserVerifies
         public async Task<UserVerifyListDto> GetUserVerifyByPhoneNumberAsync(string phoneNumber)
         {
 
-            var entity = await _userVerifyRepository.SingleAsync(v => v.PhoneNumber == phoneNumber);
+            var entity = await _userVerifyRepository.FirstOrDefaultAsync(v => v.PhoneNumber == phoneNumber);
             return entity.MapTo<UserVerifyListDto>();
 
         }

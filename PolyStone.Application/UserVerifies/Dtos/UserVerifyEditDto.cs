@@ -55,6 +55,11 @@ namespace PolyStone.UserVerifies.Dtos
         [Required]
         public CodeType CodeType { get; set; }
 
+        [DisplayName("验证码用途")]
+        [Required]
+        public PurposeType Purpose { get; set; }
+
+
         /// <summary>
         /// IP地址
         /// </summary>
