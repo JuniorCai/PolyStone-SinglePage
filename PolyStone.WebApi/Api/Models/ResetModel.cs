@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PolyStone.Api.Models
 {
-    class ResetModel
+    public class ResetModel
     {
         [Required]
         public string PhoneNumber { get; set; }

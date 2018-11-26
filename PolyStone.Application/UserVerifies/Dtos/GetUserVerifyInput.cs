@@ -24,6 +24,8 @@ namespace PolyStone.UserVerifies.Dtos
 
         public string AuthCode { get; set; }
 
+        public PurposeType PurposeType { get; set; }
+
         public string Ip { get; set; }
 
         public CodeVerifyStatus? VerifyStatus { get; set; }

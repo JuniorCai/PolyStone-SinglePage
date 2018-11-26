@@ -148,31 +148,42 @@ namespace PolyStone.Api.Controllers
             return new AjaxResponse(userDto);
         }
 
-//        [AbpApiAuthorize()]
-//        public async Task<AjaxResponse> ResetPassword(ResetModel model)
-//        {
-//            if (AbpSession.UserId == null || AbpSession.UserId.Value == 0)
-//            {
-//                ErrorInfo error = new ErrorInfo() { Code = 100007 };
-//                return new AjaxResponse(error);
-//            }
-//
-//            var userAuthCodeVerify = _userVerifyAppService.GetPagedUserVerifysAsync(
-//                new GetUserVerifyInput()
-//                {
-//                    AuthCode = model.AuthCode,
-//                    PhoneNumber = model.PhoneNumber,
-//                    VerifyStatus = CodeVerifyStatus.Success
-//                }).Result;
-//            if (userAuthCodeVerify.TotalCount == 1)
-//            {
-//                
-//            }
-//
-//            long userId = AbpSession.UserId.Value;
-//            var userDto = await _userAppService.Get(new EntityDto<long> { Id = userId });
-//            return new AjaxResponse(userDto);
-//        }
+        [HttpPost]
+        [AbpApiAuthorize()]
+        public async Task<AjaxResponse> ResetPassword(ResetModel model)
+        {
+            if (AbpSession.UserId == null || AbpSession.UserId.Value == 0)
+            {
+                ErrorInfo error = new ErrorInfo() { Code = 100007 };
+                return new AjaxResponse(error);
+            }
+
+            var userAuthCodeVerify = _userVerifyAppService.GetPagedUserVerifysAsync(
+                new GetUserVerifyInput()
+                {
+                    AuthCode = model.AuthCode,
+                    PhoneNumber = model.PhoneNumber,
+                    VerifyStatus = CodeVerifyStatus.Success,
+                    PurposeType = PurposeType.ResetPassword
+                }).Result;
+            if (userAuthCodeVerify.TotalCount > 0)
+            {
+                try
+                {
+                    long userId = AbpSession.UserId.Value;
+                    var user = await _userManager.GetUserByIdAsync(userId);
+                    var identityResult = await _userManager.ChangePasswordAsync(user, model.NewPassword);
+                    CheckErrors(identityResult);
+                }
+                catch (UserFriendlyException ex)
+                {
+                    return new AjaxResponse(new ErrorInfo("保存失败"));
+                }
+                return new AjaxResponse(new {flag=true,msg="成功"});
+            }
+
+            return new AjaxResponse(new ErrorInfo("保存失败"));
+        }
 
 
         private AuthenticationTicket GetTicketByLoginResult(AbpLoginResult<Tenant, User> loginResult)
