@@ -23,9 +23,9 @@ namespace PolyStone.Users.Dto
         public string NickName { get; set; }
 
 
-        [Required(AllowEmptyStrings = true)]
-        [StringLength(AbpUserBase.MaxSurnameLength)]
-        public string Surname { get; set; }
+//        [Required(AllowEmptyStrings = true)]
+//        [StringLength(AbpUserBase.MaxSurnameLength)]
+//        public string Surname { get; set; }
 
         [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
@@ -37,8 +37,6 @@ namespace PolyStone.Users.Dto
         public UserType UserType { get; set; }
 
         public bool IsActive { get; set; }
-
-        public string FullName { get; set; }
 
         public DateTime? LastLoginTime { get; set; }
 

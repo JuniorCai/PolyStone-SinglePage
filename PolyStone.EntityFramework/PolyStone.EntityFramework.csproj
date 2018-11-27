@@ -269,6 +269,10 @@
     <Compile Include="Migrations\201811090331264_AlterUserCol4.Designer.cs">
       <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811270648594_AlterUserCol-SurName.cs" />
+    <Compile Include="Migrations\201811270648594_AlterUserCol-SurName.Designer.cs">
+      <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811090331264_AlterUserCol4.resx">
       <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811270648594_AlterUserCol-SurName.resx">
+      <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

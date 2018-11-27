@@ -122,7 +122,7 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new UserVerifyCfg());
 
             modelBuilder.Entity<User>().Property(a=>a.EmailAddress).IsOptional();
-            modelBuilder.Entity<User>().Property(a => a.Surname).IsOptional();
+            modelBuilder.Entity<User>().Ignore(a => a.Surname);
             modelBuilder.Entity<User>().Property(a => a.Name).IsOptional();
 
 

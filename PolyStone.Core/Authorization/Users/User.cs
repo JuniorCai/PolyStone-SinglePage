@@ -81,12 +81,12 @@ namespace PolyStone.Authorization.Users
         [JsonIgnore]
         public override User LastModifierUser { get; set; }
 
-        public override string FullName => Surname + " " + Name;
 
         [Required(AllowEmptyStrings = true)]
         public override string EmailAddress { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public override string Surname { get; set; }
+
+        private new string Surname { get; set; }
+
         [Required(AllowEmptyStrings = true)]
         public override string Name { get; set; }
 

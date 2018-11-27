@@ -19,10 +19,10 @@ namespace PolyStone.Users.Dto
 
         public string Avatar { get; set; }
 
-
-        [Required]
-        [StringLength(AbpUserBase.MaxSurnameLength)]
-        public string Surname { get; set; }
+//
+//        [Required]
+//        [StringLength(AbpUserBase.MaxSurnameLength)]
+//        public string Surname { get; set; }
 
         [Required(AllowEmptyStrings = true)]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
