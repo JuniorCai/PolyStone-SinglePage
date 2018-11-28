@@ -199,6 +199,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDomain\BusinessCard\Authorization\BusinessCardAppAuthorizationProvider.cs" />
+    <Compile Include="CustomDomain\BusinessCard\Authorization\BusinessCardAppPermissions.cs" />
+    <Compile Include="CustomDomain\BusinessCard\BusinessCard.cs" />
+    <Compile Include="CustomDomain\BusinessCard\BusinessCardManage.cs" />
+    <Compile Include="CustomDomain\BusinessCard\____BusinessCardReadme.cs" />
     <Compile Include="CustomDomain\Categories\Authorization\CategoryAppAuthorizationProvider.cs" />
     <Compile Include="CustomDomain\Categories\Authorization\CategoryAppPermissions.cs" />
     <Compile Include="CustomDomain\Categories\Category.cs" />

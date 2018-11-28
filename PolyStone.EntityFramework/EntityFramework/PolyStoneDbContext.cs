@@ -6,6 +6,7 @@ using System.Linq;
 using Abp.Zero.EntityFramework;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
+using PolyStone.CustomDomain.BusinessCard;
 using PolyStone.CustomDomain.Categories;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.CustomDomain.Communities;
@@ -21,6 +22,7 @@ using PolyStone.CustomDomain.Products;
 using PolyStone.CustomDomain.Regions;
 using PolyStone.CustomDomain.UserAuthorizations;
 using PolyStone.CustomDomain.UserVerifies;
+using PolyStone.EntityMapper.BusinessCards;
 using PolyStone.EntityMapper.Categories;
 using PolyStone.EntityMapper.Collections;
 using PolyStone.EntityMapper.Communities;
@@ -65,6 +67,7 @@ namespace PolyStone.EntityFramework
         public IDbSet<UserVerify> UserVerifys { get; set; }
 
         public IDbSet<UserAuthorization> UserAuthorizations { get; set; }
+        public IDbSet<BusinessCard> BusinessCards { get; set; }
 
 
 
@@ -120,6 +123,7 @@ namespace PolyStone.EntityFramework
             modelBuilder.Configurations.Add(new ModuleCfg());
             modelBuilder.Configurations.Add(new UserAuthorizationCfg());
             modelBuilder.Configurations.Add(new UserVerifyCfg());
+            modelBuilder.Configurations.Add(new BusinessCardCfg());
 
             modelBuilder.Entity<User>().Property(a=>a.EmailAddress).IsOptional();
             modelBuilder.Entity<User>().Ignore(a => a.Surname);

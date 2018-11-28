@@ -226,6 +226,14 @@
   <ItemGroup>
     <Compile Include="App\ILocalizationService.cs" />
     <Compile Include="App\LocalizationService.cs" />
+    <Compile Include="BusinessCards\BusinessCardAppService.cs" />
+    <Compile Include="BusinessCards\Dtos\BusinessCardEditDto.cs" />
+    <Compile Include="BusinessCards\Dtos\BusinessCardListDto.cs" />
+    <Compile Include="BusinessCards\Dtos\CreateOrUpdateBusinessCardInput.cs" />
+    <Compile Include="BusinessCards\Dtos\GetBusinessCardForEditOutput.cs" />
+    <Compile Include="BusinessCards\Dtos\GetBusinessCardInput.cs" />
+    <Compile Include="BusinessCards\IBusinessCardAppService.cs" />
+    <Compile Include="BusinessCards\Mappers\BusinessCardDtoMapper.cs" />
     <Compile Include="Categories\CategoryAppService.cs" />
     <Compile Include="Categories\Dtos\CategoryEditDto.cs" />
     <Compile Include="Categories\Dtos\CategoryListDto.cs" />

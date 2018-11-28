@@ -225,6 +225,7 @@
   <ItemGroup>
     <Compile Include="EntityFramework\PolyStoneDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\PolyStoneRepositoryBase.cs" />
+    <Compile Include="EntityMapper\BusinessCards\BusinessCardCfg.cs" />
     <Compile Include="EntityMapper\Categories\CategoryCfg.cs" />
     <Compile Include="EntityMapper\Collections\CollectionCfg.cs" />
     <Compile Include="EntityMapper\Communities\CommunityCfg.cs" />
@@ -273,6 +274,10 @@
     <Compile Include="Migrations\201811270648594_AlterUserCol-SurName.Designer.cs">
       <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811280555156_addBusinessCardTable.cs" />
+    <Compile Include="Migrations\201811280555156_addBusinessCardTable.Designer.cs">
+      <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -319,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811270648594_AlterUserCol-SurName.resx">
       <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280555156_addBusinessCardTable.resx">
+      <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
