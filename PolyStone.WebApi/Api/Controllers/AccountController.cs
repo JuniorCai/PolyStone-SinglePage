@@ -25,6 +25,9 @@ using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using PolyStone.Authorization.Roles;
+using PolyStone.BusinessCards;
+using PolyStone.BusinessCards.Dtos;
+using PolyStone.CustomDomain.BusinessCard;
 using PolyStone.CustomDomain.UserVerifies;
 using PolyStone.UserVerifies;
 using PolyStone.UserVerifies.Dtos;
@@ -41,6 +44,7 @@ namespace PolyStone.Api.Controllers
         private readonly UserManager _userManager;
         private readonly ITenantCache _tenantCache;
         private readonly IUserVerifyAppService _userVerifyAppService;
+        private readonly BusinessCardManage _businessCardManage;
 
         static AccountController()
         {
@@ -48,7 +52,7 @@ namespace PolyStone.Api.Controllers
         }
 
 
-        public AccountController(LogInManager logInManager,UserManager userManager, IUserAppService userAppService, RoleManager roleManager, ITenantCache tenantCache,IUserVerifyAppService userVerifyAppService)
+        public AccountController(LogInManager logInManager,UserManager userManager, IUserAppService userAppService, RoleManager roleManager, ITenantCache tenantCache,IUserVerifyAppService userVerifyAppService, BusinessCardManage businessCardManage)
         {
             _logInManager = logInManager;
             LocalizationSourceName = PolyStoneConsts.LocalizationSourceName;
@@ -57,6 +61,7 @@ namespace PolyStone.Api.Controllers
             _userManager = userManager;
             _tenantCache = tenantCache;
             _userVerifyAppService = userVerifyAppService;
+            _businessCardManage = businessCardManage;
         }
 
         [HttpPost]
@@ -260,6 +265,17 @@ namespace PolyStone.Api.Controllers
                 //Save user
                 CheckErrors(await _userManager.CreateAsync(user));
                 await UnitOfWorkManager.Current.SaveChangesAsync();
+
+
+                BusinessCard cardEdit = new BusinessCard()
+                {
+                    CompanyName = "",
+                    WxNumber = "",
+                    Position = "",
+                    Introduction = "",
+                    UserId = user.Id
+                };
+                await _businessCardManage.CreateAsync(cardEdit);
 
                 //Directly login if possible
                 if (user.IsActive)
