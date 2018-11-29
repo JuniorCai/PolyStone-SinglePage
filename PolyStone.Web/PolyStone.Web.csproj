@@ -3875,9 +3875,7 @@
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Resource\" />
-    <Folder Include="_GeneratedCode\BusinessCard\Application\" />
-    <Folder Include="_GeneratedCode\BusinessCard\Core\BusinessCards\" />
-    <Folder Include="_GeneratedCode\BusinessCard\EntityFramework\EntityMapper\" />
+    <Folder Include="_GeneratedCode\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolyStone.Application\PolyStone.Application.csproj">
