@@ -15,6 +15,10 @@ namespace PolyStone.Collections.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public long UserId { get; set; }
+
+        public int ModuleId { get; set; }
+
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>

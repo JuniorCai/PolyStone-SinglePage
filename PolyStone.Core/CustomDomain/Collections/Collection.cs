@@ -16,6 +16,8 @@ namespace PolyStone.CustomDomain.Collections
         [ForeignKey("ModuleId")]
         public virtual Module Module { get; set; }
 
+        public long UserId { get; set; }
+
         public string Title { get; set; }
 
         public int RelativeId { get; set; }

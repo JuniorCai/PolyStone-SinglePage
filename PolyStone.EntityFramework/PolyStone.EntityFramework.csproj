@@ -278,6 +278,10 @@
     <Compile Include="Migrations\201811280555156_addBusinessCardTable.Designer.cs">
       <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811300535427_addCollectionCol-UserId.cs" />
+    <Compile Include="Migrations\201811300535427_addCollectionCol-UserId.Designer.cs">
+      <DependentUpon>201811300535427_addCollectionCol-UserId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -327,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811280555156_addBusinessCardTable.resx">
       <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300535427_addCollectionCol-UserId.resx">
+      <DependentUpon>201811300535427_addCollectionCol-UserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

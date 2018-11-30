@@ -15,6 +15,8 @@ namespace PolyStone.Collections.Dtos
     {
         public int ModuleId { get; set; }
         public ModuleListDto Module { get; set; }
+
+        public long UserId { get; set; }
         public string Name { get; set; }
         public int RelativeId { get; set; }
 
