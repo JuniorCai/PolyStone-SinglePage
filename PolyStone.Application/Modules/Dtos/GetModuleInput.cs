@@ -16,6 +16,12 @@ namespace PolyStone.Modules.Dtos
         /// </summary>
         public string FilterText { get; set; }
 
+        public string ModuleCode { get; set; }
+
+        public string Name { get; set; }
+
+        public bool? IsActive { get; set; }
+
         /// <summary>
         /// 用于排序的默认值
         /// </summary>

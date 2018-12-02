@@ -69,18 +69,18 @@ namespace PolyStone.Web.Controllers
                                 await _companyIndustryAppService.CreateOrUpdateCompanyIndustryAsync(industryInput);
                             }
 
-                            var loginUser = _userAppService.Get(new EntityDto<long> {Id = AbpSession.UserId.Value}).Result;
-                            loginUser.UserType = UserType.Company;
+                            var relativeUser = _userAppService.Get(new EntityDto<long> {Id = model.CompanyEditDto.UserId}).Result;
+                            relativeUser.UserType = UserType.Company;
 
                             if (model.CompanyAuthEditDto != null)
                             {
-                                loginUser.UserType = UserType.VipCompany;
+                                relativeUser.UserType = UserType.VipCompany;
                                 model.CompanyAuthEditDto.CompanyId = newModel.Id.Value;
                                 var newAuthModel =
                                     await _companyAuthAppService.CreateCompanyAuthAsync(model.CompanyAuthEditDto);
                             }
 
-                            var user = _userAppService.UpdateUser(loginUser);
+                            var user = _userAppService.UpdateUser(relativeUser);
 
 
                             if (model.ContactEdit != null )
@@ -140,16 +140,16 @@ namespace PolyStone.Web.Controllers
                             await _companyIndustryAppService.CreateOrUpdateCompanyIndustryAsync(industryInput);
                         }
 
-                        var loginUser = _userAppService.Get(new EntityDto<long> { Id = AbpSession.UserId.Value }).Result;
-                        loginUser.UserType = UserType.Company;
+                        var relativeUser = _userAppService.Get(new EntityDto<long> { Id = model.CompanyEditDto.UserId }).Result;
+                        relativeUser.UserType = UserType.Company;
 
                         if (model.CompanyAuthEditDto != null)
                         {
-                            loginUser.UserType = UserType.VipCompany;
+                            relativeUser.UserType = UserType.VipCompany;
                             await _companyAuthAppService.CreateOrUpdateCompanyAuthAsync(new CreateOrUpdateCompanyAuthInput(){CompanyAuthEditDto = model.CompanyAuthEditDto });
                         }
 
-                        var user = _userAppService.UpdateUser(loginUser);
+                        var user = _userAppService.UpdateUser(relativeUser);
 
 
                         unitWork.Complete();

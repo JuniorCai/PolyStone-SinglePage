@@ -14,10 +14,13 @@ namespace PolyStone.Collections.Dtos
 	    /// 模糊查询参数
 		/// </summary>
 		public string FilterText { get; set; }
+        public long UserId { get; set; }
 
-		/// <summary>
-	    /// 用于排序的默认值
-		/// </summary>
+        public int ModuleId { get; set; }
+
+        /// <summary>
+        /// 用于排序的默认值
+        /// </summary>
         public void Normalize()
         {
             if (string.IsNullOrEmpty(Sorting))

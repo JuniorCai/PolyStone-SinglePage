@@ -11,6 +11,8 @@ using Abp.Linq.Extensions;
 using PolyStone.Collections.Dtos;
 using PolyStone.CustomDomain.Collections;
 using PolyStone.CustomDomain.Collections.Authorization;
+using PolyStone.CustomDomain.Modules;
+using PolyStone.Modules.Dtos;
 
 namespace PolyStone.Collections
 {
@@ -23,20 +25,21 @@ namespace PolyStone.Collections
     public class CollectionAppService : PolyStoneAppServiceBase, ICollectionAppService
     {
         private readonly IRepository<Collection, int> _collectionRepository;
-
+        private readonly IRepository<Module, int> _moduleRepository;
 
         private readonly CollectionManage _collectionManage;
 
         /// <summary>
         /// 构造方法
         /// </summary>
-        public CollectionAppService(IRepository<Collection, int> collectionRepository,
+        public CollectionAppService(IRepository<Collection, int> collectionRepository, IRepository<Module, int> moduleRepository,
             CollectionManage collectionManage
 
         )
         {
             _collectionRepository = collectionRepository;
             _collectionManage = collectionManage;
+            _moduleRepository = moduleRepository;
 
         }
 
@@ -56,8 +59,39 @@ namespace PolyStone.Collections
         /// </summary>
         public async Task<PagedResultDto<CollectionListDto>> GetPagedCollectionsAsync(GetCollectionInput input)
         {
-
+            var moduleDto = new Module();
+            if (input.ModuleId > 0)
+            {
+                moduleDto = _moduleRepository.GetAsync(input.ModuleId).Result;
+                if (moduleDto == null)
+                {
+                    return new PagedResultDto<CollectionListDto>(
+                        0,
+                        new List<CollectionListDto>()
+                    );
+                }
+            }
             var query = _collectionRepositoryAsNoTrack;
+            query = query.WhereIf(input.UserId > 0, c => c.UserId == input.UserId)
+                .WhereIf(input.ModuleId > 0, c => c.ModuleId == input.ModuleId);
+
+            switch (moduleDto.Name)
+            {
+                case "产品":
+                    query = query.Include(c => c.Product);
+                    break;
+                case "企业":
+                    query = query.Include(c => c.Company);
+                    break;
+                case "供应":
+                case "求购":
+                    query = query.Include(c => c.Community);
+                    break;
+                default:
+                    break;
+            }
+
+            
             //TODO:根据传入的参数添加过滤条件
 
             var collectionCount = await query.CountAsync();

@@ -278,6 +278,18 @@
     <Compile Include="Migrations\201811280555156_addBusinessCardTable.Designer.cs">
       <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812011352192_addCollectionCol-UserId.cs" />
+    <Compile Include="Migrations\201812011352192_addCollectionCol-UserId.Designer.cs">
+      <DependentUpon>201812011352192_addCollectionCol-UserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812011432088_Collection-ForeignKey.cs" />
+    <Compile Include="Migrations\201812011432088_Collection-ForeignKey.Designer.cs">
+      <DependentUpon>201812011432088_Collection-ForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812021205358_changeCompanyCol-Business.cs" />
+    <Compile Include="Migrations\201812021205358_changeCompanyCol-Business.Designer.cs">
+      <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -327,6 +339,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811280555156_addBusinessCardTable.resx">
       <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812011352192_addCollectionCol-UserId.resx">
+      <DependentUpon>201812011352192_addCollectionCol-UserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812011432088_Collection-ForeignKey.resx">
+      <DependentUpon>201812011432088_Collection-ForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812021205358_changeCompanyCol-Business.resx">
+      <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

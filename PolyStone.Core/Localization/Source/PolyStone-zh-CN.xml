@@ -167,7 +167,7 @@
     <text name="CompanyType" value="企业类型" />
     <text name="MemberId" value="会员ID" />
     <text name="IsAuthed" value="是否已认证" />
-    <text name="Bussiness" value="主营范围" />
+    <text name="Business" value="主营范围" />
     <text name="Introduction" value="企业简介" />
     <text name="RegionId" value="地区ID" />
     <text name="Address" value="企业地址" />
@@ -222,7 +222,6 @@
     <text name="DeleteCompanyApplication" value="删除企业申请" />
     <text name="CompanyApplicationDeleteWarningMessage" value="企业申请名称: {0} 将被删除,是否确定删除它。" />
     <!--//用于表格展示的数据信息的标题-->
-    <text name="Business" value="主营范围" />
     <text name="AuthStatus" value="认证状态" />
 
 
