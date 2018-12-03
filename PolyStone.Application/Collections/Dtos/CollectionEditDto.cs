@@ -20,11 +20,10 @@ namespace PolyStone.Collections.Dtos
         public int? Id { get; set; }
 
         [Range(1, 255)] public int ModuleId { get; set; }
-        public string Title { get; set; }
+
+        [MaxLength(200)] public string Title { get; set; }
 
         public long UserId { get; set; }
-
-        [MaxLength(200)] public string Name { get; set; }
 
         [Range(1, 255)] public int RelativeId { get; set; }
 
