@@ -138,7 +138,7 @@
                     logo: "",
                     memberId:0,
                     industry: "",
-                    bussiness: "",
+                    business: "",
                     regionId: "-1",
                     introduction: "",
                     isAuthed: true,

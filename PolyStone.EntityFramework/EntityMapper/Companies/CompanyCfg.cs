@@ -23,7 +23,7 @@ namespace PolyStone.EntityMapper.Companies
             // 企业名称
             Property(a => a.CompanyName).HasMaxLength(50);
             // 主营范围
-            Property(a => a.Bussiness).HasMaxLength(200);
+            Property(a => a.Business).HasMaxLength(200);
             // 企业简介
             Property(a => a.Introduction).HasMaxLength(2000);
             // 企业地址

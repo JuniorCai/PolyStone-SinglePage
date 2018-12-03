@@ -77,7 +77,7 @@ namespace PolyStone.Companies.Dtos
         /// 主营范围
         /// </summary>
         [DisplayName("主营范围")]
-        public string Bussiness { get; set; }
+        public string Business { get; set; }
 
         /// <summary>
         /// 企业简介

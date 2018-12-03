@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
+using PolyStone.CustomDomain.Communities;
+using PolyStone.CustomDomain.Companies;
 using PolyStone.CustomDomain.Modules;
+using PolyStone.CustomDomain.Products;
 
 namespace PolyStone.CustomDomain.Collections
 {
@@ -21,6 +24,16 @@ namespace PolyStone.CustomDomain.Collections
         public string Title { get; set; }
 
         public int RelativeId { get; set; }
+
+        [ForeignKey("RelativeId")]
+        public virtual Product Product { get; set; }
+
+        [ForeignKey("RelativeId")]
+        public virtual Company Company { get; set; }
+
+        [ForeignKey("RelativeId")]
+        public virtual Community Community { get; set; }
+
 
     }
 }

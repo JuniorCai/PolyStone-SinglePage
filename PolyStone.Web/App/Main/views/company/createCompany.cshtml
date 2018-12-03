@@ -81,7 +81,7 @@
                                 <label class="control-label col-md-2">经营范围</label>
                                 <div class="col-md-4">
                                     <div class="input-icon right" style="float: none !important">
-                                        <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.bussiness" />
+                                        <input id="business" class="hasInputBorder form-control " name="companyId" type="text" ng-model="vm.company.companyEditDto.business" />
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                     </label>
                                     <div class="col-md-6">
                                         <div>
-                                            <div ng-repeat="item in licenceFileUploader.queue" style="float: left" class="thumbUploaded" onclick="javascript: $('#licenseUploadFile').click();">
+                                            <div ng-repeat="item in licenseFileUploader.queue" style="float: left" class="thumbUploaded" onclick="javascript: $('#licenseUploadFile').click();">
                                                 <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                             </div>
                                             <div style="clear: both; padding: 10px 0" id="licenseUploadDiv">

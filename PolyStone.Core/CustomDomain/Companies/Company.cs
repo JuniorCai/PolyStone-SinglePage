@@ -31,7 +31,7 @@ namespace PolyStone.CustomDomain.Companies
 
         public bool IsAuthed { get; set; }
 
-        public string Bussiness { get; set; }
+        public string Business { get; set; }
 
         public string Introduction { get; set; }
 

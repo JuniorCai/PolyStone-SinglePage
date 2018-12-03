@@ -7,6 +7,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Extensions;
 using Abp.Linq.Extensions;
 using PolyStone.CustomDomain.Modules;
 using PolyStone.CustomDomain.Modules.Authorization;
@@ -17,7 +18,6 @@ namespace PolyStone.Modules
     /// <summary>
     /// 模块表服务实现
     /// </summary>
-    [AbpAuthorize(ModuleAppPermissions.Module)]
 
 
     public class ModuleAppService : PolyStoneAppServiceBase, IModuleAppService
@@ -59,6 +59,9 @@ namespace PolyStone.Modules
 
             var query = _moduleRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            query = query.WhereIf(!input.ModuleCode.IsNullOrEmpty(), m => m.ModuleCode == input.ModuleCode)
+                .WhereIf(!input.Name.IsNullOrEmpty(), m => m.Name == input.Name)
+                .WhereIf(input.IsActive.HasValue, m => m.IsActive == input.IsActive.Value);
 
             var moduleCount = await query.CountAsync();
 
@@ -107,7 +110,6 @@ namespace PolyStone.Modules
 
             return entity.MapTo<ModuleListDto>();
         }
-
 
 
 
