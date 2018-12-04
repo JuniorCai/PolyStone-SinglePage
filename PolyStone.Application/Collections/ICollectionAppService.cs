@@ -60,12 +60,12 @@ namespace PolyStone.Collections
         /// <summary>
         /// 更新用户收藏
         /// </summary>
-        Task UpdateCollectionAsync(CollectionEditDto input);
+        Task<bool> UpdateCollectionAsync(CollectionEditDto input);
 
         /// <summary>
         /// 删除用户收藏
         /// </summary>
-        Task DeleteCollectionAsync(EntityDto<int> input);
+        Task<bool> DeleteCollectionAsync(EntityDto<int> input);
 
         #endregion
 

@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
+using Abp;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
@@ -179,24 +180,42 @@ namespace PolyStone.Collections
         /// 编辑用户收藏
         /// </summary>
         [AbpAuthorize(CollectionAppPermissions.Collection_EditCollection)]
-        public virtual async Task UpdateCollectionAsync(CollectionEditDto input)
+        public virtual async Task<bool> UpdateCollectionAsync(CollectionEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
 
-            var entity = await _collectionRepository.GetAsync(input.Id.Value);
-            input.MapTo(entity);
+            try
+            {
+                var entity = await _collectionRepository.GetAsync(input.Id.Value);
+                input.MapTo(entity);
 
-            await _collectionRepository.UpdateAsync(entity);
+                await _collectionRepository.UpdateAsync(entity);
+                return true;
+            }
+            catch (AbpException ex)
+            {
+                return false;
+            }
+
         }
 
         /// <summary>
         /// 删除用户收藏
         /// </summary>
         [AbpAuthorize(CollectionAppPermissions.Collection_DeleteCollection)]
-        public async Task DeleteCollectionAsync(EntityDto<int> input)
+        public async Task<bool> DeleteCollectionAsync(EntityDto<int> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
-            await _collectionRepository.DeleteAsync(input.Id);
+            try
+            {
+                await _collectionRepository.DeleteAsync(input.Id);
+                return true;
+            }
+            catch (AbpException ex)
+            {
+                return false;
+            }
+
         }
 
         #endregion
