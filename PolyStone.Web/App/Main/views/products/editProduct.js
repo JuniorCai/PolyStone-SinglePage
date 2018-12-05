@@ -64,7 +64,8 @@
             vm.product = {
                 title: "",
                 categoryId: "0",
-                companyId:"",
+                companyId: "",
+                coverPhoto:"",
                 imgUrls: "",
                 detail: "",
                 verifyStatus: 0,
@@ -159,6 +160,8 @@
             function postData() {
                 vm.product.verifyStatus = angular.element(".btn.yellow-gold.active").attr("value");
                 vm.product.releaseStatus = angular.element(".btn.yellow-lemon.active").attr("value");
+                var imgArray = vm.product.imgUrls.split(',');
+                vm.product.coverPhoto = imgArray.length > 0 ? imgArray[0] : "";
 
                 var postUrl = $("#form_edit_product").attr("url");
 

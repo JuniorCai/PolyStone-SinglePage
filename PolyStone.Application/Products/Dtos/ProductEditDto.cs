@@ -46,6 +46,15 @@ namespace PolyStone.Products.Dtos
         /// <summary>
         /// 产品图片URL
         /// </summary>
+        [DisplayName("产品封面图片URL")]
+        [Required]
+        [MaxLength(1000)]
+        public string CoverPhoto { get; set; }
+
+
+        /// <summary>
+        /// 产品图片URL
+        /// </summary>
         [DisplayName("产品图片URL")]
         [Required]
         [MaxLength(1000)]

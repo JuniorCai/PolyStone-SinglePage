@@ -115,8 +115,8 @@ namespace PolyStone.Companies.Dtos
 
         public ICollection<ContactListDto> Contacts { get; set; }
 
-        [JsonIgnore]
-        public ICollection<ProductListDto> Products { get; set; }
+//        [JsonIgnore]
+//        public ICollection<ProductListDto> Products { get; set; }
 
         public ICollection<CompanyIndustryListDto> Industries { get; set; }
 

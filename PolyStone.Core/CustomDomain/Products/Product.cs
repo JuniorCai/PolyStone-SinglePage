@@ -22,7 +22,9 @@ namespace PolyStone.CustomDomain.Products
         public int CompanyId { get; set; }
 
         [ForeignKey("CompanyId")]
-        public  Company Company { get; set; }
+        public virtual Company Company { get; set; }
+
+        public string CoverPhoto { get; set; }
 
         public string ImgUrls { get; set; }
 

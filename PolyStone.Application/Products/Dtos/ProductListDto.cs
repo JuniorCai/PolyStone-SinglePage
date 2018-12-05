@@ -37,6 +37,8 @@ namespace PolyStone.Products.Dtos
 
         public CompanyListDto Company { get; set; }
 
+        public string CoverPhoto { get; set; }
+
         /// <summary>
         /// 产品图片URL
         /// </summary>

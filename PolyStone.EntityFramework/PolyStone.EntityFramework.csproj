@@ -290,6 +290,10 @@
     <Compile Include="Migrations\201812021205358_changeCompanyCol-Business.Designer.cs">
       <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812050231462_addProductCol-CoverPhoto.cs" />
+    <Compile Include="Migrations\201812050231462_addProductCol-CoverPhoto.Designer.cs">
+      <DependentUpon>201812050231462_addProductCol-CoverPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -348,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812021205358_changeCompanyCol-Business.resx">
       <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050231462_addProductCol-CoverPhoto.resx">
+      <DependentUpon>201812050231462_addProductCol-CoverPhoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

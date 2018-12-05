@@ -53,7 +53,8 @@
             vm.product = {
                 title: "",
                 categoryId: "0",
-                companyId:"",
+                companyId: "",
+                coverPhoto:"",
                 imgUrls: "",
                 detail: "",
                 verifyStatus: 0,
@@ -141,7 +142,8 @@
 
             function postData() {
                 var postUrl = $("#form_create_product").attr("url");
-
+                var imgArray = vm.product.imgUrls.split(',');
+                vm.product.coverPhoto = imgArray.length > 0 ? imgArray[0] : "";
                 $http.post(postUrl, { model: vm.product }).then(function (result) {
                     if (result.data.success) {
                         abp.notify.success("保存成功", "", { timeOut: 1500 });
