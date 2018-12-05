@@ -107,7 +107,7 @@
                 vm.uploadResult.status = response.result.success;
                 vm.uploadResult.msg = response.result.success ? response.result.msg : item.name + " "+response.result.msg;
                 if (!vm.uploadResult.status)
-                    vm.fileUploader.cancelAll();
+                    uploader.cancelAll();
                 else {
                     imgUrls.push(response.result.msg);
                 }
@@ -116,7 +116,7 @@
             uploader.onErrorItem = function(item, response, status, headers) {
                 vm.uploadResult.status = false;
                 vm.uploadResult.msg = item.name + "上传失败";
-                vm.fileUploader.cancelAll();
+                uploader.cancelAll();
             };
 
             uploader.onCompleteAll = function() {
