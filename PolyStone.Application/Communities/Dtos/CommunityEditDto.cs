@@ -49,7 +49,6 @@ namespace PolyStone.Communities.Dtos
         /// 标题
         /// </summary>
         [DisplayName("标题")]
-        [Required]
         [MaxLength(200)]
         public string Title { get; set; }
 
