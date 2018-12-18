@@ -12,6 +12,8 @@ namespace PolyStone.CustomDomain.Regions
     {
         public string RegionName { get; set; }
 
+        public string FullName { get; set; }
+
         public string RegionCode { get; set; }
 
         public string ParentCode { get; set; }
