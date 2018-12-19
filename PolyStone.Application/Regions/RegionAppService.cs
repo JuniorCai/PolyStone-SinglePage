@@ -135,6 +135,11 @@ namespace PolyStone.Regions
             return entity.MapTo<RegionListDto>();
         }
 
+        public async Task<RegionListDto> GetRegionByCodeAsync(string regionCode)
+        {
+            var entity = await _regionRepository.FirstOrDefaultAsync(r => r.RegionCode == regionCode);
+            return entity.MapTo<RegionListDto>();
+        }
 
 
         /// <summary>

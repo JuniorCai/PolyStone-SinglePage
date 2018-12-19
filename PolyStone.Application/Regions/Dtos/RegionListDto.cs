@@ -29,6 +29,8 @@ namespace PolyStone.Regions.Dtos
         [DisplayName("编号")]
         public string RegionCode { get; set; }
 
+        public Region Parent { get; set; }
+
         /// <summary>
         /// 是否显示
         /// </summary>

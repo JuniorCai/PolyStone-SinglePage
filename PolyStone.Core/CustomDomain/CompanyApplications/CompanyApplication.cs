@@ -32,9 +32,9 @@ namespace PolyStone.CustomDomain.CompanyApplications
 
         public string Business { get; set; }
 
-        public int RegionId { get; set; }
+        public string RegionCode { get; set; }
 
-        [ForeignKey("RegionId")]
+        [ForeignKey("RegionCode")]
         public virtual Region Region { get; set; }
 
         public string LinkMan { get; set; }

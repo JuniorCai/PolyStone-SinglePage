@@ -37,6 +37,8 @@ namespace PolyStone.Regions
         /// </summary>
         Task<RegionListDto> GetRegionByIdAsync(EntityDto<int> input);
 
+        Task<RegionListDto> GetRegionByCodeAsync(string regionCode);
+
 
 
         /// <summary>

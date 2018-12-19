@@ -242,61 +242,9 @@
     <Compile Include="EntityMapper\Regions\RegionCfg.cs" />
     <Compile Include="EntityMapper\UserAuthorizations\UserAuthorizationCfg.cs" />
     <Compile Include="EntityMapper\UserVerifies\UserVerifyCfg.cs" />
-    <Compile Include="Migrations\201811060249349_initialDatabase.cs" />
-    <Compile Include="Migrations\201811060249349_initialDatabase.Designer.cs">
-      <DependentUpon>201811060249349_initialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811060950010_reinitialDatabase.cs" />
-    <Compile Include="Migrations\201811060950010_reinitialDatabase.Designer.cs">
-      <DependentUpon>201811060950010_reinitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090306296_AlterUserCol.cs" />
-    <Compile Include="Migrations\201811090306296_AlterUserCol.Designer.cs">
-      <DependentUpon>201811090306296_AlterUserCol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090311518_AlterUserCol1.cs" />
-    <Compile Include="Migrations\201811090311518_AlterUserCol1.Designer.cs">
-      <DependentUpon>201811090311518_AlterUserCol1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090316529_AlterUserCol2.cs" />
-    <Compile Include="Migrations\201811090316529_AlterUserCol2.Designer.cs">
-      <DependentUpon>201811090316529_AlterUserCol2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090323219_AlterUserCol3.cs" />
-    <Compile Include="Migrations\201811090323219_AlterUserCol3.Designer.cs">
-      <DependentUpon>201811090323219_AlterUserCol3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811090331264_AlterUserCol4.cs" />
-    <Compile Include="Migrations\201811090331264_AlterUserCol4.Designer.cs">
-      <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811270648594_AlterUserCol-SurName.cs" />
-    <Compile Include="Migrations\201811270648594_AlterUserCol-SurName.Designer.cs">
-      <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811280555156_addBusinessCardTable.cs" />
-    <Compile Include="Migrations\201811280555156_addBusinessCardTable.Designer.cs">
-      <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812011352192_addCollectionCol-UserId.cs" />
-    <Compile Include="Migrations\201812011352192_addCollectionCol-UserId.Designer.cs">
-      <DependentUpon>201812011352192_addCollectionCol-UserId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812011432088_Collection-ForeignKey.cs" />
-    <Compile Include="Migrations\201812011432088_Collection-ForeignKey.Designer.cs">
-      <DependentUpon>201812011432088_Collection-ForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812021205358_changeCompanyCol-Business.cs" />
-    <Compile Include="Migrations\201812021205358_changeCompanyCol-Business.Designer.cs">
-      <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812050231462_addProductCol-CoverPhoto.cs" />
-    <Compile Include="Migrations\201812050231462_addProductCol-CoverPhoto.Designer.cs">
-      <DependentUpon>201812050231462_addProductCol-CoverPhoto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812180857501_addRegionCol-FullName.cs" />
-    <Compile Include="Migrations\201812180857501_addRegionCol-FullName.Designer.cs">
-      <DependentUpon>201812180857501_addRegionCol-FullName.cs</DependentUpon>
+    <Compile Include="Migrations\201812191443107_newDatabase.cs" />
+    <Compile Include="Migrations\201812191443107_newDatabase.Designer.cs">
+      <DependentUpon>201812191443107_newDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -321,47 +269,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811060249349_initialDatabase.resx">
-      <DependentUpon>201811060249349_initialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811060950010_reinitialDatabase.resx">
-      <DependentUpon>201811060950010_reinitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090306296_AlterUserCol.resx">
-      <DependentUpon>201811090306296_AlterUserCol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090311518_AlterUserCol1.resx">
-      <DependentUpon>201811090311518_AlterUserCol1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090316529_AlterUserCol2.resx">
-      <DependentUpon>201811090316529_AlterUserCol2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090323219_AlterUserCol3.resx">
-      <DependentUpon>201811090323219_AlterUserCol3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811090331264_AlterUserCol4.resx">
-      <DependentUpon>201811090331264_AlterUserCol4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811270648594_AlterUserCol-SurName.resx">
-      <DependentUpon>201811270648594_AlterUserCol-SurName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811280555156_addBusinessCardTable.resx">
-      <DependentUpon>201811280555156_addBusinessCardTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812011352192_addCollectionCol-UserId.resx">
-      <DependentUpon>201812011352192_addCollectionCol-UserId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812011432088_Collection-ForeignKey.resx">
-      <DependentUpon>201812011432088_Collection-ForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812021205358_changeCompanyCol-Business.resx">
-      <DependentUpon>201812021205358_changeCompanyCol-Business.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812050231462_addProductCol-CoverPhoto.resx">
-      <DependentUpon>201812050231462_addProductCol-CoverPhoto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812180857501_addRegionCol-FullName.resx">
-      <DependentUpon>201812180857501_addRegionCol-FullName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812191443107_newDatabase.resx">
+      <DependentUpon>201812191443107_newDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
