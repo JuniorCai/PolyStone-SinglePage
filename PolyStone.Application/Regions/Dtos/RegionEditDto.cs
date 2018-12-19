@@ -27,6 +27,11 @@ namespace PolyStone.Regions.Dtos
         [MaxLength(50)]
         public string RegionName { get; set; }
 
+        [DisplayName("地区全称")]
+        [Required]
+        [MaxLength(50)]
+        public string FullName { get; set; }
+
         /// <summary>
         /// 父类ID
         /// </summary>
