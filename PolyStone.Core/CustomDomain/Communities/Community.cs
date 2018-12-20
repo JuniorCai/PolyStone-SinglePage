@@ -8,6 +8,7 @@ using Abp.Domain.Entities.Auditing;
 using PolyStone.Authorization.Users;
 using PolyStone.CustomDomain.CommunityCategories;
 using PolyStone.CustomDomain.Products;
+using PolyStone.CustomDomain.Regions;
 
 namespace PolyStone.CustomDomain.Communities
 {
@@ -22,6 +23,11 @@ namespace PolyStone.CustomDomain.Communities
 
         [ForeignKey("CommunityCategoryId")]
         public virtual CommunityCategory CommunityCategory { get; set; }
+
+        public string RegionCode  { get; set; }
+
+        [ForeignKey("RegionCode")]
+        public virtual Region Region { get; set; }
 
         public string Title { get; set; }
 

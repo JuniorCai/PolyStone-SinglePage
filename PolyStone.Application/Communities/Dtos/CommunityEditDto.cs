@@ -42,6 +42,10 @@ namespace PolyStone.Communities.Dtos
         [Range(1, 11)]
         public int CommunityCategoryId { get; set; }
 
+        [DisplayName("地区行政编号")]
+        [Required]
+        [MaxLength(15)]
+        public string RegionCode { get; set; }
 
         //public CommunityCategoryEditDto CommunityCategory { get; set; }
 

@@ -6,6 +6,7 @@ using PolyStone.Authorization.Users;
 using PolyStone.CommunityCategories.Dtos;
 using PolyStone.CustomDomain.Communities;
 using PolyStone.CustomDomain.CommunityCategories;
+using PolyStone.Regions.Dtos;
 using PolyStone.Users.Dto;
 
 
@@ -44,6 +45,7 @@ namespace PolyStone.Communities.Dtos
 
         public string Detail { get; set; }
 
+        public RegionListDto Region { get; set; }
 
         /// <summary>
         /// 刷新时间

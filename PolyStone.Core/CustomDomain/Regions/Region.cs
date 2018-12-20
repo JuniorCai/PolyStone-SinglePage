@@ -21,7 +21,7 @@ namespace PolyStone.CustomDomain.Regions
 
         [JsonIgnore]
         [ForeignKey("ParentCode")]
-        public Region Parent { get; set; }
+        public virtual Region Parent { get; set; }
 
         public string ParentCode { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -146,6 +147,9 @@ namespace PolyStone.Communities
             //TODO:新增前的逻辑判断，是否允许新增
 
             var entity = input.MapTo<Community>();
+            entity.VerifyStatus = VerifyStatus.Pass;
+            entity.ReleaseStatus = ReleaseStatus.Publish;
+            entity.RefreshDate = DateTime.Now;
 
             entity = await _communityRepository.InsertAsync(entity);
             return entity.MapTo<CommunityEditDto>();
@@ -160,6 +164,7 @@ namespace PolyStone.Communities
             //TODO:更新前的逻辑判断，是否允许更新
 
             var entity = await _communityRepository.GetAsync(input.Id.Value);
+            entity.RefreshDate = DateTime.Now;
             input.MapTo(entity);
 
             await _communityRepository.UpdateAsync(entity);
