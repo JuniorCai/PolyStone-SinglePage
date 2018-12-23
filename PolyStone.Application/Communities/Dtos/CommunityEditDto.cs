@@ -64,6 +64,11 @@ namespace PolyStone.Communities.Dtos
         [MaxLength(1000)]
         public string ImgUrls { get; set; }
 
+        [DisplayName("封面图片")]
+        [Required]
+        [MaxLength(1000)]
+        public string CoverPhoto { get; set; }
+
         /// <summary>
         /// 描述
         /// </summary>

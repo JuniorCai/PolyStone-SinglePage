@@ -62,7 +62,7 @@ namespace PolyStone.Communities
             var query = _communityRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
             query = query.WhereIf(input.Id > 0, c => c.Id == input.Id)
-                .WhereIf(string.IsNullOrEmpty(input.Title), c => c.Title.Contains(input.Title))
+                .WhereIf(!string.IsNullOrEmpty(input.Title), c => c.Title.Contains(input.Title))
                 .WhereIf(input.CommunityCategoryId > 0, c => c.CommunityCategoryId == input.CommunityCategoryId)
                 .WhereIf(input.UserId > 0, c => c.UserId == input.UserId)
                 .WhereIf(input.VerifyStatus != VerifyStatus.Invalid, c => c.VerifyStatus == input.VerifyStatus)

@@ -25,6 +25,8 @@ namespace PolyStone.Communities.Dtos
         [DisplayName("图片")]
         public string ImgUrls { get; set; }
 
+        [DisplayName("封面图片")]
+        public string CoverPhoto { get; set; }
 
         /// <summary>
         /// 个人会员ID

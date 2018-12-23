@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201812200444261_addCommunityCol-RegionCode.Designer.cs">
       <DependentUpon>201812200444261_addCommunityCol-RegionCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812220723538_AddCommunityCol-CoverPhoto.cs" />
+    <Compile Include="Migrations\201812220723538_AddCommunityCol-CoverPhoto.Designer.cs">
+      <DependentUpon>201812220723538_AddCommunityCol-CoverPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PolyStoneDataModule.cs" />
@@ -278,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812200444261_addCommunityCol-RegionCode.resx">
       <DependentUpon>201812200444261_addCommunityCol-RegionCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812220723538_AddCommunityCol-CoverPhoto.resx">
+      <DependentUpon>201812220723538_AddCommunityCol-CoverPhoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

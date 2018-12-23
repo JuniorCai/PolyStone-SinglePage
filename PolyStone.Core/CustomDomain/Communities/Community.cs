@@ -33,6 +33,8 @@ namespace PolyStone.CustomDomain.Communities
 
         public string ImgUrls { get; set; }
 
+        public string CoverPhoto { get; set; }
+
         public string Detail { get; set; }
 
         public DateTime RefreshDate { get; set; }
