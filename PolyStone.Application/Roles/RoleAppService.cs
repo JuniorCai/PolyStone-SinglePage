@@ -129,7 +129,16 @@ namespace PolyStone.Roles
         protected override Task<Role> GetEntityByIdAsync(int id)
         {
             var role = Repository.GetAllIncluding(x => x.Permissions).FirstOrDefault(x => x.Id == id);
-            return Task.FromResult(role);
+
+            var roleEntity = new Role()
+            {
+                Description = role.Description, DisplayName = role.DisplayName, Id = role.Id,
+                IsDefault = role.IsDefault, Name = role.Name, IsStatic = role.IsStatic,
+                Permissions = role.Permissions.Where(p => p.IsGranted).ToList()
+            };
+            //var roleResult = role.
+            //role.Permissions = role.Permissions.Where(p => p.IsGranted).ToList();
+            return Task.FromResult(roleEntity);
         }
 
         protected override IQueryable<Role> ApplySorting(IQueryable<Role> query, PagedResultRequestDto input)
