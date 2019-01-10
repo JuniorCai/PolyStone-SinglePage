@@ -138,6 +138,23 @@ namespace PolyStone.Communities
             }
         }
 
+        public async Task OffLineCommunityAsync(EntityDto<int> input)
+        {
+            var entity = await _communityRepository.GetAsync(input.Id);
+            entity.ReleaseStatus = ReleaseStatus.OffLine;
+
+            await _communityRepository.UpdateAsync(entity);
+        }
+
+        public async Task OnLineCommunityAsync(EntityDto<int> input)
+        {
+            var entity = await _communityRepository.GetAsync(input.Id);
+            entity.RefreshDate = DateTime.Now;
+            entity.ReleaseStatus = ReleaseStatus.Publish;
+
+            await _communityRepository.UpdateAsync(entity);
+        }
+
         /// <summary>
         /// 新增圈子信息表
         /// </summary>

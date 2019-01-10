@@ -37,9 +37,9 @@ namespace PolyStone.Communities
         /// </summary>
         Task CreateOrUpdateCommunityAsync(CreateOrUpdateCommunityInput input);
 
+        Task OffLineCommunityAsync(EntityDto<int> input);
 
-
-
+        Task OnLineCommunityAsync(EntityDto<int> input);
 
         /// <summary>
         /// 新增圈子信息表
