@@ -38,10 +38,10 @@ namespace PolyStone.Api.Controllers
             ImgUploadHelper uploadHelper = new ImgUploadHelper(request.Files, rootPath);
             var result = uploadHelper.UploadImg();
             
-            string msg = result.Item1 == ImageUploadStatus.Success ? (uploadHelper.FileServer + result.Item2) : result.Item2;
+            //string msg = result.Item1 == ImageUploadStatus.Success ? result.Item2 : result.Item2;
 
 
-            return new AjaxResponse(new {success = result.Item1 == ImageUploadStatus.Success, msg = msg});
+            return new AjaxResponse(new {success = result.Item1 == ImageUploadStatus.Success, msg = result.Item2 });
             //return Json(new { success = result.Item1 == ImageUploadStatus.Success, msg = msg });
         }
     }
