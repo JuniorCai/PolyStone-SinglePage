@@ -19,8 +19,6 @@ namespace PolyStone.Communities
     /// <summary>
     /// 圈子信息表服务实现
     /// </summary>
-    [AbpAuthorize(CommunityAppPermissions.Community)]
-
 
     public class CommunityAppService : PolyStoneAppServiceBase, ICommunityAppService
     {
@@ -138,6 +136,7 @@ namespace PolyStone.Communities
             }
         }
 
+        [AbpAuthorize(CommunityAppPermissions.Community_EditCommunity)]
         public async Task OffLineCommunityAsync(EntityDto<int> input)
         {
             var entity = await _communityRepository.GetAsync(input.Id);
@@ -146,6 +145,7 @@ namespace PolyStone.Communities
             await _communityRepository.UpdateAsync(entity);
         }
 
+        [AbpAuthorize(CommunityAppPermissions.Community_EditCommunity)]
         public async Task OnLineCommunityAsync(EntityDto<int> input)
         {
             var entity = await _communityRepository.GetAsync(input.Id);
