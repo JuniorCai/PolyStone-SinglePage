@@ -24,6 +24,8 @@ namespace PolyStone.Communities.Dtos
 
         public ReleaseStatus ReleaseStatus { get; set; }
 
+        public int RefreshExpire { get; set; }
+
         public DateTime? FromTime { get; set; }
 
         public DateTime? EndTime { get; set; }

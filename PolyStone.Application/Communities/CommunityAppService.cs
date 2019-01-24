@@ -59,18 +59,36 @@ namespace PolyStone.Communities
 
             var query = _communityRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            DateTime now = DateTime.Now;
+            DateTime? expire = null;
+            if (input.RefreshExpire > 0)
+            {
+                expire = now.AddDays((-1) * input.RefreshExpire);
+            }
             query = query.WhereIf(input.Id > 0, c => c.Id == input.Id)
                 .WhereIf(!string.IsNullOrEmpty(input.Title), c => c.Title.Contains(input.Title))
                 .WhereIf(input.CommunityCategoryId > 0, c => c.CommunityCategoryId == input.CommunityCategoryId)
                 .WhereIf(input.UserId > 0, c => c.UserId == input.UserId)
+                .WhereIf(expire!=null, c=>c.RefreshDate<= expire)
                 .WhereIf(input.VerifyStatus != VerifyStatus.Invalid, c => c.VerifyStatus == input.VerifyStatus)
                 .WhereIf(input.ReleaseStatus != ReleaseStatus.Invalid, c => c.ReleaseStatus == input.ReleaseStatus)
                 .WhereIf(input.FromTime != null, c => c.CreationTime >= input.FromTime)
                 .WhereIf(input.EndTime != null, c => c.CreationTime <= input.EndTime);
             var communityCount = await query.CountAsync();
 
+            switch (input.Sorting.ToLower())
+            {
+                case "creationtime":
+                    query = query.OrderByDescending(c => c.CreationTime);
+                    break;
+                case "refreshdate":
+                    query = query.OrderByDescending(c => c.RefreshDate);
+                    break;
+                default:
+                    query = query.OrderBy(input.Sorting);
+                    break;
+            }
             var communitys = await query
-                .OrderBy(input.Sorting)
                 .PageBy(input)
                 .ToListAsync();
 
