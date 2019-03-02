@@ -16,7 +16,7 @@ namespace PolyStone.CustomDomain.CompanyContacts
 
         [JsonIgnore]
         [ForeignKey("CompanyId")]
-        public Company Company { get; set; }
+        public virtual Company Company { get; set; }
 
         public string LinkMan { get; set; }
 

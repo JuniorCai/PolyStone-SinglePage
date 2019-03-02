@@ -127,8 +127,8 @@
                 $stateProvider
                     .state('companyAdd', {
                         url: '/company/add',
-                        templateUrl: '/App/Main/views/company/createCompany.cshtml',
-                        controller: 'app.views.company.createCompany'
+                        templateUrl: '/App/Main/views/company/createCompany.cshtml'//,
+                        //controller: 'app.views.company.createCompany'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
 //                $urlRouterProvider.otherwise('/company');
@@ -138,8 +138,8 @@
                 $stateProvider
                     .state('companyEdit', {
                         url: '/company/edit/:id',
-                        templateUrl: '/App/Main/views/company/editCompany.cshtml',
-                        controller: 'app.views.company.editCompany'
+                        templateUrl: '/App/Main/views/company/editCompany.cshtml'//,
+                        //controller: 'app.views.company.editCompany'
                         //menu: 'Products' //Matches to name of 'Products' menu in PolyStoneNavigationProvider
                     });
 //                $urlRouterProvider.otherwise('/company');

@@ -40,7 +40,7 @@
                             <td ng-if="company.companyType==1">店铺</td>
                             <td ng-if="company.user.userType==2">未认证企业</td>
                             <td ng-if="company.user.userType==3">认证企业</td>
-                            <td>{{company.region.regionName}}</td>
+                            <td>{{company.region.parent.regionName+' - '+company.region.regionName}}</td>
                             <td>
                                 <i class="material-icons" ng-if="company.isActive" style="color:green;">check_box</i>
                                 <i class="material-icons" ng-if="!company.isActive" style="color:red;">indeterminate_check_box</i>

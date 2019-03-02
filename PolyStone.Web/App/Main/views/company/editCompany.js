@@ -180,14 +180,16 @@
             }
 
             function bindRegionSelect() {
-                
+                var loop = true;
                 angular.forEach(vm.regionList, function (item, index) {
-                    if (item.regionCode == vm.selectedRegion.parentCode) {
+                    if (loop && item.regionCode == vm.selectedRegion.parentCode) {
                         vm.selectedProvince = item;
                         vm.chooseRegion(true);
-                    } else if (item.regionCode == vm.selectedRegion.regionCode) {
-                        vm.selectedProvince = item;
+                        loop = false;
                     }
+//                    else if (item.regionCode == vm.selectedRegion.regionCode) {
+//                        vm.selectedProvince = item;
+//                    }
                 });
             }
 
@@ -338,7 +340,7 @@
                 }
                 else {
                     vm.company.companyEditDto.industry = vm.selectedIndustry;
-                    vm.company.companyEditDto.regionId = vm.selectedRegion.id;
+                    vm.company.companyEditDto.regionCode = vm.selectedRegion.regionCode;
                     vm.company.companyEditDto.companyType = vm.selectedCompanyType;
                     if ($.trim(vm.company.companyEditDto.companyName).length == 0) {
                         abp.notify.error("企业全称未填写");

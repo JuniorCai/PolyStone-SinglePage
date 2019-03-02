@@ -62,7 +62,7 @@ namespace PolyStone.Regions
 
             if (string.IsNullOrEmpty(input.RegionCode))
             {
-                query = query.Where(r => r.ParentCode == "1" && r.RegionCode != "100000");
+                query = query.Where(r => r.ParentCode == "156000000" );
             }
             else
             {

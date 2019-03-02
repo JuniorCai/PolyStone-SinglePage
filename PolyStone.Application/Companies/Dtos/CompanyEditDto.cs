@@ -85,7 +85,7 @@ namespace PolyStone.Companies.Dtos
         /// </summary>
         [DisplayName("地区ID")]
         [Required]
-        public int RegionId { get; set; }
+        public int RegionCode { get; set; }
 
 
         /// <summary>

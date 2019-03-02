@@ -88,8 +88,8 @@ namespace PolyStone.Companies.Dtos
         /// <summary>
         /// 地区ID
         /// </summary>
-        [DisplayName("地区ID")]
-        public int RegionId { get; set; }
+        [DisplayName("地区Code")]
+        public int RegionCode { get; set; }
 
         [DisplayName("地区")]
         public RegionListDto Region { get; set; }
@@ -115,8 +115,8 @@ namespace PolyStone.Companies.Dtos
 
         public ICollection<ContactListDto> Contacts { get; set; }
 
-//        [JsonIgnore]
-//        public ICollection<ProductListDto> Products { get; set; }
+        [JsonIgnore]
+        protected ICollection<ProductListDto> Products { get; set; }
 
         public ICollection<CompanyIndustryListDto> Industries { get; set; }
 

@@ -20,7 +20,7 @@ namespace PolyStone.Companies
     /// <summary>
     /// 企业表服务实现
     /// </summary>
-    [AbpAuthorize(CompanyAppPermissions.Company)]
+    //[AbpAuthorize(CompanyAppPermissions.Company)]
 
 
     public class CompanyAppService : PolyStoneAppServiceBase, ICompanyAppService
