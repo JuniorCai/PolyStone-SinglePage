@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -62,20 +63,50 @@ namespace PolyStone.Companies
             var query = _companyRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
-            var companyCount = await query.CountAsync();
+            //            var companyCount = await query.CountAsync();
+            //
+            //            var companys =  query
+            //                .OrderBy(input.Sorting)
+            //                .PageBy(input)
+            //                .ToListAsync().Result;
+            var tupleResult = GetPagedCompanyList(input);
 
-            var companys =  query
+            var companyListDtos = tupleResult.Result.Item2.MapTo<List<CompanyListDto>>();
+
+            return new PagedResultDto<CompanyListDto>(
+                tupleResult.Result.Item1,
+                companyListDtos
+            );
+        }
+
+        protected async Task<Tuple<int, List<Company>>> GetPagedCompanyList(GetCompanyInput input)
+        {
+            var query = _companyRepositoryAsNoTrack;
+            //TODO:根据传入的参数添加过滤条件
+
+            var companyCount = await query.CountAsync();
+            var companys = query
                 .OrderBy(input.Sorting)
                 .PageBy(input)
                 .ToListAsync().Result;
 
-            var companyListDtos = companys.MapTo<List<CompanyListDto>>();
 
-            return new PagedResultDto<CompanyListDto>(
-                companyCount,
+            return new Tuple<int, List<Company>>(companyCount, companys);
+        }
+
+        public async Task<PagedResultDto<CompanyListWithProductsDto>> GetPagedCompanysWithProductsAsync(GetCompanyInput input)
+        {
+
+            var tupleResult = GetPagedCompanyList(input);
+
+            var companyListDtos = tupleResult.Result.Item2.MapTo<List<CompanyListWithProductsDto>>();
+
+            return new PagedResultDto<CompanyListWithProductsDto>(
+                tupleResult.Result.Item1,
                 companyListDtos
             );
         }
+
 
         /// <summary>
         /// 通过Id获取企业表信息进行编辑或修改 

@@ -19,6 +19,9 @@ namespace PolyStone.Companies
         /// </summary>
         Task<PagedResultDto<CompanyListDto>> GetPagedCompanysAsync(GetCompanyInput input);
 
+
+        Task<PagedResultDto<CompanyListWithProductsDto>> GetPagedCompanysWithProductsAsync(GetCompanyInput input);
+
         /// <summary>
         /// 通过Id获取企业表信息进行编辑或修改 
         /// </summary>

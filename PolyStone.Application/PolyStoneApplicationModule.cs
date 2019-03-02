@@ -7,6 +7,8 @@ using Abp.Domain.Repositories;
 using Abp.Modules;
 using PolyStone.Authorization.Roles;
 using PolyStone.Authorization.Users;
+using PolyStone.Companies.Dtos;
+using PolyStone.CustomDomain.Companies;
 using PolyStone.Roles.Dto;
 using PolyStone.Users.Dto;
 
@@ -38,6 +40,7 @@ namespace PolyStone
 
                 cfg.CreateMap<CreateUserDto, User>();
                 cfg.CreateMap<CreateUserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+
             });
         }
     }
