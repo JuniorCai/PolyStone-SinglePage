@@ -150,7 +150,7 @@
             uploader.onCompleteAll = function() {
 
                 if (vm.uploadResult.status) {
-                    vm.product.imgUrls = vm.showImgs+","+imgUrls.join(',');
+                    vm.product.imgUrls = vm.showImgs.length > 0 ? (vm.showImgs + "," + imgUrls.join(',')) : imgUrls.join(',');
                     postData();
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
