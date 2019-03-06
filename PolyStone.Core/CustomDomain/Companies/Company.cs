@@ -44,6 +44,10 @@ namespace PolyStone.CustomDomain.Companies
 
         public bool IsActive { get; set; }
 
+        public int ViewTimes { get; set; }
+
+        public string Banners { get; set; }
+
         public virtual CompanyAuth CompanyAuth { get; set; }
 
         public virtual ICollection<Contact> Contacts { get; set; }

@@ -107,6 +107,10 @@ namespace PolyStone.Companies.Dtos
         [DisplayName("企业地址")]
         public string Address { get; set; }
 
+        public int ViewTimes { get; set; }
+
+        public string Banners { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>

@@ -28,6 +28,8 @@ namespace PolyStone.EntityMapper.Companies
             Property(a => a.Introduction).HasMaxLength(2000);
             // 企业地址
             Property(a => a.Address).HasMaxLength(100);
+            // 企业Banner
+            Property(a => a.Banners).HasMaxLength(1000);
 
             HasRequired(c => c.User).WithMany().HasForeignKey(c => c.UserId);
             HasRequired(c => c.Region).WithMany().HasForeignKey(c => c.RegionCode);

@@ -107,5 +107,9 @@ namespace PolyStone.Companies.Dtos
         [Required]
         public string Industry { get; set; }
 
+        public int ViewTimes { get; set; }
+
+        public string Banners { get; set; }
+
     }
 }
