@@ -29,6 +29,10 @@ namespace PolyStone.Products
         /// </summary>
 		Task<ProductListDto> GetProductByIdAsync(EntityDto<int> input);
 
+        /// <summary>
+        /// 通过指定companyId获取产品表ListDto信息
+        /// </summary>
+        Task<List<ProductListDto>> GetProductByCompanyIdAsync(EntityDto<int> input);
 
 
         /// <summary>

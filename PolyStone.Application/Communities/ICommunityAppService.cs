@@ -30,6 +30,10 @@ namespace PolyStone.Communities
         /// </summary>
         Task<CommunityListDto> GetCommunityByIdAsync(EntityDto<int> input);
 
+        /// <summary>
+        /// 通过指定companyId获取产品表ListDto信息
+        /// </summary>
+        Task<List<CommunityListDto>> GetCommunityByUserIdAsync(EntityDto<int> input);
 
 
         /// <summary>

@@ -135,6 +135,11 @@ namespace PolyStone.Communities
 
 
 
+        public async Task<List<CommunityListDto>> GetCommunityByUserIdAsync(EntityDto<int> input)
+        {
+            var communityList = await _communityRepository.GetAllListAsync(p => p.UserId == input.Id);
+            return communityList.MapTo<List<CommunityListDto>>();
+        }
 
 
 

@@ -19,8 +19,6 @@ namespace PolyStone.Products
     /// <summary>
     /// 产品表服务实现
     /// </summary>
-    [AbpAuthorize(ProductAppPermissions.Product)]
-
 
     public class ProductAppService : PolyStoneAppServiceBase, IProductAppService
     {
@@ -118,6 +116,11 @@ namespace PolyStone.Products
         }
 
 
+        public async Task<List<ProductListDto>> GetProductByCompanyIdAsync(EntityDto<int> input)
+        {
+            var products = await _productRepository.GetAllListAsync(p => p.CompanyId == input.Id);
+            return products.MapTo<List<ProductListDto>>();
+        }
 
 
 
