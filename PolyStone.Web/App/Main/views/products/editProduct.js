@@ -39,7 +39,7 @@
 
 
             uploader.onAfterAddingAll = function () {
-                var existCount = vm.showImgs.split(',').length;
+                var existCount = vm.showImgs == "" ? 0 : vm.showImgs.split(',').length;
                 var notAddCount = this.queue.length + existCount - 6;
                 var queueLength = this.queue.length;
 
