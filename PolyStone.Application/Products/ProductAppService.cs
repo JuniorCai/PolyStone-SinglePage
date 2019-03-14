@@ -60,6 +60,14 @@ namespace PolyStone.Products
             {
                 var query = _productRepositoryAsNoTrack;
                 //TODO:根据传入的参数添加过滤条件
+                query = query.WhereIf(input.CompanyId > 0, c => c.CompanyId == input.CompanyId)
+                    .WhereIf(input.Id > 0, c => c.Id == input.Id)
+                    .WhereIf(!string.IsNullOrEmpty(input.Title), c => c.Detail.Contains(input.Title))
+                    .WhereIf(input.CategoryId > 0, c => c.CategoryId == input.CategoryId)
+                    .WhereIf(input.VerifyStatus != VerifyStatus.Invalid, c => c.VerifyStatus == input.VerifyStatus)
+                    .WhereIf(input.ReleaseStatus != ReleaseStatus.Invalid, c => c.ReleaseStatus == input.ReleaseStatus)
+                    .WhereIf(input.FromTime != null, c => c.CreationTime >= input.FromTime)
+                    .WhereIf(input.EndTime != null, c => c.CreationTime <= input.EndTime);
 
                 var productCount = await query.CountAsync();
 

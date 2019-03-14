@@ -106,7 +106,9 @@
                         </tr>
                     </tbody>
                 </table>
-
+                <ul  uib-pagination total-items="totalItems" ng-model="pageIndex" max-size="maxPageNumber" first-text="第一页"
+                     previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="true"
+                     ng-change="vm.getProductList(pageIndex)" items-per-page="pageSize"></ul>
                 <a ui-sref="productsAdd"  class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" >
                     <i class="material-icons">add</i>
                 </a>

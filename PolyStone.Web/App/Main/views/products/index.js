@@ -7,7 +7,13 @@
             vm.categoryList = [];
 
             vm.productList = [];
+            //Pagination Config
+            $scope.maxPageNumber = 6;
+            $scope.totalItems = 0;
+            //每页显示条数(默认10条)
+            $scope.pageSize = 5;
 
+            $scope.pageIndex = 1;
             $scope.selectedCategory = "0";
 
             function initParams() {
@@ -49,12 +55,20 @@
             }
 
 
-            function getProductList() {
-                productService.getPagedProducts({
-                    filterText: "",
-                    sorting: "CreationTime"
-                }).then(function(result) {
+            vm.getProductList = function(page) {
+                var searchParams = {
+                    verifyStatus: $scope.selectedVerify,
+                    releaseStatus: $scope.selectedRelease,
+                    fromTime: vm.search.fromDate,
+                    endTime: vm.search.endDate,
+                    sorting: "CreationTime",
+                    maxResultCount: $scope.pageSize,
+                    skipCount: (page - 1) * $scope.pageSize
+                };
+
+                productService.getPagedProducts(searchParams).then(function(result) {
                     vm.productList = result.data.items;
+                    $scope.totalItems = result.data.totalCount;
                 });
             }
          
@@ -64,26 +78,26 @@
             };
 
 
-            vm.openCategoryEditModal = function (category) {
-                var modalInstance = $uibModal.open({
-                    templateUrl: '/App/Main/views/category/editModal.cshtml',
-                    controller: 'app.views.category.editModal as vm',
-                    backdrop: 'static',
-                    resolve: {
-                        id: function () {
-                            return category.id;
-                        }
-                    }
-                });
-
-                modalInstance.rendered.then(function () {
-                    $.AdminBSB.input.activate();
-                });
-
-                modalInstance.result.then(function () {
-                    getProductList();
-                });
-            };
+//            vm.openCategoryEditModal = function (category) {
+//                var modalInstance = $uibModal.open({
+//                    templateUrl: '/App/Main/views/category/editModal.cshtml',
+//                    controller: 'app.views.category.editModal as vm',
+//                    backdrop: 'static',
+//                    resolve: {
+//                        id: function () {
+//                            return category.id;
+//                        }
+//                    }
+//                });
+//
+//                modalInstance.rendered.then(function () {
+//                    $.AdminBSB.input.activate();
+//                });
+//
+//                modalInstance.result.then(function () {
+//                    getProductList();
+//                });
+//            };
 
             vm.delete = function(item) {
                 abp.message.confirm(
@@ -93,14 +107,14 @@
                             productService.deleteProduct({ id: item.id })
                                 .then(function() {
                                     abp.notify.info("已删除产品: " + item.title);
-                                    getProductList();
+                                    getProductList(1);
                                 });
                         }
                     });
             };
 
             vm.refresh = function () {
-                getProductList();
+                getProductList(1);
             };
 
             vm.gotoDetail = function (itemId) {
@@ -110,7 +124,7 @@
 
             initParams();
             initPickers();
-            getProductList();
+            vm.getProductList($scope.pageIndex);
             getCategoryList();
         }
     ]);
