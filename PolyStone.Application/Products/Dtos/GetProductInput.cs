@@ -17,6 +17,8 @@ namespace PolyStone.Products.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public string CompanyName { get; set; }
+
         public int CompanyId { get; set; }
 
         public string Title { get; set; }

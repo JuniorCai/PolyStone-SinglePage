@@ -74,7 +74,16 @@
                                 </select>
                             </td>
 
-                            <td></td>
+                            <td>
+                                <div class="margin-bottom-5">
+                                    <button class="btn btn-sm green btn-outline filter-submit margin-bottom" ng-click="vm.getProductList(1)">
+                                        <i class="fa fa-search"></i> 查找
+                                    </button>
+                                </div>
+                                <button class="btn btn-sm red btn-outline filter-cancel" ng-click="vm.resetSearch()">
+                                    <i class="fa fa-times"></i> 重置
+                                </button>
+                            </td>
                         </tr>
                     </thead>
                     <tbody>

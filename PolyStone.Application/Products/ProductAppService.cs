@@ -61,6 +61,8 @@ namespace PolyStone.Products
                 var query = _productRepositoryAsNoTrack;
                 //TODO:根据传入的参数添加过滤条件
                 query = query.WhereIf(input.CompanyId > 0, c => c.CompanyId == input.CompanyId)
+                    .WhereIf(!string.IsNullOrEmpty(input.CompanyName),
+                        c => c.Company.CompanyName.Contains(input.CompanyName))
                     .WhereIf(input.Id > 0, c => c.Id == input.Id)
                     .WhereIf(!string.IsNullOrEmpty(input.Title), c => c.Detail.Contains(input.Title))
                     .WhereIf(input.CategoryId > 0, c => c.CategoryId == input.CategoryId)
@@ -70,9 +72,19 @@ namespace PolyStone.Products
                     .WhereIf(input.EndTime != null, c => c.CreationTime <= input.EndTime);
 
                 var productCount = await query.CountAsync();
-
+                switch (input.Sorting.ToLower())
+                {
+                    case "creationtime":
+                        query = query.OrderByDescending(c => c.CreationTime);
+                        break;
+                    case "id":
+                        query = query.OrderByDescending(c => c.Id);
+                        break;
+                    default:
+                        query = query.OrderBy(input.Sorting);
+                        break;
+                }
                 var products = await query
-                    .OrderBy(input.Sorting)
                     .PageBy(input)
                     .ToListAsync();
 

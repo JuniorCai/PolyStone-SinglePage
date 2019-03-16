@@ -54,9 +54,17 @@
                 });
             }
 
+            vm.resetSearch = function () {
+                initParams();
+            };
+
 
             vm.getProductList = function(page) {
                 var searchParams = {
+                    id: vm.search.productId,
+                    title: vm.search.title,
+                    companyName: vm.search.companyName,
+                    categoryId: $scope.selectedCategory,
                     verifyStatus: $scope.selectedVerify,
                     releaseStatus: $scope.selectedRelease,
                     fromTime: vm.search.fromDate,
