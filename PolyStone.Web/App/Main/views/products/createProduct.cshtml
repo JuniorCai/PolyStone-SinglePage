@@ -55,6 +55,8 @@
                                         </label>
                                         <input type="file" nv-file-select multiple="" filters="imageFilter" id="uploadFile" uploader="fileUploader" ng-show="false" />
                                     </div>
+                                    <div style="clear: both;padding: 10px 0">已选择：{{ fileUploader.queue.length }}</div>
+
                                 </div>
 
                             </div>

@@ -46,9 +46,6 @@
                 }
             };
 
-            vm.delImg = function() {
-                //$scope.fileUploader
-            };
 
             vm.product = {
                 title: "",
@@ -126,15 +123,6 @@
                 if (vm.uploadResult.status) {
                     vm.product.imgUrls = imgUrls.join(',');
                     postData();
-//                    productService.createProduct(vm.product)
-//                        .then(function() {
-//                            abp.notify.success(App.localize('SavedSuccessfully'));
-//
-//                            $timeout(function() {
-//                                    $state.go("products");
-//                                },
-//                                2000);
-//                        });
                 } else {
                     abp.notify.error(vm.uploadResult.msg);
                 }

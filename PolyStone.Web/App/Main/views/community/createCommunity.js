@@ -42,10 +42,6 @@
                 }
             };
 
-            vm.delImg = function() {
-                //$scope.fileUploader
-            };
-
 
             vm.community = {
                 title: "",
@@ -53,7 +49,6 @@
                 userId:"",
                 imgUrls: "",
                 detail:"",
-                isActive: true,
                 isDeleted: false
             };
 
@@ -116,13 +111,14 @@
 
                 if (vm.uploadResult.status) {
                     vm.community.imgUrls = imgUrls.join(',');
+                    vm.community.coverPhoto = vm.community.imgUrls[0];
 
                     var postUrl = $("#frm_create_community").attr("url");
                     $http.post(postUrl, { model: vm.community }).then(function(result) {
                         if (result.data.success) {
                             abp.notify.success("保存成功");
                             $timeout(function() {
-                                    $state.go("company");
+                                    $state.go("community");
                                 },
                                 2000);
                         } else {

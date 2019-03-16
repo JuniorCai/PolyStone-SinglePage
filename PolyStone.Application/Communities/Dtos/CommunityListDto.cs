@@ -47,6 +47,9 @@ namespace PolyStone.Communities.Dtos
 
         public string Detail { get; set; }
 
+        public string RegionCode { get; set; }
+
+
         public RegionListDto Region { get; set; }
 
         /// <summary>

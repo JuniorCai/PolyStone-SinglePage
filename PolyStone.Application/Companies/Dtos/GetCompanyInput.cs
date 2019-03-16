@@ -15,6 +15,12 @@ namespace PolyStone.Companies.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public string CompanyName { get; set; }
+
+        public bool? IsAuthed { get; set; }
+
+        public bool? IsActive { get; set; }
+
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>

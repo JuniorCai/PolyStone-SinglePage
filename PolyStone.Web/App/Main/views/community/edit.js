@@ -61,9 +61,33 @@
 //                }
             };
 
-            vm.delImg = function() {
-                //$scope.fileUploader
+            vm.removeImg = function (img) {
+                var existCount = vm.imgUrls.length;
+
+                if (uploader.isFile(img._file)) {
+                    uploader.removeFromQueue(img);
+                } else {
+                    var imgCollection = vm.imgUrls;
+                    angular.forEach(imgCollection,
+                        function (item, index) {
+                            if (item == img) {
+                                imgCollection.splice(index, 1);
+                                vm.imgUrls = imgCollection;
+                                existCount = imgCollection.length;
+                            }
+                        });
+                }
+                toggleUploadDiv("#uploadDiv", uploader.queue.length + existCount >= 6);
+
             };
+
+            function toggleUploadDiv(divId, isHide) {
+                if (isHide) {
+                    $(divId).hide();
+                } else {
+                    $(divId).show();
+                }
+            }
 
             function isImgAddBtnShow(flag) {
                 flag ? $("#uploadDiv").show() : $("#uploadDiv").hide();

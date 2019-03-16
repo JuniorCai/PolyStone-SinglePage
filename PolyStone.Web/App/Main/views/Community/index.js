@@ -14,7 +14,7 @@
             $scope.maxPageNumber = 6;
             $scope.totalItems = 0;
             //每页显示条数(默认10条)
-            $scope.pageSize =2;
+            $scope.pageSize = 10;
 
             $scope.pageIndex = 1;
 

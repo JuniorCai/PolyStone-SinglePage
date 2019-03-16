@@ -42,11 +42,10 @@
                             <label class="control-label col-md-2">上传图片</label>
                             <div class="col-md-6">
                                 <div>
-                                    <div ng-repeat="item in fileUploader.queue" style="float: left" class="thumbUploaded" ng-click="vm.delImg()">
-                                        @*                                        <label>*@
-                                        @*                                            <img ng-src="item.file.name" />*@
-                                        @*                                        </label>*@
-                                        @*<span ng-if="item.imgSrc" ng-click="img_del($index)"></span>*@
+                                    <div ng-repeat="item in fileUploader.queue" style="float: left;position: relative" class="thumbUploaded" >
+                                        <div class="thumb-icon">
+                                            <a href="javascript:void(0);" ng-click="item.remove();$event.stopPropagation();"><i class="material-icons">cancel</i></a>
+                                        </div>
                                         <div ng-thumb="{file:item._file, height: 80,width:80}"></div>
                                     </div>
                                     <div style="clear: both;padding: 10px 0" id="uploadDiv">

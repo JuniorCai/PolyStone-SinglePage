@@ -84,6 +84,11 @@ namespace PolyStone.Companies
             var query = _companyRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
 
+            query = query.WhereIf(!string.IsNullOrEmpty(input.CompanyName),
+                    c => c.CompanyName.Contains(input.CompanyName))
+                .WhereIf(input.IsAuthed != null, c => c.IsAuthed == input.IsAuthed)
+                .WhereIf(input.IsActive != null, c => c.IsActive == input.IsActive);
+
             var companyCount = await query.CountAsync();
             var companys = query
                 .OrderBy(input.Sorting)

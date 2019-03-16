@@ -43,7 +43,7 @@ namespace PolyStone.Communities.Dtos
         public int CommunityCategoryId { get; set; }
 
         [DisplayName("地区行政编号")]
-        [Required]
+//        [Required]
         [MaxLength(15)]
         public string RegionCode { get; set; }
 
