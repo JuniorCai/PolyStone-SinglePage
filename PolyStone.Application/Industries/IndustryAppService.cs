@@ -18,8 +18,6 @@ namespace PolyStone.Industries
     /// <summary>
     /// 企业行业表服务实现
     /// </summary>
-    [AbpAuthorize(IndustryAppPermissions.Industry)]
-
 
     public class IndustryAppService : PolyStoneAppServiceBase, IIndustryAppService
     {
@@ -60,6 +58,10 @@ namespace PolyStone.Industries
 
             var query = _industryRepositoryAsNoTrack;
             //TODO:根据传入的参数添加过滤条件
+            query = query.WhereIf(input.IsActive != null, i => i.IsActive == input.IsActive)
+                .WhereIf(input.IsShow != null, i => i.IsShow == input.IsShow)
+                .WhereIf(!string.IsNullOrEmpty(input.IndustryCode), i => i.IndustryCode == input.IndustryCode);
+
 
             var industryCount = await query.CountAsync();
 

@@ -17,8 +17,6 @@ namespace PolyStone.Regions
     /// <summary>
     /// 地区表服务实现
     /// </summary>
-    [AbpAuthorize(RegionAppPermissions.Region)]
-
 
     public class RegionAppService : PolyStoneAppServiceBase, IRegionAppService
     {

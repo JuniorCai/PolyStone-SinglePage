@@ -14,6 +14,12 @@ namespace PolyStone.Industries.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public bool? IsActive { get; set; }
+
+        public bool? IsShow { get; set; }
+
+        public string IndustryCode { get; set; }
+
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>
