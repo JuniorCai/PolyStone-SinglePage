@@ -26,7 +26,7 @@ namespace PolyStone.Regions.Dtos
             {
 			
 		
-                Sorting = "Id";
+                Sorting = "RegionCode";
             }
         }
     }

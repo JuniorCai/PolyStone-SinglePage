@@ -8,6 +8,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Extensions;
 using Abp.Linq.Extensions;
 using PolyStone.Companies.Dtos;
 using PolyStone.CustomDomain.Companies;
@@ -86,8 +87,16 @@ namespace PolyStone.Companies
 
             query = query.WhereIf(!string.IsNullOrEmpty(input.CompanyName),
                     c => c.CompanyName.Contains(input.CompanyName))
+//                .WhereIf(!string.IsNullOrEmpty(input.IndustryCode),
+//                    c => c.Industries.Any(i => i.Industry.IndustryCode == input.IndustryCode))
+                .WhereIf(input.IndustryId > 0,
+                    c => c.Industries.Any(i => i.IndustryId == input.IndustryId))
+                .WhereIf(!string.IsNullOrEmpty(input.RegionCode), c => c.RegionCode == input.RegionCode)
+                .WhereIf(!string.IsNullOrEmpty(input.RegionParentCode),
+                    c => c.Region.ParentCode == input.RegionParentCode)
                 .WhereIf(input.IsAuthed != null, c => c.IsAuthed == input.IsAuthed)
                 .WhereIf(input.IsActive != null, c => c.IsActive == input.IsActive);
+                
 
             var companyCount = await query.CountAsync();
             var companys = query

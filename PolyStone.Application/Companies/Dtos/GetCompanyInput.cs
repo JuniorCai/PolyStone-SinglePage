@@ -17,6 +17,14 @@ namespace PolyStone.Companies.Dtos
 
         public string CompanyName { get; set; }
 
+        public string RegionCode { get; set; }
+
+        public string RegionParentCode { get; set; }
+
+        public string IndustryCode { get; set; }
+
+        public int IndustryId { get; set; }
+
         public bool? IsAuthed { get; set; }
 
         public bool? IsActive { get; set; }
