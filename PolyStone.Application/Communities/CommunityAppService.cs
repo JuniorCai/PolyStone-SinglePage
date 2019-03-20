@@ -78,14 +78,11 @@ namespace PolyStone.Communities
 
             switch (input.Sorting.ToLower())
             {
-                case "creationtime":
-                    query = query.OrderByDescending(c => c.CreationTime);
-                    break;
                 case "refreshdate":
                     query = query.OrderByDescending(c => c.RefreshDate);
                     break;
                 default:
-                    query = query.OrderBy(input.Sorting);
+                    query = query.OrderByDescending(c => c.CreationTime);
                     break;
             }
             var communitys = await query
